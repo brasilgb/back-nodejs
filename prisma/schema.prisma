@@ -1,0 +1,534 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Tenant {
+  @@map("tenants")
+
+  id                Int              @id @default(autoincrement())
+  plan              Int
+  name              String
+  company           String
+  cnpj              String
+  email             String
+  phone             String?
+  whatsapp          String?
+  zip_code          String?
+  state             String?
+  city              String?
+  district          String?
+  street            String?
+  complement        String?
+  number            String?
+  status            Int
+  payment           Boolean?
+  observations      String?
+  expiration_date   DateTime?           @db.Date
+  created_at        DateTime?
+  updated_at        DateTime?
+  branches          Branch[]
+  budgets           Budget[]
+  checklists        Checklist[]
+  companies         Company[]
+  customers         Customer[]
+  equipment         Equipment[]
+  images            Image[]
+  messages          Message[]
+  orders            Order[]
+  others            Other[]
+  part_movements    PartMovement[]
+  parts             Part[]
+  receipts          Receipt[]
+  sales             Sale[]
+  schedules         Schedule[]
+  settings          Setting?
+  users             User[]
+  whatsapp_messages WhatsappMessage[]
+}
+
+model User {
+  @@map("users")
+
+  id                Int           @id @default(autoincrement())
+  tenant_id         Int?
+  user_number       Int?
+  name              String
+  email             String           @unique
+  telephone         String?
+  whatsapp          String?
+  password          String
+  roles             Int?
+  status            Int?
+  email_verified_at DateTime?
+  remember_token    String?
+  created_at        DateTime?
+  updated_at        DateTime?
+  part_movements    PartMovement[]
+  schedules         Schedule[]
+  tenants           Tenant?          @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+
+  @@index([tenant_id], map: "users_tenant_id_fkey")
+}
+
+model Branch {
+  @@map("branches")
+
+  id               Int    @id @default(autoincrement())
+  tenant_id        Int?
+  branch_cnpj      String
+  branch_name      String
+  branch_number    String
+  contact_name     String
+  contact_email    String
+  contact_phone    String
+  contact_whatsapp String
+  logo             String?
+  cep              String?
+  state            String?
+  city             String?
+  district         String?
+  street           String?
+  number           String?
+  complement       String?
+  status           Boolean
+  observations     String?
+  created_at       DateTime?
+  updated_at       DateTime?
+  tenants          Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+
+  @@index([tenant_id], map: "branches_tenant_id_fkey")
+}
+
+model Budget {
+  @@map("budgets")
+
+  id             Int    @id @default(autoincrement())
+  tenant_id      Int?
+  budget_number  Int
+  category       String
+  service        String
+  model          String?
+  description    String?
+  estimated_time String?
+  part_value     Decimal?  @db.Decimal(10, 2)
+  labor_value    Decimal   @db.Decimal(10, 2)
+  total_value    Decimal   @db.Decimal(10, 2)
+  warranty       String?
+  obs            String?
+  created_at     DateTime?
+  updated_at     DateTime?
+  tenants        Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+
+  @@index([tenant_id], map: "budgets_tenant_id_fkey")
+}
+
+model Checklist {
+  @@map("checklists")
+
+  id               Int     @id @default(autoincrement())
+  tenant_id        Int?
+  equipment_id     Int?
+  checklist_number Int
+  checklist        String
+  created_at       DateTime?
+  updated_at       DateTime?
+  equipment        Equipment? @relation(fields: [equipment_id], references: [id], onDelete: Cascade)
+  tenants          Tenant?    @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+
+  @@index([equipment_id], map: "checklists_equipment_id_fkey")
+  @@index([tenant_id], map: "checklists_tenant_id_fkey")
+}
+
+model Company {
+  @@map("companies")
+
+  id          Int    @id @default(autoincrement())
+  tenant_id   Int?
+  shortname   String?
+  companyname String?
+  cnpj        String?
+  logo        String?
+  zip_code    String?
+  state       String?
+  city        String?
+  district    String?
+  street      String?
+  number      String?
+  complement  String?
+  telephone   String?
+  whatsapp    String?
+  site        String?
+  email       String?
+  created_at  DateTime?
+  updated_at  DateTime?
+  tenants     Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+
+  @@index([tenant_id], map: "companies_tenant_id_fkey")
+}
+
+model Customer {
+  @@map("customers")
+
+  id              Int      @id @default(autoincrement())
+  tenant_id       Int?
+  customer_number Int
+  name            String
+  cpf             String?
+  birth           DateTime?   @db.Date
+  email           String?
+  cep             String?
+  state           String?
+  city            String?
+  district        String?
+  street          String?
+  complement      String?
+  number          Int?
+  phone           String?
+  contactname     String?
+  whatsapp        String?
+  contactphone    String?
+  observations    String?
+  created_at      DateTime?
+  updated_at      DateTime?
+  tenants         Tenant?     @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+  orders          Order[]
+  sales           Sale[]
+  schedules       Schedule[]
+
+  @@index([tenant_id], map: "customers_tenant_id_fkey")
+}
+
+model Equipment {
+  @@map("equipment")
+
+  id               Int       @id @default(autoincrement())
+  tenant_id        Int?
+  equipment_number Int
+  equipment        String
+  created_at       DateTime?
+  updated_at       DateTime?
+  checklists       Checklist[]
+  tenants          Tenant?      @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+  orders           Order[]
+
+  @@index([tenant_id], map: "equipment_tenant_id_fkey")
+}
+
+model Feature {
+  @@map("features")
+
+  id         Int    @id @default(autoincrement())
+  period_id  Int?
+  name       String
+  order      Int
+  created_at DateTime?
+  updated_at DateTime?
+  periods    Period?   @relation(fields: [period_id], references: [id], onDelete: NoAction)
+
+  @@index([period_id], map: "features_period_id_fkey")
+}
+
+model Image {
+  @@map("images")
+
+  id         Int    @id @default(autoincrement())
+  tenant_id  Int?
+  order_id   Int
+  filename   String
+  created_at DateTime?
+  updated_at DateTime?
+  orders     Order     @relation(fields: [order_id], references: [id], onDelete: Cascade)
+  tenants    Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+
+  @@index([order_id], map: "images_order_id_fkey")
+  @@index([tenant_id], map: "images_tenant_id_fkey")
+}
+
+model Message {
+  @@map("messages")
+
+  id             Int    @id @default(autoincrement())
+  tenant_id      Int?
+  sender_id      Int?
+  recipient_id   Int?
+  message_number String
+  title          String
+  message        String
+  status         Boolean
+  created_at     DateTime?
+  updated_at     DateTime?
+  tenants        Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+
+  @@index([tenant_id], map: "messages_tenant_id_fkey")
+}
+
+model OrderPart {
+  @@map("order_parts")
+
+  id         Int    @id @default(autoincrement())
+  order_id   Int
+  part_id    Int
+  quantity   Int
+  created_at DateTime?
+  updated_at DateTime?
+  orders     Order     @relation(fields: [order_id], references: [id], onDelete: Cascade)
+  parts      Part      @relation(fields: [part_id], references: [id], onDelete: Cascade)
+
+  @@index([order_id], map: "order_parts_order_id_fkey")
+  @@index([part_id], map: "order_parts_part_id_fkey")
+}
+
+model Order {
+  @@map("orders")
+
+  id                     Int           @id @default(autoincrement())
+  tenant_id              Int?
+  customer_id            Int?
+  equipment_id           Int?
+  order_number           Int
+  model                  String?
+  password               String?
+  defect                 String
+  state_conservation     String?
+  accessories            String?
+  budget_description     String?
+  budget_value           Decimal          @default(0.00) @db.Decimal(10, 2)
+  service_status         Int?
+  delivery_forecast      DateTime?        @db.Date
+  observations           String?
+  services_performed     String?
+  parts                  String?
+  parts_value            Decimal          @default(0.00) @db.Decimal(10, 2)
+  service_value          Decimal          @default(0.00) @db.Decimal(10, 2)
+  service_cost           Decimal          @default(0.00) @db.Decimal(10, 2)
+  delivery_date          DateTime?
+  responsible_technician String?
+  feedback               Boolean?
+  created_at             DateTime?
+  updated_at             DateTime?
+  images                 Image[]
+  order_parts            OrderPart[]
+  customers              Customer?        @relation(fields: [customer_id], references: [id], onDelete: Cascade)
+  equipment              Equipment?       @relation(fields: [equipment_id], references: [id], onDelete: Cascade)
+  tenants                Tenant?          @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+  part_movements         PartMovement[]
+
+  @@index([customer_id], map: "orders_customer_id_fkey")
+  @@index([equipment_id], map: "orders_equipment_id_fkey")
+  @@index([tenant_id], map: "orders_tenant_id_fkey")
+}
+
+model Other {
+  @@map("others")
+
+  id          Int    @id @default(autoincrement())
+  tenant_id   Int?
+  navigation  Boolean   @default(false)
+  enableparts Boolean   @default(false)
+  enablesales Boolean   @default(false)
+  created_at  DateTime?
+  updated_at  DateTime?
+  tenants     Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+
+  @@index([tenant_id], map: "others_tenant_id_fkey")
+}
+
+model PartMovement {
+  @@map("part_movements")
+
+  id            Int                       @id @default(autoincrement())
+  tenant_id     Int?
+  part_id       Int
+  order_id      Int?
+  user_id       Int
+  movement_type part_movements_movement_type
+  quantity      Int
+  reason        String
+  created_at    DateTime?
+  updated_at    DateTime?
+  orders        Order?                      @relation(fields: [order_id], references: [id])
+  parts         Part                        @relation(fields: [part_id], references: [id], onDelete: Cascade)
+  tenants       Tenant?                     @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+  users         User                        @relation(fields: [user_id], references: [id], onDelete: NoAction)
+
+  @@index([order_id], map: "part_movements_order_id_fkey")
+  @@index([part_id], map: "part_movements_part_id_fkey")
+  @@index([tenant_id], map: "part_movements_tenant_id_fkey")
+  @@index([user_id], map: "part_movements_user_id_fkey")
+}
+
+model Part {
+  @@map("parts")
+
+  id                  Int           @id @default(autoincrement())
+  tenant_id           Int?
+  part_number         String           @unique
+  name                String
+  description         String?
+  manufacturer        String?
+  model_compatibility String?
+  cost_price          Decimal          @db.Decimal(10, 2)
+  sale_price          Decimal          @db.Decimal(10, 2)
+  quantity            Int              @default(0)
+  minimum_stock_level Int              @default(0)
+  location            String?
+  status              Boolean          @default(true)
+  created_at          DateTime?
+  updated_at          DateTime?
+  order_parts         OrderPart[]
+  part_movements      PartMovement[]
+  tenants             Tenant?          @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+  sale_items          SaleItem[]
+
+  @@index([tenant_id], map: "parts_tenant_id_fkey")
+}
+
+model Period {
+  @@map("periods")
+
+  id             Int     @id @default(autoincrement())
+  plan_id        Int?
+  name           String
+  interval       String
+  interval_count Int
+  price          Decimal    @db.Decimal(8, 2)
+  created_at     DateTime?
+  updated_at     DateTime?
+  features       Feature[]
+  plans          Plan?      @relation(fields: [plan_id], references: [id], onDelete: NoAction)
+
+  @@index([plan_id], map: "periods_plan_id_fkey")
+}
+
+model Plan {
+  @@map("plans")
+
+  id          Int    @id @default(autoincrement())
+  name        String
+  slug        String
+  description String
+  created_at  DateTime?
+  updated_at  DateTime?
+  periods     Period[]
+}
+
+model Product {
+  @@map("products")
+
+  id       String @id
+  name     String
+  price    Float
+  quantity Int
+}
+
+model Receipt {
+  @@map("receipts")
+
+  id                 Int    @id @default(autoincrement())
+  tenant_id          Int?
+  receivingequipment String?
+  equipmentdelivery  String?
+  budgetissuance     String?
+  created_at         DateTime?
+  updated_at         DateTime?
+  tenants            Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+
+  @@index([tenant_id], map: "receipts_tenant_id_fkey")
+}
+
+model SaleItem {
+  @@map("sale_items")
+
+  id         Int    @id @default(autoincrement())
+  sale_id    Int
+  part_id    Int
+  quantity   Int
+  unit_price Decimal   @db.Decimal(10, 2)
+  created_at DateTime?
+  updated_at DateTime?
+  parts      Part      @relation(fields: [part_id], references: [id], onDelete: Cascade)
+  sales      Sale      @relation(fields: [sale_id], references: [id], onDelete: Cascade)
+
+  @@index([part_id], map: "sale_items_part_id_fkey")
+  @@index([sale_id], map: "sale_items_sale_id_fkey")
+}
+
+model Sale {
+  @@map("sales")
+
+  id           Int       @id @default(autoincrement())
+  sales_number Int
+  tenant_id    Int
+  customer_id  Int?
+  total_amount Decimal      @db.Decimal(10, 2)
+  created_at   DateTime?
+  updated_at   DateTime?
+  sale_items   SaleItem[]
+  customers    Customer?    @relation(fields: [customer_id], references: [id], onDelete: Cascade)
+  tenants      Tenant       @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+
+  @@index([customer_id], map: "sales_customer_id_fkey")
+  @@index([tenant_id], map: "sales_tenant_id_fkey")
+}
+
+model Schedule {
+  @@map("schedules")
+
+  id                     Int     @id @default(autoincrement())
+  tenant_id              Int?
+  customer_id            Int?
+  user_id                Int?
+  schedules_number       Int
+  schedules              DateTime
+  service                String
+  details                String
+  status                 Int        @default(1)
+  observations           String?
+  responsible_technician String?
+  created_at             DateTime?
+  updated_at             DateTime?
+  customers              Customer?  @relation(fields: [customer_id], references: [id], onDelete: Cascade)
+  tenants                Tenant?    @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+  users                  User?      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([customer_id], map: "schedules_customer_id_fkey")
+  @@index([tenant_id], map: "schedules_tenant_id_fkey")
+  @@index([user_id], map: "schedules_user_id_fkey")
+}
+
+model Setting {
+  @@map("settings")
+
+  id         Int    @id @default(autoincrement())
+  tenant_id  Int    @unique
+  name       String?
+  logo       String?
+  created_at DateTime?
+  updated_at DateTime?
+  tenants    Tenant    @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+}
+
+model WhatsappMessage {
+  @@map("whatsapp_messages")
+
+  id               Int    @id @default(autoincrement())
+  tenant_id        Int?
+  generatedbudget  String?
+  servicecompleted String?
+  defaultmessage   String?
+  created_at       DateTime?
+  updated_at       DateTime?
+  tenants          Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+
+  @@index([tenant_id], map: "whatsapp_messages_tenant_id_fkey")
+}
+
+enum part_movements_movement_type {
+  entrada
+  saida
+}
