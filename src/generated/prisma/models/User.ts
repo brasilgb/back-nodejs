@@ -396,21 +396,21 @@ export type UserScalarWhereWithAggregatesInput = {
 }
 
 export type UserCreateInput = {
-  user_number?: number | null
+  user_number?: number | null | undefined
   name: string
   email: string
-  telephone?: string | null
-  whatsapp?: string | null
+  telephone?: string | null | undefined
+  whatsapp?: string | null | undefined
   password: string
-  roles?: number | null
-  status?: number | null
-  email_verified_at?: Date | string | null
-  remember_token?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput
-  schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput
-  tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput
+  roles?: number | null | undefined
+  status?: number | null | undefined
+  email_verified_at?: Date | string | null | undefined
+  remember_token?: string | null | undefined
+  created_at?: Date | string | null | undefined
+  updated_at?: Date | string | null | undefined
+  part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput | undefined
+  schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput | undefined
+  tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput | undefined
 }
 
 export type UserUncheckedCreateInput = {

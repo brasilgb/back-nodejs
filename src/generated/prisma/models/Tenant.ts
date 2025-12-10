@@ -286,7 +286,7 @@ export type TenantGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalA
 export type TenantGroupByOutputType = {
   id: number
   plan: number
-  name: string
+  name: string | null
   company: string
   cnpj: string
   email: string
@@ -333,7 +333,7 @@ export type TenantWhereInput = {
   NOT?: Prisma.TenantWhereInput | Prisma.TenantWhereInput[]
   id?: Prisma.IntFilter<"Tenant"> | number
   plan?: Prisma.IntFilter<"Tenant"> | number
-  name?: Prisma.StringFilter<"Tenant"> | string
+  name?: Prisma.StringNullableFilter<"Tenant"> | string | null
   company?: Prisma.StringFilter<"Tenant"> | string
   cnpj?: Prisma.StringFilter<"Tenant"> | string
   email?: Prisma.StringFilter<"Tenant"> | string
@@ -375,7 +375,7 @@ export type TenantWhereInput = {
 export type TenantOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   plan?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  name?: Prisma.SortOrderInput | Prisma.SortOrder
   company?: Prisma.SortOrder
   cnpj?: Prisma.SortOrder
   email?: Prisma.SortOrder
@@ -417,14 +417,14 @@ export type TenantOrderByWithRelationInput = {
 
 export type TenantWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  cnpj?: string
+  email?: string
   AND?: Prisma.TenantWhereInput | Prisma.TenantWhereInput[]
   OR?: Prisma.TenantWhereInput[]
   NOT?: Prisma.TenantWhereInput | Prisma.TenantWhereInput[]
   plan?: Prisma.IntFilter<"Tenant"> | number
-  name?: Prisma.StringFilter<"Tenant"> | string
+  name?: Prisma.StringNullableFilter<"Tenant"> | string | null
   company?: Prisma.StringFilter<"Tenant"> | string
-  cnpj?: Prisma.StringFilter<"Tenant"> | string
-  email?: Prisma.StringFilter<"Tenant"> | string
   phone?: Prisma.StringNullableFilter<"Tenant"> | string | null
   whatsapp?: Prisma.StringNullableFilter<"Tenant"> | string | null
   zip_code?: Prisma.StringNullableFilter<"Tenant"> | string | null
@@ -458,12 +458,12 @@ export type TenantWhereUniqueInput = Prisma.AtLeast<{
   settings?: Prisma.XOR<Prisma.SettingNullableScalarRelationFilter, Prisma.SettingWhereInput> | null
   users?: Prisma.UserListRelationFilter
   whatsapp_messages?: Prisma.WhatsappMessageListRelationFilter
-}, "id">
+}, "id" | "cnpj" | "email">
 
 export type TenantOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   plan?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  name?: Prisma.SortOrderInput | Prisma.SortOrder
   company?: Prisma.SortOrder
   cnpj?: Prisma.SortOrder
   email?: Prisma.SortOrder
@@ -495,7 +495,7 @@ export type TenantScalarWhereWithAggregatesInput = {
   NOT?: Prisma.TenantScalarWhereWithAggregatesInput | Prisma.TenantScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Tenant"> | number
   plan?: Prisma.IntWithAggregatesFilter<"Tenant"> | number
-  name?: Prisma.StringWithAggregatesFilter<"Tenant"> | string
+  name?: Prisma.StringNullableWithAggregatesFilter<"Tenant"> | string | null
   company?: Prisma.StringWithAggregatesFilter<"Tenant"> | string
   cnpj?: Prisma.StringWithAggregatesFilter<"Tenant"> | string
   email?: Prisma.StringWithAggregatesFilter<"Tenant"> | string
@@ -518,49 +518,49 @@ export type TenantScalarWhereWithAggregatesInput = {
 
 export type TenantCreateInput = {
   plan: number
-  name: string
+  name?: string | null | undefined
   company: string
   cnpj: string
   email: string
-  phone?: string | null
-  whatsapp?: string | null
-  zip_code?: string | null
-  state?: string | null
-  city?: string | null
-  district?: string | null
-  street?: string | null
-  complement?: string | null
-  number?: string | null
+  phone?: string | null | undefined
+  whatsapp?: string | null | undefined
+  zip_code?: string | null | undefined
+  state?: string | null | undefined
+  city?: string | null | undefined
+  district?: string | null | undefined
+  street?: string | null | undefined
+  complement?: string | null | undefined
+  number?: string | null | undefined
   status: number
-  payment?: boolean | null
-  observations?: string | null
-  expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
-  branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
-  budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
-  checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
-  companies?: Prisma.CompanyCreateNestedManyWithoutTenantsInput
-  customers?: Prisma.CustomerCreateNestedManyWithoutTenantsInput
-  equipment?: Prisma.EquipmentCreateNestedManyWithoutTenantsInput
-  images?: Prisma.ImageCreateNestedManyWithoutTenantsInput
-  messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
-  orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
-  others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
-  receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
-  sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
-  schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
-  settings?: Prisma.SettingCreateNestedOneWithoutTenantsInput
-  users?: Prisma.UserCreateNestedManyWithoutTenantsInput
-  whatsapp_messages?: Prisma.WhatsappMessageCreateNestedManyWithoutTenantsInput
+  payment?: boolean | null | undefined
+  observations?: string | null | undefined
+  expiration_date?: Date | string | null | undefined
+  created_at?: Date | string | null | undefined
+  updated_at?: Date | string | null | undefined
+  branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput | undefined
+  budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput | undefined
+  checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput | undefined
+  companies?: Prisma.CompanyCreateNestedManyWithoutTenantsInput | undefined
+  customers?: Prisma.CustomerCreateNestedManyWithoutTenantsInput | undefined
+  equipment?: Prisma.EquipmentCreateNestedManyWithoutTenantsInput | undefined
+  images?: Prisma.ImageCreateNestedManyWithoutTenantsInput | undefined
+  messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput | undefined
+  orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput | undefined
+  others?: Prisma.OtherCreateNestedManyWithoutTenantsInput | undefined
+  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput | undefined
+  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput | undefined
+  receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput | undefined
+  sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput | undefined
+  schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput | undefined
+  settings?: Prisma.SettingCreateNestedOneWithoutTenantsInput | undefined
+  users?: Prisma.UserCreateNestedManyWithoutTenantsInput | undefined
+  whatsapp_messages?: Prisma.WhatsappMessageCreateNestedManyWithoutTenantsInput | undefined
 }
 
 export type TenantUncheckedCreateInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -601,7 +601,7 @@ export type TenantUncheckedCreateInput = {
 
 export type TenantUpdateInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -643,7 +643,7 @@ export type TenantUpdateInput = {
 export type TenantUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -685,7 +685,7 @@ export type TenantUncheckedUpdateInput = {
 export type TenantCreateManyInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -708,7 +708,7 @@ export type TenantCreateManyInput = {
 
 export type TenantUpdateManyMutationInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -732,7 +732,7 @@ export type TenantUpdateManyMutationInput = {
 export type TenantUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -861,12 +861,12 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
-export type StringFieldUpdateOperationsInput = {
-  set?: string
-}
-
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
+}
+
+export type StringFieldUpdateOperationsInput = {
+  set?: string
 }
 
 export type NullableBoolFieldUpdateOperationsInput = {
@@ -1163,7 +1163,7 @@ export type TenantUpdateOneWithoutWhatsapp_messagesNestedInput = {
 
 export type TenantCreateWithoutUsersInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -1204,7 +1204,7 @@ export type TenantCreateWithoutUsersInput = {
 export type TenantUncheckedCreateWithoutUsersInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -1260,7 +1260,7 @@ export type TenantUpdateToOneWithWhereWithoutUsersInput = {
 
 export type TenantUpdateWithoutUsersInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1301,7 +1301,7 @@ export type TenantUpdateWithoutUsersInput = {
 export type TenantUncheckedUpdateWithoutUsersInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1341,7 +1341,7 @@ export type TenantUncheckedUpdateWithoutUsersInput = {
 
 export type TenantCreateWithoutBranchesInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -1382,7 +1382,7 @@ export type TenantCreateWithoutBranchesInput = {
 export type TenantUncheckedCreateWithoutBranchesInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -1438,7 +1438,7 @@ export type TenantUpdateToOneWithWhereWithoutBranchesInput = {
 
 export type TenantUpdateWithoutBranchesInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1479,7 +1479,7 @@ export type TenantUpdateWithoutBranchesInput = {
 export type TenantUncheckedUpdateWithoutBranchesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1519,7 +1519,7 @@ export type TenantUncheckedUpdateWithoutBranchesInput = {
 
 export type TenantCreateWithoutBudgetsInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -1560,7 +1560,7 @@ export type TenantCreateWithoutBudgetsInput = {
 export type TenantUncheckedCreateWithoutBudgetsInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -1616,7 +1616,7 @@ export type TenantUpdateToOneWithWhereWithoutBudgetsInput = {
 
 export type TenantUpdateWithoutBudgetsInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1657,7 +1657,7 @@ export type TenantUpdateWithoutBudgetsInput = {
 export type TenantUncheckedUpdateWithoutBudgetsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1697,7 +1697,7 @@ export type TenantUncheckedUpdateWithoutBudgetsInput = {
 
 export type TenantCreateWithoutChecklistsInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -1738,7 +1738,7 @@ export type TenantCreateWithoutChecklistsInput = {
 export type TenantUncheckedCreateWithoutChecklistsInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -1794,7 +1794,7 @@ export type TenantUpdateToOneWithWhereWithoutChecklistsInput = {
 
 export type TenantUpdateWithoutChecklistsInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1835,7 +1835,7 @@ export type TenantUpdateWithoutChecklistsInput = {
 export type TenantUncheckedUpdateWithoutChecklistsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1875,7 +1875,7 @@ export type TenantUncheckedUpdateWithoutChecklistsInput = {
 
 export type TenantCreateWithoutCompaniesInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -1916,7 +1916,7 @@ export type TenantCreateWithoutCompaniesInput = {
 export type TenantUncheckedCreateWithoutCompaniesInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -1972,7 +1972,7 @@ export type TenantUpdateToOneWithWhereWithoutCompaniesInput = {
 
 export type TenantUpdateWithoutCompaniesInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -2013,7 +2013,7 @@ export type TenantUpdateWithoutCompaniesInput = {
 export type TenantUncheckedUpdateWithoutCompaniesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -2053,7 +2053,7 @@ export type TenantUncheckedUpdateWithoutCompaniesInput = {
 
 export type TenantCreateWithoutCustomersInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -2094,7 +2094,7 @@ export type TenantCreateWithoutCustomersInput = {
 export type TenantUncheckedCreateWithoutCustomersInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -2150,7 +2150,7 @@ export type TenantUpdateToOneWithWhereWithoutCustomersInput = {
 
 export type TenantUpdateWithoutCustomersInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -2191,7 +2191,7 @@ export type TenantUpdateWithoutCustomersInput = {
 export type TenantUncheckedUpdateWithoutCustomersInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -2231,7 +2231,7 @@ export type TenantUncheckedUpdateWithoutCustomersInput = {
 
 export type TenantCreateWithoutEquipmentInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -2272,7 +2272,7 @@ export type TenantCreateWithoutEquipmentInput = {
 export type TenantUncheckedCreateWithoutEquipmentInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -2328,7 +2328,7 @@ export type TenantUpdateToOneWithWhereWithoutEquipmentInput = {
 
 export type TenantUpdateWithoutEquipmentInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -2369,7 +2369,7 @@ export type TenantUpdateWithoutEquipmentInput = {
 export type TenantUncheckedUpdateWithoutEquipmentInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -2409,7 +2409,7 @@ export type TenantUncheckedUpdateWithoutEquipmentInput = {
 
 export type TenantCreateWithoutImagesInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -2450,7 +2450,7 @@ export type TenantCreateWithoutImagesInput = {
 export type TenantUncheckedCreateWithoutImagesInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -2506,7 +2506,7 @@ export type TenantUpdateToOneWithWhereWithoutImagesInput = {
 
 export type TenantUpdateWithoutImagesInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -2547,7 +2547,7 @@ export type TenantUpdateWithoutImagesInput = {
 export type TenantUncheckedUpdateWithoutImagesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -2587,7 +2587,7 @@ export type TenantUncheckedUpdateWithoutImagesInput = {
 
 export type TenantCreateWithoutMessagesInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -2628,7 +2628,7 @@ export type TenantCreateWithoutMessagesInput = {
 export type TenantUncheckedCreateWithoutMessagesInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -2684,7 +2684,7 @@ export type TenantUpdateToOneWithWhereWithoutMessagesInput = {
 
 export type TenantUpdateWithoutMessagesInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -2725,7 +2725,7 @@ export type TenantUpdateWithoutMessagesInput = {
 export type TenantUncheckedUpdateWithoutMessagesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -2765,7 +2765,7 @@ export type TenantUncheckedUpdateWithoutMessagesInput = {
 
 export type TenantCreateWithoutOrdersInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -2806,7 +2806,7 @@ export type TenantCreateWithoutOrdersInput = {
 export type TenantUncheckedCreateWithoutOrdersInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -2862,7 +2862,7 @@ export type TenantUpdateToOneWithWhereWithoutOrdersInput = {
 
 export type TenantUpdateWithoutOrdersInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -2903,7 +2903,7 @@ export type TenantUpdateWithoutOrdersInput = {
 export type TenantUncheckedUpdateWithoutOrdersInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -2943,7 +2943,7 @@ export type TenantUncheckedUpdateWithoutOrdersInput = {
 
 export type TenantCreateWithoutOthersInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -2984,7 +2984,7 @@ export type TenantCreateWithoutOthersInput = {
 export type TenantUncheckedCreateWithoutOthersInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -3040,7 +3040,7 @@ export type TenantUpdateToOneWithWhereWithoutOthersInput = {
 
 export type TenantUpdateWithoutOthersInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -3081,7 +3081,7 @@ export type TenantUpdateWithoutOthersInput = {
 export type TenantUncheckedUpdateWithoutOthersInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -3121,7 +3121,7 @@ export type TenantUncheckedUpdateWithoutOthersInput = {
 
 export type TenantCreateWithoutPart_movementsInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -3162,7 +3162,7 @@ export type TenantCreateWithoutPart_movementsInput = {
 export type TenantUncheckedCreateWithoutPart_movementsInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -3218,7 +3218,7 @@ export type TenantUpdateToOneWithWhereWithoutPart_movementsInput = {
 
 export type TenantUpdateWithoutPart_movementsInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -3259,7 +3259,7 @@ export type TenantUpdateWithoutPart_movementsInput = {
 export type TenantUncheckedUpdateWithoutPart_movementsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -3299,7 +3299,7 @@ export type TenantUncheckedUpdateWithoutPart_movementsInput = {
 
 export type TenantCreateWithoutPartsInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -3340,7 +3340,7 @@ export type TenantCreateWithoutPartsInput = {
 export type TenantUncheckedCreateWithoutPartsInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -3396,7 +3396,7 @@ export type TenantUpdateToOneWithWhereWithoutPartsInput = {
 
 export type TenantUpdateWithoutPartsInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -3437,7 +3437,7 @@ export type TenantUpdateWithoutPartsInput = {
 export type TenantUncheckedUpdateWithoutPartsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -3477,7 +3477,7 @@ export type TenantUncheckedUpdateWithoutPartsInput = {
 
 export type TenantCreateWithoutReceiptsInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -3518,7 +3518,7 @@ export type TenantCreateWithoutReceiptsInput = {
 export type TenantUncheckedCreateWithoutReceiptsInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -3574,7 +3574,7 @@ export type TenantUpdateToOneWithWhereWithoutReceiptsInput = {
 
 export type TenantUpdateWithoutReceiptsInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -3615,7 +3615,7 @@ export type TenantUpdateWithoutReceiptsInput = {
 export type TenantUncheckedUpdateWithoutReceiptsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -3655,7 +3655,7 @@ export type TenantUncheckedUpdateWithoutReceiptsInput = {
 
 export type TenantCreateWithoutSalesInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -3696,7 +3696,7 @@ export type TenantCreateWithoutSalesInput = {
 export type TenantUncheckedCreateWithoutSalesInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -3752,7 +3752,7 @@ export type TenantUpdateToOneWithWhereWithoutSalesInput = {
 
 export type TenantUpdateWithoutSalesInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -3793,7 +3793,7 @@ export type TenantUpdateWithoutSalesInput = {
 export type TenantUncheckedUpdateWithoutSalesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -3833,7 +3833,7 @@ export type TenantUncheckedUpdateWithoutSalesInput = {
 
 export type TenantCreateWithoutSchedulesInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -3874,7 +3874,7 @@ export type TenantCreateWithoutSchedulesInput = {
 export type TenantUncheckedCreateWithoutSchedulesInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -3930,7 +3930,7 @@ export type TenantUpdateToOneWithWhereWithoutSchedulesInput = {
 
 export type TenantUpdateWithoutSchedulesInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -3971,7 +3971,7 @@ export type TenantUpdateWithoutSchedulesInput = {
 export type TenantUncheckedUpdateWithoutSchedulesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -4011,7 +4011,7 @@ export type TenantUncheckedUpdateWithoutSchedulesInput = {
 
 export type TenantCreateWithoutSettingsInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -4052,7 +4052,7 @@ export type TenantCreateWithoutSettingsInput = {
 export type TenantUncheckedCreateWithoutSettingsInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -4108,7 +4108,7 @@ export type TenantUpdateToOneWithWhereWithoutSettingsInput = {
 
 export type TenantUpdateWithoutSettingsInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -4149,7 +4149,7 @@ export type TenantUpdateWithoutSettingsInput = {
 export type TenantUncheckedUpdateWithoutSettingsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -4189,7 +4189,7 @@ export type TenantUncheckedUpdateWithoutSettingsInput = {
 
 export type TenantCreateWithoutWhatsapp_messagesInput = {
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -4230,7 +4230,7 @@ export type TenantCreateWithoutWhatsapp_messagesInput = {
 export type TenantUncheckedCreateWithoutWhatsapp_messagesInput = {
   id?: number
   plan: number
-  name: string
+  name?: string | null
   company: string
   cnpj: string
   email: string
@@ -4286,7 +4286,7 @@ export type TenantUpdateToOneWithWhereWithoutWhatsapp_messagesInput = {
 
 export type TenantUpdateWithoutWhatsapp_messagesInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -4327,7 +4327,7 @@ export type TenantUpdateWithoutWhatsapp_messagesInput = {
 export type TenantUncheckedUpdateWithoutWhatsapp_messagesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
   cnpj?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -4657,7 +4657,7 @@ export type $TenantPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     plan: number
-    name: string
+    name: string | null
     company: string
     cnpj: string
     email: string

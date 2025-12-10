@@ -12,10 +12,10 @@ model Tenant {
 
   id                Int              @id @default(autoincrement())
   plan              Int
-  name              String
+  name              String?
   company           String
-  cnpj              String
-  email             String
+  cnpj              String             @unique
+  email             String             @unique
   phone             String?
   whatsapp          String?
   zip_code          String?
