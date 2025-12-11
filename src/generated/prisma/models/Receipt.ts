@@ -201,8 +201,8 @@ export type ReceiptGroupByOutputType = {
   receivingequipment: string | null
   equipmentdelivery: string | null
   budgetissuance: string | null
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: ReceiptCountAggregateOutputType | null
   _avg: ReceiptAvgAggregateOutputType | null
   _sum: ReceiptSumAggregateOutputType | null
@@ -234,8 +234,8 @@ export type ReceiptWhereInput = {
   receivingequipment?: Prisma.StringNullableFilter<"Receipt"> | string | null
   equipmentdelivery?: Prisma.StringNullableFilter<"Receipt"> | string | null
   budgetissuance?: Prisma.StringNullableFilter<"Receipt"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"Receipt"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Receipt"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Receipt"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Receipt"> | Date | string
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
 }
 
@@ -245,8 +245,8 @@ export type ReceiptOrderByWithRelationInput = {
   receivingequipment?: Prisma.SortOrderInput | Prisma.SortOrder
   equipmentdelivery?: Prisma.SortOrderInput | Prisma.SortOrder
   budgetissuance?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   tenants?: Prisma.TenantOrderByWithRelationInput
   _relevance?: Prisma.ReceiptOrderByRelevanceInput
 }
@@ -260,8 +260,8 @@ export type ReceiptWhereUniqueInput = Prisma.AtLeast<{
   receivingequipment?: Prisma.StringNullableFilter<"Receipt"> | string | null
   equipmentdelivery?: Prisma.StringNullableFilter<"Receipt"> | string | null
   budgetissuance?: Prisma.StringNullableFilter<"Receipt"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"Receipt"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Receipt"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Receipt"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Receipt"> | Date | string
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
 }, "id">
 
@@ -271,8 +271,8 @@ export type ReceiptOrderByWithAggregationInput = {
   receivingequipment?: Prisma.SortOrderInput | Prisma.SortOrder
   equipmentdelivery?: Prisma.SortOrderInput | Prisma.SortOrder
   budgetissuance?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.ReceiptCountOrderByAggregateInput
   _avg?: Prisma.ReceiptAvgOrderByAggregateInput
   _max?: Prisma.ReceiptMaxOrderByAggregateInput
@@ -289,16 +289,16 @@ export type ReceiptScalarWhereWithAggregatesInput = {
   receivingequipment?: Prisma.StringNullableWithAggregatesFilter<"Receipt"> | string | null
   equipmentdelivery?: Prisma.StringNullableWithAggregatesFilter<"Receipt"> | string | null
   budgetissuance?: Prisma.StringNullableWithAggregatesFilter<"Receipt"> | string | null
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Receipt"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Receipt"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Receipt"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Receipt"> | Date | string
 }
 
 export type ReceiptCreateInput = {
   receivingequipment?: string | null
   equipmentdelivery?: string | null
   budgetissuance?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   tenants?: Prisma.TenantCreateNestedOneWithoutReceiptsInput
 }
 
@@ -308,16 +308,16 @@ export type ReceiptUncheckedCreateInput = {
   receivingequipment?: string | null
   equipmentdelivery?: string | null
   budgetissuance?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ReceiptUpdateInput = {
   receivingequipment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   equipmentdelivery?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budgetissuance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenants?: Prisma.TenantUpdateOneWithoutReceiptsNestedInput
 }
 
@@ -327,8 +327,8 @@ export type ReceiptUncheckedUpdateInput = {
   receivingequipment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   equipmentdelivery?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budgetissuance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ReceiptCreateManyInput = {
@@ -337,16 +337,16 @@ export type ReceiptCreateManyInput = {
   receivingequipment?: string | null
   equipmentdelivery?: string | null
   budgetissuance?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ReceiptUpdateManyMutationInput = {
   receivingequipment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   equipmentdelivery?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budgetissuance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ReceiptUncheckedUpdateManyInput = {
@@ -355,8 +355,8 @@ export type ReceiptUncheckedUpdateManyInput = {
   receivingequipment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   equipmentdelivery?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budgetissuance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ReceiptListRelationFilter = {
@@ -461,8 +461,8 @@ export type ReceiptCreateWithoutTenantsInput = {
   receivingequipment?: string | null
   equipmentdelivery?: string | null
   budgetissuance?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ReceiptUncheckedCreateWithoutTenantsInput = {
@@ -470,8 +470,8 @@ export type ReceiptUncheckedCreateWithoutTenantsInput = {
   receivingequipment?: string | null
   equipmentdelivery?: string | null
   budgetissuance?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ReceiptCreateOrConnectWithoutTenantsInput = {
@@ -509,8 +509,8 @@ export type ReceiptScalarWhereInput = {
   receivingequipment?: Prisma.StringNullableFilter<"Receipt"> | string | null
   equipmentdelivery?: Prisma.StringNullableFilter<"Receipt"> | string | null
   budgetissuance?: Prisma.StringNullableFilter<"Receipt"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"Receipt"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Receipt"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Receipt"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Receipt"> | Date | string
 }
 
 export type ReceiptCreateManyTenantsInput = {
@@ -518,16 +518,16 @@ export type ReceiptCreateManyTenantsInput = {
   receivingequipment?: string | null
   equipmentdelivery?: string | null
   budgetissuance?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ReceiptUpdateWithoutTenantsInput = {
   receivingequipment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   equipmentdelivery?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budgetissuance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ReceiptUncheckedUpdateWithoutTenantsInput = {
@@ -535,8 +535,8 @@ export type ReceiptUncheckedUpdateWithoutTenantsInput = {
   receivingequipment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   equipmentdelivery?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budgetissuance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ReceiptUncheckedUpdateManyWithoutTenantsInput = {
@@ -544,8 +544,8 @@ export type ReceiptUncheckedUpdateManyWithoutTenantsInput = {
   receivingequipment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   equipmentdelivery?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budgetissuance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -589,8 +589,8 @@ export type $ReceiptPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     receivingequipment: string | null
     equipmentdelivery: string | null
     budgetissuance: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["receipt"]>
   composites: {}
 }
@@ -1186,7 +1186,7 @@ export type ReceiptCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   /**
    * The data needed to create a Receipt.
    */
-  data?: Prisma.XOR<Prisma.ReceiptCreateInput, Prisma.ReceiptUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.ReceiptCreateInput, Prisma.ReceiptUncheckedCreateInput>
 }
 
 /**

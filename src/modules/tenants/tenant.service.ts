@@ -26,7 +26,7 @@ export const tenantService = {
             throw new Error("E-mail já cadastrado");
         }
 
-        return tenantRepository.save(data)
+        return tenantRepository.save(data as any)
     },
 
     async update(id: number, data: any) {

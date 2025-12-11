@@ -307,8 +307,8 @@ export type CustomerGroupByOutputType = {
   whatsapp: string | null
   contactphone: string | null
   observations: string | null
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: CustomerCountAggregateOutputType | null
   _avg: CustomerAvgAggregateOutputType | null
   _sum: CustomerSumAggregateOutputType | null
@@ -354,8 +354,8 @@ export type CustomerWhereInput = {
   whatsapp?: Prisma.StringNullableFilter<"Customer"> | string | null
   contactphone?: Prisma.StringNullableFilter<"Customer"> | string | null
   observations?: Prisma.StringNullableFilter<"Customer"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"Customer"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Customer"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Customer"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Customer"> | Date | string
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
   orders?: Prisma.OrderListRelationFilter
   sales?: Prisma.SaleListRelationFilter
@@ -382,8 +382,8 @@ export type CustomerOrderByWithRelationInput = {
   whatsapp?: Prisma.SortOrderInput | Prisma.SortOrder
   contactphone?: Prisma.SortOrderInput | Prisma.SortOrder
   observations?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   tenants?: Prisma.TenantOrderByWithRelationInput
   orders?: Prisma.OrderOrderByRelationAggregateInput
   sales?: Prisma.SaleOrderByRelationAggregateInput
@@ -414,8 +414,8 @@ export type CustomerWhereUniqueInput = Prisma.AtLeast<{
   whatsapp?: Prisma.StringNullableFilter<"Customer"> | string | null
   contactphone?: Prisma.StringNullableFilter<"Customer"> | string | null
   observations?: Prisma.StringNullableFilter<"Customer"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"Customer"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Customer"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Customer"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Customer"> | Date | string
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
   orders?: Prisma.OrderListRelationFilter
   sales?: Prisma.SaleListRelationFilter
@@ -442,8 +442,8 @@ export type CustomerOrderByWithAggregationInput = {
   whatsapp?: Prisma.SortOrderInput | Prisma.SortOrder
   contactphone?: Prisma.SortOrderInput | Prisma.SortOrder
   observations?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.CustomerCountOrderByAggregateInput
   _avg?: Prisma.CustomerAvgOrderByAggregateInput
   _max?: Prisma.CustomerMaxOrderByAggregateInput
@@ -474,8 +474,8 @@ export type CustomerScalarWhereWithAggregatesInput = {
   whatsapp?: Prisma.StringNullableWithAggregatesFilter<"Customer"> | string | null
   contactphone?: Prisma.StringNullableWithAggregatesFilter<"Customer"> | string | null
   observations?: Prisma.StringNullableWithAggregatesFilter<"Customer"> | string | null
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Customer"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Customer"> | Date | string
 }
 
 export type CustomerCreateInput = {
@@ -496,8 +496,8 @@ export type CustomerCreateInput = {
   whatsapp?: string | null
   contactphone?: string | null
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   tenants?: Prisma.TenantCreateNestedOneWithoutCustomersInput
   orders?: Prisma.OrderCreateNestedManyWithoutCustomersInput
   sales?: Prisma.SaleCreateNestedManyWithoutCustomersInput
@@ -524,8 +524,8 @@ export type CustomerUncheckedCreateInput = {
   whatsapp?: string | null
   contactphone?: string | null
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomersInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutCustomersInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutCustomersInput
@@ -549,8 +549,8 @@ export type CustomerUpdateInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenants?: Prisma.TenantUpdateOneWithoutCustomersNestedInput
   orders?: Prisma.OrderUpdateManyWithoutCustomersNestedInput
   sales?: Prisma.SaleUpdateManyWithoutCustomersNestedInput
@@ -577,8 +577,8 @@ export type CustomerUncheckedUpdateInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   orders?: Prisma.OrderUncheckedUpdateManyWithoutCustomersNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutCustomersNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutCustomersNestedInput
@@ -604,8 +604,8 @@ export type CustomerCreateManyInput = {
   whatsapp?: string | null
   contactphone?: string | null
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type CustomerUpdateManyMutationInput = {
@@ -626,8 +626,8 @@ export type CustomerUpdateManyMutationInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CustomerUncheckedUpdateManyInput = {
@@ -650,8 +650,8 @@ export type CustomerUncheckedUpdateManyInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CustomerListRelationFilter = {
@@ -869,8 +869,8 @@ export type CustomerCreateWithoutTenantsInput = {
   whatsapp?: string | null
   contactphone?: string | null
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   orders?: Prisma.OrderCreateNestedManyWithoutCustomersInput
   sales?: Prisma.SaleCreateNestedManyWithoutCustomersInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutCustomersInput
@@ -895,8 +895,8 @@ export type CustomerUncheckedCreateWithoutTenantsInput = {
   whatsapp?: string | null
   contactphone?: string | null
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomersInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutCustomersInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutCustomersInput
@@ -951,8 +951,8 @@ export type CustomerScalarWhereInput = {
   whatsapp?: Prisma.StringNullableFilter<"Customer"> | string | null
   contactphone?: Prisma.StringNullableFilter<"Customer"> | string | null
   observations?: Prisma.StringNullableFilter<"Customer"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"Customer"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Customer"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Customer"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Customer"> | Date | string
 }
 
 export type CustomerCreateWithoutOrdersInput = {
@@ -973,8 +973,8 @@ export type CustomerCreateWithoutOrdersInput = {
   whatsapp?: string | null
   contactphone?: string | null
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   tenants?: Prisma.TenantCreateNestedOneWithoutCustomersInput
   sales?: Prisma.SaleCreateNestedManyWithoutCustomersInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutCustomersInput
@@ -1000,8 +1000,8 @@ export type CustomerUncheckedCreateWithoutOrdersInput = {
   whatsapp?: string | null
   contactphone?: string | null
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutCustomersInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutCustomersInput
 }
@@ -1040,8 +1040,8 @@ export type CustomerUpdateWithoutOrdersInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenants?: Prisma.TenantUpdateOneWithoutCustomersNestedInput
   sales?: Prisma.SaleUpdateManyWithoutCustomersNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutCustomersNestedInput
@@ -1067,8 +1067,8 @@ export type CustomerUncheckedUpdateWithoutOrdersInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sales?: Prisma.SaleUncheckedUpdateManyWithoutCustomersNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutCustomersNestedInput
 }
@@ -1091,8 +1091,8 @@ export type CustomerCreateWithoutSalesInput = {
   whatsapp?: string | null
   contactphone?: string | null
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   tenants?: Prisma.TenantCreateNestedOneWithoutCustomersInput
   orders?: Prisma.OrderCreateNestedManyWithoutCustomersInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutCustomersInput
@@ -1118,8 +1118,8 @@ export type CustomerUncheckedCreateWithoutSalesInput = {
   whatsapp?: string | null
   contactphone?: string | null
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomersInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutCustomersInput
 }
@@ -1158,8 +1158,8 @@ export type CustomerUpdateWithoutSalesInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenants?: Prisma.TenantUpdateOneWithoutCustomersNestedInput
   orders?: Prisma.OrderUpdateManyWithoutCustomersNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutCustomersNestedInput
@@ -1185,8 +1185,8 @@ export type CustomerUncheckedUpdateWithoutSalesInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   orders?: Prisma.OrderUncheckedUpdateManyWithoutCustomersNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutCustomersNestedInput
 }
@@ -1209,8 +1209,8 @@ export type CustomerCreateWithoutSchedulesInput = {
   whatsapp?: string | null
   contactphone?: string | null
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   tenants?: Prisma.TenantCreateNestedOneWithoutCustomersInput
   orders?: Prisma.OrderCreateNestedManyWithoutCustomersInput
   sales?: Prisma.SaleCreateNestedManyWithoutCustomersInput
@@ -1236,8 +1236,8 @@ export type CustomerUncheckedCreateWithoutSchedulesInput = {
   whatsapp?: string | null
   contactphone?: string | null
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomersInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutCustomersInput
 }
@@ -1276,8 +1276,8 @@ export type CustomerUpdateWithoutSchedulesInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenants?: Prisma.TenantUpdateOneWithoutCustomersNestedInput
   orders?: Prisma.OrderUpdateManyWithoutCustomersNestedInput
   sales?: Prisma.SaleUpdateManyWithoutCustomersNestedInput
@@ -1303,8 +1303,8 @@ export type CustomerUncheckedUpdateWithoutSchedulesInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   orders?: Prisma.OrderUncheckedUpdateManyWithoutCustomersNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutCustomersNestedInput
 }
@@ -1328,8 +1328,8 @@ export type CustomerCreateManyTenantsInput = {
   whatsapp?: string | null
   contactphone?: string | null
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type CustomerUpdateWithoutTenantsInput = {
@@ -1350,8 +1350,8 @@ export type CustomerUpdateWithoutTenantsInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   orders?: Prisma.OrderUpdateManyWithoutCustomersNestedInput
   sales?: Prisma.SaleUpdateManyWithoutCustomersNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutCustomersNestedInput
@@ -1376,8 +1376,8 @@ export type CustomerUncheckedUpdateWithoutTenantsInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   orders?: Prisma.OrderUncheckedUpdateManyWithoutCustomersNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutCustomersNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutCustomersNestedInput
@@ -1402,8 +1402,8 @@ export type CustomerUncheckedUpdateManyWithoutTenantsInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -1547,8 +1547,8 @@ export type $CustomerPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     whatsapp: string | null
     contactphone: string | null
     observations: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["customer"]>
   composites: {}
 }

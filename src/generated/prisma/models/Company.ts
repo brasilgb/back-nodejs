@@ -285,8 +285,8 @@ export type CompanyGroupByOutputType = {
   whatsapp: string | null
   site: string | null
   email: string | null
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: CompanyCountAggregateOutputType | null
   _avg: CompanyAvgAggregateOutputType | null
   _sum: CompanySumAggregateOutputType | null
@@ -330,8 +330,8 @@ export type CompanyWhereInput = {
   whatsapp?: Prisma.StringNullableFilter<"Company"> | string | null
   site?: Prisma.StringNullableFilter<"Company"> | string | null
   email?: Prisma.StringNullableFilter<"Company"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"Company"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Company"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Company"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Company"> | Date | string
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
 }
 
@@ -353,8 +353,8 @@ export type CompanyOrderByWithRelationInput = {
   whatsapp?: Prisma.SortOrderInput | Prisma.SortOrder
   site?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   tenants?: Prisma.TenantOrderByWithRelationInput
   _relevance?: Prisma.CompanyOrderByRelevanceInput
 }
@@ -380,8 +380,8 @@ export type CompanyWhereUniqueInput = Prisma.AtLeast<{
   whatsapp?: Prisma.StringNullableFilter<"Company"> | string | null
   site?: Prisma.StringNullableFilter<"Company"> | string | null
   email?: Prisma.StringNullableFilter<"Company"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"Company"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Company"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Company"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Company"> | Date | string
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
 }, "id">
 
@@ -403,8 +403,8 @@ export type CompanyOrderByWithAggregationInput = {
   whatsapp?: Prisma.SortOrderInput | Prisma.SortOrder
   site?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.CompanyCountOrderByAggregateInput
   _avg?: Prisma.CompanyAvgOrderByAggregateInput
   _max?: Prisma.CompanyMaxOrderByAggregateInput
@@ -433,8 +433,8 @@ export type CompanyScalarWhereWithAggregatesInput = {
   whatsapp?: Prisma.StringNullableWithAggregatesFilter<"Company"> | string | null
   site?: Prisma.StringNullableWithAggregatesFilter<"Company"> | string | null
   email?: Prisma.StringNullableWithAggregatesFilter<"Company"> | string | null
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Company"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Company"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Company"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Company"> | Date | string
 }
 
 export type CompanyCreateInput = {
@@ -453,8 +453,8 @@ export type CompanyCreateInput = {
   whatsapp?: string | null
   site?: string | null
   email?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   tenants?: Prisma.TenantCreateNestedOneWithoutCompaniesInput
 }
 
@@ -476,8 +476,8 @@ export type CompanyUncheckedCreateInput = {
   whatsapp?: string | null
   site?: string | null
   email?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type CompanyUpdateInput = {
@@ -496,8 +496,8 @@ export type CompanyUpdateInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   site?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenants?: Prisma.TenantUpdateOneWithoutCompaniesNestedInput
 }
 
@@ -519,8 +519,8 @@ export type CompanyUncheckedUpdateInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   site?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CompanyCreateManyInput = {
@@ -541,8 +541,8 @@ export type CompanyCreateManyInput = {
   whatsapp?: string | null
   site?: string | null
   email?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type CompanyUpdateManyMutationInput = {
@@ -561,8 +561,8 @@ export type CompanyUpdateManyMutationInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   site?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CompanyUncheckedUpdateManyInput = {
@@ -583,8 +583,8 @@ export type CompanyUncheckedUpdateManyInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   site?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CompanyListRelationFilter = {
@@ -737,8 +737,8 @@ export type CompanyCreateWithoutTenantsInput = {
   whatsapp?: string | null
   site?: string | null
   email?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type CompanyUncheckedCreateWithoutTenantsInput = {
@@ -758,8 +758,8 @@ export type CompanyUncheckedCreateWithoutTenantsInput = {
   whatsapp?: string | null
   site?: string | null
   email?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type CompanyCreateOrConnectWithoutTenantsInput = {
@@ -809,8 +809,8 @@ export type CompanyScalarWhereInput = {
   whatsapp?: Prisma.StringNullableFilter<"Company"> | string | null
   site?: Prisma.StringNullableFilter<"Company"> | string | null
   email?: Prisma.StringNullableFilter<"Company"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"Company"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Company"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Company"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Company"> | Date | string
 }
 
 export type CompanyCreateManyTenantsInput = {
@@ -830,8 +830,8 @@ export type CompanyCreateManyTenantsInput = {
   whatsapp?: string | null
   site?: string | null
   email?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type CompanyUpdateWithoutTenantsInput = {
@@ -850,8 +850,8 @@ export type CompanyUpdateWithoutTenantsInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   site?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CompanyUncheckedUpdateWithoutTenantsInput = {
@@ -871,8 +871,8 @@ export type CompanyUncheckedUpdateWithoutTenantsInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   site?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CompanyUncheckedUpdateManyWithoutTenantsInput = {
@@ -892,8 +892,8 @@ export type CompanyUncheckedUpdateManyWithoutTenantsInput = {
   whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   site?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -973,8 +973,8 @@ export type $CompanyPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     whatsapp: string | null
     site: string | null
     email: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["company"]>
   composites: {}
 }
@@ -1582,7 +1582,7 @@ export type CompanyCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   /**
    * The data needed to create a Company.
    */
-  data?: Prisma.XOR<Prisma.CompanyCreateInput, Prisma.CompanyUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.CompanyCreateInput, Prisma.CompanyUncheckedCreateInput>
 }
 
 /**

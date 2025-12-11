@@ -276,8 +276,8 @@ export type UserGroupByOutputType = {
   remember_token: string | null
   reset_token: string | null
   reset_token_expiry: Date | null
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: UserCountAggregateOutputType | null
   _avg: UserAvgAggregateOutputType | null
   _sum: UserSumAggregateOutputType | null
@@ -318,8 +318,8 @@ export type UserWhereInput = {
   remember_token?: Prisma.StringNullableFilter<"User"> | string | null
   reset_token?: Prisma.StringNullableFilter<"User"> | string | null
   reset_token_expiry?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"User"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"User"> | Date | string
   part_movements?: Prisma.PartMovementListRelationFilter
   schedules?: Prisma.ScheduleListRelationFilter
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
@@ -340,8 +340,8 @@ export type UserOrderByWithRelationInput = {
   remember_token?: Prisma.SortOrderInput | Prisma.SortOrder
   reset_token?: Prisma.SortOrderInput | Prisma.SortOrder
   reset_token_expiry?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   part_movements?: Prisma.PartMovementOrderByRelationAggregateInput
   schedules?: Prisma.ScheduleOrderByRelationAggregateInput
   tenants?: Prisma.TenantOrderByWithRelationInput
@@ -366,8 +366,8 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   email_verified_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   remember_token?: Prisma.StringNullableFilter<"User"> | string | null
   reset_token_expiry?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"User"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"User"> | Date | string
   part_movements?: Prisma.PartMovementListRelationFilter
   schedules?: Prisma.ScheduleListRelationFilter
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
@@ -388,8 +388,8 @@ export type UserOrderByWithAggregationInput = {
   remember_token?: Prisma.SortOrderInput | Prisma.SortOrder
   reset_token?: Prisma.SortOrderInput | Prisma.SortOrder
   reset_token_expiry?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _avg?: Prisma.UserAvgOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
@@ -415,8 +415,8 @@ export type UserScalarWhereWithAggregatesInput = {
   remember_token?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   reset_token?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   reset_token_expiry?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
 
 export type UserCreateInput = {
@@ -432,16 +432,16 @@ export type UserCreateInput = {
   remember_token?: string | null
   reset_token?: string | null
   reset_token_expiry?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput
-  tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput | undefined
+  tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput
 }
 
 export type UserUncheckedCreateInput = {
-  id?: number | undefined
-  tenant_id?: number | null | undefined
+  id?: number
+  tenant_id?: number | null
   user_number?: number | null
   name: string
   email: string
@@ -454,8 +454,8 @@ export type UserUncheckedCreateInput = {
   remember_token?: string | null
   reset_token?: string | null
   reset_token_expiry?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutUsersInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutUsersInput
 }
@@ -473,8 +473,8 @@ export type UserUpdateInput = {
   remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   part_movements?: Prisma.PartMovementUpdateManyWithoutUsersNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutUsersNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutUsersNestedInput
@@ -495,8 +495,8 @@ export type UserUncheckedUpdateInput = {
   remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutUsersNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutUsersNestedInput
 }
@@ -516,8 +516,8 @@ export type UserCreateManyInput = {
   remember_token?: string | null
   reset_token?: string | null
   reset_token_expiry?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type UserUpdateManyMutationInput = {
@@ -533,8 +533,8 @@ export type UserUpdateManyMutationInput = {
   remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserUncheckedUpdateManyInput = {
@@ -552,8 +552,8 @@ export type UserUncheckedUpdateManyInput = {
   remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserListRelationFilter = {
@@ -748,8 +748,8 @@ export type UserCreateWithoutTenantsInput = {
   remember_token?: string | null
   reset_token?: string | null
   reset_token_expiry?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput
 }
@@ -768,8 +768,8 @@ export type UserUncheckedCreateWithoutTenantsInput = {
   remember_token?: string | null
   reset_token?: string | null
   reset_token_expiry?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutUsersInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutUsersInput
 }
@@ -818,8 +818,8 @@ export type UserScalarWhereInput = {
   remember_token?: Prisma.StringNullableFilter<"User"> | string | null
   reset_token?: Prisma.StringNullableFilter<"User"> | string | null
   reset_token_expiry?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"User"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"User"> | Date | string
 }
 
 export type UserCreateWithoutPart_movementsInput = {
@@ -835,8 +835,8 @@ export type UserCreateWithoutPart_movementsInput = {
   remember_token?: string | null
   reset_token?: string | null
   reset_token_expiry?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput
   tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput
 }
@@ -856,8 +856,8 @@ export type UserUncheckedCreateWithoutPart_movementsInput = {
   remember_token?: string | null
   reset_token?: string | null
   reset_token_expiry?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutUsersInput
 }
 
@@ -890,8 +890,8 @@ export type UserUpdateWithoutPart_movementsInput = {
   remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   schedules?: Prisma.ScheduleUpdateManyWithoutUsersNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutUsersNestedInput
 }
@@ -911,8 +911,8 @@ export type UserUncheckedUpdateWithoutPart_movementsInput = {
   remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutUsersNestedInput
 }
 
@@ -929,8 +929,8 @@ export type UserCreateWithoutSchedulesInput = {
   remember_token?: string | null
   reset_token?: string | null
   reset_token_expiry?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput
   tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput
 }
@@ -950,8 +950,8 @@ export type UserUncheckedCreateWithoutSchedulesInput = {
   remember_token?: string | null
   reset_token?: string | null
   reset_token_expiry?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutUsersInput
 }
 
@@ -984,8 +984,8 @@ export type UserUpdateWithoutSchedulesInput = {
   remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   part_movements?: Prisma.PartMovementUpdateManyWithoutUsersNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutUsersNestedInput
 }
@@ -1005,8 +1005,8 @@ export type UserUncheckedUpdateWithoutSchedulesInput = {
   remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutUsersNestedInput
 }
 
@@ -1024,8 +1024,8 @@ export type UserCreateManyTenantsInput = {
   remember_token?: string | null
   reset_token?: string | null
   reset_token_expiry?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type UserUpdateWithoutTenantsInput = {
@@ -1041,8 +1041,8 @@ export type UserUpdateWithoutTenantsInput = {
   remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   part_movements?: Prisma.PartMovementUpdateManyWithoutUsersNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutUsersNestedInput
 }
@@ -1061,8 +1061,8 @@ export type UserUncheckedUpdateWithoutTenantsInput = {
   remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutUsersNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutUsersNestedInput
 }
@@ -1081,8 +1081,8 @@ export type UserUncheckedUpdateManyWithoutTenantsInput = {
   remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -1199,8 +1199,8 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     remember_token: string | null
     reset_token: string | null
     reset_token_expiry: Date | null
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["user"]>
   composites: {}
 }

@@ -230,8 +230,8 @@ export type MessageGroupByOutputType = {
   title: string
   message: string
   status: boolean
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: MessageCountAggregateOutputType | null
   _avg: MessageAvgAggregateOutputType | null
   _sum: MessageSumAggregateOutputType | null
@@ -266,8 +266,8 @@ export type MessageWhereInput = {
   title?: Prisma.StringFilter<"Message"> | string
   message?: Prisma.StringFilter<"Message"> | string
   status?: Prisma.BoolFilter<"Message"> | boolean
-  created_at?: Prisma.DateTimeNullableFilter<"Message"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Message"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Message"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Message"> | Date | string
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
 }
 
@@ -280,8 +280,8 @@ export type MessageOrderByWithRelationInput = {
   title?: Prisma.SortOrder
   message?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   tenants?: Prisma.TenantOrderByWithRelationInput
   _relevance?: Prisma.MessageOrderByRelevanceInput
 }
@@ -298,8 +298,8 @@ export type MessageWhereUniqueInput = Prisma.AtLeast<{
   title?: Prisma.StringFilter<"Message"> | string
   message?: Prisma.StringFilter<"Message"> | string
   status?: Prisma.BoolFilter<"Message"> | boolean
-  created_at?: Prisma.DateTimeNullableFilter<"Message"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Message"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Message"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Message"> | Date | string
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
 }, "id">
 
@@ -312,8 +312,8 @@ export type MessageOrderByWithAggregationInput = {
   title?: Prisma.SortOrder
   message?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.MessageCountOrderByAggregateInput
   _avg?: Prisma.MessageAvgOrderByAggregateInput
   _max?: Prisma.MessageMaxOrderByAggregateInput
@@ -333,8 +333,8 @@ export type MessageScalarWhereWithAggregatesInput = {
   title?: Prisma.StringWithAggregatesFilter<"Message"> | string
   message?: Prisma.StringWithAggregatesFilter<"Message"> | string
   status?: Prisma.BoolWithAggregatesFilter<"Message"> | boolean
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Message"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Message"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Message"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Message"> | Date | string
 }
 
 export type MessageCreateInput = {
@@ -344,8 +344,8 @@ export type MessageCreateInput = {
   title: string
   message: string
   status: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   tenants?: Prisma.TenantCreateNestedOneWithoutMessagesInput
 }
 
@@ -358,8 +358,8 @@ export type MessageUncheckedCreateInput = {
   title: string
   message: string
   status: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type MessageUpdateInput = {
@@ -369,8 +369,8 @@ export type MessageUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenants?: Prisma.TenantUpdateOneWithoutMessagesNestedInput
 }
 
@@ -383,8 +383,8 @@ export type MessageUncheckedUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MessageCreateManyInput = {
@@ -396,8 +396,8 @@ export type MessageCreateManyInput = {
   title: string
   message: string
   status: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type MessageUpdateManyMutationInput = {
@@ -407,8 +407,8 @@ export type MessageUpdateManyMutationInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MessageUncheckedUpdateManyInput = {
@@ -420,8 +420,8 @@ export type MessageUncheckedUpdateManyInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MessageListRelationFilter = {
@@ -542,8 +542,8 @@ export type MessageCreateWithoutTenantsInput = {
   title: string
   message: string
   status: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type MessageUncheckedCreateWithoutTenantsInput = {
@@ -554,8 +554,8 @@ export type MessageUncheckedCreateWithoutTenantsInput = {
   title: string
   message: string
   status: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type MessageCreateOrConnectWithoutTenantsInput = {
@@ -596,8 +596,8 @@ export type MessageScalarWhereInput = {
   title?: Prisma.StringFilter<"Message"> | string
   message?: Prisma.StringFilter<"Message"> | string
   status?: Prisma.BoolFilter<"Message"> | boolean
-  created_at?: Prisma.DateTimeNullableFilter<"Message"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Message"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Message"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Message"> | Date | string
 }
 
 export type MessageCreateManyTenantsInput = {
@@ -608,8 +608,8 @@ export type MessageCreateManyTenantsInput = {
   title: string
   message: string
   status: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type MessageUpdateWithoutTenantsInput = {
@@ -619,8 +619,8 @@ export type MessageUpdateWithoutTenantsInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MessageUncheckedUpdateWithoutTenantsInput = {
@@ -631,8 +631,8 @@ export type MessageUncheckedUpdateWithoutTenantsInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MessageUncheckedUpdateManyWithoutTenantsInput = {
@@ -643,8 +643,8 @@ export type MessageUncheckedUpdateManyWithoutTenantsInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -697,8 +697,8 @@ export type $MessagePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     title: string
     message: string
     status: boolean
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["message"]>
   composites: {}
 }

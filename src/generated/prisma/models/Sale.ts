@@ -213,8 +213,8 @@ export type SaleGroupByOutputType = {
   tenant_id: number
   customer_id: number | null
   total_amount: runtime.Decimal
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: SaleCountAggregateOutputType | null
   _avg: SaleAvgAggregateOutputType | null
   _sum: SaleSumAggregateOutputType | null
@@ -246,8 +246,8 @@ export type SaleWhereInput = {
   tenant_id?: Prisma.IntFilter<"Sale"> | number
   customer_id?: Prisma.IntNullableFilter<"Sale"> | number | null
   total_amount?: Prisma.DecimalFilter<"Sale"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.DateTimeNullableFilter<"Sale"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Sale"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Sale"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Sale"> | Date | string
   sale_items?: Prisma.SaleItemListRelationFilter
   customers?: Prisma.XOR<Prisma.CustomerNullableScalarRelationFilter, Prisma.CustomerWhereInput> | null
   tenants?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
@@ -259,8 +259,8 @@ export type SaleOrderByWithRelationInput = {
   tenant_id?: Prisma.SortOrder
   customer_id?: Prisma.SortOrderInput | Prisma.SortOrder
   total_amount?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   sale_items?: Prisma.SaleItemOrderByRelationAggregateInput
   customers?: Prisma.CustomerOrderByWithRelationInput
   tenants?: Prisma.TenantOrderByWithRelationInput
@@ -275,8 +275,8 @@ export type SaleWhereUniqueInput = Prisma.AtLeast<{
   tenant_id?: Prisma.IntFilter<"Sale"> | number
   customer_id?: Prisma.IntNullableFilter<"Sale"> | number | null
   total_amount?: Prisma.DecimalFilter<"Sale"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.DateTimeNullableFilter<"Sale"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Sale"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Sale"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Sale"> | Date | string
   sale_items?: Prisma.SaleItemListRelationFilter
   customers?: Prisma.XOR<Prisma.CustomerNullableScalarRelationFilter, Prisma.CustomerWhereInput> | null
   tenants?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
@@ -288,8 +288,8 @@ export type SaleOrderByWithAggregationInput = {
   tenant_id?: Prisma.SortOrder
   customer_id?: Prisma.SortOrderInput | Prisma.SortOrder
   total_amount?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.SaleCountOrderByAggregateInput
   _avg?: Prisma.SaleAvgOrderByAggregateInput
   _max?: Prisma.SaleMaxOrderByAggregateInput
@@ -306,15 +306,15 @@ export type SaleScalarWhereWithAggregatesInput = {
   tenant_id?: Prisma.IntWithAggregatesFilter<"Sale"> | number
   customer_id?: Prisma.IntNullableWithAggregatesFilter<"Sale"> | number | null
   total_amount?: Prisma.DecimalWithAggregatesFilter<"Sale"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Sale"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Sale"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Sale"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Sale"> | Date | string
 }
 
 export type SaleCreateInput = {
   sales_number: number
   total_amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   sale_items?: Prisma.SaleItemCreateNestedManyWithoutSalesInput
   customers?: Prisma.CustomerCreateNestedOneWithoutSalesInput
   tenants: Prisma.TenantCreateNestedOneWithoutSalesInput
@@ -326,16 +326,16 @@ export type SaleUncheckedCreateInput = {
   tenant_id: number
   customer_id?: number | null
   total_amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   sale_items?: Prisma.SaleItemUncheckedCreateNestedManyWithoutSalesInput
 }
 
 export type SaleUpdateInput = {
   sales_number?: Prisma.IntFieldUpdateOperationsInput | number
   total_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sale_items?: Prisma.SaleItemUpdateManyWithoutSalesNestedInput
   customers?: Prisma.CustomerUpdateOneWithoutSalesNestedInput
   tenants?: Prisma.TenantUpdateOneRequiredWithoutSalesNestedInput
@@ -347,8 +347,8 @@ export type SaleUncheckedUpdateInput = {
   tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
   customer_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   total_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sale_items?: Prisma.SaleItemUncheckedUpdateManyWithoutSalesNestedInput
 }
 
@@ -358,15 +358,15 @@ export type SaleCreateManyInput = {
   tenant_id: number
   customer_id?: number | null
   total_amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type SaleUpdateManyMutationInput = {
   sales_number?: Prisma.IntFieldUpdateOperationsInput | number
   total_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type SaleUncheckedUpdateManyInput = {
@@ -375,8 +375,8 @@ export type SaleUncheckedUpdateManyInput = {
   tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
   customer_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   total_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type SaleListRelationFilter = {
@@ -541,8 +541,8 @@ export type SaleUpdateOneRequiredWithoutSale_itemsNestedInput = {
 export type SaleCreateWithoutTenantsInput = {
   sales_number: number
   total_amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   sale_items?: Prisma.SaleItemCreateNestedManyWithoutSalesInput
   customers?: Prisma.CustomerCreateNestedOneWithoutSalesInput
 }
@@ -552,8 +552,8 @@ export type SaleUncheckedCreateWithoutTenantsInput = {
   sales_number: number
   customer_id?: number | null
   total_amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   sale_items?: Prisma.SaleItemUncheckedCreateNestedManyWithoutSalesInput
 }
 
@@ -592,15 +592,15 @@ export type SaleScalarWhereInput = {
   tenant_id?: Prisma.IntFilter<"Sale"> | number
   customer_id?: Prisma.IntNullableFilter<"Sale"> | number | null
   total_amount?: Prisma.DecimalFilter<"Sale"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.DateTimeNullableFilter<"Sale"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Sale"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Sale"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Sale"> | Date | string
 }
 
 export type SaleCreateWithoutCustomersInput = {
   sales_number: number
   total_amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   sale_items?: Prisma.SaleItemCreateNestedManyWithoutSalesInput
   tenants: Prisma.TenantCreateNestedOneWithoutSalesInput
 }
@@ -610,8 +610,8 @@ export type SaleUncheckedCreateWithoutCustomersInput = {
   sales_number: number
   tenant_id: number
   total_amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   sale_items?: Prisma.SaleItemUncheckedCreateNestedManyWithoutSalesInput
 }
 
@@ -644,8 +644,8 @@ export type SaleUpdateManyWithWhereWithoutCustomersInput = {
 export type SaleCreateWithoutSale_itemsInput = {
   sales_number: number
   total_amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   customers?: Prisma.CustomerCreateNestedOneWithoutSalesInput
   tenants: Prisma.TenantCreateNestedOneWithoutSalesInput
 }
@@ -656,8 +656,8 @@ export type SaleUncheckedCreateWithoutSale_itemsInput = {
   tenant_id: number
   customer_id?: number | null
   total_amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type SaleCreateOrConnectWithoutSale_itemsInput = {
@@ -679,8 +679,8 @@ export type SaleUpdateToOneWithWhereWithoutSale_itemsInput = {
 export type SaleUpdateWithoutSale_itemsInput = {
   sales_number?: Prisma.IntFieldUpdateOperationsInput | number
   total_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   customers?: Prisma.CustomerUpdateOneWithoutSalesNestedInput
   tenants?: Prisma.TenantUpdateOneRequiredWithoutSalesNestedInput
 }
@@ -691,8 +691,8 @@ export type SaleUncheckedUpdateWithoutSale_itemsInput = {
   tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
   customer_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   total_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type SaleCreateManyTenantsInput = {
@@ -700,15 +700,15 @@ export type SaleCreateManyTenantsInput = {
   sales_number: number
   customer_id?: number | null
   total_amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type SaleUpdateWithoutTenantsInput = {
   sales_number?: Prisma.IntFieldUpdateOperationsInput | number
   total_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sale_items?: Prisma.SaleItemUpdateManyWithoutSalesNestedInput
   customers?: Prisma.CustomerUpdateOneWithoutSalesNestedInput
 }
@@ -718,8 +718,8 @@ export type SaleUncheckedUpdateWithoutTenantsInput = {
   sales_number?: Prisma.IntFieldUpdateOperationsInput | number
   customer_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   total_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sale_items?: Prisma.SaleItemUncheckedUpdateManyWithoutSalesNestedInput
 }
 
@@ -728,8 +728,8 @@ export type SaleUncheckedUpdateManyWithoutTenantsInput = {
   sales_number?: Prisma.IntFieldUpdateOperationsInput | number
   customer_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   total_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type SaleCreateManyCustomersInput = {
@@ -737,15 +737,15 @@ export type SaleCreateManyCustomersInput = {
   sales_number: number
   tenant_id: number
   total_amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type SaleUpdateWithoutCustomersInput = {
   sales_number?: Prisma.IntFieldUpdateOperationsInput | number
   total_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sale_items?: Prisma.SaleItemUpdateManyWithoutSalesNestedInput
   tenants?: Prisma.TenantUpdateOneRequiredWithoutSalesNestedInput
 }
@@ -755,8 +755,8 @@ export type SaleUncheckedUpdateWithoutCustomersInput = {
   sales_number?: Prisma.IntFieldUpdateOperationsInput | number
   tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
   total_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sale_items?: Prisma.SaleItemUncheckedUpdateManyWithoutSalesNestedInput
 }
 
@@ -765,8 +765,8 @@ export type SaleUncheckedUpdateManyWithoutCustomersInput = {
   sales_number?: Prisma.IntFieldUpdateOperationsInput | number
   tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
   total_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -847,8 +847,8 @@ export type $SalePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     tenant_id: number
     customer_id: number | null
     total_amount: runtime.Decimal
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["sale"]>
   composites: {}
 }

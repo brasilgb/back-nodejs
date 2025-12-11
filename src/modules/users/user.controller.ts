@@ -28,7 +28,7 @@ export const userController = {
     async create(req: Request, res: Response): Promise<Response> {
         // 1. Tenta pegar do token (Usuário Comum)
         let tenantId = req.user?.tenant_id;
-        
+
         // Separa os dados do body
         const { retype_password, ...userData } = req.body;
 
@@ -39,8 +39,8 @@ export const userController = {
 
             // 3. Validação de Segurança: Se for Root mas não mandou o ID, bloqueia.
             if (!tenantId) {
-                return res.status(400).json({ 
-                    message: "Superusuários devem informar o tenant_id para cadastrar usuários." 
+                return res.status(400).json({
+                    message: "Superusuários devem informar o tenant_id para cadastrar usuários."
                 });
             }
         }
@@ -51,7 +51,7 @@ export const userController = {
         try {
             // Passamos o tenant ID decidido acima + os dados
             const newUser = await userService.create(tenant, userData);
-            
+
             return res.status(201).json({ // 201 Created é melhor que 200
                 message: "Usuário criado com sucesso!",
                 user: {
@@ -59,12 +59,12 @@ export const userController = {
                     name: newUser.name,
                     email: newUser.email,
                     // Útil retornar o tenant_id para confirmar onde foi criado
-                    tenant_id: newUser.tenant_id 
+                    tenant_id: newUser.tenant_id
                 }
             });
         } catch (error: any) {
-            return res.status(400).json({ 
-                message: error.message || "Erro ao criar usuário" 
+            return res.status(400).json({
+                message: error.message || "Erro ao criar usuário"
             })
         }
     },

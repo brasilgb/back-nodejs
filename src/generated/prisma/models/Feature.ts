@@ -198,8 +198,8 @@ export type FeatureGroupByOutputType = {
   period_id: number | null
   name: string
   order: number
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: FeatureCountAggregateOutputType | null
   _avg: FeatureAvgAggregateOutputType | null
   _sum: FeatureSumAggregateOutputType | null
@@ -230,8 +230,8 @@ export type FeatureWhereInput = {
   period_id?: Prisma.IntNullableFilter<"Feature"> | number | null
   name?: Prisma.StringFilter<"Feature"> | string
   order?: Prisma.IntFilter<"Feature"> | number
-  created_at?: Prisma.DateTimeNullableFilter<"Feature"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Feature"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Feature"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Feature"> | Date | string
   periods?: Prisma.XOR<Prisma.PeriodNullableScalarRelationFilter, Prisma.PeriodWhereInput> | null
 }
 
@@ -240,8 +240,8 @@ export type FeatureOrderByWithRelationInput = {
   period_id?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrder
   order?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   periods?: Prisma.PeriodOrderByWithRelationInput
   _relevance?: Prisma.FeatureOrderByRelevanceInput
 }
@@ -254,8 +254,8 @@ export type FeatureWhereUniqueInput = Prisma.AtLeast<{
   period_id?: Prisma.IntNullableFilter<"Feature"> | number | null
   name?: Prisma.StringFilter<"Feature"> | string
   order?: Prisma.IntFilter<"Feature"> | number
-  created_at?: Prisma.DateTimeNullableFilter<"Feature"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Feature"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Feature"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Feature"> | Date | string
   periods?: Prisma.XOR<Prisma.PeriodNullableScalarRelationFilter, Prisma.PeriodWhereInput> | null
 }, "id">
 
@@ -264,8 +264,8 @@ export type FeatureOrderByWithAggregationInput = {
   period_id?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrder
   order?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.FeatureCountOrderByAggregateInput
   _avg?: Prisma.FeatureAvgOrderByAggregateInput
   _max?: Prisma.FeatureMaxOrderByAggregateInput
@@ -281,15 +281,15 @@ export type FeatureScalarWhereWithAggregatesInput = {
   period_id?: Prisma.IntNullableWithAggregatesFilter<"Feature"> | number | null
   name?: Prisma.StringWithAggregatesFilter<"Feature"> | string
   order?: Prisma.IntWithAggregatesFilter<"Feature"> | number
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Feature"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Feature"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Feature"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Feature"> | Date | string
 }
 
 export type FeatureCreateInput = {
   name: string
   order: number
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   periods?: Prisma.PeriodCreateNestedOneWithoutFeaturesInput
 }
 
@@ -298,15 +298,15 @@ export type FeatureUncheckedCreateInput = {
   period_id?: number | null
   name: string
   order: number
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type FeatureUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   periods?: Prisma.PeriodUpdateOneWithoutFeaturesNestedInput
 }
 
@@ -315,8 +315,8 @@ export type FeatureUncheckedUpdateInput = {
   period_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type FeatureCreateManyInput = {
@@ -324,15 +324,15 @@ export type FeatureCreateManyInput = {
   period_id?: number | null
   name: string
   order: number
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type FeatureUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type FeatureUncheckedUpdateManyInput = {
@@ -340,8 +340,8 @@ export type FeatureUncheckedUpdateManyInput = {
   period_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type FeatureOrderByRelevanceInput = {
@@ -444,16 +444,16 @@ export type FeatureUncheckedUpdateManyWithoutPeriodsNestedInput = {
 export type FeatureCreateWithoutPeriodsInput = {
   name: string
   order: number
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type FeatureUncheckedCreateWithoutPeriodsInput = {
   id?: number
   name: string
   order: number
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type FeatureCreateOrConnectWithoutPeriodsInput = {
@@ -490,39 +490,39 @@ export type FeatureScalarWhereInput = {
   period_id?: Prisma.IntNullableFilter<"Feature"> | number | null
   name?: Prisma.StringFilter<"Feature"> | string
   order?: Prisma.IntFilter<"Feature"> | number
-  created_at?: Prisma.DateTimeNullableFilter<"Feature"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Feature"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Feature"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Feature"> | Date | string
 }
 
 export type FeatureCreateManyPeriodsInput = {
   id?: number
   name: string
   order: number
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type FeatureUpdateWithoutPeriodsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type FeatureUncheckedUpdateWithoutPeriodsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type FeatureUncheckedUpdateManyWithoutPeriodsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -563,8 +563,8 @@ export type $FeaturePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     period_id: number | null
     name: string
     order: number
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["feature"]>
   composites: {}
 }

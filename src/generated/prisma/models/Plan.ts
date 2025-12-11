@@ -190,8 +190,8 @@ export type PlanGroupByOutputType = {
   name: string
   slug: string
   description: string
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: PlanCountAggregateOutputType | null
   _avg: PlanAvgAggregateOutputType | null
   _sum: PlanSumAggregateOutputType | null
@@ -222,8 +222,8 @@ export type PlanWhereInput = {
   name?: Prisma.StringFilter<"Plan"> | string
   slug?: Prisma.StringFilter<"Plan"> | string
   description?: Prisma.StringFilter<"Plan"> | string
-  created_at?: Prisma.DateTimeNullableFilter<"Plan"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Plan"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Plan"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Plan"> | Date | string
   periods?: Prisma.PeriodListRelationFilter
 }
 
@@ -232,8 +232,8 @@ export type PlanOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   periods?: Prisma.PeriodOrderByRelationAggregateInput
   _relevance?: Prisma.PlanOrderByRelevanceInput
 }
@@ -246,8 +246,8 @@ export type PlanWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringFilter<"Plan"> | string
   slug?: Prisma.StringFilter<"Plan"> | string
   description?: Prisma.StringFilter<"Plan"> | string
-  created_at?: Prisma.DateTimeNullableFilter<"Plan"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Plan"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Plan"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Plan"> | Date | string
   periods?: Prisma.PeriodListRelationFilter
 }, "id">
 
@@ -256,8 +256,8 @@ export type PlanOrderByWithAggregationInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.PlanCountOrderByAggregateInput
   _avg?: Prisma.PlanAvgOrderByAggregateInput
   _max?: Prisma.PlanMaxOrderByAggregateInput
@@ -273,16 +273,16 @@ export type PlanScalarWhereWithAggregatesInput = {
   name?: Prisma.StringWithAggregatesFilter<"Plan"> | string
   slug?: Prisma.StringWithAggregatesFilter<"Plan"> | string
   description?: Prisma.StringWithAggregatesFilter<"Plan"> | string
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Plan"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Plan"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Plan"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Plan"> | Date | string
 }
 
 export type PlanCreateInput = {
   name: string
   slug: string
   description: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   periods?: Prisma.PeriodCreateNestedManyWithoutPlansInput
 }
 
@@ -291,8 +291,8 @@ export type PlanUncheckedCreateInput = {
   name: string
   slug: string
   description: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   periods?: Prisma.PeriodUncheckedCreateNestedManyWithoutPlansInput
 }
 
@@ -300,8 +300,8 @@ export type PlanUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   periods?: Prisma.PeriodUpdateManyWithoutPlansNestedInput
 }
 
@@ -310,8 +310,8 @@ export type PlanUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   periods?: Prisma.PeriodUncheckedUpdateManyWithoutPlansNestedInput
 }
 
@@ -320,16 +320,16 @@ export type PlanCreateManyInput = {
   name: string
   slug: string
   description: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PlanUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PlanUncheckedUpdateManyInput = {
@@ -337,8 +337,8 @@ export type PlanUncheckedUpdateManyInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PlanNullableScalarRelationFilter = {
@@ -407,8 +407,8 @@ export type PlanCreateWithoutPeriodsInput = {
   name: string
   slug: string
   description: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PlanUncheckedCreateWithoutPeriodsInput = {
@@ -416,8 +416,8 @@ export type PlanUncheckedCreateWithoutPeriodsInput = {
   name: string
   slug: string
   description: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PlanCreateOrConnectWithoutPeriodsInput = {
@@ -440,8 +440,8 @@ export type PlanUpdateWithoutPeriodsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PlanUncheckedUpdateWithoutPeriodsInput = {
@@ -449,8 +449,8 @@ export type PlanUncheckedUpdateWithoutPeriodsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -522,8 +522,8 @@ export type $PlanPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     name: string
     slug: string
     description: string
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["plan"]>
   composites: {}
 }

@@ -273,8 +273,8 @@ export type PartGroupByOutputType = {
   minimum_stock_level: number
   location: string | null
   status: boolean
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: PartCountAggregateOutputType | null
   _avg: PartAvgAggregateOutputType | null
   _sum: PartSumAggregateOutputType | null
@@ -314,8 +314,8 @@ export type PartWhereInput = {
   minimum_stock_level?: Prisma.IntFilter<"Part"> | number
   location?: Prisma.StringNullableFilter<"Part"> | string | null
   status?: Prisma.BoolFilter<"Part"> | boolean
-  created_at?: Prisma.DateTimeNullableFilter<"Part"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Part"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Part"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Part"> | Date | string
   order_parts?: Prisma.OrderPartListRelationFilter
   part_movements?: Prisma.PartMovementListRelationFilter
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
@@ -336,8 +336,8 @@ export type PartOrderByWithRelationInput = {
   minimum_stock_level?: Prisma.SortOrder
   location?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   order_parts?: Prisma.OrderPartOrderByRelationAggregateInput
   part_movements?: Prisma.PartMovementOrderByRelationAggregateInput
   tenants?: Prisma.TenantOrderByWithRelationInput
@@ -362,8 +362,8 @@ export type PartWhereUniqueInput = Prisma.AtLeast<{
   minimum_stock_level?: Prisma.IntFilter<"Part"> | number
   location?: Prisma.StringNullableFilter<"Part"> | string | null
   status?: Prisma.BoolFilter<"Part"> | boolean
-  created_at?: Prisma.DateTimeNullableFilter<"Part"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Part"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Part"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Part"> | Date | string
   order_parts?: Prisma.OrderPartListRelationFilter
   part_movements?: Prisma.PartMovementListRelationFilter
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
@@ -384,8 +384,8 @@ export type PartOrderByWithAggregationInput = {
   minimum_stock_level?: Prisma.SortOrder
   location?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.PartCountOrderByAggregateInput
   _avg?: Prisma.PartAvgOrderByAggregateInput
   _max?: Prisma.PartMaxOrderByAggregateInput
@@ -410,8 +410,8 @@ export type PartScalarWhereWithAggregatesInput = {
   minimum_stock_level?: Prisma.IntWithAggregatesFilter<"Part"> | number
   location?: Prisma.StringNullableWithAggregatesFilter<"Part"> | string | null
   status?: Prisma.BoolWithAggregatesFilter<"Part"> | boolean
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Part"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Part"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Part"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Part"> | Date | string
 }
 
 export type PartCreateInput = {
@@ -426,8 +426,8 @@ export type PartCreateInput = {
   minimum_stock_level?: number
   location?: string | null
   status?: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   order_parts?: Prisma.OrderPartCreateNestedManyWithoutPartsInput
   part_movements?: Prisma.PartMovementCreateNestedManyWithoutPartsInput
   tenants?: Prisma.TenantCreateNestedOneWithoutPartsInput
@@ -448,8 +448,8 @@ export type PartUncheckedCreateInput = {
   minimum_stock_level?: number
   location?: string | null
   status?: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   order_parts?: Prisma.OrderPartUncheckedCreateNestedManyWithoutPartsInput
   part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutPartsInput
   sale_items?: Prisma.SaleItemUncheckedCreateNestedManyWithoutPartsInput
@@ -467,8 +467,8 @@ export type PartUpdateInput = {
   minimum_stock_level?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   order_parts?: Prisma.OrderPartUpdateManyWithoutPartsNestedInput
   part_movements?: Prisma.PartMovementUpdateManyWithoutPartsNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutPartsNestedInput
@@ -489,8 +489,8 @@ export type PartUncheckedUpdateInput = {
   minimum_stock_level?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   order_parts?: Prisma.OrderPartUncheckedUpdateManyWithoutPartsNestedInput
   part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutPartsNestedInput
   sale_items?: Prisma.SaleItemUncheckedUpdateManyWithoutPartsNestedInput
@@ -510,8 +510,8 @@ export type PartCreateManyInput = {
   minimum_stock_level?: number
   location?: string | null
   status?: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PartUpdateManyMutationInput = {
@@ -526,8 +526,8 @@ export type PartUpdateManyMutationInput = {
   minimum_stock_level?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PartUncheckedUpdateManyInput = {
@@ -544,8 +544,8 @@ export type PartUncheckedUpdateManyInput = {
   minimum_stock_level?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PartListRelationFilter = {
@@ -737,8 +737,8 @@ export type PartCreateWithoutTenantsInput = {
   minimum_stock_level?: number
   location?: string | null
   status?: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   order_parts?: Prisma.OrderPartCreateNestedManyWithoutPartsInput
   part_movements?: Prisma.PartMovementCreateNestedManyWithoutPartsInput
   sale_items?: Prisma.SaleItemCreateNestedManyWithoutPartsInput
@@ -757,8 +757,8 @@ export type PartUncheckedCreateWithoutTenantsInput = {
   minimum_stock_level?: number
   location?: string | null
   status?: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   order_parts?: Prisma.OrderPartUncheckedCreateNestedManyWithoutPartsInput
   part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutPartsInput
   sale_items?: Prisma.SaleItemUncheckedCreateNestedManyWithoutPartsInput
@@ -807,8 +807,8 @@ export type PartScalarWhereInput = {
   minimum_stock_level?: Prisma.IntFilter<"Part"> | number
   location?: Prisma.StringNullableFilter<"Part"> | string | null
   status?: Prisma.BoolFilter<"Part"> | boolean
-  created_at?: Prisma.DateTimeNullableFilter<"Part"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Part"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Part"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Part"> | Date | string
 }
 
 export type PartCreateWithoutOrder_partsInput = {
@@ -823,8 +823,8 @@ export type PartCreateWithoutOrder_partsInput = {
   minimum_stock_level?: number
   location?: string | null
   status?: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   part_movements?: Prisma.PartMovementCreateNestedManyWithoutPartsInput
   tenants?: Prisma.TenantCreateNestedOneWithoutPartsInput
   sale_items?: Prisma.SaleItemCreateNestedManyWithoutPartsInput
@@ -844,8 +844,8 @@ export type PartUncheckedCreateWithoutOrder_partsInput = {
   minimum_stock_level?: number
   location?: string | null
   status?: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutPartsInput
   sale_items?: Prisma.SaleItemUncheckedCreateNestedManyWithoutPartsInput
 }
@@ -878,8 +878,8 @@ export type PartUpdateWithoutOrder_partsInput = {
   minimum_stock_level?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   part_movements?: Prisma.PartMovementUpdateManyWithoutPartsNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutPartsNestedInput
   sale_items?: Prisma.SaleItemUpdateManyWithoutPartsNestedInput
@@ -899,8 +899,8 @@ export type PartUncheckedUpdateWithoutOrder_partsInput = {
   minimum_stock_level?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutPartsNestedInput
   sale_items?: Prisma.SaleItemUncheckedUpdateManyWithoutPartsNestedInput
 }
@@ -917,8 +917,8 @@ export type PartCreateWithoutPart_movementsInput = {
   minimum_stock_level?: number
   location?: string | null
   status?: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   order_parts?: Prisma.OrderPartCreateNestedManyWithoutPartsInput
   tenants?: Prisma.TenantCreateNestedOneWithoutPartsInput
   sale_items?: Prisma.SaleItemCreateNestedManyWithoutPartsInput
@@ -938,8 +938,8 @@ export type PartUncheckedCreateWithoutPart_movementsInput = {
   minimum_stock_level?: number
   location?: string | null
   status?: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   order_parts?: Prisma.OrderPartUncheckedCreateNestedManyWithoutPartsInput
   sale_items?: Prisma.SaleItemUncheckedCreateNestedManyWithoutPartsInput
 }
@@ -972,8 +972,8 @@ export type PartUpdateWithoutPart_movementsInput = {
   minimum_stock_level?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   order_parts?: Prisma.OrderPartUpdateManyWithoutPartsNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutPartsNestedInput
   sale_items?: Prisma.SaleItemUpdateManyWithoutPartsNestedInput
@@ -993,8 +993,8 @@ export type PartUncheckedUpdateWithoutPart_movementsInput = {
   minimum_stock_level?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   order_parts?: Prisma.OrderPartUncheckedUpdateManyWithoutPartsNestedInput
   sale_items?: Prisma.SaleItemUncheckedUpdateManyWithoutPartsNestedInput
 }
@@ -1011,8 +1011,8 @@ export type PartCreateWithoutSale_itemsInput = {
   minimum_stock_level?: number
   location?: string | null
   status?: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   order_parts?: Prisma.OrderPartCreateNestedManyWithoutPartsInput
   part_movements?: Prisma.PartMovementCreateNestedManyWithoutPartsInput
   tenants?: Prisma.TenantCreateNestedOneWithoutPartsInput
@@ -1032,8 +1032,8 @@ export type PartUncheckedCreateWithoutSale_itemsInput = {
   minimum_stock_level?: number
   location?: string | null
   status?: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   order_parts?: Prisma.OrderPartUncheckedCreateNestedManyWithoutPartsInput
   part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutPartsInput
 }
@@ -1066,8 +1066,8 @@ export type PartUpdateWithoutSale_itemsInput = {
   minimum_stock_level?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   order_parts?: Prisma.OrderPartUpdateManyWithoutPartsNestedInput
   part_movements?: Prisma.PartMovementUpdateManyWithoutPartsNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutPartsNestedInput
@@ -1087,8 +1087,8 @@ export type PartUncheckedUpdateWithoutSale_itemsInput = {
   minimum_stock_level?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   order_parts?: Prisma.OrderPartUncheckedUpdateManyWithoutPartsNestedInput
   part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutPartsNestedInput
 }
@@ -1106,8 +1106,8 @@ export type PartCreateManyTenantsInput = {
   minimum_stock_level?: number
   location?: string | null
   status?: boolean
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PartUpdateWithoutTenantsInput = {
@@ -1122,8 +1122,8 @@ export type PartUpdateWithoutTenantsInput = {
   minimum_stock_level?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   order_parts?: Prisma.OrderPartUpdateManyWithoutPartsNestedInput
   part_movements?: Prisma.PartMovementUpdateManyWithoutPartsNestedInput
   sale_items?: Prisma.SaleItemUpdateManyWithoutPartsNestedInput
@@ -1142,8 +1142,8 @@ export type PartUncheckedUpdateWithoutTenantsInput = {
   minimum_stock_level?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   order_parts?: Prisma.OrderPartUncheckedUpdateManyWithoutPartsNestedInput
   part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutPartsNestedInput
   sale_items?: Prisma.SaleItemUncheckedUpdateManyWithoutPartsNestedInput
@@ -1162,8 +1162,8 @@ export type PartUncheckedUpdateManyWithoutTenantsInput = {
   minimum_stock_level?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -1289,8 +1289,8 @@ export type $PartPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     minimum_stock_level: number
     location: string | null
     status: boolean
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["part"]>
   composites: {}
 }

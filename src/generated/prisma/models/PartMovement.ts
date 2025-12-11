@@ -238,8 +238,8 @@ export type PartMovementGroupByOutputType = {
   movement_type: $Enums.part_movements_movement_type
   quantity: number
   reason: string
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: PartMovementCountAggregateOutputType | null
   _avg: PartMovementAvgAggregateOutputType | null
   _sum: PartMovementSumAggregateOutputType | null
@@ -274,8 +274,8 @@ export type PartMovementWhereInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFilter<"PartMovement"> | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFilter<"PartMovement"> | number
   reason?: Prisma.StringFilter<"PartMovement"> | string
-  created_at?: Prisma.DateTimeNullableFilter<"PartMovement"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"PartMovement"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"PartMovement"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"PartMovement"> | Date | string
   orders?: Prisma.XOR<Prisma.OrderNullableScalarRelationFilter, Prisma.OrderWhereInput> | null
   parts?: Prisma.XOR<Prisma.PartScalarRelationFilter, Prisma.PartWhereInput>
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
@@ -291,8 +291,8 @@ export type PartMovementOrderByWithRelationInput = {
   movement_type?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   reason?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   orders?: Prisma.OrderOrderByWithRelationInput
   parts?: Prisma.PartOrderByWithRelationInput
   tenants?: Prisma.TenantOrderByWithRelationInput
@@ -312,8 +312,8 @@ export type PartMovementWhereUniqueInput = Prisma.AtLeast<{
   movement_type?: Prisma.Enumpart_movements_movement_typeFilter<"PartMovement"> | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFilter<"PartMovement"> | number
   reason?: Prisma.StringFilter<"PartMovement"> | string
-  created_at?: Prisma.DateTimeNullableFilter<"PartMovement"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"PartMovement"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"PartMovement"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"PartMovement"> | Date | string
   orders?: Prisma.XOR<Prisma.OrderNullableScalarRelationFilter, Prisma.OrderWhereInput> | null
   parts?: Prisma.XOR<Prisma.PartScalarRelationFilter, Prisma.PartWhereInput>
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
@@ -329,8 +329,8 @@ export type PartMovementOrderByWithAggregationInput = {
   movement_type?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   reason?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.PartMovementCountOrderByAggregateInput
   _avg?: Prisma.PartMovementAvgOrderByAggregateInput
   _max?: Prisma.PartMovementMaxOrderByAggregateInput
@@ -350,16 +350,16 @@ export type PartMovementScalarWhereWithAggregatesInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeWithAggregatesFilter<"PartMovement"> | $Enums.part_movements_movement_type
   quantity?: Prisma.IntWithAggregatesFilter<"PartMovement"> | number
   reason?: Prisma.StringWithAggregatesFilter<"PartMovement"> | string
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"PartMovement"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"PartMovement"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"PartMovement"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"PartMovement"> | Date | string
 }
 
 export type PartMovementCreateInput = {
   movement_type: $Enums.part_movements_movement_type
   quantity: number
   reason: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   orders?: Prisma.OrderCreateNestedOneWithoutPart_movementsInput
   parts: Prisma.PartCreateNestedOneWithoutPart_movementsInput
   tenants?: Prisma.TenantCreateNestedOneWithoutPart_movementsInput
@@ -375,16 +375,16 @@ export type PartMovementUncheckedCreateInput = {
   movement_type: $Enums.part_movements_movement_type
   quantity: number
   reason: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PartMovementUpdateInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFieldUpdateOperationsInput | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   orders?: Prisma.OrderUpdateOneWithoutPart_movementsNestedInput
   parts?: Prisma.PartUpdateOneRequiredWithoutPart_movementsNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutPart_movementsNestedInput
@@ -400,8 +400,8 @@ export type PartMovementUncheckedUpdateInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFieldUpdateOperationsInput | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PartMovementCreateManyInput = {
@@ -413,16 +413,16 @@ export type PartMovementCreateManyInput = {
   movement_type: $Enums.part_movements_movement_type
   quantity: number
   reason: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PartMovementUpdateManyMutationInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFieldUpdateOperationsInput | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PartMovementUncheckedUpdateManyInput = {
@@ -434,8 +434,8 @@ export type PartMovementUncheckedUpdateManyInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFieldUpdateOperationsInput | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PartMovementListRelationFilter = {
@@ -687,8 +687,8 @@ export type PartMovementCreateWithoutTenantsInput = {
   movement_type: $Enums.part_movements_movement_type
   quantity: number
   reason: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   orders?: Prisma.OrderCreateNestedOneWithoutPart_movementsInput
   parts: Prisma.PartCreateNestedOneWithoutPart_movementsInput
   users: Prisma.UserCreateNestedOneWithoutPart_movementsInput
@@ -702,8 +702,8 @@ export type PartMovementUncheckedCreateWithoutTenantsInput = {
   movement_type: $Enums.part_movements_movement_type
   quantity: number
   reason: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PartMovementCreateOrConnectWithoutTenantsInput = {
@@ -744,16 +744,16 @@ export type PartMovementScalarWhereInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFilter<"PartMovement"> | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFilter<"PartMovement"> | number
   reason?: Prisma.StringFilter<"PartMovement"> | string
-  created_at?: Prisma.DateTimeNullableFilter<"PartMovement"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"PartMovement"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"PartMovement"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"PartMovement"> | Date | string
 }
 
 export type PartMovementCreateWithoutUsersInput = {
   movement_type: $Enums.part_movements_movement_type
   quantity: number
   reason: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   orders?: Prisma.OrderCreateNestedOneWithoutPart_movementsInput
   parts: Prisma.PartCreateNestedOneWithoutPart_movementsInput
   tenants?: Prisma.TenantCreateNestedOneWithoutPart_movementsInput
@@ -767,8 +767,8 @@ export type PartMovementUncheckedCreateWithoutUsersInput = {
   movement_type: $Enums.part_movements_movement_type
   quantity: number
   reason: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PartMovementCreateOrConnectWithoutUsersInput = {
@@ -801,8 +801,8 @@ export type PartMovementCreateWithoutOrdersInput = {
   movement_type: $Enums.part_movements_movement_type
   quantity: number
   reason: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   parts: Prisma.PartCreateNestedOneWithoutPart_movementsInput
   tenants?: Prisma.TenantCreateNestedOneWithoutPart_movementsInput
   users: Prisma.UserCreateNestedOneWithoutPart_movementsInput
@@ -816,8 +816,8 @@ export type PartMovementUncheckedCreateWithoutOrdersInput = {
   movement_type: $Enums.part_movements_movement_type
   quantity: number
   reason: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PartMovementCreateOrConnectWithoutOrdersInput = {
@@ -850,8 +850,8 @@ export type PartMovementCreateWithoutPartsInput = {
   movement_type: $Enums.part_movements_movement_type
   quantity: number
   reason: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   orders?: Prisma.OrderCreateNestedOneWithoutPart_movementsInput
   tenants?: Prisma.TenantCreateNestedOneWithoutPart_movementsInput
   users: Prisma.UserCreateNestedOneWithoutPart_movementsInput
@@ -865,8 +865,8 @@ export type PartMovementUncheckedCreateWithoutPartsInput = {
   movement_type: $Enums.part_movements_movement_type
   quantity: number
   reason: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PartMovementCreateOrConnectWithoutPartsInput = {
@@ -903,16 +903,16 @@ export type PartMovementCreateManyTenantsInput = {
   movement_type: $Enums.part_movements_movement_type
   quantity: number
   reason: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PartMovementUpdateWithoutTenantsInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFieldUpdateOperationsInput | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   orders?: Prisma.OrderUpdateOneWithoutPart_movementsNestedInput
   parts?: Prisma.PartUpdateOneRequiredWithoutPart_movementsNestedInput
   users?: Prisma.UserUpdateOneRequiredWithoutPart_movementsNestedInput
@@ -926,8 +926,8 @@ export type PartMovementUncheckedUpdateWithoutTenantsInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFieldUpdateOperationsInput | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PartMovementUncheckedUpdateManyWithoutTenantsInput = {
@@ -938,8 +938,8 @@ export type PartMovementUncheckedUpdateManyWithoutTenantsInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFieldUpdateOperationsInput | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PartMovementCreateManyUsersInput = {
@@ -950,16 +950,16 @@ export type PartMovementCreateManyUsersInput = {
   movement_type: $Enums.part_movements_movement_type
   quantity: number
   reason: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PartMovementUpdateWithoutUsersInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFieldUpdateOperationsInput | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   orders?: Prisma.OrderUpdateOneWithoutPart_movementsNestedInput
   parts?: Prisma.PartUpdateOneRequiredWithoutPart_movementsNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutPart_movementsNestedInput
@@ -973,8 +973,8 @@ export type PartMovementUncheckedUpdateWithoutUsersInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFieldUpdateOperationsInput | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PartMovementUncheckedUpdateManyWithoutUsersInput = {
@@ -985,8 +985,8 @@ export type PartMovementUncheckedUpdateManyWithoutUsersInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFieldUpdateOperationsInput | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PartMovementCreateManyOrdersInput = {
@@ -997,16 +997,16 @@ export type PartMovementCreateManyOrdersInput = {
   movement_type: $Enums.part_movements_movement_type
   quantity: number
   reason: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PartMovementUpdateWithoutOrdersInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFieldUpdateOperationsInput | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   parts?: Prisma.PartUpdateOneRequiredWithoutPart_movementsNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutPart_movementsNestedInput
   users?: Prisma.UserUpdateOneRequiredWithoutPart_movementsNestedInput
@@ -1020,8 +1020,8 @@ export type PartMovementUncheckedUpdateWithoutOrdersInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFieldUpdateOperationsInput | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PartMovementUncheckedUpdateManyWithoutOrdersInput = {
@@ -1032,8 +1032,8 @@ export type PartMovementUncheckedUpdateManyWithoutOrdersInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFieldUpdateOperationsInput | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PartMovementCreateManyPartsInput = {
@@ -1044,16 +1044,16 @@ export type PartMovementCreateManyPartsInput = {
   movement_type: $Enums.part_movements_movement_type
   quantity: number
   reason: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PartMovementUpdateWithoutPartsInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFieldUpdateOperationsInput | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   orders?: Prisma.OrderUpdateOneWithoutPart_movementsNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutPart_movementsNestedInput
   users?: Prisma.UserUpdateOneRequiredWithoutPart_movementsNestedInput
@@ -1067,8 +1067,8 @@ export type PartMovementUncheckedUpdateWithoutPartsInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFieldUpdateOperationsInput | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PartMovementUncheckedUpdateManyWithoutPartsInput = {
@@ -1079,8 +1079,8 @@ export type PartMovementUncheckedUpdateManyWithoutPartsInput = {
   movement_type?: Prisma.Enumpart_movements_movement_typeFieldUpdateOperationsInput | $Enums.part_movements_movement_type
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -1142,8 +1142,8 @@ export type $PartMovementPayload<ExtArgs extends runtime.Types.Extensions.Intern
     movement_type: $Enums.part_movements_movement_type
     quantity: number
     reason: string
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["partMovement"]>
   composites: {}
 }

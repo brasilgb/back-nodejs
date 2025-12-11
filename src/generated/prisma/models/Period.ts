@@ -216,8 +216,8 @@ export type PeriodGroupByOutputType = {
   interval: string
   interval_count: number
   price: runtime.Decimal
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: PeriodCountAggregateOutputType | null
   _avg: PeriodAvgAggregateOutputType | null
   _sum: PeriodSumAggregateOutputType | null
@@ -250,8 +250,8 @@ export type PeriodWhereInput = {
   interval?: Prisma.StringFilter<"Period"> | string
   interval_count?: Prisma.IntFilter<"Period"> | number
   price?: Prisma.DecimalFilter<"Period"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.DateTimeNullableFilter<"Period"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Period"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Period"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Period"> | Date | string
   features?: Prisma.FeatureListRelationFilter
   plans?: Prisma.XOR<Prisma.PlanNullableScalarRelationFilter, Prisma.PlanWhereInput> | null
 }
@@ -263,8 +263,8 @@ export type PeriodOrderByWithRelationInput = {
   interval?: Prisma.SortOrder
   interval_count?: Prisma.SortOrder
   price?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   features?: Prisma.FeatureOrderByRelationAggregateInput
   plans?: Prisma.PlanOrderByWithRelationInput
   _relevance?: Prisma.PeriodOrderByRelevanceInput
@@ -280,8 +280,8 @@ export type PeriodWhereUniqueInput = Prisma.AtLeast<{
   interval?: Prisma.StringFilter<"Period"> | string
   interval_count?: Prisma.IntFilter<"Period"> | number
   price?: Prisma.DecimalFilter<"Period"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.DateTimeNullableFilter<"Period"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Period"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Period"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Period"> | Date | string
   features?: Prisma.FeatureListRelationFilter
   plans?: Prisma.XOR<Prisma.PlanNullableScalarRelationFilter, Prisma.PlanWhereInput> | null
 }, "id">
@@ -293,8 +293,8 @@ export type PeriodOrderByWithAggregationInput = {
   interval?: Prisma.SortOrder
   interval_count?: Prisma.SortOrder
   price?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.PeriodCountOrderByAggregateInput
   _avg?: Prisma.PeriodAvgOrderByAggregateInput
   _max?: Prisma.PeriodMaxOrderByAggregateInput
@@ -312,8 +312,8 @@ export type PeriodScalarWhereWithAggregatesInput = {
   interval?: Prisma.StringWithAggregatesFilter<"Period"> | string
   interval_count?: Prisma.IntWithAggregatesFilter<"Period"> | number
   price?: Prisma.DecimalWithAggregatesFilter<"Period"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Period"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Period"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Period"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Period"> | Date | string
 }
 
 export type PeriodCreateInput = {
@@ -321,8 +321,8 @@ export type PeriodCreateInput = {
   interval: string
   interval_count: number
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   features?: Prisma.FeatureCreateNestedManyWithoutPeriodsInput
   plans?: Prisma.PlanCreateNestedOneWithoutPeriodsInput
 }
@@ -334,8 +334,8 @@ export type PeriodUncheckedCreateInput = {
   interval: string
   interval_count: number
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   features?: Prisma.FeatureUncheckedCreateNestedManyWithoutPeriodsInput
 }
 
@@ -344,8 +344,8 @@ export type PeriodUpdateInput = {
   interval?: Prisma.StringFieldUpdateOperationsInput | string
   interval_count?: Prisma.IntFieldUpdateOperationsInput | number
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   features?: Prisma.FeatureUpdateManyWithoutPeriodsNestedInput
   plans?: Prisma.PlanUpdateOneWithoutPeriodsNestedInput
 }
@@ -357,8 +357,8 @@ export type PeriodUncheckedUpdateInput = {
   interval?: Prisma.StringFieldUpdateOperationsInput | string
   interval_count?: Prisma.IntFieldUpdateOperationsInput | number
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   features?: Prisma.FeatureUncheckedUpdateManyWithoutPeriodsNestedInput
 }
 
@@ -369,8 +369,8 @@ export type PeriodCreateManyInput = {
   interval: string
   interval_count: number
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PeriodUpdateManyMutationInput = {
@@ -378,8 +378,8 @@ export type PeriodUpdateManyMutationInput = {
   interval?: Prisma.StringFieldUpdateOperationsInput | string
   interval_count?: Prisma.IntFieldUpdateOperationsInput | number
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PeriodUncheckedUpdateManyInput = {
@@ -389,8 +389,8 @@ export type PeriodUncheckedUpdateManyInput = {
   interval?: Prisma.StringFieldUpdateOperationsInput | string
   interval_count?: Prisma.IntFieldUpdateOperationsInput | number
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PeriodNullableScalarRelationFilter = {
@@ -524,8 +524,8 @@ export type PeriodCreateWithoutFeaturesInput = {
   interval: string
   interval_count: number
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   plans?: Prisma.PlanCreateNestedOneWithoutPeriodsInput
 }
 
@@ -536,8 +536,8 @@ export type PeriodUncheckedCreateWithoutFeaturesInput = {
   interval: string
   interval_count: number
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PeriodCreateOrConnectWithoutFeaturesInput = {
@@ -561,8 +561,8 @@ export type PeriodUpdateWithoutFeaturesInput = {
   interval?: Prisma.StringFieldUpdateOperationsInput | string
   interval_count?: Prisma.IntFieldUpdateOperationsInput | number
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   plans?: Prisma.PlanUpdateOneWithoutPeriodsNestedInput
 }
 
@@ -573,8 +573,8 @@ export type PeriodUncheckedUpdateWithoutFeaturesInput = {
   interval?: Prisma.StringFieldUpdateOperationsInput | string
   interval_count?: Prisma.IntFieldUpdateOperationsInput | number
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PeriodCreateWithoutPlansInput = {
@@ -582,8 +582,8 @@ export type PeriodCreateWithoutPlansInput = {
   interval: string
   interval_count: number
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   features?: Prisma.FeatureCreateNestedManyWithoutPeriodsInput
 }
 
@@ -593,8 +593,8 @@ export type PeriodUncheckedCreateWithoutPlansInput = {
   interval: string
   interval_count: number
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   features?: Prisma.FeatureUncheckedCreateNestedManyWithoutPeriodsInput
 }
 
@@ -634,8 +634,8 @@ export type PeriodScalarWhereInput = {
   interval?: Prisma.StringFilter<"Period"> | string
   interval_count?: Prisma.IntFilter<"Period"> | number
   price?: Prisma.DecimalFilter<"Period"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.DateTimeNullableFilter<"Period"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Period"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Period"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Period"> | Date | string
 }
 
 export type PeriodCreateManyPlansInput = {
@@ -644,8 +644,8 @@ export type PeriodCreateManyPlansInput = {
   interval: string
   interval_count: number
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type PeriodUpdateWithoutPlansInput = {
@@ -653,8 +653,8 @@ export type PeriodUpdateWithoutPlansInput = {
   interval?: Prisma.StringFieldUpdateOperationsInput | string
   interval_count?: Prisma.IntFieldUpdateOperationsInput | number
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   features?: Prisma.FeatureUpdateManyWithoutPeriodsNestedInput
 }
 
@@ -664,8 +664,8 @@ export type PeriodUncheckedUpdateWithoutPlansInput = {
   interval?: Prisma.StringFieldUpdateOperationsInput | string
   interval_count?: Prisma.IntFieldUpdateOperationsInput | number
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   features?: Prisma.FeatureUncheckedUpdateManyWithoutPeriodsNestedInput
 }
 
@@ -675,8 +675,8 @@ export type PeriodUncheckedUpdateManyWithoutPlansInput = {
   interval?: Prisma.StringFieldUpdateOperationsInput | string
   interval_count?: Prisma.IntFieldUpdateOperationsInput | number
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -757,8 +757,8 @@ export type $PeriodPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     interval: string
     interval_count: number
     price: runtime.Decimal
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["period"]>
   composites: {}
 }

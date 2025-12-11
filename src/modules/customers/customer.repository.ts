@@ -1,0 +1,66 @@
+import { prisma } from "../../lib/prisma";
+import { getNextSequence } from "../../utils/sequence"; // Seu utilitário
+
+class CustomerRepository {
+
+    async findAll(tenantId: number) {
+        return prisma.customer.findMany({
+            where: { tenant_id: tenantId },
+            orderBy: { customer_number: 'desc' }
+        });
+    }
+
+    async findById(id: number, tenantId: number) {
+        return prisma.customer.findFirst({
+            where: { id: id, tenant_id: tenantId }
+        });
+    }
+
+    // Busca por CPF/CNPJ dentro do tenant para evitar duplicidade
+    async findByCpf(cpf: string, tenantId: number) {
+        return prisma.customer.findFirst({
+            where: { 
+                cpf: cpf,
+                tenant_id: tenantId 
+            }
+        });
+    }
+
+    async create(tenantId: number, data: any) {
+        return prisma.$transaction(async (tx) => {
+            
+            const nextCode = await getNextSequence(tx.customer, tenantId, 'customer_number');
+            const birthData = data.birth ? new Date(data.birth) : null;
+            const addressNumber = data.number ? data.number : null;
+
+            // 2. Cria o cliente
+            return tx.customer.create({
+                data: {
+                    ...data,
+                    tenant_id: tenantId,
+                    customer_number: nextCode,
+                    birth: birthData,
+                    number: addressNumber
+                }
+            });
+        });
+    }
+
+    async update(id: number, tenantId: number, data: any) {
+        return prisma.customer.updateMany({
+            where: { id: id, tenant_id: tenantId },
+            data: {
+                ...data,
+                updated_at: new Date()
+            }
+        });
+    }
+
+    async delete(id: number, tenantId: number) {
+        return prisma.customer.deleteMany({
+            where: { id: id, tenant_id: tenantId }
+        });
+    }
+}
+
+export const customerRepository = new CustomerRepository();

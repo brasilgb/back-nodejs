@@ -359,8 +359,8 @@ export type OrderGroupByOutputType = {
   delivery_date: Date | null
   responsible_technician: string | null
   feedback: boolean | null
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: OrderCountAggregateOutputType | null
   _avg: OrderAvgAggregateOutputType | null
   _sum: OrderSumAggregateOutputType | null
@@ -410,8 +410,8 @@ export type OrderWhereInput = {
   delivery_date?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
   responsible_technician?: Prisma.StringNullableFilter<"Order"> | string | null
   feedback?: Prisma.BoolNullableFilter<"Order"> | boolean | null
-  created_at?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Order"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Order"> | Date | string
   images?: Prisma.ImageListRelationFilter
   order_parts?: Prisma.OrderPartListRelationFilter
   customers?: Prisma.XOR<Prisma.CustomerNullableScalarRelationFilter, Prisma.CustomerWhereInput> | null
@@ -444,8 +444,8 @@ export type OrderOrderByWithRelationInput = {
   delivery_date?: Prisma.SortOrderInput | Prisma.SortOrder
   responsible_technician?: Prisma.SortOrderInput | Prisma.SortOrder
   feedback?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   images?: Prisma.ImageOrderByRelationAggregateInput
   order_parts?: Prisma.OrderPartOrderByRelationAggregateInput
   customers?: Prisma.CustomerOrderByWithRelationInput
@@ -482,8 +482,8 @@ export type OrderWhereUniqueInput = Prisma.AtLeast<{
   delivery_date?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
   responsible_technician?: Prisma.StringNullableFilter<"Order"> | string | null
   feedback?: Prisma.BoolNullableFilter<"Order"> | boolean | null
-  created_at?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Order"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Order"> | Date | string
   images?: Prisma.ImageListRelationFilter
   order_parts?: Prisma.OrderPartListRelationFilter
   customers?: Prisma.XOR<Prisma.CustomerNullableScalarRelationFilter, Prisma.CustomerWhereInput> | null
@@ -516,8 +516,8 @@ export type OrderOrderByWithAggregationInput = {
   delivery_date?: Prisma.SortOrderInput | Prisma.SortOrder
   responsible_technician?: Prisma.SortOrderInput | Prisma.SortOrder
   feedback?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.OrderCountOrderByAggregateInput
   _avg?: Prisma.OrderAvgOrderByAggregateInput
   _max?: Prisma.OrderMaxOrderByAggregateInput
@@ -552,8 +552,8 @@ export type OrderScalarWhereWithAggregatesInput = {
   delivery_date?: Prisma.DateTimeNullableWithAggregatesFilter<"Order"> | Date | string | null
   responsible_technician?: Prisma.StringNullableWithAggregatesFilter<"Order"> | string | null
   feedback?: Prisma.BoolNullableWithAggregatesFilter<"Order"> | boolean | null
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Order"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Order"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Order"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Order"> | Date | string
 }
 
 export type OrderCreateInput = {
@@ -576,8 +576,8 @@ export type OrderCreateInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   images?: Prisma.ImageCreateNestedManyWithoutOrdersInput
   order_parts?: Prisma.OrderPartCreateNestedManyWithoutOrdersInput
   customers?: Prisma.CustomerCreateNestedOneWithoutOrdersInput
@@ -610,8 +610,8 @@ export type OrderUncheckedCreateInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutOrdersInput
   order_parts?: Prisma.OrderPartUncheckedCreateNestedManyWithoutOrdersInput
   part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutOrdersInput
@@ -637,8 +637,8 @@ export type OrderUpdateInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUpdateManyWithoutOrdersNestedInput
   order_parts?: Prisma.OrderPartUpdateManyWithoutOrdersNestedInput
   customers?: Prisma.CustomerUpdateOneWithoutOrdersNestedInput
@@ -671,8 +671,8 @@ export type OrderUncheckedUpdateInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUncheckedUpdateManyWithoutOrdersNestedInput
   order_parts?: Prisma.OrderPartUncheckedUpdateManyWithoutOrdersNestedInput
   part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutOrdersNestedInput
@@ -702,8 +702,8 @@ export type OrderCreateManyInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type OrderUpdateManyMutationInput = {
@@ -726,8 +726,8 @@ export type OrderUpdateManyMutationInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type OrderUncheckedUpdateManyInput = {
@@ -754,8 +754,8 @@ export type OrderUncheckedUpdateManyInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type OrderListRelationFilter = {
@@ -1084,8 +1084,8 @@ export type OrderCreateWithoutTenantsInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   images?: Prisma.ImageCreateNestedManyWithoutOrdersInput
   order_parts?: Prisma.OrderPartCreateNestedManyWithoutOrdersInput
   customers?: Prisma.CustomerCreateNestedOneWithoutOrdersInput
@@ -1116,8 +1116,8 @@ export type OrderUncheckedCreateWithoutTenantsInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutOrdersInput
   order_parts?: Prisma.OrderPartUncheckedCreateNestedManyWithoutOrdersInput
   part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutOrdersInput
@@ -1176,8 +1176,8 @@ export type OrderScalarWhereInput = {
   delivery_date?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
   responsible_technician?: Prisma.StringNullableFilter<"Order"> | string | null
   feedback?: Prisma.BoolNullableFilter<"Order"> | boolean | null
-  created_at?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Order"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Order"> | Date | string
 }
 
 export type OrderCreateWithoutCustomersInput = {
@@ -1200,8 +1200,8 @@ export type OrderCreateWithoutCustomersInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   images?: Prisma.ImageCreateNestedManyWithoutOrdersInput
   order_parts?: Prisma.OrderPartCreateNestedManyWithoutOrdersInput
   equipment?: Prisma.EquipmentCreateNestedOneWithoutOrdersInput
@@ -1232,8 +1232,8 @@ export type OrderUncheckedCreateWithoutCustomersInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutOrdersInput
   order_parts?: Prisma.OrderPartUncheckedCreateNestedManyWithoutOrdersInput
   part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutOrdersInput
@@ -1285,8 +1285,8 @@ export type OrderCreateWithoutEquipmentInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   images?: Prisma.ImageCreateNestedManyWithoutOrdersInput
   order_parts?: Prisma.OrderPartCreateNestedManyWithoutOrdersInput
   customers?: Prisma.CustomerCreateNestedOneWithoutOrdersInput
@@ -1317,8 +1317,8 @@ export type OrderUncheckedCreateWithoutEquipmentInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutOrdersInput
   order_parts?: Prisma.OrderPartUncheckedCreateNestedManyWithoutOrdersInput
   part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutOrdersInput
@@ -1370,8 +1370,8 @@ export type OrderCreateWithoutImagesInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   order_parts?: Prisma.OrderPartCreateNestedManyWithoutOrdersInput
   customers?: Prisma.CustomerCreateNestedOneWithoutOrdersInput
   equipment?: Prisma.EquipmentCreateNestedOneWithoutOrdersInput
@@ -1403,8 +1403,8 @@ export type OrderUncheckedCreateWithoutImagesInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   order_parts?: Prisma.OrderPartUncheckedCreateNestedManyWithoutOrdersInput
   part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutOrdersInput
 }
@@ -1445,8 +1445,8 @@ export type OrderUpdateWithoutImagesInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   order_parts?: Prisma.OrderPartUpdateManyWithoutOrdersNestedInput
   customers?: Prisma.CustomerUpdateOneWithoutOrdersNestedInput
   equipment?: Prisma.EquipmentUpdateOneWithoutOrdersNestedInput
@@ -1478,8 +1478,8 @@ export type OrderUncheckedUpdateWithoutImagesInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   order_parts?: Prisma.OrderPartUncheckedUpdateManyWithoutOrdersNestedInput
   part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutOrdersNestedInput
 }
@@ -1504,8 +1504,8 @@ export type OrderCreateWithoutOrder_partsInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   images?: Prisma.ImageCreateNestedManyWithoutOrdersInput
   customers?: Prisma.CustomerCreateNestedOneWithoutOrdersInput
   equipment?: Prisma.EquipmentCreateNestedOneWithoutOrdersInput
@@ -1537,8 +1537,8 @@ export type OrderUncheckedCreateWithoutOrder_partsInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutOrdersInput
   part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutOrdersInput
 }
@@ -1579,8 +1579,8 @@ export type OrderUpdateWithoutOrder_partsInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUpdateManyWithoutOrdersNestedInput
   customers?: Prisma.CustomerUpdateOneWithoutOrdersNestedInput
   equipment?: Prisma.EquipmentUpdateOneWithoutOrdersNestedInput
@@ -1612,8 +1612,8 @@ export type OrderUncheckedUpdateWithoutOrder_partsInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUncheckedUpdateManyWithoutOrdersNestedInput
   part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutOrdersNestedInput
 }
@@ -1638,8 +1638,8 @@ export type OrderCreateWithoutPart_movementsInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   images?: Prisma.ImageCreateNestedManyWithoutOrdersInput
   order_parts?: Prisma.OrderPartCreateNestedManyWithoutOrdersInput
   customers?: Prisma.CustomerCreateNestedOneWithoutOrdersInput
@@ -1671,8 +1671,8 @@ export type OrderUncheckedCreateWithoutPart_movementsInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutOrdersInput
   order_parts?: Prisma.OrderPartUncheckedCreateNestedManyWithoutOrdersInput
 }
@@ -1713,8 +1713,8 @@ export type OrderUpdateWithoutPart_movementsInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUpdateManyWithoutOrdersNestedInput
   order_parts?: Prisma.OrderPartUpdateManyWithoutOrdersNestedInput
   customers?: Prisma.CustomerUpdateOneWithoutOrdersNestedInput
@@ -1746,8 +1746,8 @@ export type OrderUncheckedUpdateWithoutPart_movementsInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUncheckedUpdateManyWithoutOrdersNestedInput
   order_parts?: Prisma.OrderPartUncheckedUpdateManyWithoutOrdersNestedInput
 }
@@ -1775,8 +1775,8 @@ export type OrderCreateManyTenantsInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type OrderUpdateWithoutTenantsInput = {
@@ -1799,8 +1799,8 @@ export type OrderUpdateWithoutTenantsInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUpdateManyWithoutOrdersNestedInput
   order_parts?: Prisma.OrderPartUpdateManyWithoutOrdersNestedInput
   customers?: Prisma.CustomerUpdateOneWithoutOrdersNestedInput
@@ -1831,8 +1831,8 @@ export type OrderUncheckedUpdateWithoutTenantsInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUncheckedUpdateManyWithoutOrdersNestedInput
   order_parts?: Prisma.OrderPartUncheckedUpdateManyWithoutOrdersNestedInput
   part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutOrdersNestedInput
@@ -1861,8 +1861,8 @@ export type OrderUncheckedUpdateManyWithoutTenantsInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type OrderCreateManyCustomersInput = {
@@ -1888,8 +1888,8 @@ export type OrderCreateManyCustomersInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type OrderUpdateWithoutCustomersInput = {
@@ -1912,8 +1912,8 @@ export type OrderUpdateWithoutCustomersInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUpdateManyWithoutOrdersNestedInput
   order_parts?: Prisma.OrderPartUpdateManyWithoutOrdersNestedInput
   equipment?: Prisma.EquipmentUpdateOneWithoutOrdersNestedInput
@@ -1944,8 +1944,8 @@ export type OrderUncheckedUpdateWithoutCustomersInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUncheckedUpdateManyWithoutOrdersNestedInput
   order_parts?: Prisma.OrderPartUncheckedUpdateManyWithoutOrdersNestedInput
   part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutOrdersNestedInput
@@ -1974,8 +1974,8 @@ export type OrderUncheckedUpdateManyWithoutCustomersInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type OrderCreateManyEquipmentInput = {
@@ -2001,8 +2001,8 @@ export type OrderCreateManyEquipmentInput = {
   delivery_date?: Date | string | null
   responsible_technician?: string | null
   feedback?: boolean | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type OrderUpdateWithoutEquipmentInput = {
@@ -2025,8 +2025,8 @@ export type OrderUpdateWithoutEquipmentInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUpdateManyWithoutOrdersNestedInput
   order_parts?: Prisma.OrderPartUpdateManyWithoutOrdersNestedInput
   customers?: Prisma.CustomerUpdateOneWithoutOrdersNestedInput
@@ -2057,8 +2057,8 @@ export type OrderUncheckedUpdateWithoutEquipmentInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUncheckedUpdateManyWithoutOrdersNestedInput
   order_parts?: Prisma.OrderPartUncheckedUpdateManyWithoutOrdersNestedInput
   part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutOrdersNestedInput
@@ -2087,8 +2087,8 @@ export type OrderUncheckedUpdateManyWithoutEquipmentInput = {
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -2250,8 +2250,8 @@ export type $OrderPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     delivery_date: Date | null
     responsible_technician: string | null
     feedback: boolean | null
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["order"]>
   composites: {}
 }

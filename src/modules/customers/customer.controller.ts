@@ -1,0 +1,74 @@
+import { Request, Response } from "express";
+import { customerService } from "./customer.service";
+
+class CustomerController {
+
+    async list(req: Request, res: Response) {
+        const tenantId = req.user?.tenant_id;
+        
+        if (!tenantId) return res.status(403).json({ message: "Acesso negado" });
+
+        const customers = await customerService.list(tenantId);
+        return res.json(customers);
+    }
+
+    async listById(req: Request, res: Response): Promise<Response> {
+        const { id } = req.params;
+        const tenantId = req.user?.tenant_id;
+        try {
+            const customerId = Number(id);
+            const tenantid = Number(tenantId);
+            const customer = await customerService.findById(tenantid, customerId);
+            return res.status(200).json({
+                customer: customer
+            })
+        } catch (error) {
+            return res.status(400).json({ message: "Erro ao listar tenant" })
+        }
+    }
+
+    async create(req: Request, res: Response) {
+        try {
+            const tenantId = req.user?.tenant_id;
+            if (!tenantId) return res.status(403).json({ message: "Acesso negado" });
+
+            const newCustomer = await customerService.create(tenantId, req.body);
+            return res.status(201).json(newCustomer);
+
+        } catch (error: any) {
+            return res.status(400).json({ message: error.message });
+        }
+    }
+
+    async update(req: Request, res: Response) {
+        try {
+            const tenantId = req.user?.tenant_id;
+            if (!tenantId) return res.status(403).json({ message: "Acesso negado" });
+
+            const { id } = req.params;
+            await customerService.update(tenantId, Number(id), req.body);
+            
+            return res.json({ message: "Cliente atualizado com sucesso" });
+
+        } catch (error: any) {
+            return res.status(400).json({ message: error.message });
+        }
+    }
+
+    async delete(req: Request, res: Response) {
+        try {
+            const tenantId = req.user?.tenant_id;
+            if (!tenantId) return res.status(403).json({ message: "Acesso negado" });
+
+            const { id } = req.params;
+            await customerService.delete(tenantId, Number(id));
+
+            return res.status(204).send();
+
+        } catch (error: any) {
+            return res.status(400).json({ message: error.message });
+        }
+    }
+}
+
+export const customerController = new CustomerController();

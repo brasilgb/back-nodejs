@@ -8,9 +8,6 @@ class AuthController {
             // O req.body já foi validado pelo Zod Middleware antes de chegar aqui
             const result = await authService.register(req.body);
 
-            // No Laravel você faz Auth::login($user) e redireciona.
-            // Em API Node, geralmente retornamos o usuário e talvez um Token JWT aqui.
-            
             return res.status(201).json({
                 message: "Cadastro realizado com sucesso!",
                 user: {

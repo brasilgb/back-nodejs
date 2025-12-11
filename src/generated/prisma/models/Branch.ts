@@ -299,8 +299,8 @@ export type BranchGroupByOutputType = {
   complement: string | null
   status: boolean
   observations: string | null
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: BranchCountAggregateOutputType | null
   _avg: BranchAvgAggregateOutputType | null
   _sum: BranchSumAggregateOutputType | null
@@ -346,8 +346,8 @@ export type BranchWhereInput = {
   complement?: Prisma.StringNullableFilter<"Branch"> | string | null
   status?: Prisma.BoolFilter<"Branch"> | boolean
   observations?: Prisma.StringNullableFilter<"Branch"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"Branch"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Branch"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Branch"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Branch"> | Date | string
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
 }
 
@@ -371,8 +371,8 @@ export type BranchOrderByWithRelationInput = {
   complement?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   observations?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   tenants?: Prisma.TenantOrderByWithRelationInput
   _relevance?: Prisma.BranchOrderByRelevanceInput
 }
@@ -400,8 +400,8 @@ export type BranchWhereUniqueInput = Prisma.AtLeast<{
   complement?: Prisma.StringNullableFilter<"Branch"> | string | null
   status?: Prisma.BoolFilter<"Branch"> | boolean
   observations?: Prisma.StringNullableFilter<"Branch"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"Branch"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Branch"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Branch"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Branch"> | Date | string
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
 }, "id">
 
@@ -425,8 +425,8 @@ export type BranchOrderByWithAggregationInput = {
   complement?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   observations?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.BranchCountOrderByAggregateInput
   _avg?: Prisma.BranchAvgOrderByAggregateInput
   _max?: Prisma.BranchMaxOrderByAggregateInput
@@ -457,8 +457,8 @@ export type BranchScalarWhereWithAggregatesInput = {
   complement?: Prisma.StringNullableWithAggregatesFilter<"Branch"> | string | null
   status?: Prisma.BoolWithAggregatesFilter<"Branch"> | boolean
   observations?: Prisma.StringNullableWithAggregatesFilter<"Branch"> | string | null
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Branch"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Branch"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Branch"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Branch"> | Date | string
 }
 
 export type BranchCreateInput = {
@@ -479,8 +479,8 @@ export type BranchCreateInput = {
   complement?: string | null
   status: boolean
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   tenants?: Prisma.TenantCreateNestedOneWithoutBranchesInput
 }
 
@@ -504,8 +504,8 @@ export type BranchUncheckedCreateInput = {
   complement?: string | null
   status: boolean
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type BranchUpdateInput = {
@@ -526,8 +526,8 @@ export type BranchUpdateInput = {
   complement?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenants?: Prisma.TenantUpdateOneWithoutBranchesNestedInput
 }
 
@@ -551,8 +551,8 @@ export type BranchUncheckedUpdateInput = {
   complement?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type BranchCreateManyInput = {
@@ -575,8 +575,8 @@ export type BranchCreateManyInput = {
   complement?: string | null
   status: boolean
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type BranchUpdateManyMutationInput = {
@@ -597,8 +597,8 @@ export type BranchUpdateManyMutationInput = {
   complement?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type BranchUncheckedUpdateManyInput = {
@@ -621,8 +621,8 @@ export type BranchUncheckedUpdateManyInput = {
   complement?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type BranchListRelationFilter = {
@@ -787,8 +787,8 @@ export type BranchCreateWithoutTenantsInput = {
   complement?: string | null
   status: boolean
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type BranchUncheckedCreateWithoutTenantsInput = {
@@ -810,8 +810,8 @@ export type BranchUncheckedCreateWithoutTenantsInput = {
   complement?: string | null
   status: boolean
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type BranchCreateOrConnectWithoutTenantsInput = {
@@ -863,8 +863,8 @@ export type BranchScalarWhereInput = {
   complement?: Prisma.StringNullableFilter<"Branch"> | string | null
   status?: Prisma.BoolFilter<"Branch"> | boolean
   observations?: Prisma.StringNullableFilter<"Branch"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"Branch"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Branch"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Branch"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Branch"> | Date | string
 }
 
 export type BranchCreateManyTenantsInput = {
@@ -886,8 +886,8 @@ export type BranchCreateManyTenantsInput = {
   complement?: string | null
   status: boolean
   observations?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type BranchUpdateWithoutTenantsInput = {
@@ -908,8 +908,8 @@ export type BranchUpdateWithoutTenantsInput = {
   complement?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type BranchUncheckedUpdateWithoutTenantsInput = {
@@ -931,8 +931,8 @@ export type BranchUncheckedUpdateWithoutTenantsInput = {
   complement?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type BranchUncheckedUpdateManyWithoutTenantsInput = {
@@ -954,8 +954,8 @@ export type BranchUncheckedUpdateManyWithoutTenantsInput = {
   complement?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.BoolFieldUpdateOperationsInput | boolean
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -1041,8 +1041,8 @@ export type $BranchPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     complement: string | null
     status: boolean
     observations: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["branch"]>
   composites: {}
 }

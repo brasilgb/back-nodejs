@@ -194,8 +194,8 @@ export type SettingGroupByOutputType = {
   tenant_id: number
   name: string | null
   logo: string | null
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: SettingCountAggregateOutputType | null
   _avg: SettingAvgAggregateOutputType | null
   _sum: SettingSumAggregateOutputType | null
@@ -226,8 +226,8 @@ export type SettingWhereInput = {
   tenant_id?: Prisma.IntFilter<"Setting"> | number
   name?: Prisma.StringNullableFilter<"Setting"> | string | null
   logo?: Prisma.StringNullableFilter<"Setting"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"Setting"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Setting"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Setting"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Setting"> | Date | string
   tenants?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
 }
 
@@ -236,8 +236,8 @@ export type SettingOrderByWithRelationInput = {
   tenant_id?: Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   logo?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   tenants?: Prisma.TenantOrderByWithRelationInput
   _relevance?: Prisma.SettingOrderByRelevanceInput
 }
@@ -250,8 +250,8 @@ export type SettingWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.SettingWhereInput | Prisma.SettingWhereInput[]
   name?: Prisma.StringNullableFilter<"Setting"> | string | null
   logo?: Prisma.StringNullableFilter<"Setting"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"Setting"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Setting"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Setting"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Setting"> | Date | string
   tenants?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
 }, "id" | "tenant_id">
 
@@ -260,8 +260,8 @@ export type SettingOrderByWithAggregationInput = {
   tenant_id?: Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   logo?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.SettingCountOrderByAggregateInput
   _avg?: Prisma.SettingAvgOrderByAggregateInput
   _max?: Prisma.SettingMaxOrderByAggregateInput
@@ -277,15 +277,15 @@ export type SettingScalarWhereWithAggregatesInput = {
   tenant_id?: Prisma.IntWithAggregatesFilter<"Setting"> | number
   name?: Prisma.StringNullableWithAggregatesFilter<"Setting"> | string | null
   logo?: Prisma.StringNullableWithAggregatesFilter<"Setting"> | string | null
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Setting"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Setting"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Setting"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Setting"> | Date | string
 }
 
 export type SettingCreateInput = {
   name?: string | null
   logo?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   tenants: Prisma.TenantCreateNestedOneWithoutSettingsInput
 }
 
@@ -294,15 +294,15 @@ export type SettingUncheckedCreateInput = {
   tenant_id: number
   name?: string | null
   logo?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type SettingUpdateInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenants?: Prisma.TenantUpdateOneRequiredWithoutSettingsNestedInput
 }
 
@@ -311,8 +311,8 @@ export type SettingUncheckedUpdateInput = {
   tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type SettingCreateManyInput = {
@@ -320,15 +320,15 @@ export type SettingCreateManyInput = {
   tenant_id: number
   name?: string | null
   logo?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type SettingUpdateManyMutationInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type SettingUncheckedUpdateManyInput = {
@@ -336,8 +336,8 @@ export type SettingUncheckedUpdateManyInput = {
   tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type SettingNullableScalarRelationFilter = {
@@ -423,16 +423,16 @@ export type SettingUncheckedUpdateOneWithoutTenantsNestedInput = {
 export type SettingCreateWithoutTenantsInput = {
   name?: string | null
   logo?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type SettingUncheckedCreateWithoutTenantsInput = {
   id?: number
   name?: string | null
   logo?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type SettingCreateOrConnectWithoutTenantsInput = {
@@ -454,16 +454,16 @@ export type SettingUpdateToOneWithWhereWithoutTenantsInput = {
 export type SettingUpdateWithoutTenantsInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type SettingUncheckedUpdateWithoutTenantsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -504,8 +504,8 @@ export type $SettingPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     tenant_id: number
     name: string | null
     logo: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["setting"]>
   composites: {}
 }

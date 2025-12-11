@@ -8,7 +8,6 @@ datasource db {
 }
 
 model Tenant {
-
   id                Int               @id @default(autoincrement())
   plan              Int
   name              String?
@@ -28,8 +27,8 @@ model Tenant {
   payment           Boolean?
   observations      String?
   expiration_date   DateTime?         @db.Date
-  created_at        DateTime?
-  updated_at        DateTime?
+  created_at        DateTime          @default(now())
+  updated_at        DateTime          @updatedAt
   branches          Branch[]
   budgets           Budget[]
   checklists        Checklist[]
@@ -53,7 +52,6 @@ model Tenant {
 }
 
 model User {
-
   id                 Int            @id @default(autoincrement())
   tenant_id          Int?
   user_number        Int?
@@ -68,8 +66,8 @@ model User {
   remember_token     String?
   reset_token        String?        @unique // O token deve ser único
   reset_token_expiry DateTime? // Data limite para usar o token
-  created_at         DateTime?
-  updated_at         DateTime?
+  created_at         DateTime       @default(now())
+  updated_at         DateTime       @updatedAt
   part_movements     PartMovement[]
   schedules          Schedule[]
   tenants            Tenant?        @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
@@ -79,8 +77,7 @@ model User {
 }
 
 model Branch {
-
-  id               Int       @id @default(autoincrement())
+  id               Int      @id @default(autoincrement())
   tenant_id        Int?
   branch_cnpj      String
   branch_name      String
@@ -99,17 +96,16 @@ model Branch {
   complement       String?
   status           Boolean
   observations     String?
-  created_at       DateTime?
-  updated_at       DateTime?
-  tenants          Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+  created_at       DateTime @default(now())
+  updated_at       DateTime @updatedAt
+  tenants          Tenant?  @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
 
   @@index([tenant_id], map: "branches_tenant_id_fkey")
   @@map("branches")
 }
 
 model Budget {
-
-  id             Int       @id @default(autoincrement())
+  id             Int      @id @default(autoincrement())
   tenant_id      Int?
   budget_number  Int
   category       String
@@ -117,28 +113,27 @@ model Budget {
   model          String?
   description    String?
   estimated_time String?
-  part_value     Decimal?  @db.Decimal(10, 2)
-  labor_value    Decimal   @db.Decimal(10, 2)
-  total_value    Decimal   @db.Decimal(10, 2)
+  part_value     Decimal? @db.Decimal(10, 2)
+  labor_value    Decimal  @db.Decimal(10, 2)
+  total_value    Decimal  @db.Decimal(10, 2)
   warranty       String?
   obs            String?
-  created_at     DateTime?
-  updated_at     DateTime?
-  tenants        Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+  tenants        Tenant?  @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
 
   @@index([tenant_id], map: "budgets_tenant_id_fkey")
   @@map("budgets")
 }
 
 model Checklist {
-
   id               Int        @id @default(autoincrement())
   tenant_id        Int?
   equipment_id     Int?
   checklist_number Int
   checklist        String
-  created_at       DateTime?
-  updated_at       DateTime?
+  created_at       DateTime   @default(now())
+  updated_at       DateTime   @updatedAt
   equipment        Equipment? @relation(fields: [equipment_id], references: [id], onDelete: Cascade)
   tenants          Tenant?    @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
 
@@ -148,8 +143,7 @@ model Checklist {
 }
 
 model Company {
-
-  id          Int       @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   tenant_id   Int?
   shortname   String?
   companyname String?
@@ -166,16 +160,15 @@ model Company {
   whatsapp    String?
   site        String?
   email       String?
-  created_at  DateTime?
-  updated_at  DateTime?
-  tenants     Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  tenants     Tenant?  @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
 
   @@index([tenant_id], map: "companies_tenant_id_fkey")
   @@map("companies")
 }
 
 model Customer {
-
   id              Int        @id @default(autoincrement())
   tenant_id       Int?
   customer_number Int
@@ -195,8 +188,8 @@ model Customer {
   whatsapp        String?
   contactphone    String?
   observations    String?
-  created_at      DateTime?
-  updated_at      DateTime?
+  created_at      DateTime   @default(now())
+  updated_at      DateTime   @updatedAt
   tenants         Tenant?    @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
   orders          Order[]
   sales           Sale[]
@@ -207,13 +200,12 @@ model Customer {
 }
 
 model Equipment {
-
   id               Int         @id @default(autoincrement())
   tenant_id        Int?
   equipment_number Int
   equipment        String
-  created_at       DateTime?
-  updated_at       DateTime?
+  created_at       DateTime    @default(now())
+  updated_at       DateTime    @updatedAt
   checklists       Checklist[]
   tenants          Tenant?     @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
   orders           Order[]
@@ -223,29 +215,27 @@ model Equipment {
 }
 
 model Feature {
-
-  id         Int       @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   period_id  Int?
   name       String
   order      Int
-  created_at DateTime?
-  updated_at DateTime?
-  periods    Period?   @relation(fields: [period_id], references: [id], onDelete: NoAction)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  periods    Period?  @relation(fields: [period_id], references: [id], onDelete: NoAction)
 
   @@index([period_id], map: "features_period_id_fkey")
   @@map("features")
 }
 
 model Image {
-
-  id         Int       @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   tenant_id  Int?
   order_id   Int
   filename   String
-  created_at DateTime?
-  updated_at DateTime?
-  orders     Order     @relation(fields: [order_id], references: [id], onDelete: Cascade)
-  tenants    Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  orders     Order    @relation(fields: [order_id], references: [id], onDelete: Cascade)
+  tenants    Tenant?  @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
 
   @@index([order_id], map: "images_order_id_fkey")
   @@index([tenant_id], map: "images_tenant_id_fkey")
@@ -253,8 +243,7 @@ model Image {
 }
 
 model Message {
-
-  id             Int       @id @default(autoincrement())
+  id             Int      @id @default(autoincrement())
   tenant_id      Int?
   sender_id      Int?
   recipient_id   Int?
@@ -262,24 +251,23 @@ model Message {
   title          String
   message        String
   status         Boolean
-  created_at     DateTime?
-  updated_at     DateTime?
-  tenants        Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+  tenants        Tenant?  @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
 
   @@index([tenant_id], map: "messages_tenant_id_fkey")
   @@map("messages")
 }
 
 model OrderPart {
-
-  id         Int       @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   order_id   Int
   part_id    Int
   quantity   Int
-  created_at DateTime?
-  updated_at DateTime?
-  orders     Order     @relation(fields: [order_id], references: [id], onDelete: Cascade)
-  parts      Part      @relation(fields: [part_id], references: [id], onDelete: Cascade)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  orders     Order    @relation(fields: [order_id], references: [id], onDelete: Cascade)
+  parts      Part     @relation(fields: [part_id], references: [id], onDelete: Cascade)
 
   @@index([order_id], map: "order_parts_order_id_fkey")
   @@index([part_id], map: "order_parts_part_id_fkey")
@@ -287,7 +275,6 @@ model OrderPart {
 }
 
 model Order {
-
   id                     Int            @id @default(autoincrement())
   tenant_id              Int?
   customer_id            Int?
@@ -311,8 +298,8 @@ model Order {
   delivery_date          DateTime?
   responsible_technician String?
   feedback               Boolean?
-  created_at             DateTime?
-  updated_at             DateTime?
+  created_at             DateTime       @default(now())
+  updated_at             DateTime       @updatedAt
   images                 Image[]
   order_parts            OrderPart[]
   customers              Customer?      @relation(fields: [customer_id], references: [id], onDelete: Cascade)
@@ -327,22 +314,20 @@ model Order {
 }
 
 model Other {
-
-  id          Int       @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   tenant_id   Int?
-  navigation  Boolean   @default(false)
-  enableparts Boolean   @default(false)
-  enablesales Boolean   @default(false)
-  created_at  DateTime?
-  updated_at  DateTime?
-  tenants     Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+  navigation  Boolean  @default(false)
+  enableparts Boolean  @default(false)
+  enablesales Boolean  @default(false)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  tenants     Tenant?  @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
 
   @@index([tenant_id], map: "others_tenant_id_fkey")
   @@map("others")
 }
 
 model PartMovement {
-
   id            Int                          @id @default(autoincrement())
   tenant_id     Int?
   part_id       Int
@@ -351,8 +336,8 @@ model PartMovement {
   movement_type part_movements_movement_type
   quantity      Int
   reason        String
-  created_at    DateTime?
-  updated_at    DateTime?
+  created_at    DateTime                     @default(now())
+  updated_at    DateTime                     @updatedAt
   orders        Order?                       @relation(fields: [order_id], references: [id])
   parts         Part                         @relation(fields: [part_id], references: [id], onDelete: Cascade)
   tenants       Tenant?                      @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
@@ -366,7 +351,6 @@ model PartMovement {
 }
 
 model Part {
-
   id                  Int            @id @default(autoincrement())
   tenant_id           Int?
   part_number         String         @unique
@@ -380,8 +364,8 @@ model Part {
   minimum_stock_level Int            @default(0)
   location            String?
   status              Boolean        @default(true)
-  created_at          DateTime?
-  updated_at          DateTime?
+  created_at          DateTime       @default(now())
+  updated_at          DateTime       @updatedAt
   order_parts         OrderPart[]
   part_movements      PartMovement[]
   tenants             Tenant?        @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
@@ -392,15 +376,14 @@ model Part {
 }
 
 model Period {
-
   id             Int       @id @default(autoincrement())
   plan_id        Int?
   name           String
   interval       String
   interval_count Int
   price          Decimal   @db.Decimal(8, 2)
-  created_at     DateTime?
-  updated_at     DateTime?
+  created_at     DateTime  @default(now())
+  updated_at     DateTime  @updatedAt
   features       Feature[]
   plans          Plan?     @relation(fields: [plan_id], references: [id], onDelete: NoAction)
 
@@ -409,20 +392,18 @@ model Period {
 }
 
 model Plan {
-
-  id          Int       @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   name        String
   slug        String
   description String
-  created_at  DateTime?
-  updated_at  DateTime?
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
   periods     Period[]
 
   @@map("plans")
 }
 
 model Product {
-
   id       String @id
   name     String
   price    Float
@@ -432,31 +413,29 @@ model Product {
 }
 
 model Receipt {
-
-  id                 Int       @id @default(autoincrement())
+  id                 Int      @id @default(autoincrement())
   tenant_id          Int?
   receivingequipment String?
   equipmentdelivery  String?
   budgetissuance     String?
-  created_at         DateTime?
-  updated_at         DateTime?
-  tenants            Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+  created_at         DateTime @default(now())
+  updated_at         DateTime @updatedAt
+  tenants            Tenant?  @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
 
   @@index([tenant_id], map: "receipts_tenant_id_fkey")
   @@map("receipts")
 }
 
 model SaleItem {
-
-  id         Int       @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   sale_id    Int
   part_id    Int
   quantity   Int
-  unit_price Decimal   @db.Decimal(10, 2)
-  created_at DateTime?
-  updated_at DateTime?
-  parts      Part      @relation(fields: [part_id], references: [id], onDelete: Cascade)
-  sales      Sale      @relation(fields: [sale_id], references: [id], onDelete: Cascade)
+  unit_price Decimal  @db.Decimal(10, 2)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  parts      Part     @relation(fields: [part_id], references: [id], onDelete: Cascade)
+  sales      Sale     @relation(fields: [sale_id], references: [id], onDelete: Cascade)
 
   @@index([part_id], map: "sale_items_part_id_fkey")
   @@index([sale_id], map: "sale_items_sale_id_fkey")
@@ -464,14 +443,13 @@ model SaleItem {
 }
 
 model Sale {
-
   id           Int        @id @default(autoincrement())
   sales_number Int
   tenant_id    Int
   customer_id  Int?
   total_amount Decimal    @db.Decimal(10, 2)
-  created_at   DateTime?
-  updated_at   DateTime?
+  created_at   DateTime   @default(now())
+  updated_at   DateTime   @updatedAt
   sale_items   SaleItem[]
   customers    Customer?  @relation(fields: [customer_id], references: [id], onDelete: Cascade)
   tenants      Tenant     @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
@@ -482,7 +460,6 @@ model Sale {
 }
 
 model Schedule {
-
   id                     Int       @id @default(autoincrement())
   tenant_id              Int?
   customer_id            Int?
@@ -494,8 +471,8 @@ model Schedule {
   status                 Int       @default(1)
   observations           String?
   responsible_technician String?
-  created_at             DateTime?
-  updated_at             DateTime?
+  created_at             DateTime  @default(now())
+  updated_at             DateTime  @updatedAt
   customers              Customer? @relation(fields: [customer_id], references: [id], onDelete: Cascade)
   tenants                Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
   users                  User?     @relation(fields: [user_id], references: [id], onDelete: Cascade)
@@ -507,28 +484,26 @@ model Schedule {
 }
 
 model Setting {
-
-  id         Int       @id @default(autoincrement())
-  tenant_id  Int       @unique
+  id         Int      @id @default(autoincrement())
+  tenant_id  Int      @unique
   name       String?
   logo       String?
-  created_at DateTime?
-  updated_at DateTime?
-  tenants    Tenant    @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  tenants    Tenant   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
 
   @@map("settings")
 }
 
 model WhatsappMessage {
-
-  id               Int       @id @default(autoincrement())
+  id               Int      @id @default(autoincrement())
   tenant_id        Int?
   generatedbudget  String?
   servicecompleted String?
   defaultmessage   String?
-  created_at       DateTime?
-  updated_at       DateTime?
-  tenants          Tenant?   @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+  created_at       DateTime @default(now())
+  updated_at       DateTime @updatedAt
+  tenants          Tenant?  @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
 
   @@index([tenant_id], map: "whatsapp_messages_tenant_id_fkey")
   @@map("whatsapp_messages")

@@ -198,8 +198,8 @@ export type ImageGroupByOutputType = {
   tenant_id: number | null
   order_id: number
   filename: string
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: ImageCountAggregateOutputType | null
   _avg: ImageAvgAggregateOutputType | null
   _sum: ImageSumAggregateOutputType | null
@@ -230,8 +230,8 @@ export type ImageWhereInput = {
   tenant_id?: Prisma.IntNullableFilter<"Image"> | number | null
   order_id?: Prisma.IntFilter<"Image"> | number
   filename?: Prisma.StringFilter<"Image"> | string
-  created_at?: Prisma.DateTimeNullableFilter<"Image"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Image"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Image"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Image"> | Date | string
   orders?: Prisma.XOR<Prisma.OrderScalarRelationFilter, Prisma.OrderWhereInput>
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
 }
@@ -241,8 +241,8 @@ export type ImageOrderByWithRelationInput = {
   tenant_id?: Prisma.SortOrderInput | Prisma.SortOrder
   order_id?: Prisma.SortOrder
   filename?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   orders?: Prisma.OrderOrderByWithRelationInput
   tenants?: Prisma.TenantOrderByWithRelationInput
   _relevance?: Prisma.ImageOrderByRelevanceInput
@@ -256,8 +256,8 @@ export type ImageWhereUniqueInput = Prisma.AtLeast<{
   tenant_id?: Prisma.IntNullableFilter<"Image"> | number | null
   order_id?: Prisma.IntFilter<"Image"> | number
   filename?: Prisma.StringFilter<"Image"> | string
-  created_at?: Prisma.DateTimeNullableFilter<"Image"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Image"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Image"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Image"> | Date | string
   orders?: Prisma.XOR<Prisma.OrderScalarRelationFilter, Prisma.OrderWhereInput>
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
 }, "id">
@@ -267,8 +267,8 @@ export type ImageOrderByWithAggregationInput = {
   tenant_id?: Prisma.SortOrderInput | Prisma.SortOrder
   order_id?: Prisma.SortOrder
   filename?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.ImageCountOrderByAggregateInput
   _avg?: Prisma.ImageAvgOrderByAggregateInput
   _max?: Prisma.ImageMaxOrderByAggregateInput
@@ -284,14 +284,14 @@ export type ImageScalarWhereWithAggregatesInput = {
   tenant_id?: Prisma.IntNullableWithAggregatesFilter<"Image"> | number | null
   order_id?: Prisma.IntWithAggregatesFilter<"Image"> | number
   filename?: Prisma.StringWithAggregatesFilter<"Image"> | string
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Image"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Image"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Image"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Image"> | Date | string
 }
 
 export type ImageCreateInput = {
   filename: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   orders: Prisma.OrderCreateNestedOneWithoutImagesInput
   tenants?: Prisma.TenantCreateNestedOneWithoutImagesInput
 }
@@ -301,14 +301,14 @@ export type ImageUncheckedCreateInput = {
   tenant_id?: number | null
   order_id: number
   filename: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ImageUpdateInput = {
   filename?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   orders?: Prisma.OrderUpdateOneRequiredWithoutImagesNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutImagesNestedInput
 }
@@ -318,8 +318,8 @@ export type ImageUncheckedUpdateInput = {
   tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   order_id?: Prisma.IntFieldUpdateOperationsInput | number
   filename?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ImageCreateManyInput = {
@@ -327,14 +327,14 @@ export type ImageCreateManyInput = {
   tenant_id?: number | null
   order_id: number
   filename: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ImageUpdateManyMutationInput = {
   filename?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ImageUncheckedUpdateManyInput = {
@@ -342,8 +342,8 @@ export type ImageUncheckedUpdateManyInput = {
   tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   order_id?: Prisma.IntFieldUpdateOperationsInput | number
   filename?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ImageListRelationFilter = {
@@ -487,8 +487,8 @@ export type ImageUncheckedUpdateManyWithoutOrdersNestedInput = {
 
 export type ImageCreateWithoutTenantsInput = {
   filename: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   orders: Prisma.OrderCreateNestedOneWithoutImagesInput
 }
 
@@ -496,8 +496,8 @@ export type ImageUncheckedCreateWithoutTenantsInput = {
   id?: number
   order_id: number
   filename: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ImageCreateOrConnectWithoutTenantsInput = {
@@ -534,14 +534,14 @@ export type ImageScalarWhereInput = {
   tenant_id?: Prisma.IntNullableFilter<"Image"> | number | null
   order_id?: Prisma.IntFilter<"Image"> | number
   filename?: Prisma.StringFilter<"Image"> | string
-  created_at?: Prisma.DateTimeNullableFilter<"Image"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Image"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Image"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Image"> | Date | string
 }
 
 export type ImageCreateWithoutOrdersInput = {
   filename: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   tenants?: Prisma.TenantCreateNestedOneWithoutImagesInput
 }
 
@@ -549,8 +549,8 @@ export type ImageUncheckedCreateWithoutOrdersInput = {
   id?: number
   tenant_id?: number | null
   filename: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ImageCreateOrConnectWithoutOrdersInput = {
@@ -583,14 +583,14 @@ export type ImageCreateManyTenantsInput = {
   id?: number
   order_id: number
   filename: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ImageUpdateWithoutTenantsInput = {
   filename?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   orders?: Prisma.OrderUpdateOneRequiredWithoutImagesNestedInput
 }
 
@@ -598,30 +598,30 @@ export type ImageUncheckedUpdateWithoutTenantsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   order_id?: Prisma.IntFieldUpdateOperationsInput | number
   filename?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ImageUncheckedUpdateManyWithoutTenantsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   order_id?: Prisma.IntFieldUpdateOperationsInput | number
   filename?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ImageCreateManyOrdersInput = {
   id?: number
   tenant_id?: number | null
   filename: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ImageUpdateWithoutOrdersInput = {
   filename?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenants?: Prisma.TenantUpdateOneWithoutImagesNestedInput
 }
 
@@ -629,16 +629,16 @@ export type ImageUncheckedUpdateWithoutOrdersInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   filename?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ImageUncheckedUpdateManyWithoutOrdersInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   filename?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -682,8 +682,8 @@ export type $ImagePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     tenant_id: number | null
     order_id: number
     filename: string
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["image"]>
   composites: {}
 }

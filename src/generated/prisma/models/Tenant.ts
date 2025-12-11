@@ -303,8 +303,8 @@ export type TenantGroupByOutputType = {
   payment: boolean | null
   observations: string | null
   expiration_date: Date | null
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: TenantCountAggregateOutputType | null
   _avg: TenantAvgAggregateOutputType | null
   _sum: TenantSumAggregateOutputType | null
@@ -350,8 +350,8 @@ export type TenantWhereInput = {
   payment?: Prisma.BoolNullableFilter<"Tenant"> | boolean | null
   observations?: Prisma.StringNullableFilter<"Tenant"> | string | null
   expiration_date?: Prisma.DateTimeNullableFilter<"Tenant"> | Date | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"Tenant"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Tenant"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Tenant"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Tenant"> | Date | string
   branches?: Prisma.BranchListRelationFilter
   budgets?: Prisma.BudgetListRelationFilter
   checklists?: Prisma.ChecklistListRelationFilter
@@ -392,8 +392,8 @@ export type TenantOrderByWithRelationInput = {
   payment?: Prisma.SortOrderInput | Prisma.SortOrder
   observations?: Prisma.SortOrderInput | Prisma.SortOrder
   expiration_date?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   branches?: Prisma.BranchOrderByRelationAggregateInput
   budgets?: Prisma.BudgetOrderByRelationAggregateInput
   checklists?: Prisma.ChecklistOrderByRelationAggregateInput
@@ -438,8 +438,8 @@ export type TenantWhereUniqueInput = Prisma.AtLeast<{
   payment?: Prisma.BoolNullableFilter<"Tenant"> | boolean | null
   observations?: Prisma.StringNullableFilter<"Tenant"> | string | null
   expiration_date?: Prisma.DateTimeNullableFilter<"Tenant"> | Date | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"Tenant"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Tenant"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Tenant"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Tenant"> | Date | string
   branches?: Prisma.BranchListRelationFilter
   budgets?: Prisma.BudgetListRelationFilter
   checklists?: Prisma.ChecklistListRelationFilter
@@ -480,8 +480,8 @@ export type TenantOrderByWithAggregationInput = {
   payment?: Prisma.SortOrderInput | Prisma.SortOrder
   observations?: Prisma.SortOrderInput | Prisma.SortOrder
   expiration_date?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.TenantCountOrderByAggregateInput
   _avg?: Prisma.TenantAvgOrderByAggregateInput
   _max?: Prisma.TenantMaxOrderByAggregateInput
@@ -512,8 +512,8 @@ export type TenantScalarWhereWithAggregatesInput = {
   payment?: Prisma.BoolNullableWithAggregatesFilter<"Tenant"> | boolean | null
   observations?: Prisma.StringNullableWithAggregatesFilter<"Tenant"> | string | null
   expiration_date?: Prisma.DateTimeNullableWithAggregatesFilter<"Tenant"> | Date | string | null
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Tenant"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Tenant"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Tenant"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Tenant"> | Date | string
 }
 
 export type TenantCreateInput = {
@@ -535,8 +535,8 @@ export type TenantCreateInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
@@ -577,8 +577,8 @@ export type TenantUncheckedCreateInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
@@ -618,8 +618,8 @@ export type TenantUpdateInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
@@ -660,8 +660,8 @@ export type TenantUncheckedUpdateInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
@@ -702,8 +702,8 @@ export type TenantCreateManyInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type TenantUpdateManyMutationInput = {
@@ -725,8 +725,8 @@ export type TenantUpdateManyMutationInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type TenantUncheckedUpdateManyInput = {
@@ -749,8 +749,8 @@ export type TenantUncheckedUpdateManyInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type TenantOrderByRelevanceInput = {
@@ -875,6 +875,10 @@ export type NullableBoolFieldUpdateOperationsInput = {
 
 export type NullableDateTimeFieldUpdateOperationsInput = {
   set?: Date | string | null
+}
+
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string
 }
 
 export type TenantCreateNestedOneWithoutUsersInput = {
@@ -1180,8 +1184,8 @@ export type TenantCreateWithoutUsersInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
@@ -1221,8 +1225,8 @@ export type TenantUncheckedCreateWithoutUsersInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
@@ -1277,8 +1281,8 @@ export type TenantUpdateWithoutUsersInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
@@ -1318,8 +1322,8 @@ export type TenantUncheckedUpdateWithoutUsersInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
@@ -1358,8 +1362,8 @@ export type TenantCreateWithoutBranchesInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
   companies?: Prisma.CompanyCreateNestedManyWithoutTenantsInput
@@ -1399,8 +1403,8 @@ export type TenantUncheckedCreateWithoutBranchesInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
   companies?: Prisma.CompanyUncheckedCreateNestedManyWithoutTenantsInput
@@ -1455,8 +1459,8 @@ export type TenantUpdateWithoutBranchesInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
   companies?: Prisma.CompanyUpdateManyWithoutTenantsNestedInput
@@ -1496,8 +1500,8 @@ export type TenantUncheckedUpdateWithoutBranchesInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
   companies?: Prisma.CompanyUncheckedUpdateManyWithoutTenantsNestedInput
@@ -1536,8 +1540,8 @@ export type TenantCreateWithoutBudgetsInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
   companies?: Prisma.CompanyCreateNestedManyWithoutTenantsInput
@@ -1577,8 +1581,8 @@ export type TenantUncheckedCreateWithoutBudgetsInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
   companies?: Prisma.CompanyUncheckedCreateNestedManyWithoutTenantsInput
@@ -1633,8 +1637,8 @@ export type TenantUpdateWithoutBudgetsInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
   companies?: Prisma.CompanyUpdateManyWithoutTenantsNestedInput
@@ -1674,8 +1678,8 @@ export type TenantUncheckedUpdateWithoutBudgetsInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
   companies?: Prisma.CompanyUncheckedUpdateManyWithoutTenantsNestedInput
@@ -1714,8 +1718,8 @@ export type TenantCreateWithoutChecklistsInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   companies?: Prisma.CompanyCreateNestedManyWithoutTenantsInput
@@ -1755,8 +1759,8 @@ export type TenantUncheckedCreateWithoutChecklistsInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   companies?: Prisma.CompanyUncheckedCreateNestedManyWithoutTenantsInput
@@ -1811,8 +1815,8 @@ export type TenantUpdateWithoutChecklistsInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   companies?: Prisma.CompanyUpdateManyWithoutTenantsNestedInput
@@ -1852,8 +1856,8 @@ export type TenantUncheckedUpdateWithoutChecklistsInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   companies?: Prisma.CompanyUncheckedUpdateManyWithoutTenantsNestedInput
@@ -1892,8 +1896,8 @@ export type TenantCreateWithoutCompaniesInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
@@ -1933,8 +1937,8 @@ export type TenantUncheckedCreateWithoutCompaniesInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
@@ -1989,8 +1993,8 @@ export type TenantUpdateWithoutCompaniesInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
@@ -2030,8 +2034,8 @@ export type TenantUncheckedUpdateWithoutCompaniesInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
@@ -2070,8 +2074,8 @@ export type TenantCreateWithoutCustomersInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
@@ -2111,8 +2115,8 @@ export type TenantUncheckedCreateWithoutCustomersInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
@@ -2167,8 +2171,8 @@ export type TenantUpdateWithoutCustomersInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
@@ -2208,8 +2212,8 @@ export type TenantUncheckedUpdateWithoutCustomersInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
@@ -2248,8 +2252,8 @@ export type TenantCreateWithoutEquipmentInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
@@ -2289,8 +2293,8 @@ export type TenantUncheckedCreateWithoutEquipmentInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
@@ -2345,8 +2349,8 @@ export type TenantUpdateWithoutEquipmentInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
@@ -2386,8 +2390,8 @@ export type TenantUncheckedUpdateWithoutEquipmentInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
@@ -2426,8 +2430,8 @@ export type TenantCreateWithoutImagesInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
@@ -2467,8 +2471,8 @@ export type TenantUncheckedCreateWithoutImagesInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
@@ -2523,8 +2527,8 @@ export type TenantUpdateWithoutImagesInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
@@ -2564,8 +2568,8 @@ export type TenantUncheckedUpdateWithoutImagesInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
@@ -2604,8 +2608,8 @@ export type TenantCreateWithoutMessagesInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
@@ -2645,8 +2649,8 @@ export type TenantUncheckedCreateWithoutMessagesInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
@@ -2701,8 +2705,8 @@ export type TenantUpdateWithoutMessagesInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
@@ -2742,8 +2746,8 @@ export type TenantUncheckedUpdateWithoutMessagesInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
@@ -2782,8 +2786,8 @@ export type TenantCreateWithoutOrdersInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
@@ -2823,8 +2827,8 @@ export type TenantUncheckedCreateWithoutOrdersInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
@@ -2879,8 +2883,8 @@ export type TenantUpdateWithoutOrdersInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
@@ -2920,8 +2924,8 @@ export type TenantUncheckedUpdateWithoutOrdersInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
@@ -2960,8 +2964,8 @@ export type TenantCreateWithoutOthersInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
@@ -3001,8 +3005,8 @@ export type TenantUncheckedCreateWithoutOthersInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
@@ -3057,8 +3061,8 @@ export type TenantUpdateWithoutOthersInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
@@ -3098,8 +3102,8 @@ export type TenantUncheckedUpdateWithoutOthersInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
@@ -3138,8 +3142,8 @@ export type TenantCreateWithoutPart_movementsInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
@@ -3179,8 +3183,8 @@ export type TenantUncheckedCreateWithoutPart_movementsInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
@@ -3235,8 +3239,8 @@ export type TenantUpdateWithoutPart_movementsInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
@@ -3276,8 +3280,8 @@ export type TenantUncheckedUpdateWithoutPart_movementsInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
@@ -3316,8 +3320,8 @@ export type TenantCreateWithoutPartsInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
@@ -3357,8 +3361,8 @@ export type TenantUncheckedCreateWithoutPartsInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
@@ -3413,8 +3417,8 @@ export type TenantUpdateWithoutPartsInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
@@ -3454,8 +3458,8 @@ export type TenantUncheckedUpdateWithoutPartsInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
@@ -3494,8 +3498,8 @@ export type TenantCreateWithoutReceiptsInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
@@ -3535,8 +3539,8 @@ export type TenantUncheckedCreateWithoutReceiptsInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
@@ -3591,8 +3595,8 @@ export type TenantUpdateWithoutReceiptsInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
@@ -3632,8 +3636,8 @@ export type TenantUncheckedUpdateWithoutReceiptsInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
@@ -3672,8 +3676,8 @@ export type TenantCreateWithoutSalesInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
@@ -3713,8 +3717,8 @@ export type TenantUncheckedCreateWithoutSalesInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
@@ -3769,8 +3773,8 @@ export type TenantUpdateWithoutSalesInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
@@ -3810,8 +3814,8 @@ export type TenantUncheckedUpdateWithoutSalesInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
@@ -3850,8 +3854,8 @@ export type TenantCreateWithoutSchedulesInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
@@ -3891,8 +3895,8 @@ export type TenantUncheckedCreateWithoutSchedulesInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
@@ -3947,8 +3951,8 @@ export type TenantUpdateWithoutSchedulesInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
@@ -3988,8 +3992,8 @@ export type TenantUncheckedUpdateWithoutSchedulesInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
@@ -4028,8 +4032,8 @@ export type TenantCreateWithoutSettingsInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
@@ -4069,8 +4073,8 @@ export type TenantUncheckedCreateWithoutSettingsInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
@@ -4125,8 +4129,8 @@ export type TenantUpdateWithoutSettingsInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
@@ -4166,8 +4170,8 @@ export type TenantUncheckedUpdateWithoutSettingsInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
@@ -4206,8 +4210,8 @@ export type TenantCreateWithoutWhatsapp_messagesInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
@@ -4247,8 +4251,8 @@ export type TenantUncheckedCreateWithoutWhatsapp_messagesInput = {
   payment?: boolean | null
   observations?: string | null
   expiration_date?: Date | string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   branches?: Prisma.BranchUncheckedCreateNestedManyWithoutTenantsInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutTenantsInput
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutTenantsInput
@@ -4303,8 +4307,8 @@ export type TenantUpdateWithoutWhatsapp_messagesInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUpdateManyWithoutTenantsNestedInput
@@ -4344,8 +4348,8 @@ export type TenantUncheckedUpdateWithoutWhatsapp_messagesInput = {
   payment?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiration_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   branches?: Prisma.BranchUncheckedUpdateManyWithoutTenantsNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutTenantsNestedInput
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutTenantsNestedInput
@@ -4674,8 +4678,8 @@ export type $TenantPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     payment: boolean | null
     observations: string | null
     expiration_date: Date | null
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["tenant"]>
   composites: {}
 }

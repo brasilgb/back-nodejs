@@ -209,8 +209,8 @@ export type ChecklistGroupByOutputType = {
   equipment_id: number | null
   checklist_number: number
   checklist: string
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: ChecklistCountAggregateOutputType | null
   _avg: ChecklistAvgAggregateOutputType | null
   _sum: ChecklistSumAggregateOutputType | null
@@ -242,8 +242,8 @@ export type ChecklistWhereInput = {
   equipment_id?: Prisma.IntNullableFilter<"Checklist"> | number | null
   checklist_number?: Prisma.IntFilter<"Checklist"> | number
   checklist?: Prisma.StringFilter<"Checklist"> | string
-  created_at?: Prisma.DateTimeNullableFilter<"Checklist"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Checklist"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Checklist"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Checklist"> | Date | string
   equipment?: Prisma.XOR<Prisma.EquipmentNullableScalarRelationFilter, Prisma.EquipmentWhereInput> | null
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
 }
@@ -254,8 +254,8 @@ export type ChecklistOrderByWithRelationInput = {
   equipment_id?: Prisma.SortOrderInput | Prisma.SortOrder
   checklist_number?: Prisma.SortOrder
   checklist?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   equipment?: Prisma.EquipmentOrderByWithRelationInput
   tenants?: Prisma.TenantOrderByWithRelationInput
   _relevance?: Prisma.ChecklistOrderByRelevanceInput
@@ -270,8 +270,8 @@ export type ChecklistWhereUniqueInput = Prisma.AtLeast<{
   equipment_id?: Prisma.IntNullableFilter<"Checklist"> | number | null
   checklist_number?: Prisma.IntFilter<"Checklist"> | number
   checklist?: Prisma.StringFilter<"Checklist"> | string
-  created_at?: Prisma.DateTimeNullableFilter<"Checklist"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Checklist"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Checklist"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Checklist"> | Date | string
   equipment?: Prisma.XOR<Prisma.EquipmentNullableScalarRelationFilter, Prisma.EquipmentWhereInput> | null
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
 }, "id">
@@ -282,8 +282,8 @@ export type ChecklistOrderByWithAggregationInput = {
   equipment_id?: Prisma.SortOrderInput | Prisma.SortOrder
   checklist_number?: Prisma.SortOrder
   checklist?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.ChecklistCountOrderByAggregateInput
   _avg?: Prisma.ChecklistAvgOrderByAggregateInput
   _max?: Prisma.ChecklistMaxOrderByAggregateInput
@@ -300,15 +300,15 @@ export type ChecklistScalarWhereWithAggregatesInput = {
   equipment_id?: Prisma.IntNullableWithAggregatesFilter<"Checklist"> | number | null
   checklist_number?: Prisma.IntWithAggregatesFilter<"Checklist"> | number
   checklist?: Prisma.StringWithAggregatesFilter<"Checklist"> | string
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Checklist"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Checklist"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Checklist"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Checklist"> | Date | string
 }
 
 export type ChecklistCreateInput = {
   checklist_number: number
   checklist: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   equipment?: Prisma.EquipmentCreateNestedOneWithoutChecklistsInput
   tenants?: Prisma.TenantCreateNestedOneWithoutChecklistsInput
 }
@@ -319,15 +319,15 @@ export type ChecklistUncheckedCreateInput = {
   equipment_id?: number | null
   checklist_number: number
   checklist: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ChecklistUpdateInput = {
   checklist_number?: Prisma.IntFieldUpdateOperationsInput | number
   checklist?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   equipment?: Prisma.EquipmentUpdateOneWithoutChecklistsNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutChecklistsNestedInput
 }
@@ -338,8 +338,8 @@ export type ChecklistUncheckedUpdateInput = {
   equipment_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   checklist_number?: Prisma.IntFieldUpdateOperationsInput | number
   checklist?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ChecklistCreateManyInput = {
@@ -348,15 +348,15 @@ export type ChecklistCreateManyInput = {
   equipment_id?: number | null
   checklist_number: number
   checklist: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ChecklistUpdateManyMutationInput = {
   checklist_number?: Prisma.IntFieldUpdateOperationsInput | number
   checklist?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ChecklistUncheckedUpdateManyInput = {
@@ -365,8 +365,8 @@ export type ChecklistUncheckedUpdateManyInput = {
   equipment_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   checklist_number?: Prisma.IntFieldUpdateOperationsInput | number
   checklist?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ChecklistListRelationFilter = {
@@ -516,8 +516,8 @@ export type ChecklistUncheckedUpdateManyWithoutEquipmentNestedInput = {
 export type ChecklistCreateWithoutTenantsInput = {
   checklist_number: number
   checklist: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   equipment?: Prisma.EquipmentCreateNestedOneWithoutChecklistsInput
 }
 
@@ -526,8 +526,8 @@ export type ChecklistUncheckedCreateWithoutTenantsInput = {
   equipment_id?: number | null
   checklist_number: number
   checklist: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ChecklistCreateOrConnectWithoutTenantsInput = {
@@ -565,15 +565,15 @@ export type ChecklistScalarWhereInput = {
   equipment_id?: Prisma.IntNullableFilter<"Checklist"> | number | null
   checklist_number?: Prisma.IntFilter<"Checklist"> | number
   checklist?: Prisma.StringFilter<"Checklist"> | string
-  created_at?: Prisma.DateTimeNullableFilter<"Checklist"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Checklist"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Checklist"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Checklist"> | Date | string
 }
 
 export type ChecklistCreateWithoutEquipmentInput = {
   checklist_number: number
   checklist: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   tenants?: Prisma.TenantCreateNestedOneWithoutChecklistsInput
 }
 
@@ -582,8 +582,8 @@ export type ChecklistUncheckedCreateWithoutEquipmentInput = {
   tenant_id?: number | null
   checklist_number: number
   checklist: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ChecklistCreateOrConnectWithoutEquipmentInput = {
@@ -617,15 +617,15 @@ export type ChecklistCreateManyTenantsInput = {
   equipment_id?: number | null
   checklist_number: number
   checklist: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ChecklistUpdateWithoutTenantsInput = {
   checklist_number?: Prisma.IntFieldUpdateOperationsInput | number
   checklist?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   equipment?: Prisma.EquipmentUpdateOneWithoutChecklistsNestedInput
 }
 
@@ -634,8 +634,8 @@ export type ChecklistUncheckedUpdateWithoutTenantsInput = {
   equipment_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   checklist_number?: Prisma.IntFieldUpdateOperationsInput | number
   checklist?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ChecklistUncheckedUpdateManyWithoutTenantsInput = {
@@ -643,8 +643,8 @@ export type ChecklistUncheckedUpdateManyWithoutTenantsInput = {
   equipment_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   checklist_number?: Prisma.IntFieldUpdateOperationsInput | number
   checklist?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ChecklistCreateManyEquipmentInput = {
@@ -652,15 +652,15 @@ export type ChecklistCreateManyEquipmentInput = {
   tenant_id?: number | null
   checklist_number: number
   checklist: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type ChecklistUpdateWithoutEquipmentInput = {
   checklist_number?: Prisma.IntFieldUpdateOperationsInput | number
   checklist?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenants?: Prisma.TenantUpdateOneWithoutChecklistsNestedInput
 }
 
@@ -669,8 +669,8 @@ export type ChecklistUncheckedUpdateWithoutEquipmentInput = {
   tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   checklist_number?: Prisma.IntFieldUpdateOperationsInput | number
   checklist?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ChecklistUncheckedUpdateManyWithoutEquipmentInput = {
@@ -678,8 +678,8 @@ export type ChecklistUncheckedUpdateManyWithoutEquipmentInput = {
   tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   checklist_number?: Prisma.IntFieldUpdateOperationsInput | number
   checklist?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -726,8 +726,8 @@ export type $ChecklistPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     equipment_id: number | null
     checklist_number: number
     checklist: string
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["checklist"]>
   composites: {}
 }

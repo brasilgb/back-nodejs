@@ -201,8 +201,8 @@ export type WhatsappMessageGroupByOutputType = {
   generatedbudget: string | null
   servicecompleted: string | null
   defaultmessage: string | null
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: WhatsappMessageCountAggregateOutputType | null
   _avg: WhatsappMessageAvgAggregateOutputType | null
   _sum: WhatsappMessageSumAggregateOutputType | null
@@ -234,8 +234,8 @@ export type WhatsappMessageWhereInput = {
   generatedbudget?: Prisma.StringNullableFilter<"WhatsappMessage"> | string | null
   servicecompleted?: Prisma.StringNullableFilter<"WhatsappMessage"> | string | null
   defaultmessage?: Prisma.StringNullableFilter<"WhatsappMessage"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"WhatsappMessage"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"WhatsappMessage"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"WhatsappMessage"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"WhatsappMessage"> | Date | string
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
 }
 
@@ -245,8 +245,8 @@ export type WhatsappMessageOrderByWithRelationInput = {
   generatedbudget?: Prisma.SortOrderInput | Prisma.SortOrder
   servicecompleted?: Prisma.SortOrderInput | Prisma.SortOrder
   defaultmessage?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   tenants?: Prisma.TenantOrderByWithRelationInput
   _relevance?: Prisma.WhatsappMessageOrderByRelevanceInput
 }
@@ -260,8 +260,8 @@ export type WhatsappMessageWhereUniqueInput = Prisma.AtLeast<{
   generatedbudget?: Prisma.StringNullableFilter<"WhatsappMessage"> | string | null
   servicecompleted?: Prisma.StringNullableFilter<"WhatsappMessage"> | string | null
   defaultmessage?: Prisma.StringNullableFilter<"WhatsappMessage"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"WhatsappMessage"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"WhatsappMessage"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"WhatsappMessage"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"WhatsappMessage"> | Date | string
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
 }, "id">
 
@@ -271,8 +271,8 @@ export type WhatsappMessageOrderByWithAggregationInput = {
   generatedbudget?: Prisma.SortOrderInput | Prisma.SortOrder
   servicecompleted?: Prisma.SortOrderInput | Prisma.SortOrder
   defaultmessage?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.WhatsappMessageCountOrderByAggregateInput
   _avg?: Prisma.WhatsappMessageAvgOrderByAggregateInput
   _max?: Prisma.WhatsappMessageMaxOrderByAggregateInput
@@ -289,16 +289,16 @@ export type WhatsappMessageScalarWhereWithAggregatesInput = {
   generatedbudget?: Prisma.StringNullableWithAggregatesFilter<"WhatsappMessage"> | string | null
   servicecompleted?: Prisma.StringNullableWithAggregatesFilter<"WhatsappMessage"> | string | null
   defaultmessage?: Prisma.StringNullableWithAggregatesFilter<"WhatsappMessage"> | string | null
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"WhatsappMessage"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"WhatsappMessage"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"WhatsappMessage"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"WhatsappMessage"> | Date | string
 }
 
 export type WhatsappMessageCreateInput = {
   generatedbudget?: string | null
   servicecompleted?: string | null
   defaultmessage?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   tenants?: Prisma.TenantCreateNestedOneWithoutWhatsapp_messagesInput
 }
 
@@ -308,16 +308,16 @@ export type WhatsappMessageUncheckedCreateInput = {
   generatedbudget?: string | null
   servicecompleted?: string | null
   defaultmessage?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type WhatsappMessageUpdateInput = {
   generatedbudget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicecompleted?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultmessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenants?: Prisma.TenantUpdateOneWithoutWhatsapp_messagesNestedInput
 }
 
@@ -327,8 +327,8 @@ export type WhatsappMessageUncheckedUpdateInput = {
   generatedbudget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicecompleted?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultmessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type WhatsappMessageCreateManyInput = {
@@ -337,16 +337,16 @@ export type WhatsappMessageCreateManyInput = {
   generatedbudget?: string | null
   servicecompleted?: string | null
   defaultmessage?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type WhatsappMessageUpdateManyMutationInput = {
   generatedbudget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicecompleted?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultmessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type WhatsappMessageUncheckedUpdateManyInput = {
@@ -355,8 +355,8 @@ export type WhatsappMessageUncheckedUpdateManyInput = {
   generatedbudget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicecompleted?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultmessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type WhatsappMessageListRelationFilter = {
@@ -461,8 +461,8 @@ export type WhatsappMessageCreateWithoutTenantsInput = {
   generatedbudget?: string | null
   servicecompleted?: string | null
   defaultmessage?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type WhatsappMessageUncheckedCreateWithoutTenantsInput = {
@@ -470,8 +470,8 @@ export type WhatsappMessageUncheckedCreateWithoutTenantsInput = {
   generatedbudget?: string | null
   servicecompleted?: string | null
   defaultmessage?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type WhatsappMessageCreateOrConnectWithoutTenantsInput = {
@@ -509,8 +509,8 @@ export type WhatsappMessageScalarWhereInput = {
   generatedbudget?: Prisma.StringNullableFilter<"WhatsappMessage"> | string | null
   servicecompleted?: Prisma.StringNullableFilter<"WhatsappMessage"> | string | null
   defaultmessage?: Prisma.StringNullableFilter<"WhatsappMessage"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"WhatsappMessage"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"WhatsappMessage"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"WhatsappMessage"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"WhatsappMessage"> | Date | string
 }
 
 export type WhatsappMessageCreateManyTenantsInput = {
@@ -518,16 +518,16 @@ export type WhatsappMessageCreateManyTenantsInput = {
   generatedbudget?: string | null
   servicecompleted?: string | null
   defaultmessage?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type WhatsappMessageUpdateWithoutTenantsInput = {
   generatedbudget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicecompleted?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultmessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type WhatsappMessageUncheckedUpdateWithoutTenantsInput = {
@@ -535,8 +535,8 @@ export type WhatsappMessageUncheckedUpdateWithoutTenantsInput = {
   generatedbudget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicecompleted?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultmessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type WhatsappMessageUncheckedUpdateManyWithoutTenantsInput = {
@@ -544,8 +544,8 @@ export type WhatsappMessageUncheckedUpdateManyWithoutTenantsInput = {
   generatedbudget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicecompleted?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultmessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -589,8 +589,8 @@ export type $WhatsappMessagePayload<ExtArgs extends runtime.Types.Extensions.Int
     generatedbudget: string | null
     servicecompleted: string | null
     defaultmessage: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["whatsappMessage"]>
   composites: {}
 }
@@ -1186,7 +1186,7 @@ export type WhatsappMessageCreateArgs<ExtArgs extends runtime.Types.Extensions.I
   /**
    * The data needed to create a WhatsappMessage.
    */
-  data?: Prisma.XOR<Prisma.WhatsappMessageCreateInput, Prisma.WhatsappMessageUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.WhatsappMessageCreateInput, Prisma.WhatsappMessageUncheckedCreateInput>
 }
 
 /**

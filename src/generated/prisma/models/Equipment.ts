@@ -198,8 +198,8 @@ export type EquipmentGroupByOutputType = {
   tenant_id: number | null
   equipment_number: number
   equipment: string
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: EquipmentCountAggregateOutputType | null
   _avg: EquipmentAvgAggregateOutputType | null
   _sum: EquipmentSumAggregateOutputType | null
@@ -230,8 +230,8 @@ export type EquipmentWhereInput = {
   tenant_id?: Prisma.IntNullableFilter<"Equipment"> | number | null
   equipment_number?: Prisma.IntFilter<"Equipment"> | number
   equipment?: Prisma.StringFilter<"Equipment"> | string
-  created_at?: Prisma.DateTimeNullableFilter<"Equipment"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Equipment"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Equipment"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Equipment"> | Date | string
   checklists?: Prisma.ChecklistListRelationFilter
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
   orders?: Prisma.OrderListRelationFilter
@@ -242,8 +242,8 @@ export type EquipmentOrderByWithRelationInput = {
   tenant_id?: Prisma.SortOrderInput | Prisma.SortOrder
   equipment_number?: Prisma.SortOrder
   equipment?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   checklists?: Prisma.ChecklistOrderByRelationAggregateInput
   tenants?: Prisma.TenantOrderByWithRelationInput
   orders?: Prisma.OrderOrderByRelationAggregateInput
@@ -258,8 +258,8 @@ export type EquipmentWhereUniqueInput = Prisma.AtLeast<{
   tenant_id?: Prisma.IntNullableFilter<"Equipment"> | number | null
   equipment_number?: Prisma.IntFilter<"Equipment"> | number
   equipment?: Prisma.StringFilter<"Equipment"> | string
-  created_at?: Prisma.DateTimeNullableFilter<"Equipment"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Equipment"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Equipment"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Equipment"> | Date | string
   checklists?: Prisma.ChecklistListRelationFilter
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
   orders?: Prisma.OrderListRelationFilter
@@ -270,8 +270,8 @@ export type EquipmentOrderByWithAggregationInput = {
   tenant_id?: Prisma.SortOrderInput | Prisma.SortOrder
   equipment_number?: Prisma.SortOrder
   equipment?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.EquipmentCountOrderByAggregateInput
   _avg?: Prisma.EquipmentAvgOrderByAggregateInput
   _max?: Prisma.EquipmentMaxOrderByAggregateInput
@@ -287,15 +287,15 @@ export type EquipmentScalarWhereWithAggregatesInput = {
   tenant_id?: Prisma.IntNullableWithAggregatesFilter<"Equipment"> | number | null
   equipment_number?: Prisma.IntWithAggregatesFilter<"Equipment"> | number
   equipment?: Prisma.StringWithAggregatesFilter<"Equipment"> | string
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Equipment"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Equipment"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Equipment"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Equipment"> | Date | string
 }
 
 export type EquipmentCreateInput = {
   equipment_number: number
   equipment: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   checklists?: Prisma.ChecklistCreateNestedManyWithoutEquipmentInput
   tenants?: Prisma.TenantCreateNestedOneWithoutEquipmentInput
   orders?: Prisma.OrderCreateNestedManyWithoutEquipmentInput
@@ -306,8 +306,8 @@ export type EquipmentUncheckedCreateInput = {
   tenant_id?: number | null
   equipment_number: number
   equipment: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutEquipmentInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutEquipmentInput
 }
@@ -315,8 +315,8 @@ export type EquipmentUncheckedCreateInput = {
 export type EquipmentUpdateInput = {
   equipment_number?: Prisma.IntFieldUpdateOperationsInput | number
   equipment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   checklists?: Prisma.ChecklistUpdateManyWithoutEquipmentNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutEquipmentNestedInput
   orders?: Prisma.OrderUpdateManyWithoutEquipmentNestedInput
@@ -327,8 +327,8 @@ export type EquipmentUncheckedUpdateInput = {
   tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   equipment_number?: Prisma.IntFieldUpdateOperationsInput | number
   equipment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutEquipmentNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutEquipmentNestedInput
 }
@@ -338,15 +338,15 @@ export type EquipmentCreateManyInput = {
   tenant_id?: number | null
   equipment_number: number
   equipment: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type EquipmentUpdateManyMutationInput = {
   equipment_number?: Prisma.IntFieldUpdateOperationsInput | number
   equipment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EquipmentUncheckedUpdateManyInput = {
@@ -354,8 +354,8 @@ export type EquipmentUncheckedUpdateManyInput = {
   tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   equipment_number?: Prisma.IntFieldUpdateOperationsInput | number
   equipment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EquipmentListRelationFilter = {
@@ -495,8 +495,8 @@ export type EquipmentUpdateOneWithoutOrdersNestedInput = {
 export type EquipmentCreateWithoutTenantsInput = {
   equipment_number: number
   equipment: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   checklists?: Prisma.ChecklistCreateNestedManyWithoutEquipmentInput
   orders?: Prisma.OrderCreateNestedManyWithoutEquipmentInput
 }
@@ -505,8 +505,8 @@ export type EquipmentUncheckedCreateWithoutTenantsInput = {
   id?: number
   equipment_number: number
   equipment: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutEquipmentInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutEquipmentInput
 }
@@ -545,15 +545,15 @@ export type EquipmentScalarWhereInput = {
   tenant_id?: Prisma.IntNullableFilter<"Equipment"> | number | null
   equipment_number?: Prisma.IntFilter<"Equipment"> | number
   equipment?: Prisma.StringFilter<"Equipment"> | string
-  created_at?: Prisma.DateTimeNullableFilter<"Equipment"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"Equipment"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"Equipment"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Equipment"> | Date | string
 }
 
 export type EquipmentCreateWithoutChecklistsInput = {
   equipment_number: number
   equipment: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   tenants?: Prisma.TenantCreateNestedOneWithoutEquipmentInput
   orders?: Prisma.OrderCreateNestedManyWithoutEquipmentInput
 }
@@ -563,8 +563,8 @@ export type EquipmentUncheckedCreateWithoutChecklistsInput = {
   tenant_id?: number | null
   equipment_number: number
   equipment: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutEquipmentInput
 }
 
@@ -587,8 +587,8 @@ export type EquipmentUpdateToOneWithWhereWithoutChecklistsInput = {
 export type EquipmentUpdateWithoutChecklistsInput = {
   equipment_number?: Prisma.IntFieldUpdateOperationsInput | number
   equipment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenants?: Prisma.TenantUpdateOneWithoutEquipmentNestedInput
   orders?: Prisma.OrderUpdateManyWithoutEquipmentNestedInput
 }
@@ -598,16 +598,16 @@ export type EquipmentUncheckedUpdateWithoutChecklistsInput = {
   tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   equipment_number?: Prisma.IntFieldUpdateOperationsInput | number
   equipment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   orders?: Prisma.OrderUncheckedUpdateManyWithoutEquipmentNestedInput
 }
 
 export type EquipmentCreateWithoutOrdersInput = {
   equipment_number: number
   equipment: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   checklists?: Prisma.ChecklistCreateNestedManyWithoutEquipmentInput
   tenants?: Prisma.TenantCreateNestedOneWithoutEquipmentInput
 }
@@ -617,8 +617,8 @@ export type EquipmentUncheckedCreateWithoutOrdersInput = {
   tenant_id?: number | null
   equipment_number: number
   equipment: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   checklists?: Prisma.ChecklistUncheckedCreateNestedManyWithoutEquipmentInput
 }
 
@@ -641,8 +641,8 @@ export type EquipmentUpdateToOneWithWhereWithoutOrdersInput = {
 export type EquipmentUpdateWithoutOrdersInput = {
   equipment_number?: Prisma.IntFieldUpdateOperationsInput | number
   equipment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   checklists?: Prisma.ChecklistUpdateManyWithoutEquipmentNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutEquipmentNestedInput
 }
@@ -652,8 +652,8 @@ export type EquipmentUncheckedUpdateWithoutOrdersInput = {
   tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   equipment_number?: Prisma.IntFieldUpdateOperationsInput | number
   equipment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutEquipmentNestedInput
 }
 
@@ -661,15 +661,15 @@ export type EquipmentCreateManyTenantsInput = {
   id?: number
   equipment_number: number
   equipment: string
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type EquipmentUpdateWithoutTenantsInput = {
   equipment_number?: Prisma.IntFieldUpdateOperationsInput | number
   equipment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   checklists?: Prisma.ChecklistUpdateManyWithoutEquipmentNestedInput
   orders?: Prisma.OrderUpdateManyWithoutEquipmentNestedInput
 }
@@ -678,8 +678,8 @@ export type EquipmentUncheckedUpdateWithoutTenantsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   equipment_number?: Prisma.IntFieldUpdateOperationsInput | number
   equipment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   checklists?: Prisma.ChecklistUncheckedUpdateManyWithoutEquipmentNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutEquipmentNestedInput
 }
@@ -688,8 +688,8 @@ export type EquipmentUncheckedUpdateManyWithoutTenantsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   equipment_number?: Prisma.IntFieldUpdateOperationsInput | number
   equipment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -776,8 +776,8 @@ export type $EquipmentPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     tenant_id: number | null
     equipment_number: number
     equipment: string
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["equipment"]>
   composites: {}
 }

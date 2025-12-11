@@ -202,8 +202,8 @@ export type OrderPartGroupByOutputType = {
   order_id: number
   part_id: number
   quantity: number
-  created_at: Date | null
-  updated_at: Date | null
+  created_at: Date
+  updated_at: Date
   _count: OrderPartCountAggregateOutputType | null
   _avg: OrderPartAvgAggregateOutputType | null
   _sum: OrderPartSumAggregateOutputType | null
@@ -234,8 +234,8 @@ export type OrderPartWhereInput = {
   order_id?: Prisma.IntFilter<"OrderPart"> | number
   part_id?: Prisma.IntFilter<"OrderPart"> | number
   quantity?: Prisma.IntFilter<"OrderPart"> | number
-  created_at?: Prisma.DateTimeNullableFilter<"OrderPart"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"OrderPart"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"OrderPart"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"OrderPart"> | Date | string
   orders?: Prisma.XOR<Prisma.OrderScalarRelationFilter, Prisma.OrderWhereInput>
   parts?: Prisma.XOR<Prisma.PartScalarRelationFilter, Prisma.PartWhereInput>
 }
@@ -245,8 +245,8 @@ export type OrderPartOrderByWithRelationInput = {
   order_id?: Prisma.SortOrder
   part_id?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   orders?: Prisma.OrderOrderByWithRelationInput
   parts?: Prisma.PartOrderByWithRelationInput
 }
@@ -259,8 +259,8 @@ export type OrderPartWhereUniqueInput = Prisma.AtLeast<{
   order_id?: Prisma.IntFilter<"OrderPart"> | number
   part_id?: Prisma.IntFilter<"OrderPart"> | number
   quantity?: Prisma.IntFilter<"OrderPart"> | number
-  created_at?: Prisma.DateTimeNullableFilter<"OrderPart"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"OrderPart"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"OrderPart"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"OrderPart"> | Date | string
   orders?: Prisma.XOR<Prisma.OrderScalarRelationFilter, Prisma.OrderWhereInput>
   parts?: Prisma.XOR<Prisma.PartScalarRelationFilter, Prisma.PartWhereInput>
 }, "id">
@@ -270,8 +270,8 @@ export type OrderPartOrderByWithAggregationInput = {
   order_id?: Prisma.SortOrder
   part_id?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.OrderPartCountOrderByAggregateInput
   _avg?: Prisma.OrderPartAvgOrderByAggregateInput
   _max?: Prisma.OrderPartMaxOrderByAggregateInput
@@ -287,14 +287,14 @@ export type OrderPartScalarWhereWithAggregatesInput = {
   order_id?: Prisma.IntWithAggregatesFilter<"OrderPart"> | number
   part_id?: Prisma.IntWithAggregatesFilter<"OrderPart"> | number
   quantity?: Prisma.IntWithAggregatesFilter<"OrderPart"> | number
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"OrderPart"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"OrderPart"> | Date | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"OrderPart"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"OrderPart"> | Date | string
 }
 
 export type OrderPartCreateInput = {
   quantity: number
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   orders: Prisma.OrderCreateNestedOneWithoutOrder_partsInput
   parts: Prisma.PartCreateNestedOneWithoutOrder_partsInput
 }
@@ -304,14 +304,14 @@ export type OrderPartUncheckedCreateInput = {
   order_id: number
   part_id: number
   quantity: number
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type OrderPartUpdateInput = {
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   orders?: Prisma.OrderUpdateOneRequiredWithoutOrder_partsNestedInput
   parts?: Prisma.PartUpdateOneRequiredWithoutOrder_partsNestedInput
 }
@@ -321,8 +321,8 @@ export type OrderPartUncheckedUpdateInput = {
   order_id?: Prisma.IntFieldUpdateOperationsInput | number
   part_id?: Prisma.IntFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type OrderPartCreateManyInput = {
@@ -330,14 +330,14 @@ export type OrderPartCreateManyInput = {
   order_id: number
   part_id: number
   quantity: number
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type OrderPartUpdateManyMutationInput = {
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type OrderPartUncheckedUpdateManyInput = {
@@ -345,8 +345,8 @@ export type OrderPartUncheckedUpdateManyInput = {
   order_id?: Prisma.IntFieldUpdateOperationsInput | number
   part_id?: Prisma.IntFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type OrderPartCountOrderByAggregateInput = {
@@ -486,8 +486,8 @@ export type OrderPartUncheckedUpdateManyWithoutPartsNestedInput = {
 
 export type OrderPartCreateWithoutOrdersInput = {
   quantity: number
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   parts: Prisma.PartCreateNestedOneWithoutOrder_partsInput
 }
 
@@ -495,8 +495,8 @@ export type OrderPartUncheckedCreateWithoutOrdersInput = {
   id?: number
   part_id: number
   quantity: number
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type OrderPartCreateOrConnectWithoutOrdersInput = {
@@ -533,14 +533,14 @@ export type OrderPartScalarWhereInput = {
   order_id?: Prisma.IntFilter<"OrderPart"> | number
   part_id?: Prisma.IntFilter<"OrderPart"> | number
   quantity?: Prisma.IntFilter<"OrderPart"> | number
-  created_at?: Prisma.DateTimeNullableFilter<"OrderPart"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"OrderPart"> | Date | string | null
+  created_at?: Prisma.DateTimeFilter<"OrderPart"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"OrderPart"> | Date | string
 }
 
 export type OrderPartCreateWithoutPartsInput = {
   quantity: number
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
   orders: Prisma.OrderCreateNestedOneWithoutOrder_partsInput
 }
 
@@ -548,8 +548,8 @@ export type OrderPartUncheckedCreateWithoutPartsInput = {
   id?: number
   order_id: number
   quantity: number
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type OrderPartCreateOrConnectWithoutPartsInput = {
@@ -582,14 +582,14 @@ export type OrderPartCreateManyOrdersInput = {
   id?: number
   part_id: number
   quantity: number
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type OrderPartUpdateWithoutOrdersInput = {
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   parts?: Prisma.PartUpdateOneRequiredWithoutOrder_partsNestedInput
 }
 
@@ -597,30 +597,30 @@ export type OrderPartUncheckedUpdateWithoutOrdersInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   part_id?: Prisma.IntFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type OrderPartUncheckedUpdateManyWithoutOrdersInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   part_id?: Prisma.IntFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type OrderPartCreateManyPartsInput = {
   id?: number
   order_id: number
   quantity: number
-  created_at?: Date | string | null
-  updated_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type OrderPartUpdateWithoutPartsInput = {
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   orders?: Prisma.OrderUpdateOneRequiredWithoutOrder_partsNestedInput
 }
 
@@ -628,16 +628,16 @@ export type OrderPartUncheckedUpdateWithoutPartsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   order_id?: Prisma.IntFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type OrderPartUncheckedUpdateManyWithoutPartsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   order_id?: Prisma.IntFieldUpdateOperationsInput | number
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -681,8 +681,8 @@ export type $OrderPartPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     order_id: number
     part_id: number
     quantity: number
-    created_at: Date | null
-    updated_at: Date | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["orderPart"]>
   composites: {}
 }
