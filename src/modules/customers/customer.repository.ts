@@ -19,16 +19,26 @@ class CustomerRepository {
     // Busca por CPF/CNPJ dentro do tenant para evitar duplicidade
     async findByCpf(cpf: string, tenantId: number) {
         return prisma.customer.findFirst({
-            where: { 
+            where: {
                 cpf: cpf,
-                tenant_id: tenantId 
+                tenant_id: tenantId
             }
+        });
+    }
+
+    // Busca por E-mail dentro do tenant para evitar duplicidade
+    async findByEmail(email: string, tenantId: number) {
+        return prisma.customer.findFirst({
+            where: {
+                email: email,
+                tenant_id: tenantId,
+            },
         });
     }
 
     async create(tenantId: number, data: any) {
         return prisma.$transaction(async (tx) => {
-            
+
             const nextCode = await getNextSequence(tx.customer, tenantId, 'customer_number');
             const birthData = data.birth ? new Date(data.birth) : null;
             const addressNumber = data.number ? data.number : null;
@@ -47,11 +57,14 @@ class CustomerRepository {
     }
 
     async update(id: number, tenantId: number, data: any) {
+        const birthData = data.birth ? new Date(data.birth) : null;
+        const addressNumber = data.number ? data.number : null;
         return prisma.customer.updateMany({
             where: { id: id, tenant_id: tenantId },
             data: {
                 ...data,
-                updated_at: new Date()
+                birth: birthData,
+                number: addressNumber
             }
         });
     }

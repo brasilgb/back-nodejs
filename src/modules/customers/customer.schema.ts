@@ -19,7 +19,7 @@ export const createCustomerSchema = z.object({
         }),
     // Converte string "YYYY-MM-DD" para Date
     birth: z.preprocess((arg) => (arg === "" ? undefined : arg), z.coerce.date().optional()),
-    email: z.email("E-mail inválido").optional().or(z.literal('')),
+    email: z.email({ message: "Digite um e-mail válido" }),
     phone: z.string().optional(),
     whatsapp: z.string().optional(),
     // Endereço

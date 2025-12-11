@@ -56,14 +56,23 @@ class CustomerController {
     }
 
     async delete(req: Request, res: Response) {
+        const { id } = req.params;
+        const tenantId = req.user?.tenant_id;
         try {
-            const tenantId = req.user?.tenant_id;
             if (!tenantId) return res.status(403).json({ message: "Acesso negado" });
 
-            const { id } = req.params;
-            await customerService.delete(tenantId, Number(id));
+            const userId = Number(id);
+            if (isNaN(userId)) {
+                return res.status(400).json({
+                    message: "ID Inválido"
+                })
+            }
 
-            return res.status(204).send();
+            await customerService.delete(tenantId, userId);
+
+            return res.status(200).json({
+                message: "Cliente deletado com sucesso!"
+            });
 
         } catch (error: any) {
             return res.status(400).json({ message: error.message });

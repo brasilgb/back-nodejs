@@ -11,9 +11,19 @@ class CustomerService {
     async create(tenantId: number, data: CreateCustomerDTO) {
         // Regra de Negócio: Não duplicar CPF/CNPJ na mesma empresa
         if (data.cpf) {
-            const customerExists = await customerRepository.findByCpf(data.cpf, tenantId);
-            if (customerExists) {
+            const cpfExists = await customerRepository.findByCpf(data.cpf, tenantId);
+            if (cpfExists) {
                 throw new Error("Já existe um cliente com este CPF/CNPJ.");
+            }
+        }
+
+        // 2. Regra de Negócio: E-mail único por empresa (NOVO)
+        if (data.email) {
+            // Usa o mesmo método que criamos no passo anterior
+            const emailExists = await customerRepository.findByEmail(data.email, tenantId);
+
+            if (emailExists) {
+                throw new Error("Já existe um cliente com este e-mail.");
             }
         }
 
@@ -25,10 +35,21 @@ class CustomerService {
         const customer = await customerRepository.findById(id, tenantId);
         if (!customer) throw new Error("Cliente não encontrado.");
 
-        // Verifica duplicidade se estiver trocando o CPF
+        // 2. Validação de duplicidade de CPF (só se mudou)
         if (data.cpf && data.cpf !== customer.cpf) {
-            const docExists = await customerRepository.findByCpf(data.cpf, tenantId);
-            if (docExists) throw new Error("Já existe outro cliente com este CPF/CNPJ.");
+            const cpfExists = await customerRepository.findByCpf(data.cpf, tenantId);
+            if (cpfExists) throw new Error("Já existe outro cliente com este CPF/CNPJ.");
+        }
+
+        // 3. Validação de duplicidade de E-mail (só se mudou)
+        if (data.email && data.email !== customer.email) {
+            // Verifica se já existe ALGUÉM com esse email no mesmo tenant
+            const emailExists = await customerRepository.findByEmail(data.email, tenantId);
+
+            // Se encontrou alguém, bloqueia
+            if (emailExists) {
+                throw new Error("Já existe outro cliente cadastrado com este e-mail.");
+            }
         }
 
         return customerRepository.update(id, tenantId, data);
