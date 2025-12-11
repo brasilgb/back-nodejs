@@ -16,7 +16,7 @@ export const userService = {
         return searchedUser;
     },
 
-    async create(data: CreateUserDTO): Promise<User> {
+    async create(tenantId: number, data: CreateUserDTO): Promise<User> {
         const existingUser = await userRepository.findByEmail(data.email);
         if (existingUser) {
             throw new Error("E-mail já cadastrado");
@@ -28,7 +28,7 @@ export const userService = {
             ...data,
             password: passwordHash
         }
-        return userRepository.save(userToCreate);
+        return userRepository.save(tenantId, userToCreate);
     },
 
     async update(id: number, data: any) {

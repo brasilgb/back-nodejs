@@ -17,35 +17,61 @@ export const userController = {
         try {
             const userId = Number(id);
             const user = await userService.findById(userId);
-            return res.status(200).json({ 
+            return res.status(200).json({
                 user: user
-             })
+            })
         } catch (error) {
             return res.status(400).json({ message: "Erro ao listar usuário" });
         }
     },
 
     async create(req: Request, res: Response): Promise<Response> {
-        const { retype_password, ...userData} = req.body;
+        // 1. Tenta pegar do token (Usuário Comum)
+        let tenantId = req.user?.tenant_id;
+        
+        // Separa os dados do body
+        const { retype_password, ...userData } = req.body;
+
+        // 2. Se for null ou undefined (Significa que é ROOT/SUPERADMIN)
+        if (!tenantId) {
+            // Então obrigamos que venha no corpo da requisição
+            tenantId = userData.tenant_id;
+
+            // 3. Validação de Segurança: Se for Root mas não mandou o ID, bloqueia.
+            if (!tenantId) {
+                return res.status(400).json({ 
+                    message: "Superusuários devem informar o tenant_id para cadastrar usuários." 
+                });
+            }
+        }
+
+        // Converte para garantir que é número
+        const tenant = Number(tenantId);
 
         try {
-            const newUser = await userService.create(userData);
-            return res.status(200).json({
+            // Passamos o tenant ID decidido acima + os dados
+            const newUser = await userService.create(tenant, userData);
+            
+            return res.status(201).json({ // 201 Created é melhor que 200
                 message: "Usuário criado com sucesso!",
                 user: {
                     id: newUser.id,
                     name: newUser.name,
-                    email: newUser.email
+                    email: newUser.email,
+                    // Útil retornar o tenant_id para confirmar onde foi criado
+                    tenant_id: newUser.tenant_id 
                 }
             });
         } catch (error: any) {
-            return res.status(400).json({ message: error.message || "Erro ao criar usuário" })
+            return res.status(400).json({ 
+                message: error.message || "Erro ao criar usuário" 
+            })
         }
     },
 
     async update(req: Request, res: Response): Promise<Response> {
         const { id } = req.params;
-        const { retype_password, ...userData} = req.body;
+        const { retype_password, ...userData } = req.body;
 
         try {
             const userId = Number(id);

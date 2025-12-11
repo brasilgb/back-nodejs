@@ -518,43 +518,43 @@ export type TenantScalarWhereWithAggregatesInput = {
 
 export type TenantCreateInput = {
   plan: number
-  name?: string | null | undefined
+  name?: string | null
   company: string
   cnpj: string
   email: string
-  phone?: string | null | undefined
-  whatsapp?: string | null | undefined
-  zip_code?: string | null | undefined
-  state?: string | null | undefined
-  city?: string | null | undefined
-  district?: string | null | undefined
-  street?: string | null | undefined
-  complement?: string | null | undefined
-  number?: string | null | undefined
+  phone?: string | null
+  whatsapp?: string | null
+  zip_code?: string | null
+  state?: string | null
+  city?: string | null
+  district?: string | null
+  street?: string | null
+  complement?: string | null
+  number?: string | null
   status: number
-  payment?: boolean | null | undefined
-  observations?: string | null | undefined
-  expiration_date?: Date | string | null | undefined
-  created_at?: Date | string | null | undefined
-  updated_at?: Date | string | null | undefined
-  branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput | undefined
-  budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput | undefined
-  checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput | undefined
-  companies?: Prisma.CompanyCreateNestedManyWithoutTenantsInput | undefined
-  customers?: Prisma.CustomerCreateNestedManyWithoutTenantsInput | undefined
-  equipment?: Prisma.EquipmentCreateNestedManyWithoutTenantsInput | undefined
-  images?: Prisma.ImageCreateNestedManyWithoutTenantsInput | undefined
-  messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput | undefined
-  orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput | undefined
-  others?: Prisma.OtherCreateNestedManyWithoutTenantsInput | undefined
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput | undefined
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput | undefined
-  receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput | undefined
-  sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput | undefined
-  schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput | undefined
-  settings?: Prisma.SettingCreateNestedOneWithoutTenantsInput | undefined
-  users?: Prisma.UserCreateNestedManyWithoutTenantsInput | undefined
-  whatsapp_messages?: Prisma.WhatsappMessageCreateNestedManyWithoutTenantsInput | undefined
+  payment?: boolean | null
+  observations?: string | null
+  expiration_date?: Date | string | null
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  branches?: Prisma.BranchCreateNestedManyWithoutTenantsInput
+  budgets?: Prisma.BudgetCreateNestedManyWithoutTenantsInput
+  checklists?: Prisma.ChecklistCreateNestedManyWithoutTenantsInput
+  companies?: Prisma.CompanyCreateNestedManyWithoutTenantsInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutTenantsInput
+  equipment?: Prisma.EquipmentCreateNestedManyWithoutTenantsInput
+  images?: Prisma.ImageCreateNestedManyWithoutTenantsInput
+  messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
+  orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
+  others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
+  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
+  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
+  sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
+  schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
+  settings?: Prisma.SettingCreateNestedOneWithoutTenantsInput
+  users?: Prisma.UserCreateNestedManyWithoutTenantsInput
+  whatsapp_messages?: Prisma.WhatsappMessageCreateNestedManyWithoutTenantsInput
 }
 
 export type TenantUncheckedCreateInput = {

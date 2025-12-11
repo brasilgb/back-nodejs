@@ -420,28 +420,28 @@ export type UserScalarWhereWithAggregatesInput = {
 }
 
 export type UserCreateInput = {
-  user_number?: number | null | undefined
+  user_number?: number | null
   name: string
   email: string
-  telephone?: string | null | undefined
-  whatsapp?: string | null | undefined
+  telephone?: string | null
+  whatsapp?: string | null
   password: string
-  roles?: number | null | undefined
-  status?: number | null | undefined
-  email_verified_at?: Date | string | null | undefined
-  remember_token?: string | null | undefined
-  reset_token?: string | null | undefined
-  reset_token_expiry?: Date | string | null | undefined
-  created_at?: Date | string | null | undefined
-  updated_at?: Date | string | null | undefined
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput | undefined
-  schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput | undefined
+  roles?: number | null
+  status?: number | null
+  email_verified_at?: Date | string | null
+  remember_token?: string | null
+  reset_token?: string | null
+  reset_token_expiry?: Date | string | null
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput
+  schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput
   tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput | undefined
 }
 
 export type UserUncheckedCreateInput = {
-  id?: number
-  tenant_id?: number | null
+  id?: number | undefined
+  tenant_id?: number | null | undefined
   user_number?: number | null
   name: string
   email: string

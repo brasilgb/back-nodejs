@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 export const createUserSchema = z.object({
+    tenant_id: z.coerce.number().optional(),
     name: z.string({ error: "O nome é obrigatório" }).min(1, { message: "O nome é obrigatório" }),
     email: z.email({ message: "Digite um e-mail válido" }),
     roles: z.number({ error: "Selecione a função do usuário" }),

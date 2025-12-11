@@ -5,6 +5,7 @@ import { createUserSchema, updateUserSchema } from './modules/users/user.schema'
 import { tenantController } from './modules/tenants/tenant.controller';
 import { createTenantSchema, updateTenantSchema } from './modules/tenants/tenant.schema';
 import { authRoutes } from './modules/auth/auth.routes';
+import { ensureAuthenticated } from './middlewares/auth.middleware';
 
 const router = Router();
 router.use('/auth', authRoutes);
@@ -18,7 +19,7 @@ router.delete('/tenants/:id', tenantController.delete);
 
 // Usuários
 router.get('/users', userController.list);
-router.post('/users', validate(createUserSchema), userController.create);
+router.post('/users', ensureAuthenticated, validate(createUserSchema), userController.create);
 router.patch('/users/:id', validate(updateUserSchema), userController.update);
 router.get('/users/:id', userController.listById);
 router.delete('/users/:id', userController.delete);

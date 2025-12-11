@@ -8,16 +8,16 @@ import crypto from "crypto";
 import { mailService } from "../../services/mail.service";
 
 // Constantes secretas (Ideamente mover para .env)
-const SUPERUSER_COMPANY_CODE = 'super-company-sigmaos-root';
-const SUPERUSER_CNPJ_CODE = '0D82457BF990DE04D1F8F98AC7BFE7DC';
+// const SUPERUSER_COMPANY_CODE = 'super-company-sigmaos-root';
+// const SUPERUSER_CNPJ_CODE = '0D82457BF990DE04D1F8F98AC7BFE7DC';
 
 class AuthService {
 
     async register(data: RegisterDTO) {
         // Lógica para detectar se é Super Usuário
-        const isSuperUserRegistration = 
-            data.company === SUPERUSER_COMPANY_CODE && 
-            data.cnpj === SUPERUSER_CNPJ_CODE;
+        const isSuperUserRegistration =
+            data.company === process.env.SUPERUSER_COMPANY_CODE &&
+            data.cnpj === process.env.SUPERUSER_CNPJ_CODE;
 
         // 1. Hash da senha (comum para ambos)
         const passwordHash = await hash(data.password, 8);
@@ -25,7 +25,7 @@ class AuthService {
         // --- FLUXO SUPER USUÁRIO ---
         if (isSuperUserRegistration) {
             const superUserExists = await authRepository.findSuperUser();
-            
+
             if (superUserExists) {
                 throw new Error("Já existe um superusuário registrado no sistema.");
             }
@@ -44,7 +44,7 @@ class AuthService {
         }
 
         // --- FLUXO TENANT COMUM ---
-        
+
         // Validações obrigatórias para Tenant Comum
         if (!data.company) throw new Error("Razão Social é obrigatória");
         if (!data.cnpj) throw new Error("CNPJ é obrigatório");
@@ -53,14 +53,30 @@ class AuthService {
         // Nota: Precisamos desses métodos implementados nos repositórios respectivos
         const emailExists = await userRepository.findByEmail(data.email);
         if (emailExists) throw new Error("E-mail já cadastrado");
-        
+
         // Verifica CNPJ na tabela tenants
         const cnpjExists = await tenantRepository.findByCnpj(data.cnpj);
         if (cnpjExists) throw new Error("CNPJ já cadastrado");
 
+        // 🔴 3. CORREÇÃO: Verifica duplicidade de E-mail na tabela TENANTS
+        // Adicione este bloco:
+        const tenantEmailExists = await tenantRepository.findByEmail(data.email);
+        if (tenantEmailExists) {
+            throw new Error("Este e-mail já está vinculado a uma empresa existente.");
+        }
+
         // Executa a transação completa
         const result = await authRepository.createTenantTransaction(data, passwordHash);
-
+        try {
+            // Não usamos 'await' aqui se quisermos que a API responda rápido (Fire and Forget)
+            // Ou usamos 'await' se for crítico garantir o envio antes de responder.
+            // Para cadastro, recomendo usar await para garantir ou logar erro.
+            await mailService.sendWelcomeEmail(result.user.email, result.user.name);
+        } catch (error) {
+            // Se o e-mail falhar, APENAS logamos o erro no console.
+            // Não damos throw, senão o usuário recebe erro 500 mesmo tendo sido cadastrado.
+            console.error("Erro ao enviar e-mail de boas-vindas:", error);
+        }
         return { user: result.user, type: 'app' };
     }
 
@@ -88,11 +104,11 @@ class AuthService {
 
         // O payload são os dados que ficam "dentro" do token
         const token = jwt.sign(
-            { 
-                id: user.id, 
-                email: user.email, 
+            {
+                id: user.id,
+                email: user.email,
                 tenant_id: user.tenant_id // Útil para filtrar dados depois
-            }, 
+            },
             secret,
             { expiresIn: "1d" } // Token expira em 1 dia
         );
@@ -103,10 +119,10 @@ class AuthService {
     // Passo 1: Enviar o e-mail
     async forgotPassword(email: string) {
         const user = await userRepository.findByEmail(email);
-        
+
         // Segurança: Se o usuário não existe, não fazemos nada, 
         // mas retornamos sucesso para não revelar quem é cliente ou não.
-        if (!user) return; 
+        if (!user) return;
 
         // Gera token aleatório (hexadecimal)
         const token = crypto.randomBytes(20).toString('hex');
