@@ -13,13 +13,13 @@ function validateCpfCnpj(val: string): boolean {
 export const createTenantSchema = z.object({
     plan: z.number({ error: "O plano deve ser selecionado" }),
     name: z.string().optional(),
-    company: z.string({ error: "O nome é obrigatório" }).min(1, { message: "O nome é obrigatório" }),
-    cnpj: z.string({ error: "O CNPJ é obrigatório" }).min(1, { message: "O CNPJ é obrigatório" })
+    company: z.string().min(1, { message: "O nome é obrigatório" }),
+    cnpj: z.string().min(1, { message: "O CNPJ é obrigatório" })
         .refine(validateCpfCnpj, {
             message: "Documento inválido. Informe um CNPJ válido."
         }),
     email: z.email({ message: "Digite um e-mail válido" }),
-    phone: z.string({ error: "O telefone é obrigatório" }).min(1, { message: "O telefone é obrigatório" }),
+    phone: z.string().min(1, { message: "O telefone é obrigatório" }),
     whatsapp: z.string().optional(),
     zip_code: z.string().optional(),
     state: z.string().optional(),

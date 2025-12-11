@@ -134,6 +134,8 @@ export const UserScalarFieldEnum = {
   status: 'status',
   email_verified_at: 'email_verified_at',
   remember_token: 'remember_token',
+  reset_token: 'reset_token',
+  reset_token_expiry: 'reset_token_expiry',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
@@ -560,7 +562,8 @@ export const UserOrderByRelevanceFieldEnum = {
   telephone: 'telephone',
   whatsapp: 'whatsapp',
   password: 'password',
-  remember_token: 'remember_token'
+  remember_token: 'remember_token',
+  reset_token: 'reset_token'
 } as const
 
 export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]

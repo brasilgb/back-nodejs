@@ -4,8 +4,10 @@ import { validate } from './middlewares/validate.middleware';
 import { createUserSchema, updateUserSchema } from './modules/users/user.schema';
 import { tenantController } from './modules/tenants/tenant.controller';
 import { createTenantSchema, updateTenantSchema } from './modules/tenants/tenant.schema';
+import { authRoutes } from './modules/auth/auth.routes';
 
 const router = Router();
+router.use('/auth', authRoutes);
 
 // Tenants
 router.get('/tenants', tenantController.list);
