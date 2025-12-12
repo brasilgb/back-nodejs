@@ -337,9 +337,9 @@ export type OrderGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 
 export type OrderGroupByOutputType = {
   id: number
-  tenant_id: number | null
-  customer_id: number | null
-  equipment_id: number | null
+  tenant_id: number
+  customer_id: number
+  equipment_id: number
   order_number: number
   model: string | null
   password: string | null
@@ -348,7 +348,7 @@ export type OrderGroupByOutputType = {
   accessories: string | null
   budget_description: string | null
   budget_value: runtime.Decimal
-  service_status: number | null
+  service_status: number
   delivery_forecast: Date | null
   observations: string | null
   services_performed: string | null
@@ -388,9 +388,9 @@ export type OrderWhereInput = {
   OR?: Prisma.OrderWhereInput[]
   NOT?: Prisma.OrderWhereInput | Prisma.OrderWhereInput[]
   id?: Prisma.IntFilter<"Order"> | number
-  tenant_id?: Prisma.IntNullableFilter<"Order"> | number | null
-  customer_id?: Prisma.IntNullableFilter<"Order"> | number | null
-  equipment_id?: Prisma.IntNullableFilter<"Order"> | number | null
+  tenant_id?: Prisma.IntFilter<"Order"> | number
+  customer_id?: Prisma.IntFilter<"Order"> | number
+  equipment_id?: Prisma.IntFilter<"Order"> | number
   order_number?: Prisma.IntFilter<"Order"> | number
   model?: Prisma.StringNullableFilter<"Order"> | string | null
   password?: Prisma.StringNullableFilter<"Order"> | string | null
@@ -399,7 +399,7 @@ export type OrderWhereInput = {
   accessories?: Prisma.StringNullableFilter<"Order"> | string | null
   budget_description?: Prisma.StringNullableFilter<"Order"> | string | null
   budget_value?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.IntNullableFilter<"Order"> | number | null
+  service_status?: Prisma.IntFilter<"Order"> | number
   delivery_forecast?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
   observations?: Prisma.StringNullableFilter<"Order"> | string | null
   services_performed?: Prisma.StringNullableFilter<"Order"> | string | null
@@ -422,9 +422,9 @@ export type OrderWhereInput = {
 
 export type OrderOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  tenant_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  customer_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  equipment_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  tenant_id?: Prisma.SortOrder
+  customer_id?: Prisma.SortOrder
+  equipment_id?: Prisma.SortOrder
   order_number?: Prisma.SortOrder
   model?: Prisma.SortOrderInput | Prisma.SortOrder
   password?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -433,7 +433,7 @@ export type OrderOrderByWithRelationInput = {
   accessories?: Prisma.SortOrderInput | Prisma.SortOrder
   budget_description?: Prisma.SortOrderInput | Prisma.SortOrder
   budget_value?: Prisma.SortOrder
-  service_status?: Prisma.SortOrderInput | Prisma.SortOrder
+  service_status?: Prisma.SortOrder
   delivery_forecast?: Prisma.SortOrderInput | Prisma.SortOrder
   observations?: Prisma.SortOrderInput | Prisma.SortOrder
   services_performed?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -460,9 +460,9 @@ export type OrderWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.OrderWhereInput | Prisma.OrderWhereInput[]
   OR?: Prisma.OrderWhereInput[]
   NOT?: Prisma.OrderWhereInput | Prisma.OrderWhereInput[]
-  tenant_id?: Prisma.IntNullableFilter<"Order"> | number | null
-  customer_id?: Prisma.IntNullableFilter<"Order"> | number | null
-  equipment_id?: Prisma.IntNullableFilter<"Order"> | number | null
+  tenant_id?: Prisma.IntFilter<"Order"> | number
+  customer_id?: Prisma.IntFilter<"Order"> | number
+  equipment_id?: Prisma.IntFilter<"Order"> | number
   order_number?: Prisma.IntFilter<"Order"> | number
   model?: Prisma.StringNullableFilter<"Order"> | string | null
   password?: Prisma.StringNullableFilter<"Order"> | string | null
@@ -471,7 +471,7 @@ export type OrderWhereUniqueInput = Prisma.AtLeast<{
   accessories?: Prisma.StringNullableFilter<"Order"> | string | null
   budget_description?: Prisma.StringNullableFilter<"Order"> | string | null
   budget_value?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.IntNullableFilter<"Order"> | number | null
+  service_status?: Prisma.IntFilter<"Order"> | number
   delivery_forecast?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
   observations?: Prisma.StringNullableFilter<"Order"> | string | null
   services_performed?: Prisma.StringNullableFilter<"Order"> | string | null
@@ -494,9 +494,9 @@ export type OrderWhereUniqueInput = Prisma.AtLeast<{
 
 export type OrderOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  tenant_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  customer_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  equipment_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  tenant_id?: Prisma.SortOrder
+  customer_id?: Prisma.SortOrder
+  equipment_id?: Prisma.SortOrder
   order_number?: Prisma.SortOrder
   model?: Prisma.SortOrderInput | Prisma.SortOrder
   password?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -505,7 +505,7 @@ export type OrderOrderByWithAggregationInput = {
   accessories?: Prisma.SortOrderInput | Prisma.SortOrder
   budget_description?: Prisma.SortOrderInput | Prisma.SortOrder
   budget_value?: Prisma.SortOrder
-  service_status?: Prisma.SortOrderInput | Prisma.SortOrder
+  service_status?: Prisma.SortOrder
   delivery_forecast?: Prisma.SortOrderInput | Prisma.SortOrder
   observations?: Prisma.SortOrderInput | Prisma.SortOrder
   services_performed?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -530,9 +530,9 @@ export type OrderScalarWhereWithAggregatesInput = {
   OR?: Prisma.OrderScalarWhereWithAggregatesInput[]
   NOT?: Prisma.OrderScalarWhereWithAggregatesInput | Prisma.OrderScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Order"> | number
-  tenant_id?: Prisma.IntNullableWithAggregatesFilter<"Order"> | number | null
-  customer_id?: Prisma.IntNullableWithAggregatesFilter<"Order"> | number | null
-  equipment_id?: Prisma.IntNullableWithAggregatesFilter<"Order"> | number | null
+  tenant_id?: Prisma.IntWithAggregatesFilter<"Order"> | number
+  customer_id?: Prisma.IntWithAggregatesFilter<"Order"> | number
+  equipment_id?: Prisma.IntWithAggregatesFilter<"Order"> | number
   order_number?: Prisma.IntWithAggregatesFilter<"Order"> | number
   model?: Prisma.StringNullableWithAggregatesFilter<"Order"> | string | null
   password?: Prisma.StringNullableWithAggregatesFilter<"Order"> | string | null
@@ -541,7 +541,7 @@ export type OrderScalarWhereWithAggregatesInput = {
   accessories?: Prisma.StringNullableWithAggregatesFilter<"Order"> | string | null
   budget_description?: Prisma.StringNullableWithAggregatesFilter<"Order"> | string | null
   budget_value?: Prisma.DecimalWithAggregatesFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.IntNullableWithAggregatesFilter<"Order"> | number | null
+  service_status?: Prisma.IntWithAggregatesFilter<"Order"> | number
   delivery_forecast?: Prisma.DateTimeNullableWithAggregatesFilter<"Order"> | Date | string | null
   observations?: Prisma.StringNullableWithAggregatesFilter<"Order"> | string | null
   services_performed?: Prisma.StringNullableWithAggregatesFilter<"Order"> | string | null
@@ -565,7 +565,7 @@ export type OrderCreateInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -588,9 +588,9 @@ export type OrderCreateInput = {
 
 export type OrderUncheckedCreateInput = {
   id?: number
-  tenant_id?: number | null
-  customer_id?: number | null
-  equipment_id?: number | null
+  tenant_id: number
+  customer_id: number
+  equipment_id: number
   order_number: number
   model?: string | null
   password?: string | null
@@ -599,7 +599,7 @@ export type OrderUncheckedCreateInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -626,7 +626,7 @@ export type OrderUpdateInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -649,9 +649,9 @@ export type OrderUpdateInput = {
 
 export type OrderUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  customer_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  equipment_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
+  customer_id?: Prisma.IntFieldUpdateOperationsInput | number
+  equipment_id?: Prisma.IntFieldUpdateOperationsInput | number
   order_number?: Prisma.IntFieldUpdateOperationsInput | number
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -660,7 +660,7 @@ export type OrderUncheckedUpdateInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -680,9 +680,9 @@ export type OrderUncheckedUpdateInput = {
 
 export type OrderCreateManyInput = {
   id?: number
-  tenant_id?: number | null
-  customer_id?: number | null
-  equipment_id?: number | null
+  tenant_id: number
+  customer_id: number
+  equipment_id: number
   order_number: number
   model?: string | null
   password?: string | null
@@ -691,7 +691,7 @@ export type OrderCreateManyInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -715,7 +715,7 @@ export type OrderUpdateManyMutationInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -732,9 +732,9 @@ export type OrderUpdateManyMutationInput = {
 
 export type OrderUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  customer_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  equipment_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
+  customer_id?: Prisma.IntFieldUpdateOperationsInput | number
+  equipment_id?: Prisma.IntFieldUpdateOperationsInput | number
   order_number?: Prisma.IntFieldUpdateOperationsInput | number
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -743,7 +743,7 @@ export type OrderUncheckedUpdateManyInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1073,7 +1073,7 @@ export type OrderCreateWithoutTenantsInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -1095,8 +1095,8 @@ export type OrderCreateWithoutTenantsInput = {
 
 export type OrderUncheckedCreateWithoutTenantsInput = {
   id?: number
-  customer_id?: number | null
-  equipment_id?: number | null
+  customer_id: number
+  equipment_id: number
   order_number: number
   model?: string | null
   password?: string | null
@@ -1105,7 +1105,7 @@ export type OrderUncheckedCreateWithoutTenantsInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -1154,9 +1154,9 @@ export type OrderScalarWhereInput = {
   OR?: Prisma.OrderScalarWhereInput[]
   NOT?: Prisma.OrderScalarWhereInput | Prisma.OrderScalarWhereInput[]
   id?: Prisma.IntFilter<"Order"> | number
-  tenant_id?: Prisma.IntNullableFilter<"Order"> | number | null
-  customer_id?: Prisma.IntNullableFilter<"Order"> | number | null
-  equipment_id?: Prisma.IntNullableFilter<"Order"> | number | null
+  tenant_id?: Prisma.IntFilter<"Order"> | number
+  customer_id?: Prisma.IntFilter<"Order"> | number
+  equipment_id?: Prisma.IntFilter<"Order"> | number
   order_number?: Prisma.IntFilter<"Order"> | number
   model?: Prisma.StringNullableFilter<"Order"> | string | null
   password?: Prisma.StringNullableFilter<"Order"> | string | null
@@ -1165,7 +1165,7 @@ export type OrderScalarWhereInput = {
   accessories?: Prisma.StringNullableFilter<"Order"> | string | null
   budget_description?: Prisma.StringNullableFilter<"Order"> | string | null
   budget_value?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.IntNullableFilter<"Order"> | number | null
+  service_status?: Prisma.IntFilter<"Order"> | number
   delivery_forecast?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
   observations?: Prisma.StringNullableFilter<"Order"> | string | null
   services_performed?: Prisma.StringNullableFilter<"Order"> | string | null
@@ -1189,7 +1189,7 @@ export type OrderCreateWithoutCustomersInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -1211,8 +1211,8 @@ export type OrderCreateWithoutCustomersInput = {
 
 export type OrderUncheckedCreateWithoutCustomersInput = {
   id?: number
-  tenant_id?: number | null
-  equipment_id?: number | null
+  tenant_id: number
+  equipment_id: number
   order_number: number
   model?: string | null
   password?: string | null
@@ -1221,7 +1221,7 @@ export type OrderUncheckedCreateWithoutCustomersInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -1274,7 +1274,7 @@ export type OrderCreateWithoutEquipmentInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -1296,8 +1296,8 @@ export type OrderCreateWithoutEquipmentInput = {
 
 export type OrderUncheckedCreateWithoutEquipmentInput = {
   id?: number
-  tenant_id?: number | null
-  customer_id?: number | null
+  tenant_id: number
+  customer_id: number
   order_number: number
   model?: string | null
   password?: string | null
@@ -1306,7 +1306,7 @@ export type OrderUncheckedCreateWithoutEquipmentInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -1359,7 +1359,7 @@ export type OrderCreateWithoutImagesInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -1381,9 +1381,9 @@ export type OrderCreateWithoutImagesInput = {
 
 export type OrderUncheckedCreateWithoutImagesInput = {
   id?: number
-  tenant_id?: number | null
-  customer_id?: number | null
-  equipment_id?: number | null
+  tenant_id: number
+  customer_id: number
+  equipment_id: number
   order_number: number
   model?: string | null
   password?: string | null
@@ -1392,7 +1392,7 @@ export type OrderUncheckedCreateWithoutImagesInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -1434,7 +1434,7 @@ export type OrderUpdateWithoutImagesInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1456,9 +1456,9 @@ export type OrderUpdateWithoutImagesInput = {
 
 export type OrderUncheckedUpdateWithoutImagesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  customer_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  equipment_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
+  customer_id?: Prisma.IntFieldUpdateOperationsInput | number
+  equipment_id?: Prisma.IntFieldUpdateOperationsInput | number
   order_number?: Prisma.IntFieldUpdateOperationsInput | number
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1467,7 +1467,7 @@ export type OrderUncheckedUpdateWithoutImagesInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1493,7 +1493,7 @@ export type OrderCreateWithoutOrder_partsInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -1515,9 +1515,9 @@ export type OrderCreateWithoutOrder_partsInput = {
 
 export type OrderUncheckedCreateWithoutOrder_partsInput = {
   id?: number
-  tenant_id?: number | null
-  customer_id?: number | null
-  equipment_id?: number | null
+  tenant_id: number
+  customer_id: number
+  equipment_id: number
   order_number: number
   model?: string | null
   password?: string | null
@@ -1526,7 +1526,7 @@ export type OrderUncheckedCreateWithoutOrder_partsInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -1568,7 +1568,7 @@ export type OrderUpdateWithoutOrder_partsInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1590,9 +1590,9 @@ export type OrderUpdateWithoutOrder_partsInput = {
 
 export type OrderUncheckedUpdateWithoutOrder_partsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  customer_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  equipment_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
+  customer_id?: Prisma.IntFieldUpdateOperationsInput | number
+  equipment_id?: Prisma.IntFieldUpdateOperationsInput | number
   order_number?: Prisma.IntFieldUpdateOperationsInput | number
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1601,7 +1601,7 @@ export type OrderUncheckedUpdateWithoutOrder_partsInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1627,7 +1627,7 @@ export type OrderCreateWithoutPart_movementsInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -1649,9 +1649,9 @@ export type OrderCreateWithoutPart_movementsInput = {
 
 export type OrderUncheckedCreateWithoutPart_movementsInput = {
   id?: number
-  tenant_id?: number | null
-  customer_id?: number | null
-  equipment_id?: number | null
+  tenant_id: number
+  customer_id: number
+  equipment_id: number
   order_number: number
   model?: string | null
   password?: string | null
@@ -1660,7 +1660,7 @@ export type OrderUncheckedCreateWithoutPart_movementsInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -1702,7 +1702,7 @@ export type OrderUpdateWithoutPart_movementsInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1724,9 +1724,9 @@ export type OrderUpdateWithoutPart_movementsInput = {
 
 export type OrderUncheckedUpdateWithoutPart_movementsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  customer_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  equipment_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
+  customer_id?: Prisma.IntFieldUpdateOperationsInput | number
+  equipment_id?: Prisma.IntFieldUpdateOperationsInput | number
   order_number?: Prisma.IntFieldUpdateOperationsInput | number
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1735,7 +1735,7 @@ export type OrderUncheckedUpdateWithoutPart_movementsInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1754,8 +1754,8 @@ export type OrderUncheckedUpdateWithoutPart_movementsInput = {
 
 export type OrderCreateManyTenantsInput = {
   id?: number
-  customer_id?: number | null
-  equipment_id?: number | null
+  customer_id: number
+  equipment_id: number
   order_number: number
   model?: string | null
   password?: string | null
@@ -1764,7 +1764,7 @@ export type OrderCreateManyTenantsInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -1788,7 +1788,7 @@ export type OrderUpdateWithoutTenantsInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1810,8 +1810,8 @@ export type OrderUpdateWithoutTenantsInput = {
 
 export type OrderUncheckedUpdateWithoutTenantsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  customer_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  equipment_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  customer_id?: Prisma.IntFieldUpdateOperationsInput | number
+  equipment_id?: Prisma.IntFieldUpdateOperationsInput | number
   order_number?: Prisma.IntFieldUpdateOperationsInput | number
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1820,7 +1820,7 @@ export type OrderUncheckedUpdateWithoutTenantsInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1840,8 +1840,8 @@ export type OrderUncheckedUpdateWithoutTenantsInput = {
 
 export type OrderUncheckedUpdateManyWithoutTenantsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  customer_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  equipment_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  customer_id?: Prisma.IntFieldUpdateOperationsInput | number
+  equipment_id?: Prisma.IntFieldUpdateOperationsInput | number
   order_number?: Prisma.IntFieldUpdateOperationsInput | number
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1850,7 +1850,7 @@ export type OrderUncheckedUpdateManyWithoutTenantsInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1867,8 +1867,8 @@ export type OrderUncheckedUpdateManyWithoutTenantsInput = {
 
 export type OrderCreateManyCustomersInput = {
   id?: number
-  tenant_id?: number | null
-  equipment_id?: number | null
+  tenant_id: number
+  equipment_id: number
   order_number: number
   model?: string | null
   password?: string | null
@@ -1877,7 +1877,7 @@ export type OrderCreateManyCustomersInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -1901,7 +1901,7 @@ export type OrderUpdateWithoutCustomersInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1923,8 +1923,8 @@ export type OrderUpdateWithoutCustomersInput = {
 
 export type OrderUncheckedUpdateWithoutCustomersInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  equipment_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
+  equipment_id?: Prisma.IntFieldUpdateOperationsInput | number
   order_number?: Prisma.IntFieldUpdateOperationsInput | number
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1933,7 +1933,7 @@ export type OrderUncheckedUpdateWithoutCustomersInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1953,8 +1953,8 @@ export type OrderUncheckedUpdateWithoutCustomersInput = {
 
 export type OrderUncheckedUpdateManyWithoutCustomersInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  equipment_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
+  equipment_id?: Prisma.IntFieldUpdateOperationsInput | number
   order_number?: Prisma.IntFieldUpdateOperationsInput | number
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1963,7 +1963,7 @@ export type OrderUncheckedUpdateManyWithoutCustomersInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1980,8 +1980,8 @@ export type OrderUncheckedUpdateManyWithoutCustomersInput = {
 
 export type OrderCreateManyEquipmentInput = {
   id?: number
-  tenant_id?: number | null
-  customer_id?: number | null
+  tenant_id: number
+  customer_id: number
   order_number: number
   model?: string | null
   password?: string | null
@@ -1990,7 +1990,7 @@ export type OrderCreateManyEquipmentInput = {
   accessories?: string | null
   budget_description?: string | null
   budget_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: number | null
+  service_status: number
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
@@ -2014,7 +2014,7 @@ export type OrderUpdateWithoutEquipmentInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2036,8 +2036,8 @@ export type OrderUpdateWithoutEquipmentInput = {
 
 export type OrderUncheckedUpdateWithoutEquipmentInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  customer_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
+  customer_id?: Prisma.IntFieldUpdateOperationsInput | number
   order_number?: Prisma.IntFieldUpdateOperationsInput | number
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2046,7 +2046,7 @@ export type OrderUncheckedUpdateWithoutEquipmentInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2066,8 +2066,8 @@ export type OrderUncheckedUpdateWithoutEquipmentInput = {
 
 export type OrderUncheckedUpdateManyWithoutEquipmentInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  customer_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
+  customer_id?: Prisma.IntFieldUpdateOperationsInput | number
   order_number?: Prisma.IntFieldUpdateOperationsInput | number
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2076,7 +2076,7 @@ export type OrderUncheckedUpdateManyWithoutEquipmentInput = {
   accessories?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   budget_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  service_status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  service_status?: Prisma.IntFieldUpdateOperationsInput | number
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2228,9 +2228,9 @@ export type $OrderPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    tenant_id: number | null
-    customer_id: number | null
-    equipment_id: number | null
+    tenant_id: number
+    customer_id: number
+    equipment_id: number
     order_number: number
     model: string | null
     password: string | null
@@ -2239,7 +2239,7 @@ export type $OrderPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     accessories: string | null
     budget_description: string | null
     budget_value: runtime.Decimal
-    service_status: number | null
+    service_status: number
     delivery_forecast: Date | null
     observations: string | null
     services_performed: string | null

@@ -261,17 +261,17 @@ export type BudgetGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalA
 
 export type BudgetGroupByOutputType = {
   id: number
-  tenant_id: number | null
+  tenant_id: number
   budget_number: number
   category: string
   service: string
   model: string | null
-  description: string | null
-  estimated_time: string | null
+  description: string
+  estimated_time: string
   part_value: runtime.Decimal | null
   labor_value: runtime.Decimal
   total_value: runtime.Decimal
-  warranty: string | null
+  warranty: string
   obs: string | null
   created_at: Date
   updated_at: Date
@@ -302,17 +302,17 @@ export type BudgetWhereInput = {
   OR?: Prisma.BudgetWhereInput[]
   NOT?: Prisma.BudgetWhereInput | Prisma.BudgetWhereInput[]
   id?: Prisma.IntFilter<"Budget"> | number
-  tenant_id?: Prisma.IntNullableFilter<"Budget"> | number | null
+  tenant_id?: Prisma.IntFilter<"Budget"> | number
   budget_number?: Prisma.IntFilter<"Budget"> | number
   category?: Prisma.StringFilter<"Budget"> | string
   service?: Prisma.StringFilter<"Budget"> | string
   model?: Prisma.StringNullableFilter<"Budget"> | string | null
-  description?: Prisma.StringNullableFilter<"Budget"> | string | null
-  estimated_time?: Prisma.StringNullableFilter<"Budget"> | string | null
+  description?: Prisma.StringFilter<"Budget"> | string
+  estimated_time?: Prisma.StringFilter<"Budget"> | string
   part_value?: Prisma.DecimalNullableFilter<"Budget"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value?: Prisma.DecimalFilter<"Budget"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value?: Prisma.DecimalFilter<"Budget"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: Prisma.StringNullableFilter<"Budget"> | string | null
+  warranty?: Prisma.StringFilter<"Budget"> | string
   obs?: Prisma.StringNullableFilter<"Budget"> | string | null
   created_at?: Prisma.DateTimeFilter<"Budget"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Budget"> | Date | string
@@ -321,17 +321,17 @@ export type BudgetWhereInput = {
 
 export type BudgetOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  tenant_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  tenant_id?: Prisma.SortOrder
   budget_number?: Prisma.SortOrder
   category?: Prisma.SortOrder
   service?: Prisma.SortOrder
   model?: Prisma.SortOrderInput | Prisma.SortOrder
-  description?: Prisma.SortOrderInput | Prisma.SortOrder
-  estimated_time?: Prisma.SortOrderInput | Prisma.SortOrder
+  description?: Prisma.SortOrder
+  estimated_time?: Prisma.SortOrder
   part_value?: Prisma.SortOrderInput | Prisma.SortOrder
   labor_value?: Prisma.SortOrder
   total_value?: Prisma.SortOrder
-  warranty?: Prisma.SortOrderInput | Prisma.SortOrder
+  warranty?: Prisma.SortOrder
   obs?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -344,17 +344,17 @@ export type BudgetWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.BudgetWhereInput | Prisma.BudgetWhereInput[]
   OR?: Prisma.BudgetWhereInput[]
   NOT?: Prisma.BudgetWhereInput | Prisma.BudgetWhereInput[]
-  tenant_id?: Prisma.IntNullableFilter<"Budget"> | number | null
+  tenant_id?: Prisma.IntFilter<"Budget"> | number
   budget_number?: Prisma.IntFilter<"Budget"> | number
   category?: Prisma.StringFilter<"Budget"> | string
   service?: Prisma.StringFilter<"Budget"> | string
   model?: Prisma.StringNullableFilter<"Budget"> | string | null
-  description?: Prisma.StringNullableFilter<"Budget"> | string | null
-  estimated_time?: Prisma.StringNullableFilter<"Budget"> | string | null
+  description?: Prisma.StringFilter<"Budget"> | string
+  estimated_time?: Prisma.StringFilter<"Budget"> | string
   part_value?: Prisma.DecimalNullableFilter<"Budget"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value?: Prisma.DecimalFilter<"Budget"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value?: Prisma.DecimalFilter<"Budget"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: Prisma.StringNullableFilter<"Budget"> | string | null
+  warranty?: Prisma.StringFilter<"Budget"> | string
   obs?: Prisma.StringNullableFilter<"Budget"> | string | null
   created_at?: Prisma.DateTimeFilter<"Budget"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Budget"> | Date | string
@@ -363,17 +363,17 @@ export type BudgetWhereUniqueInput = Prisma.AtLeast<{
 
 export type BudgetOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  tenant_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  tenant_id?: Prisma.SortOrder
   budget_number?: Prisma.SortOrder
   category?: Prisma.SortOrder
   service?: Prisma.SortOrder
   model?: Prisma.SortOrderInput | Prisma.SortOrder
-  description?: Prisma.SortOrderInput | Prisma.SortOrder
-  estimated_time?: Prisma.SortOrderInput | Prisma.SortOrder
+  description?: Prisma.SortOrder
+  estimated_time?: Prisma.SortOrder
   part_value?: Prisma.SortOrderInput | Prisma.SortOrder
   labor_value?: Prisma.SortOrder
   total_value?: Prisma.SortOrder
-  warranty?: Prisma.SortOrderInput | Prisma.SortOrder
+  warranty?: Prisma.SortOrder
   obs?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -389,17 +389,17 @@ export type BudgetScalarWhereWithAggregatesInput = {
   OR?: Prisma.BudgetScalarWhereWithAggregatesInput[]
   NOT?: Prisma.BudgetScalarWhereWithAggregatesInput | Prisma.BudgetScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Budget"> | number
-  tenant_id?: Prisma.IntNullableWithAggregatesFilter<"Budget"> | number | null
+  tenant_id?: Prisma.IntWithAggregatesFilter<"Budget"> | number
   budget_number?: Prisma.IntWithAggregatesFilter<"Budget"> | number
   category?: Prisma.StringWithAggregatesFilter<"Budget"> | string
   service?: Prisma.StringWithAggregatesFilter<"Budget"> | string
   model?: Prisma.StringNullableWithAggregatesFilter<"Budget"> | string | null
-  description?: Prisma.StringNullableWithAggregatesFilter<"Budget"> | string | null
-  estimated_time?: Prisma.StringNullableWithAggregatesFilter<"Budget"> | string | null
+  description?: Prisma.StringWithAggregatesFilter<"Budget"> | string
+  estimated_time?: Prisma.StringWithAggregatesFilter<"Budget"> | string
   part_value?: Prisma.DecimalNullableWithAggregatesFilter<"Budget"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value?: Prisma.DecimalWithAggregatesFilter<"Budget"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value?: Prisma.DecimalWithAggregatesFilter<"Budget"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: Prisma.StringNullableWithAggregatesFilter<"Budget"> | string | null
+  warranty?: Prisma.StringWithAggregatesFilter<"Budget"> | string
   obs?: Prisma.StringNullableWithAggregatesFilter<"Budget"> | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"Budget"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"Budget"> | Date | string
@@ -410,12 +410,12 @@ export type BudgetCreateInput = {
   category: string
   service: string
   model?: string | null
-  description?: string | null
-  estimated_time?: string | null
+  description: string
+  estimated_time: string
   part_value?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value: runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value: runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: string | null
+  warranty: string
   obs?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -424,17 +424,17 @@ export type BudgetCreateInput = {
 
 export type BudgetUncheckedCreateInput = {
   id?: number
-  tenant_id?: number | null
+  tenant_id: number
   budget_number: number
   category: string
   service: string
   model?: string | null
-  description?: string | null
-  estimated_time?: string | null
+  description: string
+  estimated_time: string
   part_value?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value: runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value: runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: string | null
+  warranty: string
   obs?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -445,12 +445,12 @@ export type BudgetUpdateInput = {
   category?: Prisma.StringFieldUpdateOperationsInput | string
   service?: Prisma.StringFieldUpdateOperationsInput | string
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  estimated_time?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  estimated_time?: Prisma.StringFieldUpdateOperationsInput | string
   part_value?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  warranty?: Prisma.StringFieldUpdateOperationsInput | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -459,17 +459,17 @@ export type BudgetUpdateInput = {
 
 export type BudgetUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
   budget_number?: Prisma.IntFieldUpdateOperationsInput | number
   category?: Prisma.StringFieldUpdateOperationsInput | string
   service?: Prisma.StringFieldUpdateOperationsInput | string
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  estimated_time?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  estimated_time?: Prisma.StringFieldUpdateOperationsInput | string
   part_value?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  warranty?: Prisma.StringFieldUpdateOperationsInput | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -477,17 +477,17 @@ export type BudgetUncheckedUpdateInput = {
 
 export type BudgetCreateManyInput = {
   id?: number
-  tenant_id?: number | null
+  tenant_id: number
   budget_number: number
   category: string
   service: string
   model?: string | null
-  description?: string | null
-  estimated_time?: string | null
+  description: string
+  estimated_time: string
   part_value?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value: runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value: runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: string | null
+  warranty: string
   obs?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -498,12 +498,12 @@ export type BudgetUpdateManyMutationInput = {
   category?: Prisma.StringFieldUpdateOperationsInput | string
   service?: Prisma.StringFieldUpdateOperationsInput | string
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  estimated_time?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  estimated_time?: Prisma.StringFieldUpdateOperationsInput | string
   part_value?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  warranty?: Prisma.StringFieldUpdateOperationsInput | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -511,17 +511,17 @@ export type BudgetUpdateManyMutationInput = {
 
 export type BudgetUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
   budget_number?: Prisma.IntFieldUpdateOperationsInput | number
   category?: Prisma.StringFieldUpdateOperationsInput | string
   service?: Prisma.StringFieldUpdateOperationsInput | string
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  estimated_time?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  estimated_time?: Prisma.StringFieldUpdateOperationsInput | string
   part_value?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  warranty?: Prisma.StringFieldUpdateOperationsInput | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -678,12 +678,12 @@ export type BudgetCreateWithoutTenantsInput = {
   category: string
   service: string
   model?: string | null
-  description?: string | null
-  estimated_time?: string | null
+  description: string
+  estimated_time: string
   part_value?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value: runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value: runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: string | null
+  warranty: string
   obs?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -695,12 +695,12 @@ export type BudgetUncheckedCreateWithoutTenantsInput = {
   category: string
   service: string
   model?: string | null
-  description?: string | null
-  estimated_time?: string | null
+  description: string
+  estimated_time: string
   part_value?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value: runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value: runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: string | null
+  warranty: string
   obs?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -737,17 +737,17 @@ export type BudgetScalarWhereInput = {
   OR?: Prisma.BudgetScalarWhereInput[]
   NOT?: Prisma.BudgetScalarWhereInput | Prisma.BudgetScalarWhereInput[]
   id?: Prisma.IntFilter<"Budget"> | number
-  tenant_id?: Prisma.IntNullableFilter<"Budget"> | number | null
+  tenant_id?: Prisma.IntFilter<"Budget"> | number
   budget_number?: Prisma.IntFilter<"Budget"> | number
   category?: Prisma.StringFilter<"Budget"> | string
   service?: Prisma.StringFilter<"Budget"> | string
   model?: Prisma.StringNullableFilter<"Budget"> | string | null
-  description?: Prisma.StringNullableFilter<"Budget"> | string | null
-  estimated_time?: Prisma.StringNullableFilter<"Budget"> | string | null
+  description?: Prisma.StringFilter<"Budget"> | string
+  estimated_time?: Prisma.StringFilter<"Budget"> | string
   part_value?: Prisma.DecimalNullableFilter<"Budget"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value?: Prisma.DecimalFilter<"Budget"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value?: Prisma.DecimalFilter<"Budget"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: Prisma.StringNullableFilter<"Budget"> | string | null
+  warranty?: Prisma.StringFilter<"Budget"> | string
   obs?: Prisma.StringNullableFilter<"Budget"> | string | null
   created_at?: Prisma.DateTimeFilter<"Budget"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Budget"> | Date | string
@@ -759,12 +759,12 @@ export type BudgetCreateManyTenantsInput = {
   category: string
   service: string
   model?: string | null
-  description?: string | null
-  estimated_time?: string | null
+  description: string
+  estimated_time: string
   part_value?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value: runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value: runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: string | null
+  warranty: string
   obs?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -775,12 +775,12 @@ export type BudgetUpdateWithoutTenantsInput = {
   category?: Prisma.StringFieldUpdateOperationsInput | string
   service?: Prisma.StringFieldUpdateOperationsInput | string
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  estimated_time?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  estimated_time?: Prisma.StringFieldUpdateOperationsInput | string
   part_value?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  warranty?: Prisma.StringFieldUpdateOperationsInput | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -792,12 +792,12 @@ export type BudgetUncheckedUpdateWithoutTenantsInput = {
   category?: Prisma.StringFieldUpdateOperationsInput | string
   service?: Prisma.StringFieldUpdateOperationsInput | string
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  estimated_time?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  estimated_time?: Prisma.StringFieldUpdateOperationsInput | string
   part_value?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  warranty?: Prisma.StringFieldUpdateOperationsInput | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -809,12 +809,12 @@ export type BudgetUncheckedUpdateManyWithoutTenantsInput = {
   category?: Prisma.StringFieldUpdateOperationsInput | string
   service?: Prisma.StringFieldUpdateOperationsInput | string
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  estimated_time?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  estimated_time?: Prisma.StringFieldUpdateOperationsInput | string
   part_value?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   labor_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  warranty?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  warranty?: Prisma.StringFieldUpdateOperationsInput | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -873,17 +873,17 @@ export type $BudgetPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    tenant_id: number | null
+    tenant_id: number
     budget_number: number
     category: string
     service: string
     model: string | null
-    description: string | null
-    estimated_time: string | null
+    description: string
+    estimated_time: string
     part_value: runtime.Decimal | null
     labor_value: runtime.Decimal
     total_value: runtime.Decimal
-    warranty: string | null
+    warranty: string
     obs: string | null
     created_at: Date
     updated_at: Date

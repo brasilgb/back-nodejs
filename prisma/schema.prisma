@@ -106,17 +106,17 @@ model Branch {
 
 model Budget {
   id             Int      @id @default(autoincrement())
-  tenant_id      Int?
+  tenant_id      Int
   budget_number  Int
   category       String
   service        String
   model          String?
-  description    String?
-  estimated_time String?
+  description    String
+  estimated_time String
   part_value     Decimal? @db.Decimal(10, 2)
   labor_value    Decimal  @db.Decimal(10, 2)
   total_value    Decimal  @db.Decimal(10, 2)
-  warranty       String?
+  warranty       String
   obs            String?
   created_at     DateTime @default(now())
   updated_at     DateTime @updatedAt

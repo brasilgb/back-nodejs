@@ -7,7 +7,7 @@ export class OrderRepository {
     // 1. CREATE: Gera número sequencial e salva
     async create(tenantId: number, data: any) {
         // Gera o próximo número de OS para este tenant (ex: 101, 102...)
-        const nextOrderNumber = await getNextSequence("order", tenantId, "order_number");
+        const nextOrderNumber = await getNextSequence(prisma.order, tenantId, "order_number");
 
         return prisma.order.create({
             data: {
