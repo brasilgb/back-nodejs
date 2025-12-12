@@ -276,9 +276,9 @@ model OrderPart {
 
 model Order {
   id                     Int            @id @default(autoincrement())
-  tenant_id              Int?
-  customer_id            Int?
-  equipment_id           Int?
+  tenant_id              Int
+  customer_id            Int
+  equipment_id           Int
   order_number           Int
   model                  String?
   password               String?
@@ -287,7 +287,7 @@ model Order {
   accessories            String?
   budget_description     String?
   budget_value           Decimal        @default(0.00) @db.Decimal(10, 2)
-  service_status         Int?
+  service_status         Int
   delivery_forecast      DateTime?      @db.Date
   observations           String?
   services_performed     String?

@@ -5,6 +5,11 @@ class CustomerService {
 
     async findById(tenantId: number, id: number) {
         const searchedUser = customerRepository.findById(id, tenantId);
+
+        if (!searchedUser) {
+            throw new Error("Cliente não encontrado.");
+        }
+
         return searchedUser;
     }
 

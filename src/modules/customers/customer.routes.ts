@@ -6,10 +6,10 @@ import { customerController } from './customer.controller';
 
 const customerRoutes = Router();
 
-customerRoutes.get('/', customerController.list, ensureAuthenticated);
-customerRoutes.post('/', validate(createCustomerSchema), customerController.create, ensureAuthenticated);
-customerRoutes.patch('/:id', validate(updateCustomerSchema), customerController.update, ensureAuthenticated);
-customerRoutes.get('/:id', customerController.listById, ensureAuthenticated);
-customerRoutes.delete('/:id', customerController.delete, ensureAuthenticated);
+customerRoutes.get('/', ensureAuthenticated, customerController.list);
+customerRoutes.post('/', ensureAuthenticated, validate(createCustomerSchema), customerController.create);
+customerRoutes.patch('/:id', ensureAuthenticated, validate(updateCustomerSchema), customerController.update);
+customerRoutes.get('/:id', ensureAuthenticated, customerController.listById);
+customerRoutes.delete('/:id', ensureAuthenticated, customerController.delete);
 
 export { customerRoutes };
