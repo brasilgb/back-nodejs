@@ -4,13 +4,30 @@ import { customerService } from "./customer.service";
 class CustomerController {
 
     async list(req: Request, res: Response) {
-        const tenantId = req.user?.tenant_id;
-        
-        if (!tenantId) return res.status(403).json({ message: "Acesso negado" });
+  const tenantId = req.user?.tenant_id
+  if (!tenantId) {
+    return res.status(403).json({ message: "Acesso negado" })
+  }
 
-        const customers = await customerService.list(tenantId);
-        return res.json(customers);
-    }
+  const page = Number(req.query.page ?? 1)
+  const pageSize = Number(req.query.pageSize ?? 12)
+  const search = String(req.query.search ?? "")
+  const sortBy = req.query.sortBy as any
+  const sortDir = req.query.sortDir as any
+
+  const result = await customerService.listPaginated({
+    tenantId,
+    page,
+    pageSize,
+    search,
+    sortBy,
+    sortDir,
+  })
+
+  return res.json(result)
+}
+
+
 
     async listById(req: Request, res: Response): Promise<Response> {
         const { id } = req.params;
@@ -47,7 +64,7 @@ class CustomerController {
 
             const { id } = req.params;
             await customerService.update(tenantId, Number(id), req.body);
-            
+
             return res.json({ message: "Cliente atualizado com sucesso" });
 
         } catch (error: any) {

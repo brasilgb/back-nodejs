@@ -10,3 +10,12 @@ declare namespace Express {
         }
     }
 }
+
+interface FindAllPaginatedParams {
+    tenantId: number
+    page: number
+    pageSize: number
+    search?: string
+    sortBy?: "name" | "cpf" | "created_at"
+    sortDir?: "asc" | "desc"
+}

@@ -1,13 +1,39 @@
 import { prisma } from "../../lib/prisma";
 import { getNextSequence } from "../../utils/sequence"; // Seu utilitário
-
 class CustomerRepository {
 
-    async findAll(tenantId: number) {
-        return prisma.customer.findMany({
-            where: { tenant_id: tenantId },
-            orderBy: { customer_number: 'desc' }
-        });
+    async findAllPaginated({
+        tenantId,
+        page,
+        pageSize,
+        search,
+        sortBy = "created_at",
+        sortDir = "desc",
+    }: FindAllPaginatedParams) {
+        const where: any = {
+            tenant_id: tenantId,
+        }
+
+        if (search) {
+            where.OR = [
+                { name: { contains: search } },
+                { cpf: { contains: search } },
+            ]
+        }
+
+        const [items, total] = await prisma.$transaction([
+            prisma.customer.findMany({
+                where,
+                skip: (page - 1) * pageSize,
+                take: pageSize,
+                orderBy: {
+                    [sortBy]: sortDir,
+                },
+            }),
+            prisma.customer.count({ where }),
+        ])
+
+        return { items, total }
     }
 
     async findById(id: number, tenantId: number) {

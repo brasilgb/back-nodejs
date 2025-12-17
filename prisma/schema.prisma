@@ -196,6 +196,8 @@ model Customer {
   schedules       Schedule[]
 
   @@index([tenant_id], map: "customers_tenant_id_fkey")
+  @@index([name], map: "idx_customer_name")
+  @@index([cpf], map: "idx_customer_cpf")
   @@map("customers")
 }
 

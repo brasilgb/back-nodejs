@@ -19,8 +19,8 @@ CREATE TABLE `tenants` (
     `payment` BOOLEAN NULL,
     `observations` VARCHAR(191) NULL,
     `expiration_date` DATE NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     UNIQUE INDEX `tenants_cnpj_key`(`cnpj`),
     UNIQUE INDEX `tenants_email_key`(`email`),
@@ -41,10 +41,13 @@ CREATE TABLE `users` (
     `status` INTEGER NULL,
     `email_verified_at` DATETIME(3) NULL,
     `remember_token` VARCHAR(191) NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `reset_token` VARCHAR(191) NULL,
+    `reset_token_expiry` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     UNIQUE INDEX `users_email_key`(`email`),
+    UNIQUE INDEX `users_reset_token_key`(`reset_token`),
     INDEX `users_tenant_id_fkey`(`tenant_id`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -70,8 +73,8 @@ CREATE TABLE `branches` (
     `complement` VARCHAR(191) NULL,
     `status` BOOLEAN NOT NULL,
     `observations` VARCHAR(191) NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `branches_tenant_id_fkey`(`tenant_id`),
     PRIMARY KEY (`id`)
@@ -80,20 +83,20 @@ CREATE TABLE `branches` (
 -- CreateTable
 CREATE TABLE `budgets` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `tenant_id` INTEGER NULL,
+    `tenant_id` INTEGER NOT NULL,
     `budget_number` INTEGER NOT NULL,
     `category` VARCHAR(191) NOT NULL,
     `service` VARCHAR(191) NOT NULL,
     `model` VARCHAR(191) NULL,
-    `description` VARCHAR(191) NULL,
-    `estimated_time` VARCHAR(191) NULL,
+    `description` VARCHAR(191) NOT NULL,
+    `estimated_time` VARCHAR(191) NOT NULL,
     `part_value` DECIMAL(10, 2) NULL,
     `labor_value` DECIMAL(10, 2) NOT NULL,
     `total_value` DECIMAL(10, 2) NOT NULL,
-    `warranty` VARCHAR(191) NULL,
+    `warranty` VARCHAR(191) NOT NULL,
     `obs` VARCHAR(191) NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `budgets_tenant_id_fkey`(`tenant_id`),
     PRIMARY KEY (`id`)
@@ -106,8 +109,8 @@ CREATE TABLE `checklists` (
     `equipment_id` INTEGER NULL,
     `checklist_number` INTEGER NOT NULL,
     `checklist` VARCHAR(191) NOT NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `checklists_equipment_id_fkey`(`equipment_id`),
     INDEX `checklists_tenant_id_fkey`(`tenant_id`),
@@ -133,8 +136,8 @@ CREATE TABLE `companies` (
     `whatsapp` VARCHAR(191) NULL,
     `site` VARCHAR(191) NULL,
     `email` VARCHAR(191) NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `companies_tenant_id_fkey`(`tenant_id`),
     PRIMARY KEY (`id`)
@@ -161,10 +164,12 @@ CREATE TABLE `customers` (
     `whatsapp` VARCHAR(191) NULL,
     `contactphone` VARCHAR(191) NULL,
     `observations` VARCHAR(191) NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `customers_tenant_id_fkey`(`tenant_id`),
+    INDEX `idx_customer_name`(`name`),
+    INDEX `idx_customer_cpf`(`cpf`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -174,8 +179,8 @@ CREATE TABLE `equipment` (
     `tenant_id` INTEGER NULL,
     `equipment_number` INTEGER NOT NULL,
     `equipment` VARCHAR(191) NOT NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `equipment_tenant_id_fkey`(`tenant_id`),
     PRIMARY KEY (`id`)
@@ -187,8 +192,8 @@ CREATE TABLE `features` (
     `period_id` INTEGER NULL,
     `name` VARCHAR(191) NOT NULL,
     `order` INTEGER NOT NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `features_period_id_fkey`(`period_id`),
     PRIMARY KEY (`id`)
@@ -200,8 +205,8 @@ CREATE TABLE `images` (
     `tenant_id` INTEGER NULL,
     `order_id` INTEGER NOT NULL,
     `filename` VARCHAR(191) NOT NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `images_order_id_fkey`(`order_id`),
     INDEX `images_tenant_id_fkey`(`tenant_id`),
@@ -218,8 +223,8 @@ CREATE TABLE `messages` (
     `title` VARCHAR(191) NOT NULL,
     `message` VARCHAR(191) NOT NULL,
     `status` BOOLEAN NOT NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `messages_tenant_id_fkey`(`tenant_id`),
     PRIMARY KEY (`id`)
@@ -231,8 +236,8 @@ CREATE TABLE `order_parts` (
     `order_id` INTEGER NOT NULL,
     `part_id` INTEGER NOT NULL,
     `quantity` INTEGER NOT NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `order_parts_order_id_fkey`(`order_id`),
     INDEX `order_parts_part_id_fkey`(`part_id`),
@@ -242,9 +247,9 @@ CREATE TABLE `order_parts` (
 -- CreateTable
 CREATE TABLE `orders` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `tenant_id` INTEGER NULL,
-    `customer_id` INTEGER NULL,
-    `equipment_id` INTEGER NULL,
+    `tenant_id` INTEGER NOT NULL,
+    `customer_id` INTEGER NOT NULL,
+    `equipment_id` INTEGER NOT NULL,
     `order_number` INTEGER NOT NULL,
     `model` VARCHAR(191) NULL,
     `password` VARCHAR(191) NULL,
@@ -253,7 +258,7 @@ CREATE TABLE `orders` (
     `accessories` VARCHAR(191) NULL,
     `budget_description` VARCHAR(191) NULL,
     `budget_value` DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
-    `service_status` INTEGER NULL,
+    `service_status` INTEGER NOT NULL,
     `delivery_forecast` DATE NULL,
     `observations` VARCHAR(191) NULL,
     `services_performed` VARCHAR(191) NULL,
@@ -264,8 +269,8 @@ CREATE TABLE `orders` (
     `delivery_date` DATETIME(3) NULL,
     `responsible_technician` VARCHAR(191) NULL,
     `feedback` BOOLEAN NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `orders_customer_id_fkey`(`customer_id`),
     INDEX `orders_equipment_id_fkey`(`equipment_id`),
@@ -280,8 +285,8 @@ CREATE TABLE `others` (
     `navigation` BOOLEAN NOT NULL DEFAULT false,
     `enableparts` BOOLEAN NOT NULL DEFAULT false,
     `enablesales` BOOLEAN NOT NULL DEFAULT false,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `others_tenant_id_fkey`(`tenant_id`),
     PRIMARY KEY (`id`)
@@ -297,8 +302,8 @@ CREATE TABLE `part_movements` (
     `movement_type` ENUM('entrada', 'saida') NOT NULL,
     `quantity` INTEGER NOT NULL,
     `reason` VARCHAR(191) NOT NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `part_movements_order_id_fkey`(`order_id`),
     INDEX `part_movements_part_id_fkey`(`part_id`),
@@ -322,8 +327,8 @@ CREATE TABLE `parts` (
     `minimum_stock_level` INTEGER NOT NULL DEFAULT 0,
     `location` VARCHAR(191) NULL,
     `status` BOOLEAN NOT NULL DEFAULT true,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     UNIQUE INDEX `parts_part_number_key`(`part_number`),
     INDEX `parts_tenant_id_fkey`(`tenant_id`),
@@ -338,8 +343,8 @@ CREATE TABLE `periods` (
     `interval` VARCHAR(191) NOT NULL,
     `interval_count` INTEGER NOT NULL,
     `price` DECIMAL(8, 2) NOT NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `periods_plan_id_fkey`(`plan_id`),
     PRIMARY KEY (`id`)
@@ -351,8 +356,8 @@ CREATE TABLE `plans` (
     `name` VARCHAR(191) NOT NULL,
     `slug` VARCHAR(191) NOT NULL,
     `description` VARCHAR(191) NOT NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -374,8 +379,8 @@ CREATE TABLE `receipts` (
     `receivingequipment` VARCHAR(191) NULL,
     `equipmentdelivery` VARCHAR(191) NULL,
     `budgetissuance` VARCHAR(191) NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `receipts_tenant_id_fkey`(`tenant_id`),
     PRIMARY KEY (`id`)
@@ -388,8 +393,8 @@ CREATE TABLE `sale_items` (
     `part_id` INTEGER NOT NULL,
     `quantity` INTEGER NOT NULL,
     `unit_price` DECIMAL(10, 2) NOT NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `sale_items_part_id_fkey`(`part_id`),
     INDEX `sale_items_sale_id_fkey`(`sale_id`),
@@ -403,8 +408,8 @@ CREATE TABLE `sales` (
     `tenant_id` INTEGER NOT NULL,
     `customer_id` INTEGER NULL,
     `total_amount` DECIMAL(10, 2) NOT NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `sales_customer_id_fkey`(`customer_id`),
     INDEX `sales_tenant_id_fkey`(`tenant_id`),
@@ -424,8 +429,8 @@ CREATE TABLE `schedules` (
     `status` INTEGER NOT NULL DEFAULT 1,
     `observations` VARCHAR(191) NULL,
     `responsible_technician` VARCHAR(191) NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `schedules_customer_id_fkey`(`customer_id`),
     INDEX `schedules_tenant_id_fkey`(`tenant_id`),
@@ -439,8 +444,8 @@ CREATE TABLE `settings` (
     `tenant_id` INTEGER NOT NULL,
     `name` VARCHAR(191) NULL,
     `logo` VARCHAR(191) NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     UNIQUE INDEX `settings_tenant_id_key`(`tenant_id`),
     PRIMARY KEY (`id`)
@@ -453,8 +458,8 @@ CREATE TABLE `whatsapp_messages` (
     `generatedbudget` VARCHAR(191) NULL,
     `servicecompleted` VARCHAR(191) NULL,
     `defaultmessage` VARCHAR(191) NULL,
-    `created_at` DATETIME(3) NULL,
-    `updated_at` DATETIME(3) NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
 
     INDEX `whatsapp_messages_tenant_id_fkey`(`tenant_id`),
     PRIMARY KEY (`id`)

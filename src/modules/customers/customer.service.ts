@@ -60,9 +60,11 @@ class CustomerService {
         return customerRepository.update(id, tenantId, data);
     }
 
-    async list(tenantId: number) {
-        return customerRepository.findAll(tenantId);
+    async listPaginated(params: FindAllPaginatedParams) {
+  return customerRepository.findAllPaginated(params)
     }
+
+
 
     async delete(tenantId: number, id: number) {
         const customer = await customerRepository.findById(id, tenantId);
