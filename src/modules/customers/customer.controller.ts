@@ -1,31 +1,32 @@
 import { Request, Response } from "express";
 import { customerService } from "./customer.service";
+import { ValidationError } from "../../errors/ValidationError";
 
 class CustomerController {
 
     async list(req: Request, res: Response) {
-  const tenantId = req.user?.tenant_id
-  if (!tenantId) {
-    return res.status(403).json({ message: "Acesso negado" })
-  }
+        const tenantId = req.user?.tenant_id
+        if (!tenantId) {
+            return res.status(403).json({ message: "Acesso negado" })
+        }
 
-  const page = Number(req.query.page ?? 1)
-  const pageSize = Number(req.query.pageSize ?? 12)
-  const search = String(req.query.search ?? "")
-  const sortBy = req.query.sortBy as any
-  const sortDir = req.query.sortDir as any
+        const page = Number(req.query.page ?? 1)
+        const pageSize = Number(req.query.pageSize ?? 11)
+        const search = String(req.query.search ?? "")
+        const sortBy = req.query.sortBy as any
+        const sortDir = req.query.sortDir as any
 
-  const result = await customerService.listPaginated({
-    tenantId,
-    page,
-    pageSize,
-    search,
-    sortBy,
-    sortDir,
-  })
+        const result = await customerService.listPaginated({
+            tenantId,
+            page,
+            pageSize,
+            search,
+            sortBy,
+            sortDir,
+        })
 
-  return res.json(result)
-}
+        return res.json(result)
+    }
 
 
 
@@ -53,7 +54,13 @@ class CustomerController {
             return res.status(201).json(newCustomer);
 
         } catch (error: any) {
-            return res.status(400).json({ message: error.message });
+            if (error instanceof ValidationError) {
+                return res.status(400).json({
+                    message: error.message,
+                    fieldErrors: error.fieldErrors,
+                })
+            }
+            return res.status(400).json({ message: error.message || "Erro interno ao salvar cliente" });
         }
     }
 

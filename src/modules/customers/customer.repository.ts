@@ -10,31 +10,44 @@ class CustomerRepository {
         sortBy = "created_at",
         sortDir = "desc",
     }: FindAllPaginatedParams) {
-        const where: any = {
+        const where = {
             tenant_id: tenantId,
+            ...(search && {
+                OR: [
+                    { name: { contains: search } },
+                    { cpf: { contains: search } },
+                ],
+            }),
+        }
+        const sortableFields = ["name", "cpf", "created_at"]
+        const orderBy = {
+            [sortBy]: sortDir === "desc" ? "desc" : "asc",
         }
 
-        if (search) {
-            where.OR = [
-                { name: { contains: search } },
-                { cpf: { contains: search } },
-            ]
+        if (!sortableFields.includes(sortBy)) {
+            sortBy = "created_at"
         }
-
-        const [items, total] = await prisma.$transaction([
+        const [data, total] = await Promise.all([
             prisma.customer.findMany({
                 where,
                 skip: (page - 1) * pageSize,
                 take: pageSize,
-                orderBy: {
-                    [sortBy]: sortDir,
-                },
+                orderBy,
             }),
             prisma.customer.count({ where }),
         ])
 
-        return { items, total }
+        
+
+        return {
+            data,
+            total,
+            page,
+            pageSize,
+            pageCount: Math.ceil(total / pageSize),
+        }
     }
+
 
     async findById(id: number, tenantId: number) {
         return prisma.customer.findFirst({

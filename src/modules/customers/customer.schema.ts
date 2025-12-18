@@ -2,36 +2,53 @@ import { z } from "zod";
 import { cpf, cnpj } from "cpf-cnpj-validator";
 
 function validateCpfCnpj(val: string): boolean {
-    // Garante que só tem números (caso a função seja chamada fora do Zod)
-    const cleanVal = val.replace(/\D/g, '');
+    if (!val) return false;
+
+    const cleanVal = val.replace(/\D/g, "");
 
     if (cleanVal.length === 11) return cpf.isValid(cleanVal);
     if (cleanVal.length === 14) return cnpj.isValid(cleanVal);
 
     return false;
 }
+
 export const createCustomerSchema = z.object({
     name: z.string().min(1, { message: "Nome é obrigatório" }),
-    // Aceita CPF ou CNPJ no campo 'cpf' do banco
-    cpf: z.string().min(1, { message: "O CPF/CNPJ é obrigatório" })
+
+    cpf: z
+        .string()
+        .min(1, { message: "O CPF/CNPJ é obrigatório" })
+        .transform(val => val.trim())
         .refine(validateCpfCnpj, {
-            message: "Documento inválido. Informe um CPF/CNPJ válido."
+            message: "Documento inválido. Informe um CPF ou CNPJ válido.",
         }),
-    // Converte string "YYYY-MM-DD" para Date
-    birth: z.preprocess((arg) => (arg === "" ? undefined : arg), z.coerce.date().optional()),
-    email: z.email({ message: "Digite um e-mail válido" }),
-    phone: z.string().optional(),
-    whatsapp: z.string().optional(),
-    // Endereço
-    cep: z.string().optional(),
-    state: z.string().max(2).optional(), // UF geralmente são 2 letras
+
+    birth: z.preprocess(
+        arg => (arg === "" || arg === null ? undefined : arg),
+        z.coerce.date().optional()
+    ),
+
+    email: z
+        .string()
+        .transform(val => val.trim())
+        .refine(
+            val => val === "" || z.string().email().safeParse(val).success,
+            { message: "Digite um e-mail válido" }
+        )
+        .optional(),
+
+    phone: z.string().min(1, { message: "Telefone é obrigatório" }),
+    whatsapp: z.string().min(1, { message: "Whatsapp é obrigatório" }),
+
+    zipcode: z.string().optional(),
+    state: z.string().max(2).optional(),
     city: z.string().optional(),
     district: z.string().optional(),
     street: z.string().optional(),
     complement: z.string().optional(),
-    // Converte "123" (string) para 123 (number)
+
     number: z.coerce.number().optional(),
-    // Contato
+
     contactname: z.string().optional(),
     contactphone: z.string().optional(),
     observations: z.string().optional(),

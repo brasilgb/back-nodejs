@@ -1,3 +1,4 @@
+import { ValidationError } from "../../errors/ValidationError";
 import { customerRepository } from "./customer.repository";
 import { CreateCustomerDTO } from "./customer.schema";
 
@@ -18,7 +19,9 @@ class CustomerService {
         if (data.cpf) {
             const cpfExists = await customerRepository.findByCpf(data.cpf, tenantId);
             if (cpfExists) {
-                throw new Error("Já existe um cliente com este CPF/CNPJ.");
+                throw new ValidationError({
+                    cpf: "Já existe um cliente com este CPF/CNPJ",
+                })
             }
         }
 
@@ -28,7 +31,9 @@ class CustomerService {
             const emailExists = await customerRepository.findByEmail(data.email, tenantId);
 
             if (emailExists) {
-                throw new Error("Já existe um cliente com este e-mail.");
+                throw new ValidationError({
+                    email: "Já existe um cliente com este e-mail",
+                })
             }
         }
 
@@ -61,7 +66,7 @@ class CustomerService {
     }
 
     async listPaginated(params: FindAllPaginatedParams) {
-  return customerRepository.findAllPaginated(params)
+        return customerRepository.findAllPaginated(params)
     }
 
 

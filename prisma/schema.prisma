@@ -176,7 +176,7 @@ model Customer {
   cpf             String?
   birth           DateTime?  @db.Date
   email           String?
-  cep             String?
+  zipcode             String?
   state           String?
   city            String?
   district        String?
