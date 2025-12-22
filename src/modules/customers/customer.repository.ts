@@ -2,7 +2,7 @@ import { prisma } from "../../lib/prisma";
 import { getNextSequence } from "../../utils/sequence"; // Seu utilitário
 class CustomerRepository {
 
-    async findAllPaginated({
+    async findAllCustomersPaginated({
         tenantId,
         page,
         pageSize,
@@ -37,8 +37,6 @@ class CustomerRepository {
             prisma.customer.count({ where }),
         ])
 
-        
-
         return {
             data,
             total,
@@ -47,7 +45,6 @@ class CustomerRepository {
             pageCount: Math.ceil(total / pageSize),
         }
     }
-
 
     async findById(id: number, tenantId: number) {
         return prisma.customer.findFirst({

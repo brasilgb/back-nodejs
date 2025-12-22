@@ -65,8 +65,8 @@ class CustomerService {
         return customerRepository.update(id, tenantId, data);
     }
 
-    async listPaginated(params: FindAllPaginatedParams) {
-        return customerRepository.findAllPaginated(params)
+    async listCustomersPaginated(params: FindAllPaginatedParams) {
+        return customerRepository.findAllCustomersPaginated(params)
     }
 
 

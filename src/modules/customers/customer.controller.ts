@@ -16,7 +16,7 @@ class CustomerController {
         const sortBy = req.query.sortBy as any
         const sortDir = req.query.sortDir as any
 
-        const result = await customerService.listPaginated({
+        const customers = await customerService.listCustomersPaginated({
             tenantId,
             page,
             pageSize,
@@ -25,7 +25,7 @@ class CustomerController {
             sortDir,
         })
 
-        return res.json(result)
+        return res.json(customers)
     }
 
 

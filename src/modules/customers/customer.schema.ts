@@ -25,7 +25,12 @@ export const createCustomerSchema = z.object({
 
     birth: z.preprocess(
         arg => (arg === "" || arg === null ? undefined : arg),
-        z.coerce.date().optional()
+        z.coerce
+            .date()
+            .refine((date) => date <= new Date(), {
+                message: "A data de nascimento não pode ser futura",
+            })
+            .optional()
     ),
 
     email: z

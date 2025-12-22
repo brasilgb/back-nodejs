@@ -41,8 +41,8 @@ export class OrderService {
     }
 
     // 2. FIND ALL
-    async list(tenantId: number) {
-        return orderRepository.findAll(tenantId);
+    async listOrderPaginated(params: FindAllPaginatedParams) {
+        return orderRepository.findAllOrdersPaginated(params);
     }
 
 

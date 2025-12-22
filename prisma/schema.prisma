@@ -288,8 +288,8 @@ model Order {
   state_conservation     String?
   accessories            String?
   budget_description     String?
-  budget_value           Decimal        @default(0.00) @db.Decimal(10, 2)
-  service_status         Int
+  budget_value           Decimal?        @default(0.00) @db.Decimal(10, 2)
+  service_status         Int?
   delivery_forecast      DateTime?      @db.Date
   observations           String?
   services_performed     String?

@@ -42,24 +42,71 @@ export class OrderRepository {
     }
 
     // 2. FIND ALL: Lista todas as OS do tenant
-    async findAll(tenantId: number) {
-        return prisma.order.findMany({
-            where: {
-                tenant_id: tenantId,
-            },
-            // Traz os dados relacionados para mostrar na tabela (Nome do cliente, etc)
-            include: {
+    async findAllOrdersPaginated({
+        tenantId,
+        page,
+        pageSize,
+        search,
+        sortBy = "created_at",
+        sortDir = "desc",
+    }: FindAllPaginatedParams) {
+        const where: any = {
+            tenant_id: tenantId,
+        }
+
+        if (search) {
+            const searchNumber = Number(search);
+            where.OR = [
+                { customers: { name: { contains: search } } },
+                { customers: { cpf: { contains: search } } },
+            ];
+
+            if (!isNaN(searchNumber)) {
+                where.OR.push({ order_number: searchNumber });
+            }
+        }
+
+        const sortableFields = ["name", "cpf", "created_at"]
+        let orderBy: any = {
+            [sortBy]: sortDir === "desc" ? "desc" : "asc",
+        }
+
+        if (sortBy === 'name' || sortBy === 'cpf') {
+            orderBy = {
                 customers: {
-                    select: { id: true, name: true, phone: true }
-                },
-                equipment: {
-                    select: { id: true, equipment: true }
+                    [sortBy]: sortDir === "desc" ? "desc" : "asc",
                 }
-            },
-            orderBy: {
-                id: 'desc', // As mais recentes primeiro
-            },
-        });
+            }
+        }
+
+        if (!sortableFields.includes(sortBy)) {
+            orderBy = { created_at: "desc" }
+        }
+        const [data, total] = await Promise.all([
+            prisma.order.findMany({
+                where,
+                skip: (page - 1) * pageSize,
+                take: pageSize,
+                orderBy,
+                include: {
+                    customers: {
+                        select: { id: true, name: true, phone: true }
+                    },
+                    equipment: {
+                        select: { id: true, equipment: true }
+                    }
+                },
+            }),
+            prisma.order.count({ where }),
+        ])
+
+        return {
+            data,
+            total,
+            page,
+            pageSize,
+            pageCount: Math.ceil(total / pageSize),
+        }
     }
 
     // 3. FIND BY ID: Busca uma OS específica (com segurança de tenant)
