@@ -5,16 +5,17 @@ const baseOrderSchema = z.object({
     equipment_id: z.number({ message: "O equipamento é obrigatório" }),
     model: z.string().optional(),
     password: z.string().optional(),
+    delivery_date: z.string().optional(),
     defect: z.string().min(3, "Descrição do defeito é obrigatória"),
     state_conservation: z.string().optional(),
     accessories: z.string().optional(),
     observations: z.string().optional(),
-    budget_value: z.number().optional().default(0),
-    service_value: z.number().optional().default(0),
-    parts_value: z.number().optional().default(0),
-    service_status: z.number().optional(), // Ex: 1 = Aberto
+    budget_value: z.coerce.number().optional().default(0),
+    service_value: z.coerce.number().optional().default(0),
+    parts_value: z.coerce.number().optional().default(0),
+    service_status: z.coerce.number().optional(),
     delivery_forecast: z.preprocess(
-        (arg) => (arg === "" ? undefined : arg),
+        (arg) => (arg === "" || arg === null ? undefined : arg),
         z.coerce.date().optional()
     ),
 });
@@ -27,12 +28,15 @@ export const createOrderSchema = baseOrderSchema.extend({
 
 // 3. UPDATE: Herda a base + Campos exclusivos de fechamento/andamento
 export const updateOrderSchema = baseOrderSchema.extend({
-    responsible_technician: z.string().min(1, { message: "O técnico responsável é obrigatório na edição" }),
+    responsible_technician: z.coerce.string().min(1, { message: "O técnico é obrigatório" }),
     budget_description: z.string().optional(), // Descrição do orçamento
-    services_performed: z.string().optional(), // O que foi feito
-    parts: z.string().optional(),              // Descrição textual das peças (se não usar tabela separada)
-    service_cost: z.number().optional().default(0),
-    feedback: z.boolean().optional(),
+    ervices_performed: z.string().nullable().optional(),
+    parts: z.string().nullable().optional(),              // Descrição textual das peças (se não usar tabela separada)
+    service_cost: z.coerce.number().optional().default(0),
+    feedback: z.preprocess(
+        (val) => (val === "true" ? true : val === "false" ? false : val),
+        z.boolean().nullable().optional()
+    ),
     delivery_date: z.preprocess(
         (arg) => (arg === "" ? undefined : arg),
         z.coerce.date().optional()

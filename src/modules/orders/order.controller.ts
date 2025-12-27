@@ -52,6 +52,7 @@ class OrderController {
     // 1. CRIAR
     async create(req: Request, res: Response) {
         const tenantId = req.user?.tenant_id;
+        
         if (!tenantId) return res.status(403).json({ message: "Acesso negado" });
 
         try {

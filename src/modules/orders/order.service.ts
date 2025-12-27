@@ -21,22 +21,7 @@ export class OrderService {
     
     // 1. CREATE
     async create(tenantId: number, data: CreateOrderDTO) {
-        // Validação 1: O cliente existe e pertence a este Tenant?
-        const customer = await customerRepository.findById(data.customer_id, tenantId);
-        if (!customer) {
-            throw new Error("Cliente não encontrado ou não pertence a esta empresa.");
-        }
-
-        // Validação 2: Se enviou equipamento, ele existe?
-        // (Descomente se já tiver o módulo de equipamentos pronto)
-        /*
-        if (data.equipment_id) {
-            const equipment = await equipmentRepository.findById(data.equipment_id, tenantId);
-            if (!equipment) throw new Error("Equipamento não encontrado.");
-        }
-        */
-
-        // Tudo certo, cria a OS
+           // Tudo certo, cria a OS
         return orderRepository.create(tenantId, data);
     }
 

@@ -6,6 +6,8 @@ export class OrderRepository {
     
     // 1. CREATE: Gera número sequencial e salva
     async create(tenantId: number, data: any) {
+        console.log(data);
+        
         // Gera o próximo número de OS para este tenant (ex: 101, 102...)
         const nextOrderNumber = await getNextSequence(prisma.order, tenantId, "order_number");
 
@@ -33,6 +35,7 @@ export class OrderRepository {
 
                 // Status e Prazos
                 service_status: data.service_status,
+                delivery_date: data.delivery_date,
                 delivery_forecast: data.delivery_forecast,
                 
                 // Técnico (opcional no create)
