@@ -298,7 +298,7 @@ model Order {
   service_value          Decimal        @default(0.00) @db.Decimal(10, 2)
   service_cost           Decimal        @default(0.00) @db.Decimal(10, 2)
   delivery_date          DateTime?
-  responsible_technician String?
+  responsible_technician Int?
   feedback               Boolean?
   created_at             DateTime       @default(now())
   updated_at             DateTime       @updatedAt

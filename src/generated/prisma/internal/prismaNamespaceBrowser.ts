@@ -691,8 +691,7 @@ export const OrderOrderByRelevanceFieldEnum = {
   budget_description: 'budget_description',
   observations: 'observations',
   services_performed: 'services_performed',
-  parts: 'parts',
-  responsible_technician: 'responsible_technician'
+  parts: 'parts'
 } as const
 
 export type OrderOrderByRelevanceFieldEnum = (typeof OrderOrderByRelevanceFieldEnum)[keyof typeof OrderOrderByRelevanceFieldEnum]

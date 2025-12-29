@@ -85,6 +85,8 @@ class OrderController {
             const updatedOrder = await orderService.update(orderId, tenantId, data);
             return res.json(updatedOrder);
         } catch (error: any) {
+            console.log(error);
+            
             return res.status(400).json({ error: error.message || error });
         }
     }

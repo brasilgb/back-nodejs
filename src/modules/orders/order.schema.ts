@@ -22,15 +22,14 @@ const baseOrderSchema = z.object({
 
 // 2. CREATE: Herda a base + Campos exclusivos de abertura
 export const createOrderSchema = baseOrderSchema.extend({
-    customer_id: z.number({ message: "Cliente é obrigatório" }),
-    responsible_technician: z.string().optional(),
+    customer_id: z.number({ message: "Cliente é obrigatório" })
 });
 
 // 3. UPDATE: Herda a base + Campos exclusivos de fechamento/andamento
 export const updateOrderSchema = baseOrderSchema.extend({
-    responsible_technician: z.coerce.string().min(1, { message: "O técnico é obrigatório" }),
+    responsible_technician: z.coerce.number().min(1, { message: "O técnico é obrigatório" }),
     budget_description: z.string().optional(), // Descrição do orçamento
-    ervices_performed: z.string().nullable().optional(),
+    services_performed: z.string().nullable().optional(),
     parts: z.string().nullable().optional(),              // Descrição textual das peças (se não usar tabela separada)
     service_cost: z.coerce.number().optional().default(0),
     feedback: z.preprocess(

@@ -3,11 +3,10 @@ import { getNextSequence } from "../../utils/sequence"; // Certifique-se que o c
 import { prisma } from "../../lib/prisma";
 
 export class OrderRepository {
-    
+
     // 1. CREATE: Gera número sequencial e salva
     async create(tenantId: number, data: any) {
-        console.log(data);
-        
+
         // Gera o próximo número de OS para este tenant (ex: 101, 102...)
         const nextOrderNumber = await getNextSequence(prisma.order, tenantId, "order_number");
 
@@ -15,7 +14,7 @@ export class OrderRepository {
             data: {
                 tenant_id: tenantId,
                 order_number: nextOrderNumber,
-                
+
                 // Relacionamentos
                 customer_id: data.customer_id,
                 equipment_id: data.equipment_id,
@@ -37,7 +36,7 @@ export class OrderRepository {
                 service_status: data.service_status,
                 delivery_date: data.delivery_date,
                 delivery_forecast: data.delivery_forecast,
-                
+
                 // Técnico (opcional no create)
                 responsible_technician: data.responsible_technician,
             },
@@ -132,10 +131,6 @@ export class OrderRepository {
         return prisma.order.update({
             where: {
                 id: id,
-                // Nota: O update do Prisma exige ID único no where. 
-                // A segurança do tenantId deve ser feita no Service (verificando se existe antes) 
-                // ou usando updateMany (mas updateMany não retorna o objeto alterado).
-                // Vamos assumir que o Service já validou o tenantId no findById.
             },
             data: {
                 // Campos permitidos na edição
@@ -146,23 +141,23 @@ export class OrderRepository {
                 state_conservation: data.state_conservation,
                 accessories: data.accessories,
                 observations: data.observations,
-                
+
                 // Financeiro e Status
                 budget_value: data.budget_value,
                 service_value: data.service_value,
                 parts_value: data.parts_value,
                 service_cost: data.service_cost,
                 service_status: data.service_status,
-                
+
                 // Campos de Resolução
                 budget_description: data.budget_description,
                 services_performed: data.services_performed,
                 parts: data.parts,
                 feedback: data.feedback,
-                
+
                 // Datas e Pessoas
                 delivery_forecast: data.delivery_forecast,
-                delivery_date: data.delivery_date,
+                delivery_date: data.service_status === 8 ? new Date() : null,
                 responsible_technician: data.responsible_technician,
             },
         });

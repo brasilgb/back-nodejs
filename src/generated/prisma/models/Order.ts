@@ -37,6 +37,7 @@ export type OrderAvgAggregateOutputType = {
   parts_value: runtime.Decimal | null
   service_value: runtime.Decimal | null
   service_cost: runtime.Decimal | null
+  responsible_technician: number | null
 }
 
 export type OrderSumAggregateOutputType = {
@@ -50,6 +51,7 @@ export type OrderSumAggregateOutputType = {
   parts_value: runtime.Decimal | null
   service_value: runtime.Decimal | null
   service_cost: runtime.Decimal | null
+  responsible_technician: number | null
 }
 
 export type OrderMinAggregateOutputType = {
@@ -74,7 +76,7 @@ export type OrderMinAggregateOutputType = {
   service_value: runtime.Decimal | null
   service_cost: runtime.Decimal | null
   delivery_date: Date | null
-  responsible_technician: string | null
+  responsible_technician: number | null
   feedback: boolean | null
   created_at: Date | null
   updated_at: Date | null
@@ -102,7 +104,7 @@ export type OrderMaxAggregateOutputType = {
   service_value: runtime.Decimal | null
   service_cost: runtime.Decimal | null
   delivery_date: Date | null
-  responsible_technician: string | null
+  responsible_technician: number | null
   feedback: boolean | null
   created_at: Date | null
   updated_at: Date | null
@@ -149,6 +151,7 @@ export type OrderAvgAggregateInputType = {
   parts_value?: true
   service_value?: true
   service_cost?: true
+  responsible_technician?: true
 }
 
 export type OrderSumAggregateInputType = {
@@ -162,6 +165,7 @@ export type OrderSumAggregateInputType = {
   parts_value?: true
   service_value?: true
   service_cost?: true
+  responsible_technician?: true
 }
 
 export type OrderMinAggregateInputType = {
@@ -357,7 +361,7 @@ export type OrderGroupByOutputType = {
   service_value: runtime.Decimal
   service_cost: runtime.Decimal
   delivery_date: Date | null
-  responsible_technician: string | null
+  responsible_technician: number | null
   feedback: boolean | null
   created_at: Date
   updated_at: Date
@@ -408,7 +412,7 @@ export type OrderWhereInput = {
   service_value?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
-  responsible_technician?: Prisma.StringNullableFilter<"Order"> | string | null
+  responsible_technician?: Prisma.IntNullableFilter<"Order"> | number | null
   feedback?: Prisma.BoolNullableFilter<"Order"> | boolean | null
   created_at?: Prisma.DateTimeFilter<"Order"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Order"> | Date | string
@@ -480,7 +484,7 @@ export type OrderWhereUniqueInput = Prisma.AtLeast<{
   service_value?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
-  responsible_technician?: Prisma.StringNullableFilter<"Order"> | string | null
+  responsible_technician?: Prisma.IntNullableFilter<"Order"> | number | null
   feedback?: Prisma.BoolNullableFilter<"Order"> | boolean | null
   created_at?: Prisma.DateTimeFilter<"Order"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Order"> | Date | string
@@ -550,7 +554,7 @@ export type OrderScalarWhereWithAggregatesInput = {
   service_value?: Prisma.DecimalWithAggregatesFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalWithAggregatesFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.DateTimeNullableWithAggregatesFilter<"Order"> | Date | string | null
-  responsible_technician?: Prisma.StringNullableWithAggregatesFilter<"Order"> | string | null
+  responsible_technician?: Prisma.IntNullableWithAggregatesFilter<"Order"> | number | null
   feedback?: Prisma.BoolNullableWithAggregatesFilter<"Order"> | boolean | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"Order"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"Order"> | Date | string
@@ -574,7 +578,7 @@ export type OrderCreateInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -608,7 +612,7 @@ export type OrderUncheckedCreateInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -635,7 +639,7 @@ export type OrderUpdateInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -669,7 +673,7 @@ export type OrderUncheckedUpdateInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -700,7 +704,7 @@ export type OrderCreateManyInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -724,7 +728,7 @@ export type OrderUpdateManyMutationInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -752,7 +756,7 @@ export type OrderUncheckedUpdateManyInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -818,6 +822,7 @@ export type OrderAvgOrderByAggregateInput = {
   parts_value?: Prisma.SortOrder
   service_value?: Prisma.SortOrder
   service_cost?: Prisma.SortOrder
+  responsible_technician?: Prisma.SortOrder
 }
 
 export type OrderMaxOrderByAggregateInput = {
@@ -887,6 +892,7 @@ export type OrderSumOrderByAggregateInput = {
   parts_value?: Prisma.SortOrder
   service_value?: Prisma.SortOrder
   service_cost?: Prisma.SortOrder
+  responsible_technician?: Prisma.SortOrder
 }
 
 export type OrderNullableScalarRelationFilter = {
@@ -1082,7 +1088,7 @@ export type OrderCreateWithoutTenantsInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1114,7 +1120,7 @@ export type OrderUncheckedCreateWithoutTenantsInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1174,7 +1180,7 @@ export type OrderScalarWhereInput = {
   service_value?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
-  responsible_technician?: Prisma.StringNullableFilter<"Order"> | string | null
+  responsible_technician?: Prisma.IntNullableFilter<"Order"> | number | null
   feedback?: Prisma.BoolNullableFilter<"Order"> | boolean | null
   created_at?: Prisma.DateTimeFilter<"Order"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Order"> | Date | string
@@ -1198,7 +1204,7 @@ export type OrderCreateWithoutCustomersInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1230,7 +1236,7 @@ export type OrderUncheckedCreateWithoutCustomersInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1283,7 +1289,7 @@ export type OrderCreateWithoutEquipmentInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1315,7 +1321,7 @@ export type OrderUncheckedCreateWithoutEquipmentInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1368,7 +1374,7 @@ export type OrderCreateWithoutImagesInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1401,7 +1407,7 @@ export type OrderUncheckedCreateWithoutImagesInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1443,7 +1449,7 @@ export type OrderUpdateWithoutImagesInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1476,7 +1482,7 @@ export type OrderUncheckedUpdateWithoutImagesInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1502,7 +1508,7 @@ export type OrderCreateWithoutOrder_partsInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1535,7 +1541,7 @@ export type OrderUncheckedCreateWithoutOrder_partsInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1577,7 +1583,7 @@ export type OrderUpdateWithoutOrder_partsInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1610,7 +1616,7 @@ export type OrderUncheckedUpdateWithoutOrder_partsInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1636,7 +1642,7 @@ export type OrderCreateWithoutPart_movementsInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1669,7 +1675,7 @@ export type OrderUncheckedCreateWithoutPart_movementsInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1711,7 +1717,7 @@ export type OrderUpdateWithoutPart_movementsInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1744,7 +1750,7 @@ export type OrderUncheckedUpdateWithoutPart_movementsInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1773,7 +1779,7 @@ export type OrderCreateManyTenantsInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1797,7 +1803,7 @@ export type OrderUpdateWithoutTenantsInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1829,7 +1835,7 @@ export type OrderUncheckedUpdateWithoutTenantsInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1859,7 +1865,7 @@ export type OrderUncheckedUpdateManyWithoutTenantsInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1886,7 +1892,7 @@ export type OrderCreateManyCustomersInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1910,7 +1916,7 @@ export type OrderUpdateWithoutCustomersInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1942,7 +1948,7 @@ export type OrderUncheckedUpdateWithoutCustomersInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1972,7 +1978,7 @@ export type OrderUncheckedUpdateManyWithoutCustomersInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1999,7 +2005,7 @@ export type OrderCreateManyEquipmentInput = {
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
-  responsible_technician?: string | null
+  responsible_technician?: number | null
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -2023,7 +2029,7 @@ export type OrderUpdateWithoutEquipmentInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2055,7 +2061,7 @@ export type OrderUncheckedUpdateWithoutEquipmentInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2085,7 +2091,7 @@ export type OrderUncheckedUpdateManyWithoutEquipmentInput = {
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible_technician?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2248,7 +2254,7 @@ export type $OrderPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     service_value: runtime.Decimal
     service_cost: runtime.Decimal
     delivery_date: Date | null
-    responsible_technician: string | null
+    responsible_technician: number | null
     feedback: boolean | null
     created_at: Date
     updated_at: Date
@@ -2648,7 +2654,7 @@ export interface OrderFieldRefs {
   readonly service_value: Prisma.FieldRef<"Order", 'Decimal'>
   readonly service_cost: Prisma.FieldRef<"Order", 'Decimal'>
   readonly delivery_date: Prisma.FieldRef<"Order", 'DateTime'>
-  readonly responsible_technician: Prisma.FieldRef<"Order", 'String'>
+  readonly responsible_technician: Prisma.FieldRef<"Order", 'Int'>
   readonly feedback: Prisma.FieldRef<"Order", 'Boolean'>
   readonly created_at: Prisma.FieldRef<"Order", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"Order", 'DateTime'>
