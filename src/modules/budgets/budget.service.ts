@@ -26,6 +26,10 @@ export class BudgetService {
         return budgetRepository.update(id, tenantId, data);
     }
 
+    async listBudgetsPaginated(params: FindAllPaginatedParams) {
+        return budgetRepository.findAllBudgetsPaginated(params)
+    }
+
     async delete(id: number, tenantId: number) {
         const budget = await budgetRepository.findById(id, tenantId);
         if (!budget) throw new Error("Orçamento não encontrado.");

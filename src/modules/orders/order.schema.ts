@@ -10,6 +10,7 @@ const baseOrderSchema = z.object({
     state_conservation: z.string().optional(),
     accessories: z.string().optional(),
     observations: z.string().optional(),
+    budget_description: z.string().nullable().optional(), // Descrição do orçamento
     budget_value: z.coerce.number().optional().default(0),
     service_value: z.coerce.number().optional().default(0),
     parts_value: z.coerce.number().optional().default(0),
@@ -28,7 +29,6 @@ export const createOrderSchema = baseOrderSchema.extend({
 // 3. UPDATE: Herda a base + Campos exclusivos de fechamento/andamento
 export const updateOrderSchema = baseOrderSchema.extend({
     responsible_technician: z.coerce.number().min(1, { message: "O técnico é obrigatório" }),
-    budget_description: z.string().optional(), // Descrição do orçamento
     services_performed: z.string().nullable().optional(),
     parts: z.string().nullable().optional(),              // Descrição textual das peças (se não usar tabela separada)
     service_cost: z.coerce.number().optional().default(0),

@@ -2,6 +2,51 @@ import { getNextSequence } from "../../utils/sequence";
 import { prisma } from "../../lib/prisma";
 
 export class BudgetRepository {
+
+    async findAllBudgetsPaginated({
+        tenantId,
+        page,
+        pageSize,
+        search,
+        sortBy = "created_at",
+        sortDir = "desc",
+    }: FindAllPaginatedParams) {
+        const where = {
+            tenant_id: tenantId,
+            ...(search && {
+                OR: [
+                    { category: { contains: search } },
+                    { service: { contains: search } },
+                ],
+            }),
+        }
+        const sortableFields = ["category", "created_at"]
+        const orderBy = {
+            [sortBy]: sortDir === "desc" ? "desc" : "asc",
+        }
+
+        if (!sortableFields.includes(sortBy)) {
+            sortBy = "created_at"
+        }
+        const [data, total] = await Promise.all([
+            prisma.budget.findMany({
+                where,
+                skip: (page - 1) * pageSize,
+                take: pageSize,
+                orderBy,
+            }),
+            prisma.budget.count({ where }),
+        ])
+
+        return {
+            data,
+            total,
+            page,
+            pageSize,
+            pageCount: Math.ceil(total / pageSize),
+        }
+    }
+
     async findAll(tenantId: number) {
         return prisma.budget.findMany({
             where: { tenant_id: tenantId },
