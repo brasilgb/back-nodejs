@@ -2,7 +2,7 @@ import { z } from "zod";
 
 // 1. BASE: Campos comuns que existem tanto na Criação quanto na Edição
 const baseOrderSchema = z.object({
-    equipment_id: z.number({ message: "O equipamento é obrigatório" }),
+    equipment_id: z.coerce.number({ message: "O equipamento é obrigatório" }),
     model: z.string().optional(),
     password: z.string().optional(),
     delivery_date: z.string().optional(),
