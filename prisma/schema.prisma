@@ -472,7 +472,6 @@ model Schedule {
   details                String
   status                 Int       @default(1)
   observations           String?
-  responsible_technician String?
   created_at             DateTime  @default(now())
   updated_at             DateTime  @updatedAt
   customers              Customer? @relation(fields: [customer_id], references: [id], onDelete: Cascade)

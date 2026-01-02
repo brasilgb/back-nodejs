@@ -2510,7 +2510,6 @@ export const ScheduleScalarFieldEnum = {
   details: 'details',
   status: 'status',
   observations: 'observations',
-  responsible_technician: 'responsible_technician',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
@@ -2776,8 +2775,7 @@ export type ReceiptOrderByRelevanceFieldEnum = (typeof ReceiptOrderByRelevanceFi
 export const ScheduleOrderByRelevanceFieldEnum = {
   service: 'service',
   details: 'details',
-  observations: 'observations',
-  responsible_technician: 'responsible_technician'
+  observations: 'observations'
 } as const
 
 export type ScheduleOrderByRelevanceFieldEnum = (typeof ScheduleOrderByRelevanceFieldEnum)[keyof typeof ScheduleOrderByRelevanceFieldEnum]

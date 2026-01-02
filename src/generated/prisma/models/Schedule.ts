@@ -55,7 +55,6 @@ export type ScheduleMinAggregateOutputType = {
   details: string | null
   status: number | null
   observations: string | null
-  responsible_technician: string | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -71,7 +70,6 @@ export type ScheduleMaxAggregateOutputType = {
   details: string | null
   status: number | null
   observations: string | null
-  responsible_technician: string | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -87,7 +85,6 @@ export type ScheduleCountAggregateOutputType = {
   details: number
   status: number
   observations: number
-  responsible_technician: number
   created_at: number
   updated_at: number
   _all: number
@@ -123,7 +120,6 @@ export type ScheduleMinAggregateInputType = {
   details?: true
   status?: true
   observations?: true
-  responsible_technician?: true
   created_at?: true
   updated_at?: true
 }
@@ -139,7 +135,6 @@ export type ScheduleMaxAggregateInputType = {
   details?: true
   status?: true
   observations?: true
-  responsible_technician?: true
   created_at?: true
   updated_at?: true
 }
@@ -155,7 +150,6 @@ export type ScheduleCountAggregateInputType = {
   details?: true
   status?: true
   observations?: true
-  responsible_technician?: true
   created_at?: true
   updated_at?: true
   _all?: true
@@ -258,7 +252,6 @@ export type ScheduleGroupByOutputType = {
   details: string
   status: number
   observations: string | null
-  responsible_technician: string | null
   created_at: Date
   updated_at: Date
   _count: ScheduleCountAggregateOutputType | null
@@ -297,7 +290,6 @@ export type ScheduleWhereInput = {
   details?: Prisma.StringFilter<"Schedule"> | string
   status?: Prisma.IntFilter<"Schedule"> | number
   observations?: Prisma.StringNullableFilter<"Schedule"> | string | null
-  responsible_technician?: Prisma.StringNullableFilter<"Schedule"> | string | null
   created_at?: Prisma.DateTimeFilter<"Schedule"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Schedule"> | Date | string
   customers?: Prisma.XOR<Prisma.CustomerNullableScalarRelationFilter, Prisma.CustomerWhereInput> | null
@@ -316,7 +308,6 @@ export type ScheduleOrderByWithRelationInput = {
   details?: Prisma.SortOrder
   status?: Prisma.SortOrder
   observations?: Prisma.SortOrderInput | Prisma.SortOrder
-  responsible_technician?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   customers?: Prisma.CustomerOrderByWithRelationInput
@@ -339,7 +330,6 @@ export type ScheduleWhereUniqueInput = Prisma.AtLeast<{
   details?: Prisma.StringFilter<"Schedule"> | string
   status?: Prisma.IntFilter<"Schedule"> | number
   observations?: Prisma.StringNullableFilter<"Schedule"> | string | null
-  responsible_technician?: Prisma.StringNullableFilter<"Schedule"> | string | null
   created_at?: Prisma.DateTimeFilter<"Schedule"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Schedule"> | Date | string
   customers?: Prisma.XOR<Prisma.CustomerNullableScalarRelationFilter, Prisma.CustomerWhereInput> | null
@@ -358,7 +348,6 @@ export type ScheduleOrderByWithAggregationInput = {
   details?: Prisma.SortOrder
   status?: Prisma.SortOrder
   observations?: Prisma.SortOrderInput | Prisma.SortOrder
-  responsible_technician?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   _count?: Prisma.ScheduleCountOrderByAggregateInput
@@ -382,7 +371,6 @@ export type ScheduleScalarWhereWithAggregatesInput = {
   details?: Prisma.StringWithAggregatesFilter<"Schedule"> | string
   status?: Prisma.IntWithAggregatesFilter<"Schedule"> | number
   observations?: Prisma.StringNullableWithAggregatesFilter<"Schedule"> | string | null
-  responsible_technician?: Prisma.StringNullableWithAggregatesFilter<"Schedule"> | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"Schedule"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"Schedule"> | Date | string
 }
@@ -394,7 +382,6 @@ export type ScheduleCreateInput = {
   details: string
   status?: number
   observations?: string | null
-  responsible_technician?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   customers?: Prisma.CustomerCreateNestedOneWithoutSchedulesInput
@@ -413,7 +400,6 @@ export type ScheduleUncheckedCreateInput = {
   details: string
   status?: number
   observations?: string | null
-  responsible_technician?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -425,7 +411,6 @@ export type ScheduleUpdateInput = {
   details?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.IntFieldUpdateOperationsInput | number
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   customers?: Prisma.CustomerUpdateOneWithoutSchedulesNestedInput
@@ -444,7 +429,6 @@ export type ScheduleUncheckedUpdateInput = {
   details?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.IntFieldUpdateOperationsInput | number
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -460,7 +444,6 @@ export type ScheduleCreateManyInput = {
   details: string
   status?: number
   observations?: string | null
-  responsible_technician?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -472,7 +455,6 @@ export type ScheduleUpdateManyMutationInput = {
   details?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.IntFieldUpdateOperationsInput | number
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -488,7 +470,6 @@ export type ScheduleUncheckedUpdateManyInput = {
   details?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.IntFieldUpdateOperationsInput | number
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -520,7 +501,6 @@ export type ScheduleCountOrderByAggregateInput = {
   details?: Prisma.SortOrder
   status?: Prisma.SortOrder
   observations?: Prisma.SortOrder
-  responsible_technician?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -545,7 +525,6 @@ export type ScheduleMaxOrderByAggregateInput = {
   details?: Prisma.SortOrder
   status?: Prisma.SortOrder
   observations?: Prisma.SortOrder
-  responsible_technician?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -561,7 +540,6 @@ export type ScheduleMinOrderByAggregateInput = {
   details?: Prisma.SortOrder
   status?: Prisma.SortOrder
   observations?: Prisma.SortOrder
-  responsible_technician?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -708,7 +686,6 @@ export type ScheduleCreateWithoutTenantsInput = {
   details: string
   status?: number
   observations?: string | null
-  responsible_technician?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   customers?: Prisma.CustomerCreateNestedOneWithoutSchedulesInput
@@ -725,7 +702,6 @@ export type ScheduleUncheckedCreateWithoutTenantsInput = {
   details: string
   status?: number
   observations?: string | null
-  responsible_technician?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -770,7 +746,6 @@ export type ScheduleScalarWhereInput = {
   details?: Prisma.StringFilter<"Schedule"> | string
   status?: Prisma.IntFilter<"Schedule"> | number
   observations?: Prisma.StringNullableFilter<"Schedule"> | string | null
-  responsible_technician?: Prisma.StringNullableFilter<"Schedule"> | string | null
   created_at?: Prisma.DateTimeFilter<"Schedule"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Schedule"> | Date | string
 }
@@ -782,7 +757,6 @@ export type ScheduleCreateWithoutUsersInput = {
   details: string
   status?: number
   observations?: string | null
-  responsible_technician?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   customers?: Prisma.CustomerCreateNestedOneWithoutSchedulesInput
@@ -799,7 +773,6 @@ export type ScheduleUncheckedCreateWithoutUsersInput = {
   details: string
   status?: number
   observations?: string | null
-  responsible_technician?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -837,7 +810,6 @@ export type ScheduleCreateWithoutCustomersInput = {
   details: string
   status?: number
   observations?: string | null
-  responsible_technician?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   tenants?: Prisma.TenantCreateNestedOneWithoutSchedulesInput
@@ -854,7 +826,6 @@ export type ScheduleUncheckedCreateWithoutCustomersInput = {
   details: string
   status?: number
   observations?: string | null
-  responsible_technician?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -895,7 +866,6 @@ export type ScheduleCreateManyTenantsInput = {
   details: string
   status?: number
   observations?: string | null
-  responsible_technician?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -907,7 +877,6 @@ export type ScheduleUpdateWithoutTenantsInput = {
   details?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.IntFieldUpdateOperationsInput | number
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   customers?: Prisma.CustomerUpdateOneWithoutSchedulesNestedInput
@@ -924,7 +893,6 @@ export type ScheduleUncheckedUpdateWithoutTenantsInput = {
   details?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.IntFieldUpdateOperationsInput | number
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -939,7 +907,6 @@ export type ScheduleUncheckedUpdateManyWithoutTenantsInput = {
   details?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.IntFieldUpdateOperationsInput | number
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -954,7 +921,6 @@ export type ScheduleCreateManyUsersInput = {
   details: string
   status?: number
   observations?: string | null
-  responsible_technician?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -966,7 +932,6 @@ export type ScheduleUpdateWithoutUsersInput = {
   details?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.IntFieldUpdateOperationsInput | number
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   customers?: Prisma.CustomerUpdateOneWithoutSchedulesNestedInput
@@ -983,7 +948,6 @@ export type ScheduleUncheckedUpdateWithoutUsersInput = {
   details?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.IntFieldUpdateOperationsInput | number
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -998,7 +962,6 @@ export type ScheduleUncheckedUpdateManyWithoutUsersInput = {
   details?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.IntFieldUpdateOperationsInput | number
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1013,7 +976,6 @@ export type ScheduleCreateManyCustomersInput = {
   details: string
   status?: number
   observations?: string | null
-  responsible_technician?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -1025,7 +987,6 @@ export type ScheduleUpdateWithoutCustomersInput = {
   details?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.IntFieldUpdateOperationsInput | number
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenants?: Prisma.TenantUpdateOneWithoutSchedulesNestedInput
@@ -1042,7 +1003,6 @@ export type ScheduleUncheckedUpdateWithoutCustomersInput = {
   details?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.IntFieldUpdateOperationsInput | number
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1057,7 +1017,6 @@ export type ScheduleUncheckedUpdateManyWithoutCustomersInput = {
   details?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.IntFieldUpdateOperationsInput | number
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  responsible_technician?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1075,7 +1034,6 @@ export type ScheduleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   details?: boolean
   status?: boolean
   observations?: boolean
-  responsible_technician?: boolean
   created_at?: boolean
   updated_at?: boolean
   customers?: boolean | Prisma.Schedule$customersArgs<ExtArgs>
@@ -1096,12 +1054,11 @@ export type ScheduleSelectScalar = {
   details?: boolean
   status?: boolean
   observations?: boolean
-  responsible_technician?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type ScheduleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenant_id" | "customer_id" | "user_id" | "schedules_number" | "schedules" | "service" | "details" | "status" | "observations" | "responsible_technician" | "created_at" | "updated_at", ExtArgs["result"]["schedule"]>
+export type ScheduleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenant_id" | "customer_id" | "user_id" | "schedules_number" | "schedules" | "service" | "details" | "status" | "observations" | "created_at" | "updated_at", ExtArgs["result"]["schedule"]>
 export type ScheduleInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   customers?: boolean | Prisma.Schedule$customersArgs<ExtArgs>
   tenants?: boolean | Prisma.Schedule$tenantsArgs<ExtArgs>
@@ -1126,7 +1083,6 @@ export type $SchedulePayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     details: string
     status: number
     observations: string | null
-    responsible_technician: string | null
     created_at: Date
     updated_at: Date
   }, ExtArgs["result"]["schedule"]>
@@ -1511,7 +1467,6 @@ export interface ScheduleFieldRefs {
   readonly details: Prisma.FieldRef<"Schedule", 'String'>
   readonly status: Prisma.FieldRef<"Schedule", 'Int'>
   readonly observations: Prisma.FieldRef<"Schedule", 'String'>
-  readonly responsible_technician: Prisma.FieldRef<"Schedule", 'String'>
   readonly created_at: Prisma.FieldRef<"Schedule", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"Schedule", 'DateTime'>
 }
