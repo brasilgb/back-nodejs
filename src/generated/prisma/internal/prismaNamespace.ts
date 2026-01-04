@@ -2696,7 +2696,6 @@ export type ImageOrderByRelevanceFieldEnum = (typeof ImageOrderByRelevanceFieldE
 
 
 export const MessageOrderByRelevanceFieldEnum = {
-  message_number: 'message_number',
   title: 'title',
   message: 'message'
 } as const

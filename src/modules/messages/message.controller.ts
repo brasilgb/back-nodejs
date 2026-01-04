@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { ScheduleService } from "./schedule.service";
-import { createScheduleSchema, updateScheduleSchema } from "./schedule.schema";
+import { MessageService } from "./message.service";
+import { createMessageSchema, updateMessageSchema } from "./message.schema";
 
-const scheduleService = new ScheduleService();
+const messageService = new MessageService();
 
-class ScheduleController {
+class MessageController {
 
     async list(req: Request, res: Response) {
         const tenantId = req.user?.tenant_id
@@ -18,7 +18,7 @@ class ScheduleController {
         const sortBy = req.query.sortBy as any
         const sortDir = req.query.sortDir as any
 
-        const schedules = await scheduleService.listSchedulesPaginated({
+        const messages = await messageService.listMessagesPaginated({
             tenantId,
             page,
             pageSize,
@@ -27,7 +27,7 @@ class ScheduleController {
             sortDir,
         })
 
-        return res.json(schedules)
+        return res.json(messages)
     }
 
     async listById(req: Request, res: Response) {
@@ -36,8 +36,8 @@ class ScheduleController {
         if (!tenantId) return res.status(403).json({ message: "Acesso negado" });
 
         try {
-            const schedule = await scheduleService.listById(Number(id), tenantId);
-            return res.json(schedule);
+            const message = await messageService.listById(Number(id), tenantId);
+            return res.json(message);
         } catch (error: any) {
             return res.status(400).json({ error: error.message });
         }
@@ -48,10 +48,10 @@ class ScheduleController {
         if (!tenantId) return res.status(403).json({ message: "Acesso negado" });
 
         try {
-            const data = createScheduleSchema.parse(req.body);
+            const data = createMessageSchema.parse(req.body);
 
-            const schedule = await scheduleService.create(tenantId, data);
-            return res.status(201).json(schedule);
+            const message = await messageService.create(tenantId, data);
+            return res.status(201).json(message);
         } catch (error: any) {
             console.log(error);
             
@@ -65,9 +65,9 @@ class ScheduleController {
         if (!tenantId) return res.status(403).json({ message: "Acesso negado" });
 
         try {
-            const data = updateScheduleSchema.parse(req.body);
-            const schedule = await scheduleService.update(Number(id), tenantId, data);
-            return res.json(schedule);
+            const data = updateMessageSchema.parse(req.body);
+            const message = await messageService.update(Number(id), tenantId, data);
+            return res.json(message);
         } catch (error: any) {
             return res.status(400).json({ error: error.message || error });
         }
@@ -79,7 +79,7 @@ class ScheduleController {
         if (!tenantId) return res.status(403).json({ message: "Acesso negado" });
 
         try {
-            await scheduleService.delete(Number(id), tenantId);
+            await messageService.delete(Number(id), tenantId);
             return res.status(200).json({ message: "Orçamento deletado com sucesso" });
         } catch (error: any) {
             return res.status(400).json({ error: error.message });
@@ -87,4 +87,4 @@ class ScheduleController {
     }
 }
 
-export const scheduleController = new ScheduleController();
+export const messageController = new MessageController();

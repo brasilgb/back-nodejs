@@ -1,9 +1,9 @@
 import { getNextSequence } from "../../utils/sequence";
 import { prisma } from "../../lib/prisma";
 
-export class ScheduleRepository {
+export class MessageRepository {
 
-    async findAllSchedulesPaginated({
+    async findAllMessagesPaginated({
         tenantId,
         page,
         pageSize,
@@ -23,7 +23,7 @@ export class ScheduleRepository {
             ];
 
             if (!isNaN(searchNumber)) {
-                where.OR.push({ schedule_number: searchNumber });
+                where.OR.push({ message_number: searchNumber });
             }
         }
 
@@ -44,21 +44,21 @@ export class ScheduleRepository {
             orderBy = { created_at: "desc" }
         }
         const [data, total] = await Promise.all([
-            prisma.schedule.findMany({
+            prisma.message.findMany({
                 where,
                 skip: (page - 1) * pageSize,
                 take: pageSize,
                 orderBy,
                 include: {
-                    customers: {
-                        select: { id: true, name: true, phone: true }
+                    sender: {
+                        select: { id: true, name: true }
                     },
-                    users: {
-                        select: { id: true, name: true}
+                    recipient: {
+                        select: { id: true, name: true }
                     }
                 },
             }),
-            prisma.schedule.count({ where }),
+            prisma.message.count({ where }),
         ])
 
         return {
@@ -71,34 +71,32 @@ export class ScheduleRepository {
     }
 
     async findAll(tenantId: number) {
-        return prisma.schedule.findMany({
+        return prisma.message.findMany({
             where: { tenant_id: tenantId },
             orderBy: { id: 'desc' }
         });
     }
 
     async findById(id: number, tenantId: number) {
-        return prisma.schedule.findFirst({
+        return prisma.message.findFirst({
             where: { id, tenant_id: tenantId }
         });
     }
 
     async create(tenantId: number, data: any) {
-        
-        // Gera número sequencial
-        const nextNumber = await getNextSequence(prisma.schedule, tenantId, "schedules_number");
 
-        return prisma.schedule.create({
+        // Gera número sequencial
+        const nextNumber = await getNextSequence(prisma.message, tenantId, "message_number");
+
+        return prisma.message.create({
             data: {
                 tenant_id: tenantId,
-                schedules_number: nextNumber,
-                user_id: data.user_id,
-                customer_id: data.customer_id,
-                schedules: data.schedules,
-                service: data.service,
-                details: data.details,
-                status: data.status,
-                observations: data.observations,
+                message_number: nextNumber,
+                sender_id: data.sender_id,
+                recipient_id: data.recipient_id,
+                title: data.title,
+                message: data.message,
+                status: data.status
             },
         });
     }
@@ -106,13 +104,13 @@ export class ScheduleRepository {
 
     async update(id: number, tenantId: number, data: any) {
         // A lógica de recalcular o total fica no Service, aqui apenas salvamos
-        return prisma.schedule.update({
+        return prisma.message.update({
             where: { id },
             data: data
         });
     }
 
     async delete(id: number) {
-        return prisma.schedule.delete({ where: { id } });
+        return prisma.message.delete({ where: { id } });
     }
 }

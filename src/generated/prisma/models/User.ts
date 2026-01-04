@@ -323,6 +323,8 @@ export type UserWhereInput = {
   part_movements?: Prisma.PartMovementListRelationFilter
   schedules?: Prisma.ScheduleListRelationFilter
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
+  sentMessages?: Prisma.MessageListRelationFilter
+  receivedMessages?: Prisma.MessageListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -345,6 +347,8 @@ export type UserOrderByWithRelationInput = {
   part_movements?: Prisma.PartMovementOrderByRelationAggregateInput
   schedules?: Prisma.ScheduleOrderByRelationAggregateInput
   tenants?: Prisma.TenantOrderByWithRelationInput
+  sentMessages?: Prisma.MessageOrderByRelationAggregateInput
+  receivedMessages?: Prisma.MessageOrderByRelationAggregateInput
   _relevance?: Prisma.UserOrderByRelevanceInput
 }
 
@@ -371,6 +375,8 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   part_movements?: Prisma.PartMovementListRelationFilter
   schedules?: Prisma.ScheduleListRelationFilter
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
+  sentMessages?: Prisma.MessageListRelationFilter
+  receivedMessages?: Prisma.MessageListRelationFilter
 }, "id" | "email" | "reset_token">
 
 export type UserOrderByWithAggregationInput = {
@@ -437,6 +443,8 @@ export type UserCreateInput = {
   part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput
   tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput
+  sentMessages?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  receivedMessages?: Prisma.MessageCreateNestedManyWithoutRecipientInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -458,6 +466,8 @@ export type UserUncheckedCreateInput = {
   updated_at?: Date | string
   part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutUsersInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutUsersInput
+  sentMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  receivedMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutRecipientInput
 }
 
 export type UserUpdateInput = {
@@ -478,6 +488,8 @@ export type UserUpdateInput = {
   part_movements?: Prisma.PartMovementUpdateManyWithoutUsersNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutUsersNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutUsersNestedInput
+  sentMessages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  receivedMessages?: Prisma.MessageUpdateManyWithoutRecipientNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -499,6 +511,8 @@ export type UserUncheckedUpdateInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutUsersNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutUsersNestedInput
+  sentMessages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  receivedMessages?: Prisma.MessageUncheckedUpdateManyWithoutRecipientNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -645,14 +659,14 @@ export type UserSumOrderByAggregateInput = {
   status?: Prisma.SortOrder
 }
 
-export type UserScalarRelationFilter = {
-  is?: Prisma.UserWhereInput
-  isNot?: Prisma.UserWhereInput
-}
-
 export type UserNullableScalarRelationFilter = {
   is?: Prisma.UserWhereInput | null
   isNot?: Prisma.UserWhereInput | null
+}
+
+export type UserScalarRelationFilter = {
+  is?: Prisma.UserWhereInput
+  isNot?: Prisma.UserWhereInput
 }
 
 export type UserCreateNestedManyWithoutTenantsInput = {
@@ -705,6 +719,38 @@ export type NullableIntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type UserCreateNestedOneWithoutSentMessagesInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutSentMessagesInput, Prisma.UserUncheckedCreateWithoutSentMessagesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutSentMessagesInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserCreateNestedOneWithoutReceivedMessagesInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutReceivedMessagesInput, Prisma.UserUncheckedCreateWithoutReceivedMessagesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReceivedMessagesInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutSentMessagesNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutSentMessagesInput, Prisma.UserUncheckedCreateWithoutSentMessagesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutSentMessagesInput
+  upsert?: Prisma.UserUpsertWithoutSentMessagesInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutSentMessagesInput, Prisma.UserUpdateWithoutSentMessagesInput>, Prisma.UserUncheckedUpdateWithoutSentMessagesInput>
+}
+
+export type UserUpdateOneWithoutReceivedMessagesNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutReceivedMessagesInput, Prisma.UserUncheckedCreateWithoutReceivedMessagesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReceivedMessagesInput
+  upsert?: Prisma.UserUpsertWithoutReceivedMessagesInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutReceivedMessagesInput, Prisma.UserUpdateWithoutReceivedMessagesInput>, Prisma.UserUncheckedUpdateWithoutReceivedMessagesInput>
+}
+
 export type UserCreateNestedOneWithoutPart_movementsInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutPart_movementsInput, Prisma.UserUncheckedCreateWithoutPart_movementsInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutPart_movementsInput
@@ -752,6 +798,8 @@ export type UserCreateWithoutTenantsInput = {
   updated_at?: Date | string
   part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput
+  sentMessages?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  receivedMessages?: Prisma.MessageCreateNestedManyWithoutRecipientInput
 }
 
 export type UserUncheckedCreateWithoutTenantsInput = {
@@ -772,6 +820,8 @@ export type UserUncheckedCreateWithoutTenantsInput = {
   updated_at?: Date | string
   part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutUsersInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutUsersInput
+  sentMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  receivedMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutRecipientInput
 }
 
 export type UserCreateOrConnectWithoutTenantsInput = {
@@ -822,6 +872,210 @@ export type UserScalarWhereInput = {
   updated_at?: Prisma.DateTimeFilter<"User"> | Date | string
 }
 
+export type UserCreateWithoutSentMessagesInput = {
+  user_number?: number | null
+  name: string
+  email: string
+  telephone?: string | null
+  whatsapp?: string | null
+  password: string
+  roles?: number | null
+  status?: number | null
+  email_verified_at?: Date | string | null
+  remember_token?: string | null
+  reset_token?: string | null
+  reset_token_expiry?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput
+  schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput
+  tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput
+  receivedMessages?: Prisma.MessageCreateNestedManyWithoutRecipientInput
+}
+
+export type UserUncheckedCreateWithoutSentMessagesInput = {
+  id?: number
+  tenant_id?: number | null
+  user_number?: number | null
+  name: string
+  email: string
+  telephone?: string | null
+  whatsapp?: string | null
+  password: string
+  roles?: number | null
+  status?: number | null
+  email_verified_at?: Date | string | null
+  remember_token?: string | null
+  reset_token?: string | null
+  reset_token_expiry?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutUsersInput
+  schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutUsersInput
+  receivedMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutRecipientInput
+}
+
+export type UserCreateOrConnectWithoutSentMessagesInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutSentMessagesInput, Prisma.UserUncheckedCreateWithoutSentMessagesInput>
+}
+
+export type UserCreateWithoutReceivedMessagesInput = {
+  user_number?: number | null
+  name: string
+  email: string
+  telephone?: string | null
+  whatsapp?: string | null
+  password: string
+  roles?: number | null
+  status?: number | null
+  email_verified_at?: Date | string | null
+  remember_token?: string | null
+  reset_token?: string | null
+  reset_token_expiry?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput
+  schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput
+  tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput
+  sentMessages?: Prisma.MessageCreateNestedManyWithoutSenderInput
+}
+
+export type UserUncheckedCreateWithoutReceivedMessagesInput = {
+  id?: number
+  tenant_id?: number | null
+  user_number?: number | null
+  name: string
+  email: string
+  telephone?: string | null
+  whatsapp?: string | null
+  password: string
+  roles?: number | null
+  status?: number | null
+  email_verified_at?: Date | string | null
+  remember_token?: string | null
+  reset_token?: string | null
+  reset_token_expiry?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutUsersInput
+  schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutUsersInput
+  sentMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+}
+
+export type UserCreateOrConnectWithoutReceivedMessagesInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutReceivedMessagesInput, Prisma.UserUncheckedCreateWithoutReceivedMessagesInput>
+}
+
+export type UserUpsertWithoutSentMessagesInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutSentMessagesInput, Prisma.UserUncheckedUpdateWithoutSentMessagesInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutSentMessagesInput, Prisma.UserUncheckedCreateWithoutSentMessagesInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutSentMessagesInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutSentMessagesInput, Prisma.UserUncheckedUpdateWithoutSentMessagesInput>
+}
+
+export type UserUpdateWithoutSentMessagesInput = {
+  user_number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  roles?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  email_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  part_movements?: Prisma.PartMovementUpdateManyWithoutUsersNestedInput
+  schedules?: Prisma.ScheduleUpdateManyWithoutUsersNestedInput
+  tenants?: Prisma.TenantUpdateOneWithoutUsersNestedInput
+  receivedMessages?: Prisma.MessageUpdateManyWithoutRecipientNestedInput
+}
+
+export type UserUncheckedUpdateWithoutSentMessagesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  user_number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  roles?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  email_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutUsersNestedInput
+  schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutUsersNestedInput
+  receivedMessages?: Prisma.MessageUncheckedUpdateManyWithoutRecipientNestedInput
+}
+
+export type UserUpsertWithoutReceivedMessagesInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutReceivedMessagesInput, Prisma.UserUncheckedUpdateWithoutReceivedMessagesInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutReceivedMessagesInput, Prisma.UserUncheckedCreateWithoutReceivedMessagesInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutReceivedMessagesInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutReceivedMessagesInput, Prisma.UserUncheckedUpdateWithoutReceivedMessagesInput>
+}
+
+export type UserUpdateWithoutReceivedMessagesInput = {
+  user_number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  roles?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  email_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  part_movements?: Prisma.PartMovementUpdateManyWithoutUsersNestedInput
+  schedules?: Prisma.ScheduleUpdateManyWithoutUsersNestedInput
+  tenants?: Prisma.TenantUpdateOneWithoutUsersNestedInput
+  sentMessages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+}
+
+export type UserUncheckedUpdateWithoutReceivedMessagesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  user_number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  roles?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  email_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutUsersNestedInput
+  schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutUsersNestedInput
+  sentMessages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+}
+
 export type UserCreateWithoutPart_movementsInput = {
   user_number?: number | null
   name: string
@@ -839,6 +1093,8 @@ export type UserCreateWithoutPart_movementsInput = {
   updated_at?: Date | string
   schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput
   tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput
+  sentMessages?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  receivedMessages?: Prisma.MessageCreateNestedManyWithoutRecipientInput
 }
 
 export type UserUncheckedCreateWithoutPart_movementsInput = {
@@ -859,6 +1115,8 @@ export type UserUncheckedCreateWithoutPart_movementsInput = {
   created_at?: Date | string
   updated_at?: Date | string
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutUsersInput
+  sentMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  receivedMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutRecipientInput
 }
 
 export type UserCreateOrConnectWithoutPart_movementsInput = {
@@ -894,6 +1152,8 @@ export type UserUpdateWithoutPart_movementsInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   schedules?: Prisma.ScheduleUpdateManyWithoutUsersNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutUsersNestedInput
+  sentMessages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  receivedMessages?: Prisma.MessageUpdateManyWithoutRecipientNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPart_movementsInput = {
@@ -914,6 +1174,8 @@ export type UserUncheckedUpdateWithoutPart_movementsInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutUsersNestedInput
+  sentMessages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  receivedMessages?: Prisma.MessageUncheckedUpdateManyWithoutRecipientNestedInput
 }
 
 export type UserCreateWithoutSchedulesInput = {
@@ -933,6 +1195,8 @@ export type UserCreateWithoutSchedulesInput = {
   updated_at?: Date | string
   part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput
   tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput
+  sentMessages?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  receivedMessages?: Prisma.MessageCreateNestedManyWithoutRecipientInput
 }
 
 export type UserUncheckedCreateWithoutSchedulesInput = {
@@ -953,6 +1217,8 @@ export type UserUncheckedCreateWithoutSchedulesInput = {
   created_at?: Date | string
   updated_at?: Date | string
   part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutUsersInput
+  sentMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  receivedMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutRecipientInput
 }
 
 export type UserCreateOrConnectWithoutSchedulesInput = {
@@ -988,6 +1254,8 @@ export type UserUpdateWithoutSchedulesInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   part_movements?: Prisma.PartMovementUpdateManyWithoutUsersNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutUsersNestedInput
+  sentMessages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  receivedMessages?: Prisma.MessageUpdateManyWithoutRecipientNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSchedulesInput = {
@@ -1008,6 +1276,8 @@ export type UserUncheckedUpdateWithoutSchedulesInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutUsersNestedInput
+  sentMessages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  receivedMessages?: Prisma.MessageUncheckedUpdateManyWithoutRecipientNestedInput
 }
 
 export type UserCreateManyTenantsInput = {
@@ -1045,6 +1315,8 @@ export type UserUpdateWithoutTenantsInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   part_movements?: Prisma.PartMovementUpdateManyWithoutUsersNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutUsersNestedInput
+  sentMessages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  receivedMessages?: Prisma.MessageUpdateManyWithoutRecipientNestedInput
 }
 
 export type UserUncheckedUpdateWithoutTenantsInput = {
@@ -1065,6 +1337,8 @@ export type UserUncheckedUpdateWithoutTenantsInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutUsersNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutUsersNestedInput
+  sentMessages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  receivedMessages?: Prisma.MessageUncheckedUpdateManyWithoutRecipientNestedInput
 }
 
 export type UserUncheckedUpdateManyWithoutTenantsInput = {
@@ -1093,11 +1367,15 @@ export type UserUncheckedUpdateManyWithoutTenantsInput = {
 export type UserCountOutputType = {
   part_movements: number
   schedules: number
+  sentMessages: number
+  receivedMessages: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   part_movements?: boolean | UserCountOutputTypeCountPart_movementsArgs
   schedules?: boolean | UserCountOutputTypeCountSchedulesArgs
+  sentMessages?: boolean | UserCountOutputTypeCountSentMessagesArgs
+  receivedMessages?: boolean | UserCountOutputTypeCountReceivedMessagesArgs
 }
 
 /**
@@ -1124,6 +1402,20 @@ export type UserCountOutputTypeCountSchedulesArgs<ExtArgs extends runtime.Types.
   where?: Prisma.ScheduleWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountSentMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MessageWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountReceivedMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MessageWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1145,6 +1437,8 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   part_movements?: boolean | Prisma.User$part_movementsArgs<ExtArgs>
   schedules?: boolean | Prisma.User$schedulesArgs<ExtArgs>
   tenants?: boolean | Prisma.User$tenantsArgs<ExtArgs>
+  sentMessages?: boolean | Prisma.User$sentMessagesArgs<ExtArgs>
+  receivedMessages?: boolean | Prisma.User$receivedMessagesArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1174,6 +1468,8 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   part_movements?: boolean | Prisma.User$part_movementsArgs<ExtArgs>
   schedules?: boolean | Prisma.User$schedulesArgs<ExtArgs>
   tenants?: boolean | Prisma.User$tenantsArgs<ExtArgs>
+  sentMessages?: boolean | Prisma.User$sentMessagesArgs<ExtArgs>
+  receivedMessages?: boolean | Prisma.User$receivedMessagesArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 
@@ -1183,6 +1479,8 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     part_movements: Prisma.$PartMovementPayload<ExtArgs>[]
     schedules: Prisma.$SchedulePayload<ExtArgs>[]
     tenants: Prisma.$TenantPayload<ExtArgs> | null
+    sentMessages: Prisma.$MessagePayload<ExtArgs>[]
+    receivedMessages: Prisma.$MessagePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1544,6 +1842,8 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   part_movements<T extends Prisma.User$part_movementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$part_movementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PartMovementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   schedules<T extends Prisma.User$schedulesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$schedulesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SchedulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   tenants<T extends Prisma.User$tenantsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$tenantsArgs<ExtArgs>>): Prisma.Prisma__TenantClient<runtime.Types.Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  sentMessages<T extends Prisma.User$sentMessagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$sentMessagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  receivedMessages<T extends Prisma.User$receivedMessagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$receivedMessagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1996,6 +2296,54 @@ export type User$tenantsArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    */
   include?: Prisma.TenantInclude<ExtArgs> | null
   where?: Prisma.TenantWhereInput
+}
+
+/**
+ * User.sentMessages
+ */
+export type User$sentMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Message
+   */
+  select?: Prisma.MessageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Message
+   */
+  omit?: Prisma.MessageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MessageInclude<ExtArgs> | null
+  where?: Prisma.MessageWhereInput
+  orderBy?: Prisma.MessageOrderByWithRelationInput | Prisma.MessageOrderByWithRelationInput[]
+  cursor?: Prisma.MessageWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MessageScalarFieldEnum | Prisma.MessageScalarFieldEnum[]
+}
+
+/**
+ * User.receivedMessages
+ */
+export type User$receivedMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Message
+   */
+  select?: Prisma.MessageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Message
+   */
+  omit?: Prisma.MessageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MessageInclude<ExtArgs> | null
+  where?: Prisma.MessageWhereInput
+  orderBy?: Prisma.MessageOrderByWithRelationInput | Prisma.MessageOrderByWithRelationInput[]
+  cursor?: Prisma.MessageWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MessageScalarFieldEnum | Prisma.MessageScalarFieldEnum[]
 }
 
 /**
