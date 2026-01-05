@@ -7,6 +7,7 @@ import { userRoutes } from './modules/users/user.routes';
 import { budgetRoutes } from './modules/budgets/budget.routes';
 import { scheduleRoutes } from './modules/schedules/schedule.routes';
 import { messageRoutes } from './modules/messages/message.routes';
+import { productRoutes } from './modules/products/product.routes';
 
 const router = Router();
 router.use('/tenants', tenantRoutes);
@@ -17,5 +18,6 @@ router.use('/orders', orderRoutes);
 router.use('/budgets', budgetRoutes);
 router.use('/schedules', scheduleRoutes);
 router.use('/messages', messageRoutes);
+router.use('/products', productRoutes);
 
 export { router };

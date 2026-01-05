@@ -40,7 +40,7 @@ export type OtherMinAggregateOutputType = {
   id: number | null
   tenant_id: number | null
   navigation: boolean | null
-  enableparts: boolean | null
+  enableproducts: boolean | null
   enablesales: boolean | null
   created_at: Date | null
   updated_at: Date | null
@@ -50,7 +50,7 @@ export type OtherMaxAggregateOutputType = {
   id: number | null
   tenant_id: number | null
   navigation: boolean | null
-  enableparts: boolean | null
+  enableproducts: boolean | null
   enablesales: boolean | null
   created_at: Date | null
   updated_at: Date | null
@@ -60,7 +60,7 @@ export type OtherCountAggregateOutputType = {
   id: number
   tenant_id: number
   navigation: number
-  enableparts: number
+  enableproducts: number
   enablesales: number
   created_at: number
   updated_at: number
@@ -82,7 +82,7 @@ export type OtherMinAggregateInputType = {
   id?: true
   tenant_id?: true
   navigation?: true
-  enableparts?: true
+  enableproducts?: true
   enablesales?: true
   created_at?: true
   updated_at?: true
@@ -92,7 +92,7 @@ export type OtherMaxAggregateInputType = {
   id?: true
   tenant_id?: true
   navigation?: true
-  enableparts?: true
+  enableproducts?: true
   enablesales?: true
   created_at?: true
   updated_at?: true
@@ -102,7 +102,7 @@ export type OtherCountAggregateInputType = {
   id?: true
   tenant_id?: true
   navigation?: true
-  enableparts?: true
+  enableproducts?: true
   enablesales?: true
   created_at?: true
   updated_at?: true
@@ -199,7 +199,7 @@ export type OtherGroupByOutputType = {
   id: number
   tenant_id: number | null
   navigation: boolean
-  enableparts: boolean
+  enableproducts: boolean
   enablesales: boolean
   created_at: Date
   updated_at: Date
@@ -232,7 +232,7 @@ export type OtherWhereInput = {
   id?: Prisma.IntFilter<"Other"> | number
   tenant_id?: Prisma.IntNullableFilter<"Other"> | number | null
   navigation?: Prisma.BoolFilter<"Other"> | boolean
-  enableparts?: Prisma.BoolFilter<"Other"> | boolean
+  enableproducts?: Prisma.BoolFilter<"Other"> | boolean
   enablesales?: Prisma.BoolFilter<"Other"> | boolean
   created_at?: Prisma.DateTimeFilter<"Other"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Other"> | Date | string
@@ -243,7 +243,7 @@ export type OtherOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   tenant_id?: Prisma.SortOrderInput | Prisma.SortOrder
   navigation?: Prisma.SortOrder
-  enableparts?: Prisma.SortOrder
+  enableproducts?: Prisma.SortOrder
   enablesales?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -257,7 +257,7 @@ export type OtherWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.OtherWhereInput | Prisma.OtherWhereInput[]
   tenant_id?: Prisma.IntNullableFilter<"Other"> | number | null
   navigation?: Prisma.BoolFilter<"Other"> | boolean
-  enableparts?: Prisma.BoolFilter<"Other"> | boolean
+  enableproducts?: Prisma.BoolFilter<"Other"> | boolean
   enablesales?: Prisma.BoolFilter<"Other"> | boolean
   created_at?: Prisma.DateTimeFilter<"Other"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Other"> | Date | string
@@ -268,7 +268,7 @@ export type OtherOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   tenant_id?: Prisma.SortOrderInput | Prisma.SortOrder
   navigation?: Prisma.SortOrder
-  enableparts?: Prisma.SortOrder
+  enableproducts?: Prisma.SortOrder
   enablesales?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -286,7 +286,7 @@ export type OtherScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"Other"> | number
   tenant_id?: Prisma.IntNullableWithAggregatesFilter<"Other"> | number | null
   navigation?: Prisma.BoolWithAggregatesFilter<"Other"> | boolean
-  enableparts?: Prisma.BoolWithAggregatesFilter<"Other"> | boolean
+  enableproducts?: Prisma.BoolWithAggregatesFilter<"Other"> | boolean
   enablesales?: Prisma.BoolWithAggregatesFilter<"Other"> | boolean
   created_at?: Prisma.DateTimeWithAggregatesFilter<"Other"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"Other"> | Date | string
@@ -294,7 +294,7 @@ export type OtherScalarWhereWithAggregatesInput = {
 
 export type OtherCreateInput = {
   navigation?: boolean
-  enableparts?: boolean
+  enableproducts?: boolean
   enablesales?: boolean
   created_at?: Date | string
   updated_at?: Date | string
@@ -305,7 +305,7 @@ export type OtherUncheckedCreateInput = {
   id?: number
   tenant_id?: number | null
   navigation?: boolean
-  enableparts?: boolean
+  enableproducts?: boolean
   enablesales?: boolean
   created_at?: Date | string
   updated_at?: Date | string
@@ -313,7 +313,7 @@ export type OtherUncheckedCreateInput = {
 
 export type OtherUpdateInput = {
   navigation?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  enableparts?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enableproducts?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enablesales?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -324,7 +324,7 @@ export type OtherUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   navigation?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  enableparts?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enableproducts?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enablesales?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -334,7 +334,7 @@ export type OtherCreateManyInput = {
   id?: number
   tenant_id?: number | null
   navigation?: boolean
-  enableparts?: boolean
+  enableproducts?: boolean
   enablesales?: boolean
   created_at?: Date | string
   updated_at?: Date | string
@@ -342,7 +342,7 @@ export type OtherCreateManyInput = {
 
 export type OtherUpdateManyMutationInput = {
   navigation?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  enableparts?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enableproducts?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enablesales?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -352,7 +352,7 @@ export type OtherUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   navigation?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  enableparts?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enableproducts?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enablesales?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -372,7 +372,7 @@ export type OtherCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   tenant_id?: Prisma.SortOrder
   navigation?: Prisma.SortOrder
-  enableparts?: Prisma.SortOrder
+  enableproducts?: Prisma.SortOrder
   enablesales?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -387,7 +387,7 @@ export type OtherMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   tenant_id?: Prisma.SortOrder
   navigation?: Prisma.SortOrder
-  enableparts?: Prisma.SortOrder
+  enableproducts?: Prisma.SortOrder
   enablesales?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -397,7 +397,7 @@ export type OtherMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   tenant_id?: Prisma.SortOrder
   navigation?: Prisma.SortOrder
-  enableparts?: Prisma.SortOrder
+  enableproducts?: Prisma.SortOrder
   enablesales?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -452,7 +452,7 @@ export type OtherUncheckedUpdateManyWithoutTenantsNestedInput = {
 
 export type OtherCreateWithoutTenantsInput = {
   navigation?: boolean
-  enableparts?: boolean
+  enableproducts?: boolean
   enablesales?: boolean
   created_at?: Date | string
   updated_at?: Date | string
@@ -461,7 +461,7 @@ export type OtherCreateWithoutTenantsInput = {
 export type OtherUncheckedCreateWithoutTenantsInput = {
   id?: number
   navigation?: boolean
-  enableparts?: boolean
+  enableproducts?: boolean
   enablesales?: boolean
   created_at?: Date | string
   updated_at?: Date | string
@@ -500,7 +500,7 @@ export type OtherScalarWhereInput = {
   id?: Prisma.IntFilter<"Other"> | number
   tenant_id?: Prisma.IntNullableFilter<"Other"> | number | null
   navigation?: Prisma.BoolFilter<"Other"> | boolean
-  enableparts?: Prisma.BoolFilter<"Other"> | boolean
+  enableproducts?: Prisma.BoolFilter<"Other"> | boolean
   enablesales?: Prisma.BoolFilter<"Other"> | boolean
   created_at?: Prisma.DateTimeFilter<"Other"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Other"> | Date | string
@@ -509,7 +509,7 @@ export type OtherScalarWhereInput = {
 export type OtherCreateManyTenantsInput = {
   id?: number
   navigation?: boolean
-  enableparts?: boolean
+  enableproducts?: boolean
   enablesales?: boolean
   created_at?: Date | string
   updated_at?: Date | string
@@ -517,7 +517,7 @@ export type OtherCreateManyTenantsInput = {
 
 export type OtherUpdateWithoutTenantsInput = {
   navigation?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  enableparts?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enableproducts?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enablesales?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -526,7 +526,7 @@ export type OtherUpdateWithoutTenantsInput = {
 export type OtherUncheckedUpdateWithoutTenantsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   navigation?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  enableparts?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enableproducts?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enablesales?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -535,7 +535,7 @@ export type OtherUncheckedUpdateWithoutTenantsInput = {
 export type OtherUncheckedUpdateManyWithoutTenantsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   navigation?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  enableparts?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enableproducts?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enablesales?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -547,7 +547,7 @@ export type OtherSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   id?: boolean
   tenant_id?: boolean
   navigation?: boolean
-  enableparts?: boolean
+  enableproducts?: boolean
   enablesales?: boolean
   created_at?: boolean
   updated_at?: boolean
@@ -560,13 +560,13 @@ export type OtherSelectScalar = {
   id?: boolean
   tenant_id?: boolean
   navigation?: boolean
-  enableparts?: boolean
+  enableproducts?: boolean
   enablesales?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type OtherOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenant_id" | "navigation" | "enableparts" | "enablesales" | "created_at" | "updated_at", ExtArgs["result"]["other"]>
+export type OtherOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenant_id" | "navigation" | "enableproducts" | "enablesales" | "created_at" | "updated_at", ExtArgs["result"]["other"]>
 export type OtherInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenants?: boolean | Prisma.Other$tenantsArgs<ExtArgs>
 }
@@ -580,7 +580,7 @@ export type $OtherPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     id: number
     tenant_id: number | null
     navigation: boolean
-    enableparts: boolean
+    enableproducts: boolean
     enablesales: boolean
     created_at: Date
     updated_at: Date
@@ -957,7 +957,7 @@ export interface OtherFieldRefs {
   readonly id: Prisma.FieldRef<"Other", 'Int'>
   readonly tenant_id: Prisma.FieldRef<"Other", 'Int'>
   readonly navigation: Prisma.FieldRef<"Other", 'Boolean'>
-  readonly enableparts: Prisma.FieldRef<"Other", 'Boolean'>
+  readonly enableproducts: Prisma.FieldRef<"Other", 'Boolean'>
   readonly enablesales: Prisma.FieldRef<"Other", 'Boolean'>
   readonly created_at: Prisma.FieldRef<"Other", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"Other", 'DateTime'>

@@ -34,7 +34,7 @@ export type OrderAvgAggregateOutputType = {
   order_number: number | null
   budget_value: runtime.Decimal | null
   service_status: number | null
-  parts_value: runtime.Decimal | null
+  products_value: runtime.Decimal | null
   service_value: runtime.Decimal | null
   service_cost: runtime.Decimal | null
   responsible_technician: number | null
@@ -48,7 +48,7 @@ export type OrderSumAggregateOutputType = {
   order_number: number | null
   budget_value: runtime.Decimal | null
   service_status: number | null
-  parts_value: runtime.Decimal | null
+  products_value: runtime.Decimal | null
   service_value: runtime.Decimal | null
   service_cost: runtime.Decimal | null
   responsible_technician: number | null
@@ -71,8 +71,8 @@ export type OrderMinAggregateOutputType = {
   delivery_forecast: Date | null
   observations: string | null
   services_performed: string | null
-  parts: string | null
-  parts_value: runtime.Decimal | null
+  products: string | null
+  products_value: runtime.Decimal | null
   service_value: runtime.Decimal | null
   service_cost: runtime.Decimal | null
   delivery_date: Date | null
@@ -99,8 +99,8 @@ export type OrderMaxAggregateOutputType = {
   delivery_forecast: Date | null
   observations: string | null
   services_performed: string | null
-  parts: string | null
-  parts_value: runtime.Decimal | null
+  products: string | null
+  products_value: runtime.Decimal | null
   service_value: runtime.Decimal | null
   service_cost: runtime.Decimal | null
   delivery_date: Date | null
@@ -127,8 +127,8 @@ export type OrderCountAggregateOutputType = {
   delivery_forecast: number
   observations: number
   services_performed: number
-  parts: number
-  parts_value: number
+  products: number
+  products_value: number
   service_value: number
   service_cost: number
   delivery_date: number
@@ -148,7 +148,7 @@ export type OrderAvgAggregateInputType = {
   order_number?: true
   budget_value?: true
   service_status?: true
-  parts_value?: true
+  products_value?: true
   service_value?: true
   service_cost?: true
   responsible_technician?: true
@@ -162,7 +162,7 @@ export type OrderSumAggregateInputType = {
   order_number?: true
   budget_value?: true
   service_status?: true
-  parts_value?: true
+  products_value?: true
   service_value?: true
   service_cost?: true
   responsible_technician?: true
@@ -185,8 +185,8 @@ export type OrderMinAggregateInputType = {
   delivery_forecast?: true
   observations?: true
   services_performed?: true
-  parts?: true
-  parts_value?: true
+  products?: true
+  products_value?: true
   service_value?: true
   service_cost?: true
   delivery_date?: true
@@ -213,8 +213,8 @@ export type OrderMaxAggregateInputType = {
   delivery_forecast?: true
   observations?: true
   services_performed?: true
-  parts?: true
-  parts_value?: true
+  products?: true
+  products_value?: true
   service_value?: true
   service_cost?: true
   delivery_date?: true
@@ -241,8 +241,8 @@ export type OrderCountAggregateInputType = {
   delivery_forecast?: true
   observations?: true
   services_performed?: true
-  parts?: true
-  parts_value?: true
+  products?: true
+  products_value?: true
   service_value?: true
   service_cost?: true
   delivery_date?: true
@@ -356,8 +356,8 @@ export type OrderGroupByOutputType = {
   delivery_forecast: Date | null
   observations: string | null
   services_performed: string | null
-  parts: string | null
-  parts_value: runtime.Decimal
+  products: string | null
+  products_value: runtime.Decimal
   service_value: runtime.Decimal
   service_cost: runtime.Decimal
   delivery_date: Date | null
@@ -407,8 +407,8 @@ export type OrderWhereInput = {
   delivery_forecast?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
   observations?: Prisma.StringNullableFilter<"Order"> | string | null
   services_performed?: Prisma.StringNullableFilter<"Order"> | string | null
-  parts?: Prisma.StringNullableFilter<"Order"> | string | null
-  parts_value?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.StringNullableFilter<"Order"> | string | null
+  products_value?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
@@ -417,11 +417,11 @@ export type OrderWhereInput = {
   created_at?: Prisma.DateTimeFilter<"Order"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Order"> | Date | string
   images?: Prisma.ImageListRelationFilter
-  order_parts?: Prisma.OrderPartListRelationFilter
+  order_products?: Prisma.OrderProductListRelationFilter
   customers?: Prisma.XOR<Prisma.CustomerNullableScalarRelationFilter, Prisma.CustomerWhereInput> | null
   equipment?: Prisma.XOR<Prisma.EquipmentNullableScalarRelationFilter, Prisma.EquipmentWhereInput> | null
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
-  part_movements?: Prisma.PartMovementListRelationFilter
+  product_movements?: Prisma.ProductMovementListRelationFilter
 }
 
 export type OrderOrderByWithRelationInput = {
@@ -441,8 +441,8 @@ export type OrderOrderByWithRelationInput = {
   delivery_forecast?: Prisma.SortOrderInput | Prisma.SortOrder
   observations?: Prisma.SortOrderInput | Prisma.SortOrder
   services_performed?: Prisma.SortOrderInput | Prisma.SortOrder
-  parts?: Prisma.SortOrderInput | Prisma.SortOrder
-  parts_value?: Prisma.SortOrder
+  products?: Prisma.SortOrderInput | Prisma.SortOrder
+  products_value?: Prisma.SortOrder
   service_value?: Prisma.SortOrder
   service_cost?: Prisma.SortOrder
   delivery_date?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -451,11 +451,11 @@ export type OrderOrderByWithRelationInput = {
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   images?: Prisma.ImageOrderByRelationAggregateInput
-  order_parts?: Prisma.OrderPartOrderByRelationAggregateInput
+  order_products?: Prisma.OrderProductOrderByRelationAggregateInput
   customers?: Prisma.CustomerOrderByWithRelationInput
   equipment?: Prisma.EquipmentOrderByWithRelationInput
   tenants?: Prisma.TenantOrderByWithRelationInput
-  part_movements?: Prisma.PartMovementOrderByRelationAggregateInput
+  product_movements?: Prisma.ProductMovementOrderByRelationAggregateInput
   _relevance?: Prisma.OrderOrderByRelevanceInput
 }
 
@@ -479,8 +479,8 @@ export type OrderWhereUniqueInput = Prisma.AtLeast<{
   delivery_forecast?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
   observations?: Prisma.StringNullableFilter<"Order"> | string | null
   services_performed?: Prisma.StringNullableFilter<"Order"> | string | null
-  parts?: Prisma.StringNullableFilter<"Order"> | string | null
-  parts_value?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.StringNullableFilter<"Order"> | string | null
+  products_value?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
@@ -489,11 +489,11 @@ export type OrderWhereUniqueInput = Prisma.AtLeast<{
   created_at?: Prisma.DateTimeFilter<"Order"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Order"> | Date | string
   images?: Prisma.ImageListRelationFilter
-  order_parts?: Prisma.OrderPartListRelationFilter
+  order_products?: Prisma.OrderProductListRelationFilter
   customers?: Prisma.XOR<Prisma.CustomerNullableScalarRelationFilter, Prisma.CustomerWhereInput> | null
   equipment?: Prisma.XOR<Prisma.EquipmentNullableScalarRelationFilter, Prisma.EquipmentWhereInput> | null
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
-  part_movements?: Prisma.PartMovementListRelationFilter
+  product_movements?: Prisma.ProductMovementListRelationFilter
 }, "id">
 
 export type OrderOrderByWithAggregationInput = {
@@ -513,8 +513,8 @@ export type OrderOrderByWithAggregationInput = {
   delivery_forecast?: Prisma.SortOrderInput | Prisma.SortOrder
   observations?: Prisma.SortOrderInput | Prisma.SortOrder
   services_performed?: Prisma.SortOrderInput | Prisma.SortOrder
-  parts?: Prisma.SortOrderInput | Prisma.SortOrder
-  parts_value?: Prisma.SortOrder
+  products?: Prisma.SortOrderInput | Prisma.SortOrder
+  products_value?: Prisma.SortOrder
   service_value?: Prisma.SortOrder
   service_cost?: Prisma.SortOrder
   delivery_date?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -549,8 +549,8 @@ export type OrderScalarWhereWithAggregatesInput = {
   delivery_forecast?: Prisma.DateTimeNullableWithAggregatesFilter<"Order"> | Date | string | null
   observations?: Prisma.StringNullableWithAggregatesFilter<"Order"> | string | null
   services_performed?: Prisma.StringNullableWithAggregatesFilter<"Order"> | string | null
-  parts?: Prisma.StringNullableWithAggregatesFilter<"Order"> | string | null
-  parts_value?: Prisma.DecimalWithAggregatesFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.StringNullableWithAggregatesFilter<"Order"> | string | null
+  products_value?: Prisma.DecimalWithAggregatesFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalWithAggregatesFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalWithAggregatesFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.DateTimeNullableWithAggregatesFilter<"Order"> | Date | string | null
@@ -573,8 +573,8 @@ export type OrderCreateInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -583,11 +583,11 @@ export type OrderCreateInput = {
   created_at?: Date | string
   updated_at?: Date | string
   images?: Prisma.ImageCreateNestedManyWithoutOrdersInput
-  order_parts?: Prisma.OrderPartCreateNestedManyWithoutOrdersInput
+  order_products?: Prisma.OrderProductCreateNestedManyWithoutOrdersInput
   customers?: Prisma.CustomerCreateNestedOneWithoutOrdersInput
   equipment?: Prisma.EquipmentCreateNestedOneWithoutOrdersInput
   tenants?: Prisma.TenantCreateNestedOneWithoutOrdersInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutOrdersInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutOrdersInput
 }
 
 export type OrderUncheckedCreateInput = {
@@ -607,8 +607,8 @@ export type OrderUncheckedCreateInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -617,8 +617,8 @@ export type OrderUncheckedCreateInput = {
   created_at?: Date | string
   updated_at?: Date | string
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutOrdersInput
-  order_parts?: Prisma.OrderPartUncheckedCreateNestedManyWithoutOrdersInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutOrdersInput
+  order_products?: Prisma.OrderProductUncheckedCreateNestedManyWithoutOrdersInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutOrdersInput
 }
 
 export type OrderUpdateInput = {
@@ -634,8 +634,8 @@ export type OrderUpdateInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -644,11 +644,11 @@ export type OrderUpdateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUpdateManyWithoutOrdersNestedInput
-  order_parts?: Prisma.OrderPartUpdateManyWithoutOrdersNestedInput
+  order_products?: Prisma.OrderProductUpdateManyWithoutOrdersNestedInput
   customers?: Prisma.CustomerUpdateOneWithoutOrdersNestedInput
   equipment?: Prisma.EquipmentUpdateOneWithoutOrdersNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutOrdersNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutOrdersNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutOrdersNestedInput
 }
 
 export type OrderUncheckedUpdateInput = {
@@ -668,8 +668,8 @@ export type OrderUncheckedUpdateInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -678,8 +678,8 @@ export type OrderUncheckedUpdateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUncheckedUpdateManyWithoutOrdersNestedInput
-  order_parts?: Prisma.OrderPartUncheckedUpdateManyWithoutOrdersNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutOrdersNestedInput
+  order_products?: Prisma.OrderProductUncheckedUpdateManyWithoutOrdersNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutOrdersNestedInput
 }
 
 export type OrderCreateManyInput = {
@@ -699,8 +699,8 @@ export type OrderCreateManyInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -723,8 +723,8 @@ export type OrderUpdateManyMutationInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -751,8 +751,8 @@ export type OrderUncheckedUpdateManyInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -800,8 +800,8 @@ export type OrderCountOrderByAggregateInput = {
   delivery_forecast?: Prisma.SortOrder
   observations?: Prisma.SortOrder
   services_performed?: Prisma.SortOrder
-  parts?: Prisma.SortOrder
-  parts_value?: Prisma.SortOrder
+  products?: Prisma.SortOrder
+  products_value?: Prisma.SortOrder
   service_value?: Prisma.SortOrder
   service_cost?: Prisma.SortOrder
   delivery_date?: Prisma.SortOrder
@@ -819,7 +819,7 @@ export type OrderAvgOrderByAggregateInput = {
   order_number?: Prisma.SortOrder
   budget_value?: Prisma.SortOrder
   service_status?: Prisma.SortOrder
-  parts_value?: Prisma.SortOrder
+  products_value?: Prisma.SortOrder
   service_value?: Prisma.SortOrder
   service_cost?: Prisma.SortOrder
   responsible_technician?: Prisma.SortOrder
@@ -842,8 +842,8 @@ export type OrderMaxOrderByAggregateInput = {
   delivery_forecast?: Prisma.SortOrder
   observations?: Prisma.SortOrder
   services_performed?: Prisma.SortOrder
-  parts?: Prisma.SortOrder
-  parts_value?: Prisma.SortOrder
+  products?: Prisma.SortOrder
+  products_value?: Prisma.SortOrder
   service_value?: Prisma.SortOrder
   service_cost?: Prisma.SortOrder
   delivery_date?: Prisma.SortOrder
@@ -870,8 +870,8 @@ export type OrderMinOrderByAggregateInput = {
   delivery_forecast?: Prisma.SortOrder
   observations?: Prisma.SortOrder
   services_performed?: Prisma.SortOrder
-  parts?: Prisma.SortOrder
-  parts_value?: Prisma.SortOrder
+  products?: Prisma.SortOrder
+  products_value?: Prisma.SortOrder
   service_value?: Prisma.SortOrder
   service_cost?: Prisma.SortOrder
   delivery_date?: Prisma.SortOrder
@@ -889,7 +889,7 @@ export type OrderSumOrderByAggregateInput = {
   order_number?: Prisma.SortOrder
   budget_value?: Prisma.SortOrder
   service_status?: Prisma.SortOrder
-  parts_value?: Prisma.SortOrder
+  products_value?: Prisma.SortOrder
   service_value?: Prisma.SortOrder
   service_cost?: Prisma.SortOrder
   responsible_technician?: Prisma.SortOrder
@@ -1040,34 +1040,34 @@ export type OrderUpdateOneRequiredWithoutImagesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.OrderUpdateToOneWithWhereWithoutImagesInput, Prisma.OrderUpdateWithoutImagesInput>, Prisma.OrderUncheckedUpdateWithoutImagesInput>
 }
 
-export type OrderCreateNestedOneWithoutOrder_partsInput = {
-  create?: Prisma.XOR<Prisma.OrderCreateWithoutOrder_partsInput, Prisma.OrderUncheckedCreateWithoutOrder_partsInput>
-  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutOrder_partsInput
+export type OrderCreateNestedOneWithoutOrder_productsInput = {
+  create?: Prisma.XOR<Prisma.OrderCreateWithoutOrder_productsInput, Prisma.OrderUncheckedCreateWithoutOrder_productsInput>
+  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutOrder_productsInput
   connect?: Prisma.OrderWhereUniqueInput
 }
 
-export type OrderUpdateOneRequiredWithoutOrder_partsNestedInput = {
-  create?: Prisma.XOR<Prisma.OrderCreateWithoutOrder_partsInput, Prisma.OrderUncheckedCreateWithoutOrder_partsInput>
-  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutOrder_partsInput
-  upsert?: Prisma.OrderUpsertWithoutOrder_partsInput
+export type OrderUpdateOneRequiredWithoutOrder_productsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrderCreateWithoutOrder_productsInput, Prisma.OrderUncheckedCreateWithoutOrder_productsInput>
+  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutOrder_productsInput
+  upsert?: Prisma.OrderUpsertWithoutOrder_productsInput
   connect?: Prisma.OrderWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.OrderUpdateToOneWithWhereWithoutOrder_partsInput, Prisma.OrderUpdateWithoutOrder_partsInput>, Prisma.OrderUncheckedUpdateWithoutOrder_partsInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrderUpdateToOneWithWhereWithoutOrder_productsInput, Prisma.OrderUpdateWithoutOrder_productsInput>, Prisma.OrderUncheckedUpdateWithoutOrder_productsInput>
 }
 
-export type OrderCreateNestedOneWithoutPart_movementsInput = {
-  create?: Prisma.XOR<Prisma.OrderCreateWithoutPart_movementsInput, Prisma.OrderUncheckedCreateWithoutPart_movementsInput>
-  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutPart_movementsInput
+export type OrderCreateNestedOneWithoutProduct_movementsInput = {
+  create?: Prisma.XOR<Prisma.OrderCreateWithoutProduct_movementsInput, Prisma.OrderUncheckedCreateWithoutProduct_movementsInput>
+  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutProduct_movementsInput
   connect?: Prisma.OrderWhereUniqueInput
 }
 
-export type OrderUpdateOneWithoutPart_movementsNestedInput = {
-  create?: Prisma.XOR<Prisma.OrderCreateWithoutPart_movementsInput, Prisma.OrderUncheckedCreateWithoutPart_movementsInput>
-  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutPart_movementsInput
-  upsert?: Prisma.OrderUpsertWithoutPart_movementsInput
+export type OrderUpdateOneWithoutProduct_movementsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrderCreateWithoutProduct_movementsInput, Prisma.OrderUncheckedCreateWithoutProduct_movementsInput>
+  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutProduct_movementsInput
+  upsert?: Prisma.OrderUpsertWithoutProduct_movementsInput
   disconnect?: Prisma.OrderWhereInput | boolean
   delete?: Prisma.OrderWhereInput | boolean
   connect?: Prisma.OrderWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.OrderUpdateToOneWithWhereWithoutPart_movementsInput, Prisma.OrderUpdateWithoutPart_movementsInput>, Prisma.OrderUncheckedUpdateWithoutPart_movementsInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrderUpdateToOneWithWhereWithoutProduct_movementsInput, Prisma.OrderUpdateWithoutProduct_movementsInput>, Prisma.OrderUncheckedUpdateWithoutProduct_movementsInput>
 }
 
 export type OrderCreateWithoutTenantsInput = {
@@ -1083,8 +1083,8 @@ export type OrderCreateWithoutTenantsInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -1093,10 +1093,10 @@ export type OrderCreateWithoutTenantsInput = {
   created_at?: Date | string
   updated_at?: Date | string
   images?: Prisma.ImageCreateNestedManyWithoutOrdersInput
-  order_parts?: Prisma.OrderPartCreateNestedManyWithoutOrdersInput
+  order_products?: Prisma.OrderProductCreateNestedManyWithoutOrdersInput
   customers?: Prisma.CustomerCreateNestedOneWithoutOrdersInput
   equipment?: Prisma.EquipmentCreateNestedOneWithoutOrdersInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutOrdersInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutOrdersInput
 }
 
 export type OrderUncheckedCreateWithoutTenantsInput = {
@@ -1115,8 +1115,8 @@ export type OrderUncheckedCreateWithoutTenantsInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -1125,8 +1125,8 @@ export type OrderUncheckedCreateWithoutTenantsInput = {
   created_at?: Date | string
   updated_at?: Date | string
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutOrdersInput
-  order_parts?: Prisma.OrderPartUncheckedCreateNestedManyWithoutOrdersInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutOrdersInput
+  order_products?: Prisma.OrderProductUncheckedCreateNestedManyWithoutOrdersInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutOrdersInput
 }
 
 export type OrderCreateOrConnectWithoutTenantsInput = {
@@ -1175,8 +1175,8 @@ export type OrderScalarWhereInput = {
   delivery_forecast?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
   observations?: Prisma.StringNullableFilter<"Order"> | string | null
   services_performed?: Prisma.StringNullableFilter<"Order"> | string | null
-  parts?: Prisma.StringNullableFilter<"Order"> | string | null
-  parts_value?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.StringNullableFilter<"Order"> | string | null
+  products_value?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
@@ -1199,8 +1199,8 @@ export type OrderCreateWithoutCustomersInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -1209,10 +1209,10 @@ export type OrderCreateWithoutCustomersInput = {
   created_at?: Date | string
   updated_at?: Date | string
   images?: Prisma.ImageCreateNestedManyWithoutOrdersInput
-  order_parts?: Prisma.OrderPartCreateNestedManyWithoutOrdersInput
+  order_products?: Prisma.OrderProductCreateNestedManyWithoutOrdersInput
   equipment?: Prisma.EquipmentCreateNestedOneWithoutOrdersInput
   tenants?: Prisma.TenantCreateNestedOneWithoutOrdersInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutOrdersInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutOrdersInput
 }
 
 export type OrderUncheckedCreateWithoutCustomersInput = {
@@ -1231,8 +1231,8 @@ export type OrderUncheckedCreateWithoutCustomersInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -1241,8 +1241,8 @@ export type OrderUncheckedCreateWithoutCustomersInput = {
   created_at?: Date | string
   updated_at?: Date | string
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutOrdersInput
-  order_parts?: Prisma.OrderPartUncheckedCreateNestedManyWithoutOrdersInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutOrdersInput
+  order_products?: Prisma.OrderProductUncheckedCreateNestedManyWithoutOrdersInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutOrdersInput
 }
 
 export type OrderCreateOrConnectWithoutCustomersInput = {
@@ -1284,8 +1284,8 @@ export type OrderCreateWithoutEquipmentInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -1294,10 +1294,10 @@ export type OrderCreateWithoutEquipmentInput = {
   created_at?: Date | string
   updated_at?: Date | string
   images?: Prisma.ImageCreateNestedManyWithoutOrdersInput
-  order_parts?: Prisma.OrderPartCreateNestedManyWithoutOrdersInput
+  order_products?: Prisma.OrderProductCreateNestedManyWithoutOrdersInput
   customers?: Prisma.CustomerCreateNestedOneWithoutOrdersInput
   tenants?: Prisma.TenantCreateNestedOneWithoutOrdersInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutOrdersInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutOrdersInput
 }
 
 export type OrderUncheckedCreateWithoutEquipmentInput = {
@@ -1316,8 +1316,8 @@ export type OrderUncheckedCreateWithoutEquipmentInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -1326,8 +1326,8 @@ export type OrderUncheckedCreateWithoutEquipmentInput = {
   created_at?: Date | string
   updated_at?: Date | string
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutOrdersInput
-  order_parts?: Prisma.OrderPartUncheckedCreateNestedManyWithoutOrdersInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutOrdersInput
+  order_products?: Prisma.OrderProductUncheckedCreateNestedManyWithoutOrdersInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutOrdersInput
 }
 
 export type OrderCreateOrConnectWithoutEquipmentInput = {
@@ -1369,8 +1369,8 @@ export type OrderCreateWithoutImagesInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -1378,11 +1378,11 @@ export type OrderCreateWithoutImagesInput = {
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
-  order_parts?: Prisma.OrderPartCreateNestedManyWithoutOrdersInput
+  order_products?: Prisma.OrderProductCreateNestedManyWithoutOrdersInput
   customers?: Prisma.CustomerCreateNestedOneWithoutOrdersInput
   equipment?: Prisma.EquipmentCreateNestedOneWithoutOrdersInput
   tenants?: Prisma.TenantCreateNestedOneWithoutOrdersInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutOrdersInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutOrdersInput
 }
 
 export type OrderUncheckedCreateWithoutImagesInput = {
@@ -1402,8 +1402,8 @@ export type OrderUncheckedCreateWithoutImagesInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -1411,8 +1411,8 @@ export type OrderUncheckedCreateWithoutImagesInput = {
   feedback?: boolean | null
   created_at?: Date | string
   updated_at?: Date | string
-  order_parts?: Prisma.OrderPartUncheckedCreateNestedManyWithoutOrdersInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutOrdersInput
+  order_products?: Prisma.OrderProductUncheckedCreateNestedManyWithoutOrdersInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutOrdersInput
 }
 
 export type OrderCreateOrConnectWithoutImagesInput = {
@@ -1444,8 +1444,8 @@ export type OrderUpdateWithoutImagesInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1453,11 +1453,11 @@ export type OrderUpdateWithoutImagesInput = {
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  order_parts?: Prisma.OrderPartUpdateManyWithoutOrdersNestedInput
+  order_products?: Prisma.OrderProductUpdateManyWithoutOrdersNestedInput
   customers?: Prisma.CustomerUpdateOneWithoutOrdersNestedInput
   equipment?: Prisma.EquipmentUpdateOneWithoutOrdersNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutOrdersNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutOrdersNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutOrdersNestedInput
 }
 
 export type OrderUncheckedUpdateWithoutImagesInput = {
@@ -1477,8 +1477,8 @@ export type OrderUncheckedUpdateWithoutImagesInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1486,11 +1486,11 @@ export type OrderUncheckedUpdateWithoutImagesInput = {
   feedback?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  order_parts?: Prisma.OrderPartUncheckedUpdateManyWithoutOrdersNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutOrdersNestedInput
+  order_products?: Prisma.OrderProductUncheckedUpdateManyWithoutOrdersNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutOrdersNestedInput
 }
 
-export type OrderCreateWithoutOrder_partsInput = {
+export type OrderCreateWithoutOrder_productsInput = {
   order_number: number
   model?: string | null
   password?: string | null
@@ -1503,8 +1503,8 @@ export type OrderCreateWithoutOrder_partsInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -1516,10 +1516,10 @@ export type OrderCreateWithoutOrder_partsInput = {
   customers?: Prisma.CustomerCreateNestedOneWithoutOrdersInput
   equipment?: Prisma.EquipmentCreateNestedOneWithoutOrdersInput
   tenants?: Prisma.TenantCreateNestedOneWithoutOrdersInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutOrdersInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutOrdersInput
 }
 
-export type OrderUncheckedCreateWithoutOrder_partsInput = {
+export type OrderUncheckedCreateWithoutOrder_productsInput = {
   id?: number
   tenant_id: number
   customer_id: number
@@ -1536,8 +1536,8 @@ export type OrderUncheckedCreateWithoutOrder_partsInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -1546,26 +1546,26 @@ export type OrderUncheckedCreateWithoutOrder_partsInput = {
   created_at?: Date | string
   updated_at?: Date | string
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutOrdersInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutOrdersInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutOrdersInput
 }
 
-export type OrderCreateOrConnectWithoutOrder_partsInput = {
+export type OrderCreateOrConnectWithoutOrder_productsInput = {
   where: Prisma.OrderWhereUniqueInput
-  create: Prisma.XOR<Prisma.OrderCreateWithoutOrder_partsInput, Prisma.OrderUncheckedCreateWithoutOrder_partsInput>
+  create: Prisma.XOR<Prisma.OrderCreateWithoutOrder_productsInput, Prisma.OrderUncheckedCreateWithoutOrder_productsInput>
 }
 
-export type OrderUpsertWithoutOrder_partsInput = {
-  update: Prisma.XOR<Prisma.OrderUpdateWithoutOrder_partsInput, Prisma.OrderUncheckedUpdateWithoutOrder_partsInput>
-  create: Prisma.XOR<Prisma.OrderCreateWithoutOrder_partsInput, Prisma.OrderUncheckedCreateWithoutOrder_partsInput>
+export type OrderUpsertWithoutOrder_productsInput = {
+  update: Prisma.XOR<Prisma.OrderUpdateWithoutOrder_productsInput, Prisma.OrderUncheckedUpdateWithoutOrder_productsInput>
+  create: Prisma.XOR<Prisma.OrderCreateWithoutOrder_productsInput, Prisma.OrderUncheckedCreateWithoutOrder_productsInput>
   where?: Prisma.OrderWhereInput
 }
 
-export type OrderUpdateToOneWithWhereWithoutOrder_partsInput = {
+export type OrderUpdateToOneWithWhereWithoutOrder_productsInput = {
   where?: Prisma.OrderWhereInput
-  data: Prisma.XOR<Prisma.OrderUpdateWithoutOrder_partsInput, Prisma.OrderUncheckedUpdateWithoutOrder_partsInput>
+  data: Prisma.XOR<Prisma.OrderUpdateWithoutOrder_productsInput, Prisma.OrderUncheckedUpdateWithoutOrder_productsInput>
 }
 
-export type OrderUpdateWithoutOrder_partsInput = {
+export type OrderUpdateWithoutOrder_productsInput = {
   order_number?: Prisma.IntFieldUpdateOperationsInput | number
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1578,8 +1578,8 @@ export type OrderUpdateWithoutOrder_partsInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1591,10 +1591,10 @@ export type OrderUpdateWithoutOrder_partsInput = {
   customers?: Prisma.CustomerUpdateOneWithoutOrdersNestedInput
   equipment?: Prisma.EquipmentUpdateOneWithoutOrdersNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutOrdersNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutOrdersNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutOrdersNestedInput
 }
 
-export type OrderUncheckedUpdateWithoutOrder_partsInput = {
+export type OrderUncheckedUpdateWithoutOrder_productsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
   customer_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1611,8 +1611,8 @@ export type OrderUncheckedUpdateWithoutOrder_partsInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1621,10 +1621,10 @@ export type OrderUncheckedUpdateWithoutOrder_partsInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUncheckedUpdateManyWithoutOrdersNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutOrdersNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutOrdersNestedInput
 }
 
-export type OrderCreateWithoutPart_movementsInput = {
+export type OrderCreateWithoutProduct_movementsInput = {
   order_number: number
   model?: string | null
   password?: string | null
@@ -1637,8 +1637,8 @@ export type OrderCreateWithoutPart_movementsInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -1647,13 +1647,13 @@ export type OrderCreateWithoutPart_movementsInput = {
   created_at?: Date | string
   updated_at?: Date | string
   images?: Prisma.ImageCreateNestedManyWithoutOrdersInput
-  order_parts?: Prisma.OrderPartCreateNestedManyWithoutOrdersInput
+  order_products?: Prisma.OrderProductCreateNestedManyWithoutOrdersInput
   customers?: Prisma.CustomerCreateNestedOneWithoutOrdersInput
   equipment?: Prisma.EquipmentCreateNestedOneWithoutOrdersInput
   tenants?: Prisma.TenantCreateNestedOneWithoutOrdersInput
 }
 
-export type OrderUncheckedCreateWithoutPart_movementsInput = {
+export type OrderUncheckedCreateWithoutProduct_movementsInput = {
   id?: number
   tenant_id: number
   customer_id: number
@@ -1670,8 +1670,8 @@ export type OrderUncheckedCreateWithoutPart_movementsInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -1680,26 +1680,26 @@ export type OrderUncheckedCreateWithoutPart_movementsInput = {
   created_at?: Date | string
   updated_at?: Date | string
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutOrdersInput
-  order_parts?: Prisma.OrderPartUncheckedCreateNestedManyWithoutOrdersInput
+  order_products?: Prisma.OrderProductUncheckedCreateNestedManyWithoutOrdersInput
 }
 
-export type OrderCreateOrConnectWithoutPart_movementsInput = {
+export type OrderCreateOrConnectWithoutProduct_movementsInput = {
   where: Prisma.OrderWhereUniqueInput
-  create: Prisma.XOR<Prisma.OrderCreateWithoutPart_movementsInput, Prisma.OrderUncheckedCreateWithoutPart_movementsInput>
+  create: Prisma.XOR<Prisma.OrderCreateWithoutProduct_movementsInput, Prisma.OrderUncheckedCreateWithoutProduct_movementsInput>
 }
 
-export type OrderUpsertWithoutPart_movementsInput = {
-  update: Prisma.XOR<Prisma.OrderUpdateWithoutPart_movementsInput, Prisma.OrderUncheckedUpdateWithoutPart_movementsInput>
-  create: Prisma.XOR<Prisma.OrderCreateWithoutPart_movementsInput, Prisma.OrderUncheckedCreateWithoutPart_movementsInput>
+export type OrderUpsertWithoutProduct_movementsInput = {
+  update: Prisma.XOR<Prisma.OrderUpdateWithoutProduct_movementsInput, Prisma.OrderUncheckedUpdateWithoutProduct_movementsInput>
+  create: Prisma.XOR<Prisma.OrderCreateWithoutProduct_movementsInput, Prisma.OrderUncheckedCreateWithoutProduct_movementsInput>
   where?: Prisma.OrderWhereInput
 }
 
-export type OrderUpdateToOneWithWhereWithoutPart_movementsInput = {
+export type OrderUpdateToOneWithWhereWithoutProduct_movementsInput = {
   where?: Prisma.OrderWhereInput
-  data: Prisma.XOR<Prisma.OrderUpdateWithoutPart_movementsInput, Prisma.OrderUncheckedUpdateWithoutPart_movementsInput>
+  data: Prisma.XOR<Prisma.OrderUpdateWithoutProduct_movementsInput, Prisma.OrderUncheckedUpdateWithoutProduct_movementsInput>
 }
 
-export type OrderUpdateWithoutPart_movementsInput = {
+export type OrderUpdateWithoutProduct_movementsInput = {
   order_number?: Prisma.IntFieldUpdateOperationsInput | number
   model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1712,8 +1712,8 @@ export type OrderUpdateWithoutPart_movementsInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1722,13 +1722,13 @@ export type OrderUpdateWithoutPart_movementsInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUpdateManyWithoutOrdersNestedInput
-  order_parts?: Prisma.OrderPartUpdateManyWithoutOrdersNestedInput
+  order_products?: Prisma.OrderProductUpdateManyWithoutOrdersNestedInput
   customers?: Prisma.CustomerUpdateOneWithoutOrdersNestedInput
   equipment?: Prisma.EquipmentUpdateOneWithoutOrdersNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutOrdersNestedInput
 }
 
-export type OrderUncheckedUpdateWithoutPart_movementsInput = {
+export type OrderUncheckedUpdateWithoutProduct_movementsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tenant_id?: Prisma.IntFieldUpdateOperationsInput | number
   customer_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1745,8 +1745,8 @@ export type OrderUncheckedUpdateWithoutPart_movementsInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1755,7 +1755,7 @@ export type OrderUncheckedUpdateWithoutPart_movementsInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUncheckedUpdateManyWithoutOrdersNestedInput
-  order_parts?: Prisma.OrderPartUncheckedUpdateManyWithoutOrdersNestedInput
+  order_products?: Prisma.OrderProductUncheckedUpdateManyWithoutOrdersNestedInput
 }
 
 export type OrderCreateManyTenantsInput = {
@@ -1774,8 +1774,8 @@ export type OrderCreateManyTenantsInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -1798,8 +1798,8 @@ export type OrderUpdateWithoutTenantsInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1808,10 +1808,10 @@ export type OrderUpdateWithoutTenantsInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUpdateManyWithoutOrdersNestedInput
-  order_parts?: Prisma.OrderPartUpdateManyWithoutOrdersNestedInput
+  order_products?: Prisma.OrderProductUpdateManyWithoutOrdersNestedInput
   customers?: Prisma.CustomerUpdateOneWithoutOrdersNestedInput
   equipment?: Prisma.EquipmentUpdateOneWithoutOrdersNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutOrdersNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutOrdersNestedInput
 }
 
 export type OrderUncheckedUpdateWithoutTenantsInput = {
@@ -1830,8 +1830,8 @@ export type OrderUncheckedUpdateWithoutTenantsInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1840,8 +1840,8 @@ export type OrderUncheckedUpdateWithoutTenantsInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUncheckedUpdateManyWithoutOrdersNestedInput
-  order_parts?: Prisma.OrderPartUncheckedUpdateManyWithoutOrdersNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutOrdersNestedInput
+  order_products?: Prisma.OrderProductUncheckedUpdateManyWithoutOrdersNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutOrdersNestedInput
 }
 
 export type OrderUncheckedUpdateManyWithoutTenantsInput = {
@@ -1860,8 +1860,8 @@ export type OrderUncheckedUpdateManyWithoutTenantsInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1887,8 +1887,8 @@ export type OrderCreateManyCustomersInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -1911,8 +1911,8 @@ export type OrderUpdateWithoutCustomersInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1921,10 +1921,10 @@ export type OrderUpdateWithoutCustomersInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUpdateManyWithoutOrdersNestedInput
-  order_parts?: Prisma.OrderPartUpdateManyWithoutOrdersNestedInput
+  order_products?: Prisma.OrderProductUpdateManyWithoutOrdersNestedInput
   equipment?: Prisma.EquipmentUpdateOneWithoutOrdersNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutOrdersNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutOrdersNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutOrdersNestedInput
 }
 
 export type OrderUncheckedUpdateWithoutCustomersInput = {
@@ -1943,8 +1943,8 @@ export type OrderUncheckedUpdateWithoutCustomersInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1953,8 +1953,8 @@ export type OrderUncheckedUpdateWithoutCustomersInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUncheckedUpdateManyWithoutOrdersNestedInput
-  order_parts?: Prisma.OrderPartUncheckedUpdateManyWithoutOrdersNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutOrdersNestedInput
+  order_products?: Prisma.OrderProductUncheckedUpdateManyWithoutOrdersNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutOrdersNestedInput
 }
 
 export type OrderUncheckedUpdateManyWithoutCustomersInput = {
@@ -1973,8 +1973,8 @@ export type OrderUncheckedUpdateManyWithoutCustomersInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2000,8 +2000,8 @@ export type OrderCreateManyEquipmentInput = {
   delivery_forecast?: Date | string | null
   observations?: string | null
   services_performed?: string | null
-  parts?: string | null
-  parts_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: string | null
+  products_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Date | string | null
@@ -2024,8 +2024,8 @@ export type OrderUpdateWithoutEquipmentInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2034,10 +2034,10 @@ export type OrderUpdateWithoutEquipmentInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUpdateManyWithoutOrdersNestedInput
-  order_parts?: Prisma.OrderPartUpdateManyWithoutOrdersNestedInput
+  order_products?: Prisma.OrderProductUpdateManyWithoutOrdersNestedInput
   customers?: Prisma.CustomerUpdateOneWithoutOrdersNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutOrdersNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutOrdersNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutOrdersNestedInput
 }
 
 export type OrderUncheckedUpdateWithoutEquipmentInput = {
@@ -2056,8 +2056,8 @@ export type OrderUncheckedUpdateWithoutEquipmentInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2066,8 +2066,8 @@ export type OrderUncheckedUpdateWithoutEquipmentInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.ImageUncheckedUpdateManyWithoutOrdersNestedInput
-  order_parts?: Prisma.OrderPartUncheckedUpdateManyWithoutOrdersNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutOrdersNestedInput
+  order_products?: Prisma.OrderProductUncheckedUpdateManyWithoutOrdersNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutOrdersNestedInput
 }
 
 export type OrderUncheckedUpdateManyWithoutEquipmentInput = {
@@ -2086,8 +2086,8 @@ export type OrderUncheckedUpdateManyWithoutEquipmentInput = {
   delivery_forecast?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   services_performed?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  parts_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  products?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  products_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_value?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   service_cost?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   delivery_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2104,14 +2104,14 @@ export type OrderUncheckedUpdateManyWithoutEquipmentInput = {
 
 export type OrderCountOutputType = {
   images: number
-  order_parts: number
-  part_movements: number
+  order_products: number
+  product_movements: number
 }
 
 export type OrderCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   images?: boolean | OrderCountOutputTypeCountImagesArgs
-  order_parts?: boolean | OrderCountOutputTypeCountOrder_partsArgs
-  part_movements?: boolean | OrderCountOutputTypeCountPart_movementsArgs
+  order_products?: boolean | OrderCountOutputTypeCountOrder_productsArgs
+  product_movements?: boolean | OrderCountOutputTypeCountProduct_movementsArgs
 }
 
 /**
@@ -2134,15 +2134,15 @@ export type OrderCountOutputTypeCountImagesArgs<ExtArgs extends runtime.Types.Ex
 /**
  * OrderCountOutputType without action
  */
-export type OrderCountOutputTypeCountOrder_partsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.OrderPartWhereInput
+export type OrderCountOutputTypeCountOrder_productsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OrderProductWhereInput
 }
 
 /**
  * OrderCountOutputType without action
  */
-export type OrderCountOutputTypeCountPart_movementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.PartMovementWhereInput
+export type OrderCountOutputTypeCountProduct_movementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductMovementWhereInput
 }
 
 
@@ -2163,8 +2163,8 @@ export type OrderSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   delivery_forecast?: boolean
   observations?: boolean
   services_performed?: boolean
-  parts?: boolean
-  parts_value?: boolean
+  products?: boolean
+  products_value?: boolean
   service_value?: boolean
   service_cost?: boolean
   delivery_date?: boolean
@@ -2173,11 +2173,11 @@ export type OrderSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   created_at?: boolean
   updated_at?: boolean
   images?: boolean | Prisma.Order$imagesArgs<ExtArgs>
-  order_parts?: boolean | Prisma.Order$order_partsArgs<ExtArgs>
+  order_products?: boolean | Prisma.Order$order_productsArgs<ExtArgs>
   customers?: boolean | Prisma.Order$customersArgs<ExtArgs>
   equipment?: boolean | Prisma.Order$equipmentArgs<ExtArgs>
   tenants?: boolean | Prisma.Order$tenantsArgs<ExtArgs>
-  part_movements?: boolean | Prisma.Order$part_movementsArgs<ExtArgs>
+  product_movements?: boolean | Prisma.Order$product_movementsArgs<ExtArgs>
   _count?: boolean | Prisma.OrderCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["order"]>
 
@@ -2200,8 +2200,8 @@ export type OrderSelectScalar = {
   delivery_forecast?: boolean
   observations?: boolean
   services_performed?: boolean
-  parts?: boolean
-  parts_value?: boolean
+  products?: boolean
+  products_value?: boolean
   service_value?: boolean
   service_cost?: boolean
   delivery_date?: boolean
@@ -2211,14 +2211,14 @@ export type OrderSelectScalar = {
   updated_at?: boolean
 }
 
-export type OrderOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenant_id" | "customer_id" | "equipment_id" | "order_number" | "model" | "password" | "defect" | "state_conservation" | "accessories" | "budget_description" | "budget_value" | "service_status" | "delivery_forecast" | "observations" | "services_performed" | "parts" | "parts_value" | "service_value" | "service_cost" | "delivery_date" | "responsible_technician" | "feedback" | "created_at" | "updated_at", ExtArgs["result"]["order"]>
+export type OrderOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenant_id" | "customer_id" | "equipment_id" | "order_number" | "model" | "password" | "defect" | "state_conservation" | "accessories" | "budget_description" | "budget_value" | "service_status" | "delivery_forecast" | "observations" | "services_performed" | "products" | "products_value" | "service_value" | "service_cost" | "delivery_date" | "responsible_technician" | "feedback" | "created_at" | "updated_at", ExtArgs["result"]["order"]>
 export type OrderInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   images?: boolean | Prisma.Order$imagesArgs<ExtArgs>
-  order_parts?: boolean | Prisma.Order$order_partsArgs<ExtArgs>
+  order_products?: boolean | Prisma.Order$order_productsArgs<ExtArgs>
   customers?: boolean | Prisma.Order$customersArgs<ExtArgs>
   equipment?: boolean | Prisma.Order$equipmentArgs<ExtArgs>
   tenants?: boolean | Prisma.Order$tenantsArgs<ExtArgs>
-  part_movements?: boolean | Prisma.Order$part_movementsArgs<ExtArgs>
+  product_movements?: boolean | Prisma.Order$product_movementsArgs<ExtArgs>
   _count?: boolean | Prisma.OrderCountOutputTypeDefaultArgs<ExtArgs>
 }
 
@@ -2226,11 +2226,11 @@ export type $OrderPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   name: "Order"
   objects: {
     images: Prisma.$ImagePayload<ExtArgs>[]
-    order_parts: Prisma.$OrderPartPayload<ExtArgs>[]
+    order_products: Prisma.$OrderProductPayload<ExtArgs>[]
     customers: Prisma.$CustomerPayload<ExtArgs> | null
     equipment: Prisma.$EquipmentPayload<ExtArgs> | null
     tenants: Prisma.$TenantPayload<ExtArgs> | null
-    part_movements: Prisma.$PartMovementPayload<ExtArgs>[]
+    product_movements: Prisma.$ProductMovementPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -2249,8 +2249,8 @@ export type $OrderPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     delivery_forecast: Date | null
     observations: string | null
     services_performed: string | null
-    parts: string | null
-    parts_value: runtime.Decimal
+    products: string | null
+    products_value: runtime.Decimal
     service_value: runtime.Decimal
     service_cost: runtime.Decimal
     delivery_date: Date | null
@@ -2599,11 +2599,11 @@ readonly fields: OrderFieldRefs;
 export interface Prisma__OrderClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   images<T extends Prisma.Order$imagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Order$imagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  order_parts<T extends Prisma.Order$order_partsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Order$order_partsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderPartPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  order_products<T extends Prisma.Order$order_productsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Order$order_productsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   customers<T extends Prisma.Order$customersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Order$customersArgs<ExtArgs>>): Prisma.Prisma__CustomerClient<runtime.Types.Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   equipment<T extends Prisma.Order$equipmentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Order$equipmentArgs<ExtArgs>>): Prisma.Prisma__EquipmentClient<runtime.Types.Result.GetResult<Prisma.$EquipmentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   tenants<T extends Prisma.Order$tenantsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Order$tenantsArgs<ExtArgs>>): Prisma.Prisma__TenantClient<runtime.Types.Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  part_movements<T extends Prisma.Order$part_movementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Order$part_movementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PartMovementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  product_movements<T extends Prisma.Order$product_movementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Order$product_movementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductMovementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2649,8 +2649,8 @@ export interface OrderFieldRefs {
   readonly delivery_forecast: Prisma.FieldRef<"Order", 'DateTime'>
   readonly observations: Prisma.FieldRef<"Order", 'String'>
   readonly services_performed: Prisma.FieldRef<"Order", 'String'>
-  readonly parts: Prisma.FieldRef<"Order", 'String'>
-  readonly parts_value: Prisma.FieldRef<"Order", 'Decimal'>
+  readonly products: Prisma.FieldRef<"Order", 'String'>
+  readonly products_value: Prisma.FieldRef<"Order", 'Decimal'>
   readonly service_value: Prisma.FieldRef<"Order", 'Decimal'>
   readonly service_cost: Prisma.FieldRef<"Order", 'Decimal'>
   readonly delivery_date: Prisma.FieldRef<"Order", 'DateTime'>
@@ -3025,27 +3025,27 @@ export type Order$imagesArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 }
 
 /**
- * Order.order_parts
+ * Order.order_products
  */
-export type Order$order_partsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Order$order_productsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the OrderPart
+   * Select specific fields to fetch from the OrderProduct
    */
-  select?: Prisma.OrderPartSelect<ExtArgs> | null
+  select?: Prisma.OrderProductSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the OrderPart
+   * Omit specific fields from the OrderProduct
    */
-  omit?: Prisma.OrderPartOmit<ExtArgs> | null
+  omit?: Prisma.OrderProductOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.OrderPartInclude<ExtArgs> | null
-  where?: Prisma.OrderPartWhereInput
-  orderBy?: Prisma.OrderPartOrderByWithRelationInput | Prisma.OrderPartOrderByWithRelationInput[]
-  cursor?: Prisma.OrderPartWhereUniqueInput
+  include?: Prisma.OrderProductInclude<ExtArgs> | null
+  where?: Prisma.OrderProductWhereInput
+  orderBy?: Prisma.OrderProductOrderByWithRelationInput | Prisma.OrderProductOrderByWithRelationInput[]
+  cursor?: Prisma.OrderProductWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.OrderPartScalarFieldEnum | Prisma.OrderPartScalarFieldEnum[]
+  distinct?: Prisma.OrderProductScalarFieldEnum | Prisma.OrderProductScalarFieldEnum[]
 }
 
 /**
@@ -3106,27 +3106,27 @@ export type Order$tenantsArgs<ExtArgs extends runtime.Types.Extensions.InternalA
 }
 
 /**
- * Order.part_movements
+ * Order.product_movements
  */
-export type Order$part_movementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Order$product_movementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the PartMovement
+   * Select specific fields to fetch from the ProductMovement
    */
-  select?: Prisma.PartMovementSelect<ExtArgs> | null
+  select?: Prisma.ProductMovementSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the PartMovement
+   * Omit specific fields from the ProductMovement
    */
-  omit?: Prisma.PartMovementOmit<ExtArgs> | null
+  omit?: Prisma.ProductMovementOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PartMovementInclude<ExtArgs> | null
-  where?: Prisma.PartMovementWhereInput
-  orderBy?: Prisma.PartMovementOrderByWithRelationInput | Prisma.PartMovementOrderByWithRelationInput[]
-  cursor?: Prisma.PartMovementWhereUniqueInput
+  include?: Prisma.ProductMovementInclude<ExtArgs> | null
+  where?: Prisma.ProductMovementWhereInput
+  orderBy?: Prisma.ProductMovementOrderByWithRelationInput | Prisma.ProductMovementOrderByWithRelationInput[]
+  cursor?: Prisma.ProductMovementWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.PartMovementScalarFieldEnum | Prisma.PartMovementScalarFieldEnum[]
+  distinct?: Prisma.ProductMovementScalarFieldEnum | Prisma.ProductMovementScalarFieldEnum[]
 }
 
 /**

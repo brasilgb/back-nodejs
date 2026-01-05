@@ -269,48 +269,21 @@ export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDecimalFilter<$PrismaModel>
 }
 
-export type Enumpart_movements_movement_typeFilter<$PrismaModel = never> = {
-  equals?: $Enums.part_movements_movement_type | Prisma.Enumpart_movements_movement_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.part_movements_movement_type[]
-  notIn?: $Enums.part_movements_movement_type[]
-  not?: Prisma.NestedEnumpart_movements_movement_typeFilter<$PrismaModel> | $Enums.part_movements_movement_type
+export type Enumproduct_movements_movement_typeFilter<$PrismaModel = never> = {
+  equals?: $Enums.product_movements_movement_type | Prisma.Enumproduct_movements_movement_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.product_movements_movement_type[]
+  notIn?: $Enums.product_movements_movement_type[]
+  not?: Prisma.NestedEnumproduct_movements_movement_typeFilter<$PrismaModel> | $Enums.product_movements_movement_type
 }
 
-export type Enumpart_movements_movement_typeWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.part_movements_movement_type | Prisma.Enumpart_movements_movement_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.part_movements_movement_type[]
-  notIn?: $Enums.part_movements_movement_type[]
-  not?: Prisma.NestedEnumpart_movements_movement_typeWithAggregatesFilter<$PrismaModel> | $Enums.part_movements_movement_type
+export type Enumproduct_movements_movement_typeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.product_movements_movement_type | Prisma.Enumproduct_movements_movement_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.product_movements_movement_type[]
+  notIn?: $Enums.product_movements_movement_type[]
+  not?: Prisma.NestedEnumproduct_movements_movement_typeWithAggregatesFilter<$PrismaModel> | $Enums.product_movements_movement_type
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumpart_movements_movement_typeFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumpart_movements_movement_typeFilter<$PrismaModel>
-}
-
-export type FloatFilter<$PrismaModel = never> = {
-  equals?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  in?: number[]
-  notIn?: number[]
-  lt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  lte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedFloatFilter<$PrismaModel> | number
-}
-
-export type FloatWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  in?: number[]
-  notIn?: number[]
-  lt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  lte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedFloatWithAggregatesFilter<$PrismaModel> | number
-  _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _avg?: Prisma.NestedFloatFilter<$PrismaModel>
-  _sum?: Prisma.NestedFloatFilter<$PrismaModel>
-  _min?: Prisma.NestedFloatFilter<$PrismaModel>
-  _max?: Prisma.NestedFloatFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumproduct_movements_movement_typeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumproduct_movements_movement_typeFilter<$PrismaModel>
 }
 
 export type NestedIntFilter<$PrismaModel = never> = {
@@ -585,37 +558,21 @@ export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDecimalFilter<$PrismaModel>
 }
 
-export type NestedEnumpart_movements_movement_typeFilter<$PrismaModel = never> = {
-  equals?: $Enums.part_movements_movement_type | Prisma.Enumpart_movements_movement_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.part_movements_movement_type[]
-  notIn?: $Enums.part_movements_movement_type[]
-  not?: Prisma.NestedEnumpart_movements_movement_typeFilter<$PrismaModel> | $Enums.part_movements_movement_type
+export type NestedEnumproduct_movements_movement_typeFilter<$PrismaModel = never> = {
+  equals?: $Enums.product_movements_movement_type | Prisma.Enumproduct_movements_movement_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.product_movements_movement_type[]
+  notIn?: $Enums.product_movements_movement_type[]
+  not?: Prisma.NestedEnumproduct_movements_movement_typeFilter<$PrismaModel> | $Enums.product_movements_movement_type
 }
 
-export type NestedEnumpart_movements_movement_typeWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.part_movements_movement_type | Prisma.Enumpart_movements_movement_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.part_movements_movement_type[]
-  notIn?: $Enums.part_movements_movement_type[]
-  not?: Prisma.NestedEnumpart_movements_movement_typeWithAggregatesFilter<$PrismaModel> | $Enums.part_movements_movement_type
+export type NestedEnumproduct_movements_movement_typeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.product_movements_movement_type | Prisma.Enumproduct_movements_movement_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.product_movements_movement_type[]
+  notIn?: $Enums.product_movements_movement_type[]
+  not?: Prisma.NestedEnumproduct_movements_movement_typeWithAggregatesFilter<$PrismaModel> | $Enums.product_movements_movement_type
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumpart_movements_movement_typeFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumpart_movements_movement_typeFilter<$PrismaModel>
-}
-
-export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  in?: number[]
-  notIn?: number[]
-  lt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  lte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedFloatWithAggregatesFilter<$PrismaModel> | number
-  _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _avg?: Prisma.NestedFloatFilter<$PrismaModel>
-  _sum?: Prisma.NestedFloatFilter<$PrismaModel>
-  _min?: Prisma.NestedFloatFilter<$PrismaModel>
-  _max?: Prisma.NestedFloatFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumproduct_movements_movement_typeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumproduct_movements_movement_typeFilter<$PrismaModel>
 }
 
 

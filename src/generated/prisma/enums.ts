@@ -9,9 +9,9 @@
 * 🟢 You can import this file directly.
 */
 
-export const part_movements_movement_type = {
-  entrada: 'entrada',
-  saida: 'saida'
+export const product_movements_movement_type = {
+  entrance: 'entrance',
+  exit: 'exit'
 } as const
 
-export type part_movements_movement_type = (typeof part_movements_movement_type)[keyof typeof part_movements_movement_type]
+export type product_movements_movement_type = (typeof product_movements_movement_type)[keyof typeof product_movements_movement_type]

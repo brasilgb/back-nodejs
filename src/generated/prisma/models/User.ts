@@ -320,11 +320,10 @@ export type UserWhereInput = {
   reset_token_expiry?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"User"> | Date | string
-  part_movements?: Prisma.PartMovementListRelationFilter
+  product_movements?: Prisma.ProductMovementListRelationFilter
   schedules?: Prisma.ScheduleListRelationFilter
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
-  sentMessages?: Prisma.MessageListRelationFilter
-  receivedMessages?: Prisma.MessageListRelationFilter
+  messages?: Prisma.MessageListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -344,11 +343,10 @@ export type UserOrderByWithRelationInput = {
   reset_token_expiry?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  part_movements?: Prisma.PartMovementOrderByRelationAggregateInput
+  product_movements?: Prisma.ProductMovementOrderByRelationAggregateInput
   schedules?: Prisma.ScheduleOrderByRelationAggregateInput
   tenants?: Prisma.TenantOrderByWithRelationInput
-  sentMessages?: Prisma.MessageOrderByRelationAggregateInput
-  receivedMessages?: Prisma.MessageOrderByRelationAggregateInput
+  messages?: Prisma.MessageOrderByRelationAggregateInput
   _relevance?: Prisma.UserOrderByRelevanceInput
 }
 
@@ -372,11 +370,10 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   reset_token_expiry?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"User"> | Date | string
-  part_movements?: Prisma.PartMovementListRelationFilter
+  product_movements?: Prisma.ProductMovementListRelationFilter
   schedules?: Prisma.ScheduleListRelationFilter
   tenants?: Prisma.XOR<Prisma.TenantNullableScalarRelationFilter, Prisma.TenantWhereInput> | null
-  sentMessages?: Prisma.MessageListRelationFilter
-  receivedMessages?: Prisma.MessageListRelationFilter
+  messages?: Prisma.MessageListRelationFilter
 }, "id" | "email" | "reset_token">
 
 export type UserOrderByWithAggregationInput = {
@@ -440,11 +437,10 @@ export type UserCreateInput = {
   reset_token_expiry?: Date | string | null
   created_at?: Date | string
   updated_at?: Date | string
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutUsersInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput
   tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput
-  sentMessages?: Prisma.MessageCreateNestedManyWithoutSenderInput
-  receivedMessages?: Prisma.MessageCreateNestedManyWithoutRecipientInput
+  messages?: Prisma.MessageCreateNestedManyWithoutRecipientInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -464,10 +460,9 @@ export type UserUncheckedCreateInput = {
   reset_token_expiry?: Date | string | null
   created_at?: Date | string
   updated_at?: Date | string
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutUsersInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutUsersInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutUsersInput
-  sentMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
-  receivedMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutRecipientInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutRecipientInput
 }
 
 export type UserUpdateInput = {
@@ -485,11 +480,10 @@ export type UserUpdateInput = {
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  part_movements?: Prisma.PartMovementUpdateManyWithoutUsersNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutUsersNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutUsersNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutUsersNestedInput
-  sentMessages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
-  receivedMessages?: Prisma.MessageUpdateManyWithoutRecipientNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutRecipientNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -509,10 +503,9 @@ export type UserUncheckedUpdateInput = {
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutUsersNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutUsersNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutUsersNestedInput
-  sentMessages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
-  receivedMessages?: Prisma.MessageUncheckedUpdateManyWithoutRecipientNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutRecipientNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -719,50 +712,34 @@ export type NullableIntFieldUpdateOperationsInput = {
   divide?: number
 }
 
-export type UserCreateNestedOneWithoutSentMessagesInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutSentMessagesInput, Prisma.UserUncheckedCreateWithoutSentMessagesInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutSentMessagesInput
+export type UserCreateNestedOneWithoutMessagesInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMessagesInput, Prisma.UserUncheckedCreateWithoutMessagesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMessagesInput
   connect?: Prisma.UserWhereUniqueInput
 }
 
-export type UserCreateNestedOneWithoutReceivedMessagesInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutReceivedMessagesInput, Prisma.UserUncheckedCreateWithoutReceivedMessagesInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReceivedMessagesInput
-  connect?: Prisma.UserWhereUniqueInput
-}
-
-export type UserUpdateOneWithoutSentMessagesNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutSentMessagesInput, Prisma.UserUncheckedCreateWithoutSentMessagesInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutSentMessagesInput
-  upsert?: Prisma.UserUpsertWithoutSentMessagesInput
+export type UserUpdateOneWithoutMessagesNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMessagesInput, Prisma.UserUncheckedCreateWithoutMessagesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMessagesInput
+  upsert?: Prisma.UserUpsertWithoutMessagesInput
   disconnect?: Prisma.UserWhereInput | boolean
   delete?: Prisma.UserWhereInput | boolean
   connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutSentMessagesInput, Prisma.UserUpdateWithoutSentMessagesInput>, Prisma.UserUncheckedUpdateWithoutSentMessagesInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMessagesInput, Prisma.UserUpdateWithoutMessagesInput>, Prisma.UserUncheckedUpdateWithoutMessagesInput>
 }
 
-export type UserUpdateOneWithoutReceivedMessagesNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutReceivedMessagesInput, Prisma.UserUncheckedCreateWithoutReceivedMessagesInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReceivedMessagesInput
-  upsert?: Prisma.UserUpsertWithoutReceivedMessagesInput
-  disconnect?: Prisma.UserWhereInput | boolean
-  delete?: Prisma.UserWhereInput | boolean
-  connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutReceivedMessagesInput, Prisma.UserUpdateWithoutReceivedMessagesInput>, Prisma.UserUncheckedUpdateWithoutReceivedMessagesInput>
-}
-
-export type UserCreateNestedOneWithoutPart_movementsInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutPart_movementsInput, Prisma.UserUncheckedCreateWithoutPart_movementsInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPart_movementsInput
+export type UserCreateNestedOneWithoutProduct_movementsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutProduct_movementsInput, Prisma.UserUncheckedCreateWithoutProduct_movementsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutProduct_movementsInput
   connect?: Prisma.UserWhereUniqueInput
 }
 
-export type UserUpdateOneRequiredWithoutPart_movementsNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutPart_movementsInput, Prisma.UserUncheckedCreateWithoutPart_movementsInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPart_movementsInput
-  upsert?: Prisma.UserUpsertWithoutPart_movementsInput
+export type UserUpdateOneRequiredWithoutProduct_movementsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutProduct_movementsInput, Prisma.UserUncheckedCreateWithoutProduct_movementsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutProduct_movementsInput
+  upsert?: Prisma.UserUpsertWithoutProduct_movementsInput
   connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPart_movementsInput, Prisma.UserUpdateWithoutPart_movementsInput>, Prisma.UserUncheckedUpdateWithoutPart_movementsInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutProduct_movementsInput, Prisma.UserUpdateWithoutProduct_movementsInput>, Prisma.UserUncheckedUpdateWithoutProduct_movementsInput>
 }
 
 export type UserCreateNestedOneWithoutSchedulesInput = {
@@ -796,10 +773,9 @@ export type UserCreateWithoutTenantsInput = {
   reset_token_expiry?: Date | string | null
   created_at?: Date | string
   updated_at?: Date | string
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutUsersInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput
-  sentMessages?: Prisma.MessageCreateNestedManyWithoutSenderInput
-  receivedMessages?: Prisma.MessageCreateNestedManyWithoutRecipientInput
+  messages?: Prisma.MessageCreateNestedManyWithoutRecipientInput
 }
 
 export type UserUncheckedCreateWithoutTenantsInput = {
@@ -818,10 +794,9 @@ export type UserUncheckedCreateWithoutTenantsInput = {
   reset_token_expiry?: Date | string | null
   created_at?: Date | string
   updated_at?: Date | string
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutUsersInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutUsersInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutUsersInput
-  sentMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
-  receivedMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutRecipientInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutRecipientInput
 }
 
 export type UserCreateOrConnectWithoutTenantsInput = {
@@ -872,7 +847,7 @@ export type UserScalarWhereInput = {
   updated_at?: Prisma.DateTimeFilter<"User"> | Date | string
 }
 
-export type UserCreateWithoutSentMessagesInput = {
+export type UserCreateWithoutMessagesInput = {
   user_number?: number | null
   name: string
   email: string
@@ -887,13 +862,12 @@ export type UserCreateWithoutSentMessagesInput = {
   reset_token_expiry?: Date | string | null
   created_at?: Date | string
   updated_at?: Date | string
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutUsersInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput
   tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput
-  receivedMessages?: Prisma.MessageCreateNestedManyWithoutRecipientInput
 }
 
-export type UserUncheckedCreateWithoutSentMessagesInput = {
+export type UserUncheckedCreateWithoutMessagesInput = {
   id?: number
   tenant_id?: number | null
   user_number?: number | null
@@ -910,76 +884,27 @@ export type UserUncheckedCreateWithoutSentMessagesInput = {
   reset_token_expiry?: Date | string | null
   created_at?: Date | string
   updated_at?: Date | string
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutUsersInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutUsersInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutUsersInput
-  receivedMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutRecipientInput
 }
 
-export type UserCreateOrConnectWithoutSentMessagesInput = {
+export type UserCreateOrConnectWithoutMessagesInput = {
   where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutSentMessagesInput, Prisma.UserUncheckedCreateWithoutSentMessagesInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutMessagesInput, Prisma.UserUncheckedCreateWithoutMessagesInput>
 }
 
-export type UserCreateWithoutReceivedMessagesInput = {
-  user_number?: number | null
-  name: string
-  email: string
-  telephone?: string | null
-  whatsapp?: string | null
-  password: string
-  roles?: number | null
-  status?: number | null
-  email_verified_at?: Date | string | null
-  remember_token?: string | null
-  reset_token?: string | null
-  reset_token_expiry?: Date | string | null
-  created_at?: Date | string
-  updated_at?: Date | string
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput
-  schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput
-  tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput
-  sentMessages?: Prisma.MessageCreateNestedManyWithoutSenderInput
-}
-
-export type UserUncheckedCreateWithoutReceivedMessagesInput = {
-  id?: number
-  tenant_id?: number | null
-  user_number?: number | null
-  name: string
-  email: string
-  telephone?: string | null
-  whatsapp?: string | null
-  password: string
-  roles?: number | null
-  status?: number | null
-  email_verified_at?: Date | string | null
-  remember_token?: string | null
-  reset_token?: string | null
-  reset_token_expiry?: Date | string | null
-  created_at?: Date | string
-  updated_at?: Date | string
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutUsersInput
-  schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutUsersInput
-  sentMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
-}
-
-export type UserCreateOrConnectWithoutReceivedMessagesInput = {
-  where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutReceivedMessagesInput, Prisma.UserUncheckedCreateWithoutReceivedMessagesInput>
-}
-
-export type UserUpsertWithoutSentMessagesInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutSentMessagesInput, Prisma.UserUncheckedUpdateWithoutSentMessagesInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutSentMessagesInput, Prisma.UserUncheckedCreateWithoutSentMessagesInput>
+export type UserUpsertWithoutMessagesInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutMessagesInput, Prisma.UserUncheckedUpdateWithoutMessagesInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutMessagesInput, Prisma.UserUncheckedCreateWithoutMessagesInput>
   where?: Prisma.UserWhereInput
 }
 
-export type UserUpdateToOneWithWhereWithoutSentMessagesInput = {
+export type UserUpdateToOneWithWhereWithoutMessagesInput = {
   where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutSentMessagesInput, Prisma.UserUncheckedUpdateWithoutSentMessagesInput>
+  data: Prisma.XOR<Prisma.UserUpdateWithoutMessagesInput, Prisma.UserUncheckedUpdateWithoutMessagesInput>
 }
 
-export type UserUpdateWithoutSentMessagesInput = {
+export type UserUpdateWithoutMessagesInput = {
   user_number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -994,13 +919,12 @@ export type UserUpdateWithoutSentMessagesInput = {
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  part_movements?: Prisma.PartMovementUpdateManyWithoutUsersNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutUsersNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutUsersNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutUsersNestedInput
-  receivedMessages?: Prisma.MessageUpdateManyWithoutRecipientNestedInput
 }
 
-export type UserUncheckedUpdateWithoutSentMessagesInput = {
+export type UserUncheckedUpdateWithoutMessagesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   user_number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1017,66 +941,11 @@ export type UserUncheckedUpdateWithoutSentMessagesInput = {
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutUsersNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutUsersNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutUsersNestedInput
-  receivedMessages?: Prisma.MessageUncheckedUpdateManyWithoutRecipientNestedInput
 }
 
-export type UserUpsertWithoutReceivedMessagesInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutReceivedMessagesInput, Prisma.UserUncheckedUpdateWithoutReceivedMessagesInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutReceivedMessagesInput, Prisma.UserUncheckedCreateWithoutReceivedMessagesInput>
-  where?: Prisma.UserWhereInput
-}
-
-export type UserUpdateToOneWithWhereWithoutReceivedMessagesInput = {
-  where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutReceivedMessagesInput, Prisma.UserUncheckedUpdateWithoutReceivedMessagesInput>
-}
-
-export type UserUpdateWithoutReceivedMessagesInput = {
-  user_number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  password?: Prisma.StringFieldUpdateOperationsInput | string
-  roles?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  email_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  part_movements?: Prisma.PartMovementUpdateManyWithoutUsersNestedInput
-  schedules?: Prisma.ScheduleUpdateManyWithoutUsersNestedInput
-  tenants?: Prisma.TenantUpdateOneWithoutUsersNestedInput
-  sentMessages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
-}
-
-export type UserUncheckedUpdateWithoutReceivedMessagesInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  user_number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  password?: Prisma.StringFieldUpdateOperationsInput | string
-  roles?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  status?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  email_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  remember_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reset_token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutUsersNestedInput
-  schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutUsersNestedInput
-  sentMessages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
-}
-
-export type UserCreateWithoutPart_movementsInput = {
+export type UserCreateWithoutProduct_movementsInput = {
   user_number?: number | null
   name: string
   email: string
@@ -1093,11 +962,10 @@ export type UserCreateWithoutPart_movementsInput = {
   updated_at?: Date | string
   schedules?: Prisma.ScheduleCreateNestedManyWithoutUsersInput
   tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput
-  sentMessages?: Prisma.MessageCreateNestedManyWithoutSenderInput
-  receivedMessages?: Prisma.MessageCreateNestedManyWithoutRecipientInput
+  messages?: Prisma.MessageCreateNestedManyWithoutRecipientInput
 }
 
-export type UserUncheckedCreateWithoutPart_movementsInput = {
+export type UserUncheckedCreateWithoutProduct_movementsInput = {
   id?: number
   tenant_id?: number | null
   user_number?: number | null
@@ -1115,27 +983,26 @@ export type UserUncheckedCreateWithoutPart_movementsInput = {
   created_at?: Date | string
   updated_at?: Date | string
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutUsersInput
-  sentMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
-  receivedMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutRecipientInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutRecipientInput
 }
 
-export type UserCreateOrConnectWithoutPart_movementsInput = {
+export type UserCreateOrConnectWithoutProduct_movementsInput = {
   where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutPart_movementsInput, Prisma.UserUncheckedCreateWithoutPart_movementsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutProduct_movementsInput, Prisma.UserUncheckedCreateWithoutProduct_movementsInput>
 }
 
-export type UserUpsertWithoutPart_movementsInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutPart_movementsInput, Prisma.UserUncheckedUpdateWithoutPart_movementsInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutPart_movementsInput, Prisma.UserUncheckedCreateWithoutPart_movementsInput>
+export type UserUpsertWithoutProduct_movementsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutProduct_movementsInput, Prisma.UserUncheckedUpdateWithoutProduct_movementsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutProduct_movementsInput, Prisma.UserUncheckedCreateWithoutProduct_movementsInput>
   where?: Prisma.UserWhereInput
 }
 
-export type UserUpdateToOneWithWhereWithoutPart_movementsInput = {
+export type UserUpdateToOneWithWhereWithoutProduct_movementsInput = {
   where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutPart_movementsInput, Prisma.UserUncheckedUpdateWithoutPart_movementsInput>
+  data: Prisma.XOR<Prisma.UserUpdateWithoutProduct_movementsInput, Prisma.UserUncheckedUpdateWithoutProduct_movementsInput>
 }
 
-export type UserUpdateWithoutPart_movementsInput = {
+export type UserUpdateWithoutProduct_movementsInput = {
   user_number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1152,11 +1019,10 @@ export type UserUpdateWithoutPart_movementsInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   schedules?: Prisma.ScheduleUpdateManyWithoutUsersNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutUsersNestedInput
-  sentMessages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
-  receivedMessages?: Prisma.MessageUpdateManyWithoutRecipientNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutRecipientNestedInput
 }
 
-export type UserUncheckedUpdateWithoutPart_movementsInput = {
+export type UserUncheckedUpdateWithoutProduct_movementsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tenant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   user_number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1174,8 +1040,7 @@ export type UserUncheckedUpdateWithoutPart_movementsInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutUsersNestedInput
-  sentMessages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
-  receivedMessages?: Prisma.MessageUncheckedUpdateManyWithoutRecipientNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutRecipientNestedInput
 }
 
 export type UserCreateWithoutSchedulesInput = {
@@ -1193,10 +1058,9 @@ export type UserCreateWithoutSchedulesInput = {
   reset_token_expiry?: Date | string | null
   created_at?: Date | string
   updated_at?: Date | string
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutUsersInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutUsersInput
   tenants?: Prisma.TenantCreateNestedOneWithoutUsersInput
-  sentMessages?: Prisma.MessageCreateNestedManyWithoutSenderInput
-  receivedMessages?: Prisma.MessageCreateNestedManyWithoutRecipientInput
+  messages?: Prisma.MessageCreateNestedManyWithoutRecipientInput
 }
 
 export type UserUncheckedCreateWithoutSchedulesInput = {
@@ -1216,9 +1080,8 @@ export type UserUncheckedCreateWithoutSchedulesInput = {
   reset_token_expiry?: Date | string | null
   created_at?: Date | string
   updated_at?: Date | string
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutUsersInput
-  sentMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
-  receivedMessages?: Prisma.MessageUncheckedCreateNestedManyWithoutRecipientInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutUsersInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutRecipientInput
 }
 
 export type UserCreateOrConnectWithoutSchedulesInput = {
@@ -1252,10 +1115,9 @@ export type UserUpdateWithoutSchedulesInput = {
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  part_movements?: Prisma.PartMovementUpdateManyWithoutUsersNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutUsersNestedInput
   tenants?: Prisma.TenantUpdateOneWithoutUsersNestedInput
-  sentMessages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
-  receivedMessages?: Prisma.MessageUpdateManyWithoutRecipientNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutRecipientNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSchedulesInput = {
@@ -1275,9 +1137,8 @@ export type UserUncheckedUpdateWithoutSchedulesInput = {
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutUsersNestedInput
-  sentMessages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
-  receivedMessages?: Prisma.MessageUncheckedUpdateManyWithoutRecipientNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutUsersNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutRecipientNestedInput
 }
 
 export type UserCreateManyTenantsInput = {
@@ -1313,10 +1174,9 @@ export type UserUpdateWithoutTenantsInput = {
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  part_movements?: Prisma.PartMovementUpdateManyWithoutUsersNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutUsersNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutUsersNestedInput
-  sentMessages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
-  receivedMessages?: Prisma.MessageUpdateManyWithoutRecipientNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutRecipientNestedInput
 }
 
 export type UserUncheckedUpdateWithoutTenantsInput = {
@@ -1335,10 +1195,9 @@ export type UserUncheckedUpdateWithoutTenantsInput = {
   reset_token_expiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutUsersNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutUsersNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutUsersNestedInput
-  sentMessages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
-  receivedMessages?: Prisma.MessageUncheckedUpdateManyWithoutRecipientNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutRecipientNestedInput
 }
 
 export type UserUncheckedUpdateManyWithoutTenantsInput = {
@@ -1365,17 +1224,15 @@ export type UserUncheckedUpdateManyWithoutTenantsInput = {
  */
 
 export type UserCountOutputType = {
-  part_movements: number
+  product_movements: number
   schedules: number
-  sentMessages: number
-  receivedMessages: number
+  messages: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  part_movements?: boolean | UserCountOutputTypeCountPart_movementsArgs
+  product_movements?: boolean | UserCountOutputTypeCountProduct_movementsArgs
   schedules?: boolean | UserCountOutputTypeCountSchedulesArgs
-  sentMessages?: boolean | UserCountOutputTypeCountSentMessagesArgs
-  receivedMessages?: boolean | UserCountOutputTypeCountReceivedMessagesArgs
+  messages?: boolean | UserCountOutputTypeCountMessagesArgs
 }
 
 /**
@@ -1391,8 +1248,8 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
 /**
  * UserCountOutputType without action
  */
-export type UserCountOutputTypeCountPart_movementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.PartMovementWhereInput
+export type UserCountOutputTypeCountProduct_movementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductMovementWhereInput
 }
 
 /**
@@ -1405,14 +1262,7 @@ export type UserCountOutputTypeCountSchedulesArgs<ExtArgs extends runtime.Types.
 /**
  * UserCountOutputType without action
  */
-export type UserCountOutputTypeCountSentMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.MessageWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountReceivedMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserCountOutputTypeCountMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.MessageWhereInput
 }
 
@@ -1434,11 +1284,10 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   reset_token_expiry?: boolean
   created_at?: boolean
   updated_at?: boolean
-  part_movements?: boolean | Prisma.User$part_movementsArgs<ExtArgs>
+  product_movements?: boolean | Prisma.User$product_movementsArgs<ExtArgs>
   schedules?: boolean | Prisma.User$schedulesArgs<ExtArgs>
   tenants?: boolean | Prisma.User$tenantsArgs<ExtArgs>
-  sentMessages?: boolean | Prisma.User$sentMessagesArgs<ExtArgs>
-  receivedMessages?: boolean | Prisma.User$receivedMessagesArgs<ExtArgs>
+  messages?: boolean | Prisma.User$messagesArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1465,22 +1314,20 @@ export type UserSelectScalar = {
 
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenant_id" | "user_number" | "name" | "email" | "telephone" | "whatsapp" | "password" | "roles" | "status" | "email_verified_at" | "remember_token" | "reset_token" | "reset_token_expiry" | "created_at" | "updated_at", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  part_movements?: boolean | Prisma.User$part_movementsArgs<ExtArgs>
+  product_movements?: boolean | Prisma.User$product_movementsArgs<ExtArgs>
   schedules?: boolean | Prisma.User$schedulesArgs<ExtArgs>
   tenants?: boolean | Prisma.User$tenantsArgs<ExtArgs>
-  sentMessages?: boolean | Prisma.User$sentMessagesArgs<ExtArgs>
-  receivedMessages?: boolean | Prisma.User$receivedMessagesArgs<ExtArgs>
+  messages?: boolean | Prisma.User$messagesArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
-    part_movements: Prisma.$PartMovementPayload<ExtArgs>[]
+    product_movements: Prisma.$ProductMovementPayload<ExtArgs>[]
     schedules: Prisma.$SchedulePayload<ExtArgs>[]
     tenants: Prisma.$TenantPayload<ExtArgs> | null
-    sentMessages: Prisma.$MessagePayload<ExtArgs>[]
-    receivedMessages: Prisma.$MessagePayload<ExtArgs>[]
+    messages: Prisma.$MessagePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1839,11 +1686,10 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  part_movements<T extends Prisma.User$part_movementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$part_movementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PartMovementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  product_movements<T extends Prisma.User$product_movementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$product_movementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductMovementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   schedules<T extends Prisma.User$schedulesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$schedulesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SchedulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   tenants<T extends Prisma.User$tenantsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$tenantsArgs<ExtArgs>>): Prisma.Prisma__TenantClient<runtime.Types.Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  sentMessages<T extends Prisma.User$sentMessagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$sentMessagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  receivedMessages<T extends Prisma.User$receivedMessagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$receivedMessagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  messages<T extends Prisma.User$messagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$messagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2232,27 +2078,27 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
- * User.part_movements
+ * User.product_movements
  */
-export type User$part_movementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$product_movementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the PartMovement
+   * Select specific fields to fetch from the ProductMovement
    */
-  select?: Prisma.PartMovementSelect<ExtArgs> | null
+  select?: Prisma.ProductMovementSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the PartMovement
+   * Omit specific fields from the ProductMovement
    */
-  omit?: Prisma.PartMovementOmit<ExtArgs> | null
+  omit?: Prisma.ProductMovementOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PartMovementInclude<ExtArgs> | null
-  where?: Prisma.PartMovementWhereInput
-  orderBy?: Prisma.PartMovementOrderByWithRelationInput | Prisma.PartMovementOrderByWithRelationInput[]
-  cursor?: Prisma.PartMovementWhereUniqueInput
+  include?: Prisma.ProductMovementInclude<ExtArgs> | null
+  where?: Prisma.ProductMovementWhereInput
+  orderBy?: Prisma.ProductMovementOrderByWithRelationInput | Prisma.ProductMovementOrderByWithRelationInput[]
+  cursor?: Prisma.ProductMovementWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.PartMovementScalarFieldEnum | Prisma.PartMovementScalarFieldEnum[]
+  distinct?: Prisma.ProductMovementScalarFieldEnum | Prisma.ProductMovementScalarFieldEnum[]
 }
 
 /**
@@ -2299,33 +2145,9 @@ export type User$tenantsArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 }
 
 /**
- * User.sentMessages
+ * User.messages
  */
-export type User$sentMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Message
-   */
-  select?: Prisma.MessageSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Message
-   */
-  omit?: Prisma.MessageOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.MessageInclude<ExtArgs> | null
-  where?: Prisma.MessageWhereInput
-  orderBy?: Prisma.MessageOrderByWithRelationInput | Prisma.MessageOrderByWithRelationInput[]
-  cursor?: Prisma.MessageWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.MessageScalarFieldEnum | Prisma.MessageScalarFieldEnum[]
-}
-
-/**
- * User.receivedMessages
- */
-export type User$receivedMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$messagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the Message
    */

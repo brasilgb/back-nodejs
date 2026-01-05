@@ -362,8 +362,8 @@ export type TenantWhereInput = {
   messages?: Prisma.MessageListRelationFilter
   orders?: Prisma.OrderListRelationFilter
   others?: Prisma.OtherListRelationFilter
-  part_movements?: Prisma.PartMovementListRelationFilter
-  parts?: Prisma.PartListRelationFilter
+  product_movements?: Prisma.ProductMovementListRelationFilter
+  products?: Prisma.ProductListRelationFilter
   receipts?: Prisma.ReceiptListRelationFilter
   sales?: Prisma.SaleListRelationFilter
   schedules?: Prisma.ScheduleListRelationFilter
@@ -404,8 +404,8 @@ export type TenantOrderByWithRelationInput = {
   messages?: Prisma.MessageOrderByRelationAggregateInput
   orders?: Prisma.OrderOrderByRelationAggregateInput
   others?: Prisma.OtherOrderByRelationAggregateInput
-  part_movements?: Prisma.PartMovementOrderByRelationAggregateInput
-  parts?: Prisma.PartOrderByRelationAggregateInput
+  product_movements?: Prisma.ProductMovementOrderByRelationAggregateInput
+  products?: Prisma.ProductOrderByRelationAggregateInput
   receipts?: Prisma.ReceiptOrderByRelationAggregateInput
   sales?: Prisma.SaleOrderByRelationAggregateInput
   schedules?: Prisma.ScheduleOrderByRelationAggregateInput
@@ -450,8 +450,8 @@ export type TenantWhereUniqueInput = Prisma.AtLeast<{
   messages?: Prisma.MessageListRelationFilter
   orders?: Prisma.OrderListRelationFilter
   others?: Prisma.OtherListRelationFilter
-  part_movements?: Prisma.PartMovementListRelationFilter
-  parts?: Prisma.PartListRelationFilter
+  product_movements?: Prisma.ProductMovementListRelationFilter
+  products?: Prisma.ProductListRelationFilter
   receipts?: Prisma.ReceiptListRelationFilter
   sales?: Prisma.SaleListRelationFilter
   schedules?: Prisma.ScheduleListRelationFilter
@@ -547,8 +547,8 @@ export type TenantCreateInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
@@ -589,8 +589,8 @@ export type TenantUncheckedCreateInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
@@ -630,8 +630,8 @@ export type TenantUpdateInput = {
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
@@ -672,8 +672,8 @@ export type TenantUncheckedUpdateInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
@@ -1057,36 +1057,36 @@ export type TenantUpdateOneWithoutOthersNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutOthersInput, Prisma.TenantUpdateWithoutOthersInput>, Prisma.TenantUncheckedUpdateWithoutOthersInput>
 }
 
-export type TenantCreateNestedOneWithoutPart_movementsInput = {
-  create?: Prisma.XOR<Prisma.TenantCreateWithoutPart_movementsInput, Prisma.TenantUncheckedCreateWithoutPart_movementsInput>
-  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutPart_movementsInput
+export type TenantCreateNestedOneWithoutProduct_movementsInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutProduct_movementsInput, Prisma.TenantUncheckedCreateWithoutProduct_movementsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutProduct_movementsInput
   connect?: Prisma.TenantWhereUniqueInput
 }
 
-export type TenantUpdateOneWithoutPart_movementsNestedInput = {
-  create?: Prisma.XOR<Prisma.TenantCreateWithoutPart_movementsInput, Prisma.TenantUncheckedCreateWithoutPart_movementsInput>
-  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutPart_movementsInput
-  upsert?: Prisma.TenantUpsertWithoutPart_movementsInput
+export type TenantUpdateOneWithoutProduct_movementsNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutProduct_movementsInput, Prisma.TenantUncheckedCreateWithoutProduct_movementsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutProduct_movementsInput
+  upsert?: Prisma.TenantUpsertWithoutProduct_movementsInput
   disconnect?: Prisma.TenantWhereInput | boolean
   delete?: Prisma.TenantWhereInput | boolean
   connect?: Prisma.TenantWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutPart_movementsInput, Prisma.TenantUpdateWithoutPart_movementsInput>, Prisma.TenantUncheckedUpdateWithoutPart_movementsInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutProduct_movementsInput, Prisma.TenantUpdateWithoutProduct_movementsInput>, Prisma.TenantUncheckedUpdateWithoutProduct_movementsInput>
 }
 
-export type TenantCreateNestedOneWithoutPartsInput = {
-  create?: Prisma.XOR<Prisma.TenantCreateWithoutPartsInput, Prisma.TenantUncheckedCreateWithoutPartsInput>
-  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutPartsInput
+export type TenantCreateNestedOneWithoutProductsInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutProductsInput, Prisma.TenantUncheckedCreateWithoutProductsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutProductsInput
   connect?: Prisma.TenantWhereUniqueInput
 }
 
-export type TenantUpdateOneWithoutPartsNestedInput = {
-  create?: Prisma.XOR<Prisma.TenantCreateWithoutPartsInput, Prisma.TenantUncheckedCreateWithoutPartsInput>
-  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutPartsInput
-  upsert?: Prisma.TenantUpsertWithoutPartsInput
+export type TenantUpdateOneWithoutProductsNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutProductsInput, Prisma.TenantUncheckedCreateWithoutProductsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutProductsInput
+  upsert?: Prisma.TenantUpsertWithoutProductsInput
   disconnect?: Prisma.TenantWhereInput | boolean
   delete?: Prisma.TenantWhereInput | boolean
   connect?: Prisma.TenantWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutPartsInput, Prisma.TenantUpdateWithoutPartsInput>, Prisma.TenantUncheckedUpdateWithoutPartsInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutProductsInput, Prisma.TenantUpdateWithoutProductsInput>, Prisma.TenantUncheckedUpdateWithoutProductsInput>
 }
 
 export type TenantCreateNestedOneWithoutReceiptsInput = {
@@ -1196,8 +1196,8 @@ export type TenantCreateWithoutUsersInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
@@ -1237,8 +1237,8 @@ export type TenantUncheckedCreateWithoutUsersInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
@@ -1293,8 +1293,8 @@ export type TenantUpdateWithoutUsersInput = {
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
@@ -1334,8 +1334,8 @@ export type TenantUncheckedUpdateWithoutUsersInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
@@ -1373,8 +1373,8 @@ export type TenantCreateWithoutBranchesInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
@@ -1414,8 +1414,8 @@ export type TenantUncheckedCreateWithoutBranchesInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
@@ -1470,8 +1470,8 @@ export type TenantUpdateWithoutBranchesInput = {
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
@@ -1511,8 +1511,8 @@ export type TenantUncheckedUpdateWithoutBranchesInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
@@ -1551,8 +1551,8 @@ export type TenantCreateWithoutBudgetsInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
@@ -1592,8 +1592,8 @@ export type TenantUncheckedCreateWithoutBudgetsInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
@@ -1648,8 +1648,8 @@ export type TenantUpdateWithoutBudgetsInput = {
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
@@ -1689,8 +1689,8 @@ export type TenantUncheckedUpdateWithoutBudgetsInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
@@ -1729,8 +1729,8 @@ export type TenantCreateWithoutChecklistsInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
@@ -1770,8 +1770,8 @@ export type TenantUncheckedCreateWithoutChecklistsInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
@@ -1826,8 +1826,8 @@ export type TenantUpdateWithoutChecklistsInput = {
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
@@ -1867,8 +1867,8 @@ export type TenantUncheckedUpdateWithoutChecklistsInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
@@ -1907,8 +1907,8 @@ export type TenantCreateWithoutCompaniesInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
@@ -1948,8 +1948,8 @@ export type TenantUncheckedCreateWithoutCompaniesInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
@@ -2004,8 +2004,8 @@ export type TenantUpdateWithoutCompaniesInput = {
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
@@ -2045,8 +2045,8 @@ export type TenantUncheckedUpdateWithoutCompaniesInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
@@ -2085,8 +2085,8 @@ export type TenantCreateWithoutCustomersInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
@@ -2126,8 +2126,8 @@ export type TenantUncheckedCreateWithoutCustomersInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
@@ -2182,8 +2182,8 @@ export type TenantUpdateWithoutCustomersInput = {
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
@@ -2223,8 +2223,8 @@ export type TenantUncheckedUpdateWithoutCustomersInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
@@ -2263,8 +2263,8 @@ export type TenantCreateWithoutEquipmentInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
@@ -2304,8 +2304,8 @@ export type TenantUncheckedCreateWithoutEquipmentInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
@@ -2360,8 +2360,8 @@ export type TenantUpdateWithoutEquipmentInput = {
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
@@ -2401,8 +2401,8 @@ export type TenantUncheckedUpdateWithoutEquipmentInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
@@ -2441,8 +2441,8 @@ export type TenantCreateWithoutImagesInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
@@ -2482,8 +2482,8 @@ export type TenantUncheckedCreateWithoutImagesInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
@@ -2538,8 +2538,8 @@ export type TenantUpdateWithoutImagesInput = {
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
@@ -2579,8 +2579,8 @@ export type TenantUncheckedUpdateWithoutImagesInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
@@ -2619,8 +2619,8 @@ export type TenantCreateWithoutMessagesInput = {
   images?: Prisma.ImageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
@@ -2660,8 +2660,8 @@ export type TenantUncheckedCreateWithoutMessagesInput = {
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
@@ -2716,8 +2716,8 @@ export type TenantUpdateWithoutMessagesInput = {
   images?: Prisma.ImageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
@@ -2757,8 +2757,8 @@ export type TenantUncheckedUpdateWithoutMessagesInput = {
   images?: Prisma.ImageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
@@ -2797,8 +2797,8 @@ export type TenantCreateWithoutOrdersInput = {
   images?: Prisma.ImageCreateNestedManyWithoutTenantsInput
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
@@ -2838,8 +2838,8 @@ export type TenantUncheckedCreateWithoutOrdersInput = {
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutTenantsInput
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
@@ -2894,8 +2894,8 @@ export type TenantUpdateWithoutOrdersInput = {
   images?: Prisma.ImageUpdateManyWithoutTenantsNestedInput
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
@@ -2935,8 +2935,8 @@ export type TenantUncheckedUpdateWithoutOrdersInput = {
   images?: Prisma.ImageUncheckedUpdateManyWithoutTenantsNestedInput
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
@@ -2975,8 +2975,8 @@ export type TenantCreateWithoutOthersInput = {
   images?: Prisma.ImageCreateNestedManyWithoutTenantsInput
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
@@ -3016,8 +3016,8 @@ export type TenantUncheckedCreateWithoutOthersInput = {
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutTenantsInput
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
@@ -3072,8 +3072,8 @@ export type TenantUpdateWithoutOthersInput = {
   images?: Prisma.ImageUpdateManyWithoutTenantsNestedInput
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
@@ -3113,8 +3113,8 @@ export type TenantUncheckedUpdateWithoutOthersInput = {
   images?: Prisma.ImageUncheckedUpdateManyWithoutTenantsNestedInput
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
@@ -3123,7 +3123,7 @@ export type TenantUncheckedUpdateWithoutOthersInput = {
   whatsapp_messages?: Prisma.WhatsappMessageUncheckedUpdateManyWithoutTenantsNestedInput
 }
 
-export type TenantCreateWithoutPart_movementsInput = {
+export type TenantCreateWithoutProduct_movementsInput = {
   plan: number
   name?: string | null
   company: string
@@ -3154,7 +3154,7 @@ export type TenantCreateWithoutPart_movementsInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
@@ -3163,7 +3163,7 @@ export type TenantCreateWithoutPart_movementsInput = {
   whatsapp_messages?: Prisma.WhatsappMessageCreateNestedManyWithoutTenantsInput
 }
 
-export type TenantUncheckedCreateWithoutPart_movementsInput = {
+export type TenantUncheckedCreateWithoutProduct_movementsInput = {
   id?: number
   plan: number
   name?: string | null
@@ -3195,7 +3195,7 @@ export type TenantUncheckedCreateWithoutPart_movementsInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
@@ -3204,23 +3204,23 @@ export type TenantUncheckedCreateWithoutPart_movementsInput = {
   whatsapp_messages?: Prisma.WhatsappMessageUncheckedCreateNestedManyWithoutTenantsInput
 }
 
-export type TenantCreateOrConnectWithoutPart_movementsInput = {
+export type TenantCreateOrConnectWithoutProduct_movementsInput = {
   where: Prisma.TenantWhereUniqueInput
-  create: Prisma.XOR<Prisma.TenantCreateWithoutPart_movementsInput, Prisma.TenantUncheckedCreateWithoutPart_movementsInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutProduct_movementsInput, Prisma.TenantUncheckedCreateWithoutProduct_movementsInput>
 }
 
-export type TenantUpsertWithoutPart_movementsInput = {
-  update: Prisma.XOR<Prisma.TenantUpdateWithoutPart_movementsInput, Prisma.TenantUncheckedUpdateWithoutPart_movementsInput>
-  create: Prisma.XOR<Prisma.TenantCreateWithoutPart_movementsInput, Prisma.TenantUncheckedCreateWithoutPart_movementsInput>
+export type TenantUpsertWithoutProduct_movementsInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutProduct_movementsInput, Prisma.TenantUncheckedUpdateWithoutProduct_movementsInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutProduct_movementsInput, Prisma.TenantUncheckedCreateWithoutProduct_movementsInput>
   where?: Prisma.TenantWhereInput
 }
 
-export type TenantUpdateToOneWithWhereWithoutPart_movementsInput = {
+export type TenantUpdateToOneWithWhereWithoutProduct_movementsInput = {
   where?: Prisma.TenantWhereInput
-  data: Prisma.XOR<Prisma.TenantUpdateWithoutPart_movementsInput, Prisma.TenantUncheckedUpdateWithoutPart_movementsInput>
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutProduct_movementsInput, Prisma.TenantUncheckedUpdateWithoutProduct_movementsInput>
 }
 
-export type TenantUpdateWithoutPart_movementsInput = {
+export type TenantUpdateWithoutProduct_movementsInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
@@ -3251,7 +3251,7 @@ export type TenantUpdateWithoutPart_movementsInput = {
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
@@ -3260,7 +3260,7 @@ export type TenantUpdateWithoutPart_movementsInput = {
   whatsapp_messages?: Prisma.WhatsappMessageUpdateManyWithoutTenantsNestedInput
 }
 
-export type TenantUncheckedUpdateWithoutPart_movementsInput = {
+export type TenantUncheckedUpdateWithoutProduct_movementsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3292,7 +3292,7 @@ export type TenantUncheckedUpdateWithoutPart_movementsInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
@@ -3301,7 +3301,7 @@ export type TenantUncheckedUpdateWithoutPart_movementsInput = {
   whatsapp_messages?: Prisma.WhatsappMessageUncheckedUpdateManyWithoutTenantsNestedInput
 }
 
-export type TenantCreateWithoutPartsInput = {
+export type TenantCreateWithoutProductsInput = {
   plan: number
   name?: string | null
   company: string
@@ -3332,7 +3332,7 @@ export type TenantCreateWithoutPartsInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
@@ -3341,7 +3341,7 @@ export type TenantCreateWithoutPartsInput = {
   whatsapp_messages?: Prisma.WhatsappMessageCreateNestedManyWithoutTenantsInput
 }
 
-export type TenantUncheckedCreateWithoutPartsInput = {
+export type TenantUncheckedCreateWithoutProductsInput = {
   id?: number
   plan: number
   name?: string | null
@@ -3373,7 +3373,7 @@ export type TenantUncheckedCreateWithoutPartsInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
@@ -3382,23 +3382,23 @@ export type TenantUncheckedCreateWithoutPartsInput = {
   whatsapp_messages?: Prisma.WhatsappMessageUncheckedCreateNestedManyWithoutTenantsInput
 }
 
-export type TenantCreateOrConnectWithoutPartsInput = {
+export type TenantCreateOrConnectWithoutProductsInput = {
   where: Prisma.TenantWhereUniqueInput
-  create: Prisma.XOR<Prisma.TenantCreateWithoutPartsInput, Prisma.TenantUncheckedCreateWithoutPartsInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutProductsInput, Prisma.TenantUncheckedCreateWithoutProductsInput>
 }
 
-export type TenantUpsertWithoutPartsInput = {
-  update: Prisma.XOR<Prisma.TenantUpdateWithoutPartsInput, Prisma.TenantUncheckedUpdateWithoutPartsInput>
-  create: Prisma.XOR<Prisma.TenantCreateWithoutPartsInput, Prisma.TenantUncheckedCreateWithoutPartsInput>
+export type TenantUpsertWithoutProductsInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutProductsInput, Prisma.TenantUncheckedUpdateWithoutProductsInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutProductsInput, Prisma.TenantUncheckedCreateWithoutProductsInput>
   where?: Prisma.TenantWhereInput
 }
 
-export type TenantUpdateToOneWithWhereWithoutPartsInput = {
+export type TenantUpdateToOneWithWhereWithoutProductsInput = {
   where?: Prisma.TenantWhereInput
-  data: Prisma.XOR<Prisma.TenantUpdateWithoutPartsInput, Prisma.TenantUncheckedUpdateWithoutPartsInput>
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutProductsInput, Prisma.TenantUncheckedUpdateWithoutProductsInput>
 }
 
-export type TenantUpdateWithoutPartsInput = {
+export type TenantUpdateWithoutProductsInput = {
   plan?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   company?: Prisma.StringFieldUpdateOperationsInput | string
@@ -3429,7 +3429,7 @@ export type TenantUpdateWithoutPartsInput = {
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
@@ -3438,7 +3438,7 @@ export type TenantUpdateWithoutPartsInput = {
   whatsapp_messages?: Prisma.WhatsappMessageUpdateManyWithoutTenantsNestedInput
 }
 
-export type TenantUncheckedUpdateWithoutPartsInput = {
+export type TenantUncheckedUpdateWithoutProductsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3470,7 +3470,7 @@ export type TenantUncheckedUpdateWithoutPartsInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
@@ -3510,8 +3510,8 @@ export type TenantCreateWithoutReceiptsInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
   settings?: Prisma.SettingCreateNestedOneWithoutTenantsInput
@@ -3551,8 +3551,8 @@ export type TenantUncheckedCreateWithoutReceiptsInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
   settings?: Prisma.SettingUncheckedCreateNestedOneWithoutTenantsInput
@@ -3607,8 +3607,8 @@ export type TenantUpdateWithoutReceiptsInput = {
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
   settings?: Prisma.SettingUpdateOneWithoutTenantsNestedInput
@@ -3648,8 +3648,8 @@ export type TenantUncheckedUpdateWithoutReceiptsInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
   settings?: Prisma.SettingUncheckedUpdateOneWithoutTenantsNestedInput
@@ -3688,8 +3688,8 @@ export type TenantCreateWithoutSalesInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
   settings?: Prisma.SettingCreateNestedOneWithoutTenantsInput
@@ -3729,8 +3729,8 @@ export type TenantUncheckedCreateWithoutSalesInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
   settings?: Prisma.SettingUncheckedCreateNestedOneWithoutTenantsInput
@@ -3785,8 +3785,8 @@ export type TenantUpdateWithoutSalesInput = {
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
   settings?: Prisma.SettingUpdateOneWithoutTenantsNestedInput
@@ -3826,8 +3826,8 @@ export type TenantUncheckedUpdateWithoutSalesInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
   settings?: Prisma.SettingUncheckedUpdateOneWithoutTenantsNestedInput
@@ -3866,8 +3866,8 @@ export type TenantCreateWithoutSchedulesInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   settings?: Prisma.SettingCreateNestedOneWithoutTenantsInput
@@ -3907,8 +3907,8 @@ export type TenantUncheckedCreateWithoutSchedulesInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   settings?: Prisma.SettingUncheckedCreateNestedOneWithoutTenantsInput
@@ -3963,8 +3963,8 @@ export type TenantUpdateWithoutSchedulesInput = {
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   settings?: Prisma.SettingUpdateOneWithoutTenantsNestedInput
@@ -4004,8 +4004,8 @@ export type TenantUncheckedUpdateWithoutSchedulesInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   settings?: Prisma.SettingUncheckedUpdateOneWithoutTenantsNestedInput
@@ -4044,8 +4044,8 @@ export type TenantCreateWithoutSettingsInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
@@ -4085,8 +4085,8 @@ export type TenantUncheckedCreateWithoutSettingsInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
@@ -4141,8 +4141,8 @@ export type TenantUpdateWithoutSettingsInput = {
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
@@ -4182,8 +4182,8 @@ export type TenantUncheckedUpdateWithoutSettingsInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
@@ -4222,8 +4222,8 @@ export type TenantCreateWithoutWhatsapp_messagesInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleCreateNestedManyWithoutTenantsInput
@@ -4263,8 +4263,8 @@ export type TenantUncheckedCreateWithoutWhatsapp_messagesInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutTenantsInput
   orders?: Prisma.OrderUncheckedCreateNestedManyWithoutTenantsInput
   others?: Prisma.OtherUncheckedCreateNestedManyWithoutTenantsInput
-  part_movements?: Prisma.PartMovementUncheckedCreateNestedManyWithoutTenantsInput
-  parts?: Prisma.PartUncheckedCreateNestedManyWithoutTenantsInput
+  product_movements?: Prisma.ProductMovementUncheckedCreateNestedManyWithoutTenantsInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutTenantsInput
   receipts?: Prisma.ReceiptUncheckedCreateNestedManyWithoutTenantsInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutTenantsInput
   schedules?: Prisma.ScheduleUncheckedCreateNestedManyWithoutTenantsInput
@@ -4319,8 +4319,8 @@ export type TenantUpdateWithoutWhatsapp_messagesInput = {
   messages?: Prisma.MessageUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUpdateManyWithoutTenantsNestedInput
@@ -4360,8 +4360,8 @@ export type TenantUncheckedUpdateWithoutWhatsapp_messagesInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutTenantsNestedInput
   orders?: Prisma.OrderUncheckedUpdateManyWithoutTenantsNestedInput
   others?: Prisma.OtherUncheckedUpdateManyWithoutTenantsNestedInput
-  part_movements?: Prisma.PartMovementUncheckedUpdateManyWithoutTenantsNestedInput
-  parts?: Prisma.PartUncheckedUpdateManyWithoutTenantsNestedInput
+  product_movements?: Prisma.ProductMovementUncheckedUpdateManyWithoutTenantsNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutTenantsNestedInput
   receipts?: Prisma.ReceiptUncheckedUpdateManyWithoutTenantsNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutTenantsNestedInput
   schedules?: Prisma.ScheduleUncheckedUpdateManyWithoutTenantsNestedInput
@@ -4385,8 +4385,8 @@ export type TenantCountOutputType = {
   messages: number
   orders: number
   others: number
-  part_movements: number
-  parts: number
+  product_movements: number
+  products: number
   receipts: number
   sales: number
   schedules: number
@@ -4405,8 +4405,8 @@ export type TenantCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions
   messages?: boolean | TenantCountOutputTypeCountMessagesArgs
   orders?: boolean | TenantCountOutputTypeCountOrdersArgs
   others?: boolean | TenantCountOutputTypeCountOthersArgs
-  part_movements?: boolean | TenantCountOutputTypeCountPart_movementsArgs
-  parts?: boolean | TenantCountOutputTypeCountPartsArgs
+  product_movements?: boolean | TenantCountOutputTypeCountProduct_movementsArgs
+  products?: boolean | TenantCountOutputTypeCountProductsArgs
   receipts?: boolean | TenantCountOutputTypeCountReceiptsArgs
   sales?: boolean | TenantCountOutputTypeCountSalesArgs
   schedules?: boolean | TenantCountOutputTypeCountSchedulesArgs
@@ -4497,15 +4497,15 @@ export type TenantCountOutputTypeCountOthersArgs<ExtArgs extends runtime.Types.E
 /**
  * TenantCountOutputType without action
  */
-export type TenantCountOutputTypeCountPart_movementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.PartMovementWhereInput
+export type TenantCountOutputTypeCountProduct_movementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductMovementWhereInput
 }
 
 /**
  * TenantCountOutputType without action
  */
-export type TenantCountOutputTypeCountPartsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.PartWhereInput
+export type TenantCountOutputTypeCountProductsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductWhereInput
 }
 
 /**
@@ -4576,8 +4576,8 @@ export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   messages?: boolean | Prisma.Tenant$messagesArgs<ExtArgs>
   orders?: boolean | Prisma.Tenant$ordersArgs<ExtArgs>
   others?: boolean | Prisma.Tenant$othersArgs<ExtArgs>
-  part_movements?: boolean | Prisma.Tenant$part_movementsArgs<ExtArgs>
-  parts?: boolean | Prisma.Tenant$partsArgs<ExtArgs>
+  product_movements?: boolean | Prisma.Tenant$product_movementsArgs<ExtArgs>
+  products?: boolean | Prisma.Tenant$productsArgs<ExtArgs>
   receipts?: boolean | Prisma.Tenant$receiptsArgs<ExtArgs>
   sales?: boolean | Prisma.Tenant$salesArgs<ExtArgs>
   schedules?: boolean | Prisma.Tenant$schedulesArgs<ExtArgs>
@@ -4625,8 +4625,8 @@ export type TenantInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   messages?: boolean | Prisma.Tenant$messagesArgs<ExtArgs>
   orders?: boolean | Prisma.Tenant$ordersArgs<ExtArgs>
   others?: boolean | Prisma.Tenant$othersArgs<ExtArgs>
-  part_movements?: boolean | Prisma.Tenant$part_movementsArgs<ExtArgs>
-  parts?: boolean | Prisma.Tenant$partsArgs<ExtArgs>
+  product_movements?: boolean | Prisma.Tenant$product_movementsArgs<ExtArgs>
+  products?: boolean | Prisma.Tenant$productsArgs<ExtArgs>
   receipts?: boolean | Prisma.Tenant$receiptsArgs<ExtArgs>
   sales?: boolean | Prisma.Tenant$salesArgs<ExtArgs>
   schedules?: boolean | Prisma.Tenant$schedulesArgs<ExtArgs>
@@ -4649,8 +4649,8 @@ export type $TenantPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     messages: Prisma.$MessagePayload<ExtArgs>[]
     orders: Prisma.$OrderPayload<ExtArgs>[]
     others: Prisma.$OtherPayload<ExtArgs>[]
-    part_movements: Prisma.$PartMovementPayload<ExtArgs>[]
-    parts: Prisma.$PartPayload<ExtArgs>[]
+    product_movements: Prisma.$ProductMovementPayload<ExtArgs>[]
+    products: Prisma.$ProductPayload<ExtArgs>[]
     receipts: Prisma.$ReceiptPayload<ExtArgs>[]
     sales: Prisma.$SalePayload<ExtArgs>[]
     schedules: Prisma.$SchedulePayload<ExtArgs>[]
@@ -5030,8 +5030,8 @@ export interface Prisma__TenantClient<T, Null = never, ExtArgs extends runtime.T
   messages<T extends Prisma.Tenant$messagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$messagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   orders<T extends Prisma.Tenant$ordersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$ordersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   others<T extends Prisma.Tenant$othersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$othersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OtherPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  part_movements<T extends Prisma.Tenant$part_movementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$part_movementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PartMovementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  parts<T extends Prisma.Tenant$partsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$partsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PartPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  product_movements<T extends Prisma.Tenant$product_movementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$product_movementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductMovementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  products<T extends Prisma.Tenant$productsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$productsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   receipts<T extends Prisma.Tenant$receiptsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$receiptsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReceiptPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   sales<T extends Prisma.Tenant$salesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$salesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   schedules<T extends Prisma.Tenant$schedulesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$schedulesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SchedulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -5671,51 +5671,51 @@ export type Tenant$othersArgs<ExtArgs extends runtime.Types.Extensions.InternalA
 }
 
 /**
- * Tenant.part_movements
+ * Tenant.product_movements
  */
-export type Tenant$part_movementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Tenant$product_movementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the PartMovement
+   * Select specific fields to fetch from the ProductMovement
    */
-  select?: Prisma.PartMovementSelect<ExtArgs> | null
+  select?: Prisma.ProductMovementSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the PartMovement
+   * Omit specific fields from the ProductMovement
    */
-  omit?: Prisma.PartMovementOmit<ExtArgs> | null
+  omit?: Prisma.ProductMovementOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PartMovementInclude<ExtArgs> | null
-  where?: Prisma.PartMovementWhereInput
-  orderBy?: Prisma.PartMovementOrderByWithRelationInput | Prisma.PartMovementOrderByWithRelationInput[]
-  cursor?: Prisma.PartMovementWhereUniqueInput
+  include?: Prisma.ProductMovementInclude<ExtArgs> | null
+  where?: Prisma.ProductMovementWhereInput
+  orderBy?: Prisma.ProductMovementOrderByWithRelationInput | Prisma.ProductMovementOrderByWithRelationInput[]
+  cursor?: Prisma.ProductMovementWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.PartMovementScalarFieldEnum | Prisma.PartMovementScalarFieldEnum[]
+  distinct?: Prisma.ProductMovementScalarFieldEnum | Prisma.ProductMovementScalarFieldEnum[]
 }
 
 /**
- * Tenant.parts
+ * Tenant.products
  */
-export type Tenant$partsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Tenant$productsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Part
+   * Select specific fields to fetch from the Product
    */
-  select?: Prisma.PartSelect<ExtArgs> | null
+  select?: Prisma.ProductSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Part
+   * Omit specific fields from the Product
    */
-  omit?: Prisma.PartOmit<ExtArgs> | null
+  omit?: Prisma.ProductOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PartInclude<ExtArgs> | null
-  where?: Prisma.PartWhereInput
-  orderBy?: Prisma.PartOrderByWithRelationInput | Prisma.PartOrderByWithRelationInput[]
-  cursor?: Prisma.PartWhereUniqueInput
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  where?: Prisma.ProductWhereInput
+  orderBy?: Prisma.ProductOrderByWithRelationInput | Prisma.ProductOrderByWithRelationInput[]
+  cursor?: Prisma.ProductWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.PartScalarFieldEnum | Prisma.PartScalarFieldEnum[]
+  distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[]
 }
 
 /**

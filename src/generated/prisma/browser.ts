@@ -73,10 +73,10 @@ export type Image = Prisma.ImageModel
  */
 export type Message = Prisma.MessageModel
 /**
- * Model OrderPart
+ * Model OrderProduct
  * 
  */
-export type OrderPart = Prisma.OrderPartModel
+export type OrderProduct = Prisma.OrderProductModel
 /**
  * Model Order
  * 
@@ -88,15 +88,15 @@ export type Order = Prisma.OrderModel
  */
 export type Other = Prisma.OtherModel
 /**
- * Model PartMovement
+ * Model ProductMovement
  * 
  */
-export type PartMovement = Prisma.PartMovementModel
+export type ProductMovement = Prisma.ProductMovementModel
 /**
- * Model Part
+ * Model Product
  * 
  */
-export type Part = Prisma.PartModel
+export type Product = Prisma.ProductModel
 /**
  * Model Period
  * 
@@ -107,11 +107,6 @@ export type Period = Prisma.PeriodModel
  * 
  */
 export type Plan = Prisma.PlanModel
-/**
- * Model Product
- * 
- */
-export type Product = Prisma.ProductModel
 /**
  * Model Receipt
  * 

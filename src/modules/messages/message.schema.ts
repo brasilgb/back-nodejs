@@ -1,10 +1,10 @@
 import { z } from "zod";
 
 export const createMessageSchema = z.object({
-  sender_id: z.coerce.number("O cliente é obrigatório"),
-  recipient_id: z.coerce.number("O técnico é obrigatório"),
-  title: z.string().min(1, {message: "O serviço é obrigatório"}),
-  message: z.string().min(1, {message: "O detalhe do serviço é obrigatório"}),
+  sender_id: z.coerce.number("O remetente é obrigatório"),
+  recipient_id: z.coerce.number("O destinatário é obrigatório"),
+  title: z.string().min(1, {message: "O título é obrigatório"}),
+  message: z.string().min(1, {message: "A mensagem é obrigatória"}),
   status: z.coerce.number({ message: "O status é obrigatório" }),
 });
 

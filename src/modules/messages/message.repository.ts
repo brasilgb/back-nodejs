@@ -50,9 +50,6 @@ export class MessageRepository {
                 take: pageSize,
                 orderBy,
                 include: {
-                    sender: {
-                        select: { id: true, name: true }
-                    },
                     recipient: {
                         select: { id: true, name: true }
                     }
