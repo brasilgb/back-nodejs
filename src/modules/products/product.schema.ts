@@ -8,7 +8,7 @@ export const createProductSchema = z.object({
     .pipe(z.string().min(1, "Categoria é obrigatória")),
 
   part_number: z.string().min(1, "O N° da peça/produto é obrigatório"),
-  name: z.string().min(1, "O nome da peça é obrigatório"),
+  name: z.string().min(1, "O nome da peça/produto é obrigatório"),
   description: z.string().min(1, "A descrição é obrigatória"),
   manufacturer: z.string().min(1, "O fabricante é obrigatório"),
   model_compatibility: z.string().optional(),

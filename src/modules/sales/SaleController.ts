@@ -1,10 +1,15 @@
-import { Request, Response } from "express"; // ou NextRequest se for Next App Router
+import { Request, Response } from "express";
 import { SaleService } from "./SaleService";
 
 
 export class SaleController {
+
   async handle(req: Request, res: Response) {
-    const { customerId, items, tenantId } = req.body;
+    const tenantId = req.user?.tenant_id
+    if (!tenantId) {
+      return res.status(403).json({ message: "Acesso negado" })
+    }
+    const { customerId, items } = req.body;
 
     // Validação básica
     if (!items || items.length === 0) {
@@ -27,3 +32,5 @@ export class SaleController {
     }
   }
 }
+
+export const saleController = new SaleController();

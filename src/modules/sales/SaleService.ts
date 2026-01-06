@@ -1,5 +1,6 @@
 import { SaleRepository } from "./SaleRepository";
 
+
 interface SaleInput {
   tenantId: number;
   customerId?: number;

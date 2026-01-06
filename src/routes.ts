@@ -8,6 +8,7 @@ import { budgetRoutes } from './modules/budgets/budget.routes';
 import { scheduleRoutes } from './modules/schedules/schedule.routes';
 import { messageRoutes } from './modules/messages/message.routes';
 import { productRoutes } from './modules/products/product.routes';
+import { saleRoutes } from './modules/sales/sale.routes';
 
 const router = Router();
 router.use('/tenants', tenantRoutes);
@@ -19,5 +20,6 @@ router.use('/budgets', budgetRoutes);
 router.use('/schedules', scheduleRoutes);
 router.use('/messages', messageRoutes);
 router.use('/products', productRoutes);
+router.use('/sales', saleRoutes);
 
 export { router };
